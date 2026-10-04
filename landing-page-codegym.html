@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGym Career - Trở thành Lập trình viên chuyên nghiệp</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css">
+    
+    <style>
+        /* Tùy chỉnh CSS bổ sung */
+        body {
+            padding-top: 56px; /* Để nội dung không bị Navbar che khuất */
+            background-color: #f8f9fa;
+        }
+        
+        /* Hiệu ứng Hero Banner */
+        .hero-banner {
+            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+
+        /* Biểu tượng tính năng */
+        .feature-icon {
+            font-size: 3rem;
+            color: #4285F4; /* Primary color của Material */
+            margin-bottom: 1rem;
+        }
+
+        /* Chỉnh lại độ bo góc cho thẻ Card theo chuẩn Material */
+        .card {
+            border-radius: 12px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top scrolling-navbar">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#"><strong>CODEGYM CAREER</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ve-chung-toi">Về CodeGym</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lo-trinh">Lộ trình học</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lien-he">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION (Banner chính) -->
+    <div class="view hero-banner">
+        <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+            <div class="container text-center white-text wow fadeInUp">
+                <h1 class="font-weight-bold mb-4">Học Lập Trình. Thay Đổi Sự Nghiệp.</h1>
+                <p class="lead mb-5">Hệ thống đào tạo lập trình hiện đại, cam kết việc làm 100% sau khi tốt nghiệp. Bắt đầu hành trình IT của bạn ngay hôm nay!</p>
+                <a href="#lo-trinh" class="btn btn-outline-white btn-lg btn-rounded waves-effect"><i class="fas fa-graduation-cap left"></i> Khám phá lộ trình</a>
+                <a href="#lien-he" class="btn btn-primary btn-lg btn-rounded waves-effect"><i class="fas fa-paper-plane left"></i> Nhận tư vấn ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. TÍNH NĂNG / VỀ CHÚNG TÔI -->
+    <div id="ve-chung-toi" class="container mt-5 pt-5 pb-4">
+        <h2 class="text-center font-weight-bold mb-5 pb-3">Tại sao chọn CodeGym?</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <i class="fas fa-briefcase feature-icon"></i>
+                <h4 class="font-weight-bold my-4">Cam kết việc làm</h4>
+                <p class="text-muted">Hoàn trả 100% học phí nếu không nhận được việc làm sau 45 ngày tốt nghiệp. Đối tác của hơn 500 doanh nghiệp IT.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="fas fa-laptop-code feature-icon"></i>
+                <h4 class="font-weight-bold my-4">Thực hành 100%</h4>
+                <p class="text-muted">Mô hình Coding Bootcamp cường độ cao. Học viên viết code mỗi ngày, làm dự án thực tế giống hệt doanh nghiệp.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="fas fa-stopwatch feature-icon"></i>
+                <h4 class="font-weight-bold my-4">Tiết kiệm thời gian</h4>
+                <p class="text-muted">Chỉ mất 5-6 tháng để sẵn sàng đi làm. Lộ trình học được tối ưu hóa, loại bỏ hoàn toàn lý thuyết thừa thãi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. LỘ TRÌNH HỌC (Sử dụng Material Cards) -->
+    <div id="lo-trinh" class="grey lighten-4 py-5">
+        <div class="container mt-4 mb-5">
+            <h2 class="text-center font-weight-bold mb-5 pb-2">Lộ trình học tập phổ biến</h2>
+            <div class="row">
+                
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card hoverable z-depth-1 h-100">
+                        <div class="view overlay">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Java Bootcamp">
+                            <a href="#!">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold">Java Full-stack</h4>
+                            <p class="card-text text-muted">Trở thành lập trình viên Java đa năng. Nắm vững Spring Boot, Hibernate và Angular/ReactJS. Ngôn ngữ có nhu cầu tuyển dụng cao nhất.</p>
+                            <a href="#" class="btn btn-primary btn-md waves-effect waves-light">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card hoverable z-depth-1 h-100">
+                        <div class="view overlay">
+                            <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="PHP Bootcamp">
+                            <a href="#!">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold">PHP Full-stack</h4>
+                            <p class="card-text text-muted">Làm chủ ngôn ngữ Web phổ biến nhất thế giới. Học sâu về Laravel Framework, cơ sở dữ liệu MySQL và kỹ năng Frontend cơ bản.</p>
+                            <a href="#" class="btn btn-primary btn-md waves-effect waves-light">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="card hoverable z-depth-1 h-100">
+                        <div class="view overlay">
+                            <img src="https://images.unsplash.com/photo-1627398225081-24c89544eb1a?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="ReactJS Bootcamp">
+                            <a href="#!">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold">Front-end (ReactJS)</h4>
+                            <p class="card-text text-muted">Chuyên gia xây dựng giao diện người dùng. Nắm vững HTML, CSS, JavaScript hiện đại và thư viện ReactJS mạnh mẽ.</p>
+                            <a href="#" class="btn btn-primary btn-md waves-effect waves-light">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. CALL TO ACTION (CTA) -->
+    <div id="lien-he" class="primary-color text-white text-center py-5">
+        <div class="container py-4">
+            <h3 class="font-weight-bold mb-4">Sẵn sàng để bắt đầu sự nghiệp mới?</h3>
+            <p class="mb-4">Để lại thông tin, đội ngũ CodeGym sẽ liên hệ tư vấn lộ trình học phù hợp nhất với bạn hoàn toàn miễn phí.</p>
+            <a href="#" class="btn btn-outline-white btn-rounded btn-lg waves-effect waves-light">Đăng ký nhận tư vấn</a>
+        </div>
+    </div>
+
+    <!-- 6. FOOTER -->
+    <footer class="page-footer font-small unique-color-dark pt-4">
+        <div class="container text-center text-md-left">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">CodeGym</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Hệ thống đào tạo lập trình hiện đại hàng đầu. Chúng tôi không chỉ dạy code, chúng tôi giúp bạn xây dựng sự nghiệp.</p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Liên hệ</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p><i class="fas fa-home mr-3"></i> Hà Nội, Việt Nam</p>
+                    <p><i class="fas fa-envelope mr-3"></i> info@codegym.vn</p>
+                    <p><i class="fas fa-phone mr-3"></i> 024 6688 3355</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3">© 2024 Bản quyền thuộc về:
+            <a href="https://codegym.vn/"> CodeGym.vn</a>
+        </div>
+    </footer>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</body>
+</html>
