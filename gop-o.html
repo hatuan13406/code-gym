@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch họp công ty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse; /* Gộp đường viền các ô */
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+        }
+
+        /* Căn giữa chữ cho cột Ngày và các ô được gộp */
+        td[rowspan], td[colspan] {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Làm nổi bật sự kiện chiếm toàn bộ thời gian */
+        .all-day-event {
+            background-color: #ffeb3b;
+            color: #d84315;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lịch họp công ty</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">Ngày</th>
+                <th style="width: 30%;">Giờ</th>
+                <th style="width: 50%;">Nội dung cuộc họp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- SỬ DỤNG ROWSPAN: Gộp 2 dòng cho Thứ 2 vì có 2 cuộc họp -->
+            <tr>
+                <td rowspan="2">Thứ 2<br>(05/10)</td>
+                <td>08:00 - 10:00</td>
+                <td>Họp giao ban đầu tuần</td>
+            </tr>
+            <tr>
+                <!-- Không có thẻ <td> cho cột "Ngày" ở dòng này vì đã bị gộp từ trên xuống -->
+                <td>14:00 - 16:00</td>
+                <td>Báo cáo tiến độ dự án Alpha</td>
+            </tr>
+
+            <!-- SỬ DỤNG COLSPAN: Gộp 2 cột (Giờ và Nội dung) cho sự kiện cả ngày -->
+            <tr>
+                <td>Thứ 3<br>(06/10)</td>
+                <td colspan="2" class="all-day-event">Team building toàn công ty (Nghỉ các cuộc họp)</td>
+                <!-- Không có thẻ <td> thứ 3 vì đã bị gộp vào ô bên trái -->
+            </tr>
+
+            <!-- SỬ DỤNG ROWSPAN: Gộp 3 dòng cho Thứ 4 vì có 3 cuộc họp -->
+            <tr>
+                <td rowspan="3">Thứ 4<br>(07/10)</td>
+                <td>09:00 - 10:30</td>
+                <td>Gặp gỡ đối tác khách hàng</td>
+            </tr>
+            <tr>
+                <td>13:30 - 15:00</td>
+                <td>Đào tạo nhân sự mới</td>
+            </tr>
+            <tr>
+                <td>16:00 - 17:30</td>
+                <td>Review thiết kế sản phẩm</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
