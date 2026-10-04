@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        /* Định dạng cho bảng */
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse; /* Gộp đường viền các ô lại với nhau */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Định dạng cho các ô và tiêu đề cột */
+        table, th, td {
+            border: 1px solid #999;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* Định dạng màu nền cho dòng tiêu đề */
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Hiệu ứng màu nền xen kẽ cho các dòng */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Hiệu ứng khi di chuột qua dòng */
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Danh sách sản phẩm</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sản phẩm 1 -->
+            <tr>
+                <td>Laptop Dell XPS 15</td>
+                <td>35.000.000 VNĐ</td>
+                <td>10</td>
+            </tr>
+            <!-- Sản phẩm 2 -->
+            <tr>
+                <td>Điện thoại iPhone 15 Pro</td>
+                <td>28.500.000 VNĐ</td>
+                <td>25</td>
+            </tr>
+            <!-- Sản phẩm 3 -->
+            <tr>
+                <td>Tai nghe Bluetooth Sony WH-1000XM5</td>
+                <td>7.990.000 VNĐ</td>
+                <td>15</td>
+            </tr>
+            <!-- Sản phẩm 4 -->
+            <tr>
+                <td>Bàn phím cơ Keychron K8</td>
+                <td>2.100.000 VNĐ</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
