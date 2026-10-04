@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Sử dụng Box Model 1</title>
+    <style>
+        /* Thiết lập font chữ và màu nền chung cho trang */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 30px;
+        }
+
+        /* Định dạng chung cho các thẻ .card */
+        .card {
+            width: 280px;
+            height: 150px;
+            padding: 20px;
+            border: 5px solid #3498db;
+            margin: 20px;
+        }
+
+        /* Thẻ đầu tiên: Sử dụng content-box và màu nền xanh lá */
+        .card:nth-child(1) {
+            box-sizing: content-box;
+            background-color: #2ecc71;
+        }
+
+        /* Thẻ thứ hai: Sử dụng border-box và màu nền vàng */
+        .card:nth-child(2) {
+            box-sizing: border-box;
+            background-color: #f1c40f;
+        }
+
+        /* Thẻ thứ ba: Sử dụng border-box và màu nền đỏ */
+        .card:nth-child(3) {
+            box-sizing: border-box;
+            background-color: #e74c3c;
+            color: white; /* Đổi màu chữ cho dễ đọc trên nền đỏ */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h3>Thẻ 1</h3>
+        <p>Sử dụng <code>content-box</code> (Mặc định). Kích thước thực tế sẽ bị cộng thêm padding và border.</p>
+    </div>
+
+    <div class="card">
+        <h3>Thẻ 2</h3>
+        <p>Sử dụng <code>border-box</code>. Kích thước tổng thể giữ nguyên đúng bằng width/height đã định.</p>
+    </div>
+
+    <div class="card">
+        <h3>Thẻ 3</h3>
+        <p>Sử dụng <code>border-box</code> với màu nền đỏ để luyện tập bố cục thẻ card.</p>
+    </div>
+
+</body>
+</html>
