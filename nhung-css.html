@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Nhúng CSS vào trang HTML</title>
+    
+    <!-- ==========================================
+         PHẦN 2: INTERNAL STYLE
+         Sử dụng thẻ <style> đặt bên trong thẻ <head>
+    =========================================== -->
+    <style>
+        .internal-title {
+            color: blue;
+        }
+        .internal-text {
+            color: darkblue;
+        }
+    </style>
+
+    <!-- ==========================================
+         PHẦN 3: EXTERNAL STYLE
+         Nhúng file CSS từ bên ngoài vào HTML
+    =========================================== -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         PHẦN 1: INLINE STYLE
+         Viết CSS trực tiếp vào thuộc tính style="" của thẻ
+    =========================================== -->
+    <h1 style="color: red;">Phần 1: Tiêu đề (Inline Style)</h1>
+    <p style="color: darkred;">Đây là đoạn văn được đổi màu bằng Inline-style. CSS được viết trực tiếp vào bên trong thẻ mở của HTML.</p>
+
+    <hr>
+
+    <!-- Phần 2 sử dụng class để gọi CSS từ Internal Style ở trên -->
+    <h1 class="internal-title">Phần 2: Tiêu đề (Internal Style)</h1>
+    <p class="internal-text">Đây là đoạn văn được đổi màu bằng Internal-style. CSS được quy định trong thẻ &lt;style&gt; ở phần đầu trang web.</p>
+
+    <hr>
+
+    <!-- Phần 3 sử dụng class để gọi CSS từ file style.css bên ngoài -->
+    <h1 class="external-title">Phần 3: Tiêu đề (External Style)</h1>
+    <p class="external-text">Đây là đoạn văn được đổi màu bằng External-style. CSS được tải vào từ file style.css riêng biệt.</p>
+
+</body>
+</html>
