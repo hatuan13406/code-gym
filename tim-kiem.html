@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công cụ Tìm kiếm</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .search-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .search-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .input-group {
+            display: flex;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid #ccd1d9;
+            border-radius: 6px 0 0 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+        }
+
+        input[type="submit"] {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            opacity: 0.9;
+        }
+
+        /* Nút cho Google */
+        .btn-google {
+            background-color: #4285F4;
+        }
+
+        /* Nút cho Bing */
+        .btn-bing {
+            background-color: #00809D;
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: #e1e8ed;
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Tra cứu thông tin</h2>
+
+        <div class="search-group">
+            <label>Tìm kiếm với Google</label>
+            <!-- 
+                action: Địa chỉ máy chủ nhận dữ liệu (Google Search)
+                method: GET (hiển thị từ khóa trên URL)
+                target="_blank": Mở kết quả ở tab mới 
+            -->
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Nhập từ khóa Google..." required>
+                    <input type="submit" value="Google" class="btn-google">
+                </div>
+            </form>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="search-group">
+            <label>Tìm kiếm với Bing</label>
+            <!-- 
+                action: Địa chỉ máy chủ nhận dữ liệu (Bing Search)
+                method: GET (hiển thị từ khóa trên URL)
+                target="_blank": Mở kết quả ở tab mới 
+            -->
+            <form action="https://www.bing.com/search" method="GET" target="_blank">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Nhập từ khóa Bing..." required>
+                    <input type="submit" value="Bing" class="btn-bing">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
