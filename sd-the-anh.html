@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng thẻ hình ảnh</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .image-container {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            /* Giới hạn kích thước ảnh để hiển thị đẹp hơn */
+            max-height: 500px; 
+        }
+        .caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        code {
+            background-color: #e8ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hình ảnh yêu thích của tôi</h1>
+    <p>Bài thực hành chèn hình ảnh sử dụng thẻ <code>&lt;img&gt;</code> và thuộc tính <code>alt</code></p>
+
+    <div class="image-container">
+        <!-- Thẻ img hiển thị hình ảnh với thuộc tính alt để mô tả -->
+        <img src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+             alt="Một chú mèo con đáng yêu đang nhìn lên">
+        
+        <p class="caption">Hình ảnh minh họa: Chú mèo con đáng yêu</p>
+    </div>
+
+</body>
+</html>
