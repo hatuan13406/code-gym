@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Liên kết trong HTML</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 12px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #eef2f5;
+            transform: translateX(5px);
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        a:hover {
+            color: #1a5276;
+            text-decoration: underline;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-left: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Liên kết yêu thích của tôi</h1>
+
+        <h2>1. Các trang web hữu ích (Liên kết ngoài)</h2>
+        <ul>
+            <!-- Liên kết mở trong tab mới bằng target="_blank" -->
+            <li>
+                <a href="https://www.google.com.vn" target="_blank">
+                    Tìm kiếm Google
+                    <span class="note">(Mở trong tab mới)</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com">
+                    GitHub - Nơi lưu trữ mã nguồn
+                </a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/vi/">
+                    MDN Web Docs - Học lập trình Web
+                </a>
+            </li>
+        </ul>
+
+        <h2>2. Liên kết nội bộ & Liên hệ</h2>
+        <ul>
+            <!-- Liên kết đến một file HTML khác trong cùng thư mục -->
+            <li>
+                <a href="about.html">
+                    Giới thiệu bản thân 
+                    <span class="note">(Dẫn tới file about.html)</span>
+                </a>
+            </li>
+            <!-- Liên kết đến email sử dụng mailto: -->
+            <li>
+                <a href="mailto:emailcuaban@example.com?subject=Xin chào từ trang HTML">
+                    Gửi email cho tôi 
+                    <span class="note">(Sử dụng mailto:)</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
