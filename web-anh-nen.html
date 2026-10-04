@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng màu nền và ảnh nền</title>
+    <style>
+        /* Thiết lập màu nền cho toàn trang web */
+        body {
+            background-color: #e0f7fa; 
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #006064;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Thêm ảnh nền và căn giữa nội dung cho khối div */
+        .important-section {
+            background-image: url('https://picsum.photos/1200/400');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            
+            width: 80%;
+            height: 300px;
+            margin: 0 auto; 
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+            /* Căn giữa nội dung bên trong khối div */
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8); 
+        }
+
+        .important-section h2 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+
+        .important-section p {
+            font-size: 20px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chào mừng đến với trang web của tôi</h1>
+    <p class="description">Đây là trang web thực hành cách thiết lập màu nền cho toàn bộ trang và ảnh nền cho các khối phần tử (div) bằng CSS.</p>
+
+    <div class="important-section">
+        <h2>Thông Báo Quan Trọng</h2>
+        <p>Khối nội dung này sử dụng ảnh nền và toàn bộ chữ đã được căn giữa.</p>
+    </div>
+
+</body>
+</html>
