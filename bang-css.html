@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Bảng trong CSS</title>
+    <style>
+        /* Thiết lập font chữ và khoảng cách lề cho trang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* 1. Thiết lập chung cho Bảng: Gộp viền và Chiều rộng */
+        table {
+            border-collapse: collapse; /* Bỏ đường viền kép */
+            width: 100%;               /* Bảng chiếm 100% chiều rộng */
+        }
+
+        /* 2. Thiết lập Đường viền */
+        table, th, td {
+            border: 1px solid black;   /* Viền đen 1px */
+        }
+
+        /* 3. Padding: Tạo khoảng cách giữa nội dung và viền */
+        th, td {
+            padding: 15px;
+        }
+
+        /* 4. Định kiểu riêng cho Hàng tiêu đề (th) */
+        th {
+            height: 50px;              /* Chiều cao của th */
+            text-align: left;          /* Căn trái theo chiều ngang */
+            vertical-align: middle;    /* Căn giữa theo chiều dọc */
+            background-color: #333;    /* Màu nền tối */
+            color: white;              /* Màu chữ trắng */
+        }
+
+        /* 5. Định kiểu riêng cho Các ô dữ liệu (td) */
+        td {
+            height: 80px;              /* Chiều cao của td (để thấy rõ vertical-align) */
+            vertical-align: bottom;    /* Căn nội dung xuống dưới cùng */
+            background-color: #f2f2f2; /* Màu nền xám nhạt */
+            color: #333;               /* Màu chữ xám đậm */
+        }
+
+        /* Hiệu ứng thêm (Không bắt buộc): Đổi màu nền khi di chuột qua hàng */
+        tr:hover td {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Danh Sách Học Viên</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Lê Văn C</td>
+                <td>22</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Phạm Thị D</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
