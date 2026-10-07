@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Giao diện giản lược</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
+
+        /* ===== FIXED HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 18px;
+            border-bottom: 1px solid #dddfe2;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .header-left,
+        .header-center,
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 240px;
+            padding: 11px 14px;
+            border: none;
+            border-radius: 22px;
+            background-color: #f0f2f5;
+            outline: none;
+        }
+
+        .nav-item {
+            min-width: 90px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #65676b;
+            font-weight: bold;
+        }
+
+        .nav-item:hover {
+            background-color: #f0f2f5;
+            color: #1877f2;
+        }
+
+        .circle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e4e6eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* ===== LAYOUT ===== */
+        .layout {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr) 260px;
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 84px 20px 30px;
+        }
+
+        /* ===== LEFT SIDEBAR ===== */
+        .left-sidebar {
+            position: sticky;
+            top: 80px;
+            align-self: start;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1c1e21;
+            font-weight: 600;
+        }
+
+        .menu-item:hover {
+            background-color: #e4e6eb;
+        }
+
+        .menu-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: #dfe9f7;
+            color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .create-post {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .post-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 24px;
+            background-color: #f0f2f5;
+            color: #65676b;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #e4e6eb;
+            margin-top: 14px;
+            padding-top: 12px;
+        }
+
+        .post-action {
+            padding: 8px 14px;
+            border-radius: 7px;
+            color: #65676b;
+            font-weight: bold;
+        }
+
+        .post-action:hover {
+            background-color: #f0f2f5;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .post-info strong {
+            display: block;
+        }
+
+        .post-time {
+            font-size: 13px;
+            color: #65676b;
+            margin-top: 2px;
+        }
+
+        .post-text {
+            line-height: 1.6;
+            margin: 14px 0;
+        }
+
+        .post-image {
+            min-height: 260px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #d9e8ff, #b6cdf7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1877f2;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #e4e6eb;
+            margin-top: 14px;
+            padding-top: 10px;
+        }
+
+        /* ===== RIGHT SIDEBAR ===== */
+        .right-sidebar {
+            position: sticky;
+            top: 80px;
+            align-self: start;
+        }
+
+        .right-sidebar h3 {
+            color: #65676b;
+            margin-top: 0;
+        }
+
+        .contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .contact:hover {
+            background-color: #e4e6eb;
+        }
+
+        .contact-avatar {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #cfd8e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .online-dot {
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: #31a24c;
+            border: 2px solid #ffffff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1050px) {
+            .layout {
+                grid-template-columns: 210px minmax(0, 1fr);
+            }
+
+            .right-sidebar {
+                display: none;
+            }
+
+            .header-center {
+                display: none;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .layout {
+                display: block;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .left-sidebar {
+                display: none;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .header {
+                padding: 0 10px;
+            }
+
+            .header-right .circle-btn:nth-child(-n + 2) {
+                display: none;
+            }
+
+            .main-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">f</div>
+            <input class="search-box" type="text" placeholder="Tìm kiếm trên Facebook">
+        </div>
+
+        <nav class="header-center">
+            <a class="nav-item" href="#">Trang chủ</a>
+            <a class="nav-item" href="#">Video</a>
+            <a class="nav-item" href="#">Nhóm</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="circle-btn">☰</div>
+            <div class="circle-btn">💬</div>
+            <div class="circle-btn">🔔</div>
+            <div class="circle-btn">🙂</div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="left-sidebar">
+            <a class="menu-item" href="#">
+                <span class="menu-icon">👤</span>
+                Trang cá nhân
+            </a>
+            <a class="menu-item" href="#">
+                <span class="menu-icon">👥</span>
+                Bạn bè
+            </a>
+            <a class="menu-item" href="#">
+                <span class="menu-icon">🕘</span>
+                Kỷ niệm
+            </a>
+            <a class="menu-item" href="#">
+                <span class="menu-icon">🔖</span>
+                Đã lưu
+            </a>
+            <a class="menu-item" href="#">
+                <span class="menu-icon">🏘️</span>
+                Nhóm
+            </a>
+            <a class="menu-item" href="#">
+                <span class="menu-icon">▶️</span>
+                Video
+            </a>
+        </aside>
+
+        <main class="main-content">
+            <section class="card">
+                <div class="create-post">
+                    <div class="avatar">T</div>
+                    <div class="post-input">Bạn đang nghĩ gì?</div>
+                </div>
+
+                <div class="post-actions">
+                    <div class="post-action">🎥 Video trực tiếp</div>
+                    <div class="post-action">🖼️ Ảnh/video</div>
+                    <div class="post-action">😊 Cảm xúc</div>
+                </div>
+            </section>
+
+            <article class="card">
+                <div class="post-header">
+                    <div class="avatar">A</div>
+                    <div class="post-info">
+                        <strong>Nguyễn An</strong>
+                        <div class="post-time">10 phút · 🌐</div>
+                    </div>
+                </div>
+
+                <p class="post-text">
+                    Chào mọi người! Đây là bài đăng mẫu trong giao diện Facebook giản lược
+                    được xây dựng bằng HTML và CSS.
+                </p>
+
+                <div class="post-image">Bài đăng nổi bật</div>
+
+                <div class="post-footer">
+                    <div class="post-action">👍 Thích</div>
+                    <div class="post-action">💬 Bình luận</div>
+                    <div class="post-action">↗ Chia sẻ</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="post-header">
+                    <div class="avatar">M</div>
+                    <div class="post-info">
+                        <strong>Minh Anh</strong>
+                        <div class="post-time">1 giờ · 🌐</div>
+                    </div>
+                </div>
+
+                <p class="post-text">
+                    Hôm nay là một ngày tuyệt vời để học thêm về CSS, fixed header,
+                    sidebar và cách chia bố cục cho trang web.
+                </p>
+
+                <div class="post-footer">
+                    <div class="post-action">👍 Thích</div>
+                    <div class="post-action">💬 Bình luận</div>
+                    <div class="post-action">↗ Chia sẻ</div>
+                </div>
+            </article>
+        </main>
+
+        <aside class="right-sidebar">
+            <h3>Người liên hệ</h3>
+
+            <div class="contact">
+                <div class="contact-avatar">
+                    A
+                    <span class="online-dot"></span>
+                </div>
+                Anh Tuấn
+            </div>
+
+            <div class="contact">
+                <div class="contact-avatar">
+                    H
+                    <span class="online-dot"></span>
+                </div>
+                Hà Linh
+            </div>
+
+            <div class="contact">
+                <div class="contact-avatar">
+                    M
+                    <span class="online-dot"></span>
+                </div>
+                Minh Khang
+            </div>
+
+            <div class="contact">
+                <div class="contact-avatar">
+                    P
+                    <span class="online-dot"></span>
+                </div>
+                Phương Nam
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
