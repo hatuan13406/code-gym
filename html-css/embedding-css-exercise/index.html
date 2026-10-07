@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhúng CSS vào trang HTML</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        .internal-title {
+            color: green;
+        }
+
+        .internal-text {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- PHẦN 1: INLINE STYLE -->
+    <section>
+        <h1 style="color: blue;">Phần 1 - Inline Style</h1>
+        <p style="color: red;">
+            Đây là đoạn văn được thay đổi màu sắc bằng inline-style.
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- PHẦN 2: INTERNAL STYLE -->
+    <section>
+        <h1 class="internal-title">Phần 2 - Internal Style</h1>
+        <p class="internal-text">
+            Đây là đoạn văn được thay đổi màu sắc bằng internal-style.
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- PHẦN 3: EXTERNAL STYLE -->
+    <section>
+        <h1 class="external-title">Phần 3 - External Style</h1>
+        <p class="external-text">
+            Đây là đoạn văn được thay đổi màu sắc bằng external-style.
+        </p>
+    </section>
+</body>
+</html>
