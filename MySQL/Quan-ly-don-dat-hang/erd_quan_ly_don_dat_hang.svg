@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="980" viewBox="0 0 1700 980">
+  <defs>
+    <style>
+      .title{font:700 30px Arial,sans-serif;fill:#111827}
+      .entity{fill:#ffffff;stroke:#1f2937;stroke-width:2}
+      .head{fill:#e5e7eb;stroke:#1f2937;stroke-width:2}
+      .ename{font:700 18px Arial,sans-serif;fill:#111827}
+      .attr{font:15px Arial,sans-serif;fill:#111827}
+      .pk{font:700 15px Arial,sans-serif;fill:#111827}
+      .fk{font:italic 15px Arial,sans-serif;fill:#374151}
+      .rel{stroke:#374151;stroke-width:2;fill:none}
+      .card{font:700 14px Arial,sans-serif;fill:#111827}
+      .note{font:14px Arial,sans-serif;fill:#4b5563}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect width="1700" height="980" fill="#f9fafb"/>
+  <text x="850" y="45" text-anchor="middle" class="title">ERD QUẢN LÝ ĐƠN ĐẶT HÀNG</text>
+  <text x="850" y="72" text-anchor="middle" class="note">Mô hình đã chuẩn hóa, gộp Đơn vị đặt hàng và Đơn vị khách hàng thành Đơn vị khách</text>
+
+  <!-- DON VI KHACH -->
+  <g transform="translate(40,120)">
+    <rect class="entity" width="250" height="190" rx="8"/>
+    <rect class="head" width="250" height="42" rx="8"/>
+    <rect class="head" y="34" width="250" height="8"/>
+    <text x="125" y="27" text-anchor="middle" class="ename">DON_VI_KHACH</text>
+    <text x="16" y="68" class="pk">PK  ma_dv</text>
+    <text x="16" y="96" class="attr">ten_dv</text>
+    <text x="16" y="124" class="attr">dia_chi</text>
+    <text x="16" y="152" class="attr">dien_thoai</text>
+  </g>
+
+  <!-- NGUOI DAT -->
+  <g transform="translate(350,120)">
+    <rect class="entity" width="250" height="160" rx="8"/>
+    <rect class="head" width="250" height="42" rx="8"/>
+    <rect class="head" y="34" width="250" height="8"/>
+    <text x="125" y="27" text-anchor="middle" class="ename">NGUOI_DAT</text>
+    <text x="16" y="68" class="pk">PK  ma_nd</text>
+    <text x="16" y="96" class="attr">ho_ten_nd</text>
+    <text x="16" y="124" class="fk">FK  ma_dv</text>
+  </g>
+
+  <!-- DON DAT HANG -->
+  <g transform="translate(660,120)">
+    <rect class="entity" width="260" height="160" rx="8"/>
+    <rect class="head" width="260" height="42" rx="8"/>
+    <rect class="head" y="34" width="260" height="8"/>
+    <text x="130" y="27" text-anchor="middle" class="ename">DON_DAT_HANG</text>
+    <text x="16" y="68" class="pk">PK  so_dh</text>
+    <text x="16" y="96" class="attr">ngay_dat</text>
+    <text x="16" y="124" class="fk">FK  ma_nd</text>
+  </g>
+
+  <!-- CT DON DAT -->
+  <g transform="translate(980,120)">
+    <rect class="entity" width="280" height="180" rx="8"/>
+    <rect class="head" width="280" height="42" rx="8"/>
+    <rect class="head" y="34" width="280" height="8"/>
+    <text x="140" y="27" text-anchor="middle" class="ename">CT_DON_DAT_HANG</text>
+    <text x="16" y="68" class="pk">PK/FK  so_dh</text>
+    <text x="16" y="96" class="pk">PK/FK  ma_hang</text>
+    <text x="16" y="124" class="attr">so_luong</text>
+  </g>
+
+  <!-- HANG -->
+  <g transform="translate(1320,120)">
+    <rect class="entity" width="300" height="210" rx="8"/>
+    <rect class="head" width="300" height="42" rx="8"/>
+    <rect class="head" y="34" width="300" height="8"/>
+    <text x="150" y="27" text-anchor="middle" class="ename">HANG</text>
+    <text x="16" y="68" class="pk">PK  ma_hang</text>
+    <text x="16" y="96" class="attr">ten_hang</text>
+    <text x="16" y="124" class="attr">don_vi_tinh</text>
+    <text x="16" y="152" class="attr">mo_ta</text>
+  </g>
+
+  <!-- NGUOI NHAN -->
+  <g transform="translate(40,580)">
+    <rect class="entity" width="250" height="160" rx="8"/>
+    <rect class="head" width="250" height="42" rx="8"/>
+    <rect class="head" y="34" width="250" height="8"/>
+    <text x="125" y="27" text-anchor="middle" class="ename">NGUOI_NHAN</text>
+    <text x="16" y="68" class="pk">PK  ma_nn</text>
+    <text x="16" y="96" class="attr">ho_ten_nn</text>
+    <text x="16" y="124" class="fk">FK  ma_dv</text>
+  </g>
+
+  <!-- NOI GIAO -->
+  <g transform="translate(350,580)">
+    <rect class="entity" width="250" height="140" rx="8"/>
+    <rect class="head" width="250" height="42" rx="8"/>
+    <rect class="head" y="34" width="250" height="8"/>
+    <text x="125" y="27" text-anchor="middle" class="ename">NOI_GIAO</text>
+    <text x="16" y="68" class="pk">PK  ma_ddg</text>
+    <text x="16" y="96" class="attr">ten_noi_giao</text>
+  </g>
+
+  <!-- PHIEU GIAO -->
+  <g transform="translate(660,540)">
+    <rect class="entity" width="280" height="240" rx="8"/>
+    <rect class="head" width="280" height="42" rx="8"/>
+    <rect class="head" y="34" width="280" height="8"/>
+    <text x="140" y="27" text-anchor="middle" class="ename">PHIEU_GIAO_HANG</text>
+    <text x="16" y="68" class="pk">PK  so_pg</text>
+    <text x="16" y="96" class="attr">ngay_giao</text>
+    <text x="16" y="124" class="fk">FK  so_dh</text>
+    <text x="16" y="152" class="fk">FK  ma_ddg</text>
+    <text x="16" y="180" class="fk">FK  ma_nn</text>
+    <text x="16" y="208" class="fk">FK  ma_ng</text>
+  </g>
+
+  <!-- NGUOI GIAO -->
+  <g transform="translate(1000,580)">
+    <rect class="entity" width="250" height="140" rx="8"/>
+    <rect class="head" width="250" height="42" rx="8"/>
+    <rect class="head" y="34" width="250" height="8"/>
+    <text x="125" y="27" text-anchor="middle" class="ename">NGUOI_GIAO</text>
+    <text x="16" y="68" class="pk">PK  ma_ng</text>
+    <text x="16" y="96" class="attr">ho_ten_ng</text>
+  </g>
+
+  <!-- CT PHIEU GIAO -->
+  <g transform="translate(1310,540)">
+    <rect class="entity" width="310" height="240" rx="8"/>
+    <rect class="head" width="310" height="42" rx="8"/>
+    <rect class="head" y="34" width="310" height="8"/>
+    <text x="155" y="27" text-anchor="middle" class="ename">CT_PHIEU_GIAO</text>
+    <text x="16" y="68" class="pk">PK/FK  so_pg</text>
+    <text x="16" y="96" class="pk">PK/FK  ma_hang</text>
+    <text x="16" y="124" class="attr">so_luong</text>
+    <text x="16" y="152" class="attr">don_gia</text>
+    <text x="16" y="180" class="attr">thanh_tien</text>
+  </g>
+
+  <!-- Relationships -->
+  <path class="rel" d="M290 200 L350 200"/>
+  <text x="302" y="190" class="card">1</text><text x="333" y="190" class="card">N</text>
+  <text x="320" y="222" text-anchor="middle" class="note">thuộc</text>
+
+  <path class="rel" d="M165 310 L165 580"/>
+  <text x="176" y="332" class="card">1</text><text x="176" y="566" class="card">N</text>
+  <text x="187" y="455" class="note">thuộc</text>
+
+  <path class="rel" d="M600 200 L660 200"/>
+  <text x="611" y="190" class="card">1</text><text x="642" y="190" class="card">N</text>
+  <text x="630" y="222" text-anchor="middle" class="note">đặt</text>
+
+  <path class="rel" d="M920 200 L980 200"/>
+  <text x="931" y="190" class="card">1</text><text x="962" y="190" class="card">N</text>
+
+  <path class="rel" d="M1260 210 L1320 210"/>
+  <text x="1271" y="200" class="card">N</text><text x="1302" y="200" class="card">1</text>
+
+  <path class="rel" d="M790 280 L790 540"/>
+  <text x="802" y="302" class="card">1</text><text x="802" y="526" class="card">N</text>
+  <text x="818" y="415" class="note">giao theo</text>
+
+  <path class="rel" d="M290 660 C430 660, 520 660, 660 660"/>
+  <text x="302" y="650" class="card">1</text><text x="642" y="650" class="card">N</text>
+
+  <path class="rel" d="M600 650 L660 650"/>
+  <text x="611" y="640" class="card">1</text><text x="642" y="640" class="card">N</text>
+
+  <path class="rel" d="M940 650 L1000 650"/>
+  <text x="951" y="640" class="card">N</text><text x="982" y="640" class="card">1</text>
+
+  <path class="rel" d="M940 690 L1310 690"/>
+  <text x="951" y="680" class="card">1</text><text x="1292" y="680" class="card">N</text>
+
+  <path class="rel" d="M1470 330 L1470 540"/>
+  <text x="1482" y="352" class="card">1</text><text x="1482" y="526" class="card">N</text>
+
+  <!-- Legend -->
+  <g transform="translate(40,860)">
+    <rect x="0" y="0" width="1620" height="80" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+    <text x="20" y="30" class="note"><tspan font-weight="700">Chú thích:</tspan> PK = Khóa chính, FK = Khóa ngoại, 1 = một, N = nhiều.</text>
+    <text x="20" y="56" class="note">Các bảng chi tiết xử lý quan hệ nhiều-nhiều giữa Đơn đặt hàng / Phiếu giao hàng và Hàng.</text>
+  </g>
+</svg>
