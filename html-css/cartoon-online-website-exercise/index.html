@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phim Hoạt Hình Trực Tuyến</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #222;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 14px 24px;
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            color: #e53935;
+        }
+
+        .logo span {
+            color: #333;
+        }
+
+        /* ===== HEAD LINK ===== */
+        .head-link {
+            position: sticky;
+            top: 61px;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px 16px;
+            background-color: #eeeeee;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .head-link a {
+            color: #333;
+            text-decoration: none;
+            padding: 7px 13px;
+            border-radius: 6px;
+        }
+
+        .head-link a:hover,
+        .head-link a.active {
+            color: #e53935;
+            font-weight: bold;
+            background-color: #ffffff;
+        }
+
+        /* ===== SEARCH ===== */
+        .search-area {
+            max-width: 1180px;
+            margin: 18px auto 0;
+            padding: 0 18px;
+        }
+
+        .search-area input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-area input:focus {
+            border-color: #e53935;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .content {
+            max-width: 1180px;
+            margin: 18px auto;
+            padding: 0 18px;
+            display: grid;
+            grid-template-columns: 34% 66%;
+            gap: 20px;
+        }
+
+        /* ===== LEFT CONTENT ===== */
+        .left-content {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 14px;
+            align-self: start;
+        }
+
+        .left-content h2 {
+            margin-top: 2px;
+            font-size: 21px;
+        }
+
+        .video-card {
+            width: 100%;
+            border: 0;
+            background-color: transparent;
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 12px;
+            text-align: left;
+            padding: 10px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .video-card:hover,
+        .video-card.selected {
+            background-color: #f1f1f1;
+        }
+
+        .thumbnail {
+            height: 78px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, #90caf9, #fff59d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .video-card:nth-of-type(2) .thumbnail {
+            background: linear-gradient(135deg, #a5d6a7, #ffe082);
+        }
+
+        .video-card:nth-of-type(3) .thumbnail {
+            background: linear-gradient(135deg, #ce93d8, #90caf9);
+        }
+
+        .video-meta h3 {
+            margin: 3px 0 7px;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .video-meta p {
+            margin: 0;
+            color: #777;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* ===== RIGHT CONTENT ===== */
+        .right-content {
+            min-width: 0;
+        }
+
+        .player-box {
+            background-color: #000;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .player-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .movie-info {
+            background-color: #ffffff;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 14px;
+        }
+
+        .movie-info h1 {
+            margin: 0 0 8px;
+            font-size: 25px;
+        }
+
+        .movie-info p {
+            margin: 7px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* ===== HTML5 VIDEO DEMO ===== */
+        .html5-demo {
+            max-width: 1180px;
+            margin: 26px auto;
+            padding: 0 18px;
+        }
+
+        .html5-demo-inner {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .html5-demo h2 {
+            margin-top: 0;
+        }
+
+        .html5-demo video {
+            display: block;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            border-radius: 9px;
+            background-color: #000;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            background-color: #333;
+            color: #ffffff;
+            padding: 20px 12px;
+            margin-top: 30px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media only screen and (max-width: 850px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .left-content {
+                order: 2;
+            }
+
+            .right-content {
+                order: 1;
+            }
+
+            .head-link {
+                top: 60px;
+            }
+        }
+
+        @media only screen and (max-width: 520px) {
+            .header {
+                padding: 11px 14px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .head-link {
+                position: static;
+                padding: 8px;
+            }
+
+            .head-link a {
+                font-size: 14px;
+                padding: 6px 8px;
+            }
+
+            .content,
+            .search-area,
+            .html5-demo {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .video-card {
+                grid-template-columns: 105px 1fr;
+            }
+
+            .thumbnail {
+                height: 66px;
+            }
+
+            .movie-info h1 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">Phim<span>HoạtHình</span></div>
+    </div>
+
+    <div class="head-link">
+        <a class="active" href="#">Phim hoạt hình</a>
+        <a href="#">Phim yêu thích</a>
+        <a href="#">Nhân vật hoạt hình</a>
+        <a href="#">Góp ý</a>
+    </div>
+
+    <div class="search-area">
+        <input id="searchInput" type="text" placeholder="Tìm kiếm phim theo tên..." oninput="filterVideos()">
+    </div>
+
+    <div class="content">
+        <div class="left-content">
+            <h2>Danh sách phim</h2>
+
+            <button class="video-card selected"
+                    data-title="Big Buck Bunny"
+                    data-description="Phim hoạt hình ngắn mã nguồn mở của Blender Foundation."
+                    data-src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+                    onclick="selectVideo(this)">
+                <div class="thumbnail">🐰</div>
+                <div class="video-meta">
+                    <h3>Big Buck Bunny</h3>
+                    <p>Hoạt hình 3D · HD</p>
+                    <p>1.2 triệu lượt xem</p>
+                </div>
+            </button>
+
+            <button class="video-card"
+                    data-title="Spring"
+                    data-description="Một phim hoạt hình ngắn của Blender Studio về cô bé chăn cừu và chú chó."
+                    data-src="https://www.youtube-nocookie.com/embed/WhWc3b3KhnY"
+                    onclick="selectVideo(this)">
+                <div class="thumbnail">🌱</div>
+                <div class="video-meta">
+                    <h3>Spring</h3>
+                    <p>Hoạt hình 3D · HD</p>
+                    <p>980 nghìn lượt xem</p>
+                </div>
+            </button>
+
+            <button class="video-card"
+                    data-title="Caminandes 2"
+                    data-description="Một tập phim hoạt hình ngắn vui nhộn thuộc dự án Open Movie của Blender."
+                    data-src="https://www.youtube-nocookie.com/embed/Z4C82eyhwgU"
+                    onclick="selectVideo(this)">
+                <div class="thumbnail">🦙</div>
+                <div class="video-meta">
+                    <h3>Caminandes 2</h3>
+                    <p>Hoạt hình ngắn · HD</p>
+                    <p>760 nghìn lượt xem</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="right-content">
+            <div class="player-box">
+                <iframe
+                    id="mainPlayer"
+                    src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+                    title="Video hoạt hình đang phát"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="movie-info">
+                <h1 id="movieTitle">Big Buck Bunny</h1>
+                <p id="movieDescription">
+                    Phim hoạt hình ngắn mã nguồn mở của Blender Foundation.
+                </p>
+                <p><strong>Chất lượng:</strong> HD 720p / Full HD 1080p</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="html5-demo">
+        <div class="html5-demo-inner">
+            <h2>Video HTML5</h2>
+            <p>Ví dụ sử dụng trực tiếp thẻ <strong>&lt;video&gt;</strong> trong HTML:</p>
+
+            <video controls preload="metadata">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Trình duyệt của bạn không hỗ trợ thẻ video.
+            </video>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 PhimHoạtHình. Website minh họa phục vụ bài tập HTML/CSS.
+    </div>
+
+    <script>
+        function selectVideo(button) {
+            document.querySelectorAll(".video-card").forEach(function (card) {
+                card.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+
+            document.getElementById("mainPlayer").src = button.dataset.src;
+            document.getElementById("movieTitle").textContent = button.dataset.title;
+            document.getElementById("movieDescription").textContent = button.dataset.description;
+
+            if (window.innerWidth <= 850) {
+                document.querySelector(".right-content").scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        }
+
+        function filterVideos() {
+            const keyword = document.getElementById("searchInput").value.toLowerCase();
+
+            document.querySelectorAll(".video-card").forEach(function (card) {
+                const title = card.dataset.title.toLowerCase();
+                card.style.display = title.includes(keyword) ? "grid" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
