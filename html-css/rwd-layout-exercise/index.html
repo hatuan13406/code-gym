@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo layout với RWD</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            min-height: 52px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .menu a,
+        .login a {
+            display: block;
+            padding: 17px 20px;
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .menu a:hover,
+        .login a:hover {
+            background-color: #080808;
+            color: #fff;
+        }
+
+        .menu .logo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .login {
+            padding-right: 12px;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main {
+            display: grid;
+            grid-template-columns: 20% 60% 20%;
+            min-height: calc(100vh - 102px);
+        }
+
+        .left,
+        .right {
+            background-color: #f1f1f1;
+            padding: 28px 15px;
+        }
+
+        .left {
+            text-align: center;
+        }
+
+        .left a {
+            display: block;
+            margin-bottom: 18px;
+            color: #1683d8;
+            text-decoration: none;
+        }
+
+        .left a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 25px 30px;
+        }
+
+        .content h1 {
+            margin-top: 0;
+            font-size: 36px;
+            font-weight: normal;
+        }
+
+        .content p {
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .content hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 24px 0;
+        }
+
+        .content h2 {
+            font-weight: normal;
+        }
+
+        .right {
+            text-align: center;
+        }
+
+        .ad {
+            width: 100%;
+            max-width: 160px;
+            height: 90px;
+            margin: 0 auto 18px;
+            border: 1px solid #bbb;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            height: 50px;
+            background-color: #555;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== RESPONSIVE: TABLET ===== */
+        @media only screen and (max-width: 900px) {
+            .main {
+                grid-template-columns: 25% 75%;
+            }
+
+            .right {
+                display: none;
+            }
+        }
+
+        /* ===== RESPONSIVE: MOBILE ===== */
+        @media only screen and (max-width: 600px) {
+            .header {
+                display: block;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .menu a,
+            .login a {
+                text-align: center;
+                border-bottom: 1px solid #333;
+            }
+
+            .login {
+                padding-right: 0;
+            }
+
+            .main {
+                display: block;
+                min-height: auto;
+            }
+
+            .left {
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                padding: 16px;
+            }
+
+            .left a {
+                margin: 0;
+            }
+
+            .content {
+                padding: 22px 18px;
+            }
+
+            .content h1 {
+                font-size: 30px;
+            }
+
+            .right {
+                display: block;
+            }
+
+            .ad {
+                max-width: 240px;
+            }
+
+            .footer {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu">
+            <a class="logo" href="#">Logo</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="login">
+            <a href="#">⇥ Login</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="left">
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+        </div>
+
+        <div class="content">
+            <h1>Welcome</h1>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet
+                pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum
+                magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo
+                tincidunt eros, eget luctus quam orci in velit.
+            </p>
+
+            <hr>
+
+            <h2>Test</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="right">
+            <div class="ad">ADS</div>
+            <div class="ad">ADS</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Footer Text
+    </div>
+</body>
+</html>
