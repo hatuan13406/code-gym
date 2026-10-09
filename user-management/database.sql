@@ -90,3 +90,20 @@ CREATE TABLE IF NOT EXISTS Employee (
 -- Warning: repeating the demo adds two MORE rows. To reset the Employee
 -- demo table automatically on each run, opt in explicitly by setting
 -- ALLOW_EMPLOYEE_DEMO_RESET=true before starting Tomcat.
+
+-- JDBC with Transaction: compare atomic rollback and successful commit.
+-- This uses the existing InnoDB Employee table and intentionally does not
+-- DROP TABLE Employee, because DROP/CREATE causes implicit commits in MySQL.
+--
+-- Run both URLs on your local Tomcat after deploying the new WAR:
+-- 1. Rollback demo: http://localhost:8080/user-management/users?action=test-use-tran
+-- 2. Commit demo:   http://localhost:8080/user-management/users?action=test-use-tran&mode=success
+--
+-- Run this SQL BEFORE the first demo and AFTER each run to compare row count.
+-- SELECT COUNT(*) AS employee_count FROM Employee;
+-- SELECT id, name, salary, created_Date FROM Employee ORDER BY id DESC LIMIT 5;
+--
+-- Expected: the rollback demo adds 0 rows; the commit demo adds 2 rows
+-- and sets the NEW Quynh employee's salary to 999.99.
+-- IMPORTANT: the existing rows from the earlier no-transaction exercise remain;
+-- therefore the table may NOT be empty after a successful rollback.
