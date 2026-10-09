@@ -71,3 +71,22 @@ INSERT INTO permission(id, name) VALUES (4, 'view')
 -- After creating a user with Add and View permissions, verify:
 -- SELECT id, name, email FROM users ORDER BY id DESC LIMIT 1;
 -- SELECT * FROM user_permission ORDER BY user_id DESC, permission_id;
+
+-- No-transaction / auto-commit practice, isolated from the users tables.
+-- Never DROP existing employee data when setting up the example.
+-- UserDAO.insertUpdateWithoutTransaction deliberately causes a SQL exception
+-- after two successful inserts; with auto-commit enabled, both rows persist.
+CREATE TABLE IF NOT EXISTS Employee (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    salary DECIMAL(15,2) NOT NULL,
+    created_Date DATETIME
+) ENGINE=InnoDB;
+
+-- Test: http://localhost:8080/user-management/users?action=test-without-tran
+-- Look in Tomcat's console for the deliberately thrown SQLException.
+-- To see the most recent two demo rows:
+-- SELECT * FROM Employee ORDER BY id DESC LIMIT 2;
+-- Warning: repeating the demo adds two MORE rows. To reset the Employee
+-- demo table automatically on each run, opt in explicitly by setting
+-- ALLOW_EMPLOYEE_DEMO_RESET=true before starting Tomcat.
