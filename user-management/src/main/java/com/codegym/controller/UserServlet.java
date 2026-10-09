@@ -82,8 +82,18 @@ public class UserServlet extends HttpServlet {
 
     private void listUsers(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-        List<User> users = userDAO.selectAllUsers();
+        String country = clean(request.getParameter("country"));
+        String sort = clean(request.getParameter("sort")).toLowerCase(java.util.Locale.ROOT);
+
+        // Only allow known values to select the ordering mode.
+        if (!"asc".equals(sort) && !"desc".equals(sort)) {
+            sort = "id";
+        }
+
+        List<User> users = userDAO.findUsers(country, sort);
         request.setAttribute("listUser", users);
+        request.setAttribute("country", country);
+        request.setAttribute("sort", sort);
         show(request, response, "/user/list.jsp");
     }
 
