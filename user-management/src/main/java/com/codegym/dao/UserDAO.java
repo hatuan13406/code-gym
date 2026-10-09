@@ -76,6 +76,64 @@ public class UserDAO implements IUserDAO {
         return users;
     }
 
+    /**
+     * Finds users by a country substring, for example "Viet" matches "Viet Nam".
+     */
+    @Override
+    public List<User> searchByCountry(String country) throws SQLException {
+        return findUsers(country, "id");
+    }
+
+    /** Sorts users by name without filtering by country. */
+    @Override
+    public List<User> sortByName(boolean ascending) throws SQLException {
+        return findUsers("", ascending ? "asc" : "desc");
+    }
+
+    /**
+     * Uses a PreparedStatement for the user-supplied country search.
+     * Sorting is selected only from fixed SQL fragments (never raw user input).
+     */
+    @Override
+    public List<User> findUsers(String country, String sort) throws SQLException {
+        String filter = country == null ? "" : country.strip();
+        boolean hasFilter = !filter.isEmpty();
+
+        StringBuilder sql = new StringBuilder(
+                "SELECT id, name, email, country FROM users");
+        if (hasFilter) {
+            sql.append(" WHERE LOWER(COALESCE(country, '')) LIKE ? ESCAPE '!'");
+        }
+
+        if ("asc".equalsIgnoreCase(sort)) {
+            sql.append(" ORDER BY name ASC, id ASC");
+        } else if ("desc".equalsIgnoreCase(sort)) {
+            sql.append(" ORDER BY name DESC, id DESC");
+        } else {
+            sql.append(" ORDER BY id ASC");
+        }
+
+        List<User> users = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql.toString())) {
+            if (hasFilter) {
+                // Treat the search value literally, including %, _ and the escape character.
+                String escaped = filter.toLowerCase(java.util.Locale.ROOT)
+                        .replace("!", "!!")
+                        .replace("%", "!%")
+                        .replace("_", "!_");
+                statement.setString(1, "%" + escaped + "%");
+            }
+
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    users.add(mapUser(rs));
+                }
+            }
+        }
+        return users;
+    }
+
     @Override
     public boolean deleteUser(int id) throws SQLException {
         try (Connection connection = getConnection();
