@@ -34,6 +34,9 @@ public class UserServlet extends HttpServlet {
 
         try {
             switch (action) {
+                case "test-use-tran":
+                    testUseTran(request, response);
+                    break;
                 case "test-without-tran":
                     testWithoutTran(request, response);
                     break;
@@ -112,6 +115,45 @@ public class UserServlet extends HttpServlet {
                 "Kiem tra log Tomcat va chay SQL: SELECT * FROM Employee ORDER BY id DESC LIMIT 2;");
         response.getWriter().println(
                 "Luu y: lap lai demo se them hai ban ghi moi; du lieu cu khong bi xoa mac dinh.");
+    }
+
+    /**
+     * Two-phase transaction exercise. The default URL intentionally fails
+     * and rolls back; ?mode=success uses the corrected parameter binding.
+     * Restrict all changes to local development requests.
+     */
+    private void testUseTran(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        String ip = request.getRemoteAddr();
+        if (!"127.0.0.1".equals(ip) && !"::1".equals(ip)
+                && !"0:0:0:0:0:0:0:1".equals(ip)) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN,
+                    "The JDBC transaction demonstration is only available from localhost.");
+            return;
+        }
+
+        boolean corrected = "success".equalsIgnoreCase(request.getParameter("mode"));
+        response.setContentType("text/plain; charset=UTF-8");
+
+        if (corrected) {
+            userDAO.insertUpdateUseTransaction(true);
+            response.getWriter().println("COMMIT SUCCESS");
+            response.getWriter().println(
+                    "Inserted Quynh and Ngan, then updated the new Quynh to salary 999.99.");
+        } else {
+            try {
+                // Intentionally fail UPDATE after two inserts; DAO handles rollback.
+                userDAO.insertUpdateUseTransaction();
+                response.getWriter().println("The demonstration unexpectedly succeeded.");
+            } catch (SQLException expected) {
+                response.getWriter().println("ROLLBACK DEMO: SQLException occurred.");
+                response.getWriter().println("Check the server log for the SQL error.");
+                response.getWriter().println(
+                        "If the transaction was started successfully, the DAO rolled back both inserts.");
+                response.getWriter().println(
+                        "Use ?action=test-use-tran&mode=success to test the corrected COMMIT path.");
+            }
+        }
     }
 
     /** Displays the list, sorted by name to keep the default order easy to read. */
