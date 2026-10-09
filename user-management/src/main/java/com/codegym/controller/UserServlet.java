@@ -34,6 +34,12 @@ public class UserServlet extends HttpServlet {
 
         try {
             switch (action) {
+                case "search":
+                    searchUsers(request, response);
+                    break;
+                case "sort":
+                    sortUsers(request, response);
+                    break;
                 case "create":
                     show(request, response, "/user/create.jsp");
                     break;
@@ -80,17 +86,41 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    /** Displays the list, sorted by name to keep the default order easy to read. */
     private void listUsers(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
+        showList(request, response, userDAO.selectAllUsers(), "", "asc");
+    }
+
+    /** Receives the country keyword from the browser and searches with JDBC. */
+    private void searchUsers(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
         String country = clean(request.getParameter("country"));
-        String sort = clean(request.getParameter("sort")).toLowerCase(java.util.Locale.ROOT);
+        String sort = normalizeSort(request.getParameter("sort"));
+        List<User> users = "desc".equals(sort)
+                ? userDAO.findUsers(country, "desc")
+                : userDAO.searchByCountry(country);
+        showList(request, response, users, country, sort);
+    }
 
-        // Only allow known values to select the ordering mode.
-        if (!"asc".equals(sort) && !"desc".equals(sort)) {
-            sort = "id";
-        }
+    /** Receives the selected sort direction and sorts user names. */
+    private void sortUsers(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        String country = clean(request.getParameter("country"));
+        String sort = normalizeSort(request.getParameter("sort"));
+        List<User> users = country.isEmpty()
+                ? userDAO.sortByName(!"desc".equals(sort))
+                : userDAO.findUsers(country, sort);
+        showList(request, response, users, country, sort);
+    }
 
-        List<User> users = userDAO.findUsers(country, sort);
+    private String normalizeSort(String input) {
+        return "desc".equalsIgnoreCase(clean(input)) ? "desc" : "asc";
+    }
+
+    private void showList(HttpServletRequest request, HttpServletResponse response,
+                          List<User> users, String country, String sort)
+            throws ServletException, IOException {
         request.setAttribute("listUser", users);
         request.setAttribute("country", country);
         request.setAttribute("sort", sort);
