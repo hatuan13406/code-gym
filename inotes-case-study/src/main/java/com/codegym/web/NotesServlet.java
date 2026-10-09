@@ -182,6 +182,7 @@ public class NotesServlet extends HttpServlet {
     private void showStorageError(HttpServletRequest req, HttpServletResponse resp, StorageException ex)
             throws ServletException, IOException {
         getServletContext().log("iNotes storage error", ex);
+        prepareCsrf(req); // Recovery form can switch back to File even after a failed POST.
         resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         req.setAttribute("storageError", ex.getMessage());
         req.setAttribute("storageName", manager.getStorageName());
