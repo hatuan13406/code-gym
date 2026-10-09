@@ -40,3 +40,34 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+-- JDBC Transaction practice: user permissions and their join table.
+-- InnoDB foreign keys guarantee that invalid permission assignments fail.
+CREATE TABLE IF NOT EXISTS permission (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_permission (
+    user_id INT NOT NULL,
+    permission_id INT NOT NULL,
+    PRIMARY KEY (user_id, permission_id),
+    CONSTRAINT fk_user_permission_user
+        FOREIGN KEY (user_id) REFERENCES users(id),
+    CONSTRAINT fk_user_permission_permission
+        FOREIGN KEY (permission_id) REFERENCES permission(id)
+) ENGINE=InnoDB;
+
+-- Safe to run more than once: update existing names rather than duplicate ids.
+INSERT INTO permission(id, name) VALUES (1, 'add')
+    ON DUPLICATE KEY UPDATE name = 'add';
+INSERT INTO permission(id, name) VALUES (2, 'edit')
+    ON DUPLICATE KEY UPDATE name = 'edit';
+INSERT INTO permission(id, name) VALUES (3, 'delete')
+    ON DUPLICATE KEY UPDATE name = 'delete';
+INSERT INTO permission(id, name) VALUES (4, 'view')
+    ON DUPLICATE KEY UPDATE name = 'view';
+
+-- After creating a user with Add and View permissions, verify:
+-- SELECT id, name, email FROM users ORDER BY id DESC LIMIT 1;
+-- SELECT * FROM user_permission ORDER BY user_id DESC, permission_id;
