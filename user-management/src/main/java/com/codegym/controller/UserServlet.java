@@ -130,7 +130,10 @@ public class UserServlet extends HttpServlet {
     private void showUserForm(HttpServletRequest request, HttpServletResponse response, String jsp)
             throws SQLException, ServletException, IOException {
         int id = parseId(request.getParameter("id"));
-        User user = id > 0 ? userDAO.selectUser(id) : null;
+        // The edit form reads its data through the get_user_by_id stored procedure.
+        User user = id > 0
+                ? ("/user/edit.jsp".equals(jsp) ? userDAO.getUserById(id) : userDAO.selectUser(id))
+                : null;
         if (user == null) {
             notFound(request, response);
             return;
@@ -148,7 +151,8 @@ public class UserServlet extends HttpServlet {
             show(request, response, "/user/create.jsp");
             return;
         }
-        userDAO.insertUser(user);
+        // Insert through MySQL's insert_user stored procedure.
+        userDAO.insertUserStore(user);
         redirectToList(request, response, "created");
     }
 
