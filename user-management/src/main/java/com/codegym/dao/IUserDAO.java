@@ -17,6 +17,9 @@ public interface IUserDAO {
     /** Add a user using MySQL stored procedure insert_user. */
     void insertUserStore(User user) throws SQLException;
 
+    /** Insert a user and assign their permissions atomically in one JDBC transaction. */
+    void addUserTransaction(User user, int[] permissionIds) throws SQLException;
+
     /** Search users by a partial country name (case-insensitive). */
     List<User> searchByCountry(String country) throws SQLException;
 
