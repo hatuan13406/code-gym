@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -22,6 +23,39 @@
     <c:if test="${param.notice == 'deleted'}">
         <div class="notice notice-success">Xóa người dùng thành công.</div>
     </c:if>
+
+    <!-- Filter on MySQL country column and sort by the user's name. -->
+    <form class="filter-form" action="${pageContext.request.contextPath}/users" method="get">
+        <div class="filter-field">
+            <label for="country">Tìm kiếm theo quốc gia</label>
+            <input type="search" id="country" name="country" maxlength="120"
+                   value="${fn:escapeXml(country)}" placeholder="Ví dụ: Viet Nam">
+        </div>
+        <div class="filter-field">
+            <label for="sort">Sắp xếp theo tên</label>
+            <select id="sort" name="sort">
+                <c:choose>
+                    <c:when test="${sort eq 'asc'}">
+                        <option value="id">Mặc định (ID)</option>
+                        <option value="asc" selected="selected">Tên A - Z</option>
+                        <option value="desc">Tên Z - A</option>
+                    </c:when>
+                    <c:when test="${sort eq 'desc'}">
+                        <option value="id">Mặc định (ID)</option>
+                        <option value="asc">Tên A - Z</option>
+                        <option value="desc" selected="selected">Tên Z - A</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="id" selected="selected">Mặc định (ID)</option>
+                        <option value="asc">Tên A - Z</option>
+                        <option value="desc">Tên Z - A</option>
+                    </c:otherwise>
+                </c:choose>
+            </select>
+        </div>
+        <button type="submit" class="button">Tìm kiếm / Sắp xếp</button>
+        <a class="button button-gray" href="${pageContext.request.contextPath}/users">Đặt lại</a>
+    </form>
 
     <div class="toolbar">
         <span>Tổng số người dùng: <strong><c:out value="${listUser.size()}"/></strong></span>
@@ -53,7 +87,7 @@
                 </tr>
             </c:forEach>
             <c:if test="${empty requestScope.listUser}">
-                <tr><td colspan="5">Chưa có người dùng nào trong cơ sở dữ liệu.</td></tr>
+                <tr><td colspan="5">Không tìm thấy người dùng phù hợp hoặc danh sách đang trống.</td></tr>
             </c:if>
         </tbody>
     </table>
