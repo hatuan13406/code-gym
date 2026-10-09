@@ -8,5 +8,11 @@
 <h1>Không thể truy cập kho lưu trữ</h1>
 <div class="alert error"><c:out value="${storageError}"/></div>
 <p>Kiểm tra cấu hình MySQL, chạy file <code>database.sql</code>, hoặc chuyển về chế độ File TXT từ trang danh sách.</p>
-<a class="button primary" href="${pageContext.request.contextPath}/notes">Quay lại</a>
+<form action="${pageContext.request.contextPath}/notes" method="post" class="form-actions">
+  <input type="hidden" name="action" value="switch">
+  <input type="hidden" name="mode" value="file">
+  <input type="hidden" name="_csrf" value="${csrf}">
+  <button class="button primary" type="submit">Chuyển về File TXT</button>
+  <a class="button ghost" href="${pageContext.request.contextPath}/notes">Thử lại</a>
+</form>
 </section></main></body></html>
