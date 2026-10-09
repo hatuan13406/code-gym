@@ -25,7 +25,7 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_BY_ID_SQL =
             "SELECT id, name, email, country FROM users WHERE id = ?";
     private static final String SELECT_ALL_SQL =
-            "SELECT id, name, email, country FROM users ORDER BY id";
+            "SELECT id, name, email, country FROM users ORDER BY name ASC, id ASC";
     private static final String DELETE_SQL =
             "DELETE FROM users WHERE id = ?";
     private static final String UPDATE_SQL =
@@ -81,7 +81,7 @@ public class UserDAO implements IUserDAO {
      */
     @Override
     public List<User> searchByCountry(String country) throws SQLException {
-        return findUsers(country, "id");
+        return findUsers(country, "asc");
     }
 
     /** Sorts users by name without filtering by country. */
