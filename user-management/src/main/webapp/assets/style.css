@@ -55,3 +55,29 @@ input { display: block; width: 100%; padding: 12px; border: 1px solid #c5cfdb; b
     font-size: 15px;
 }
 .filter-form .button { min-height: 43px; }
+
+/* Permissions on the create-user form; override full-width input defaults. */
+.permission-group {
+    margin: 20px 0 0;
+    padding: 15px 17px;
+    border: 1px solid var(--edge);
+    border-radius: 8px;
+}
+.permission-group legend { font-weight: bold; padding: 0 6px; }
+.permission-options { display: flex; gap: 10px 20px; flex-wrap: wrap; }
+.permission-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 2px 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+.permission-option input[type="checkbox"] {
+    display: inline-block;
+    flex: none;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    margin: 0;
+}
