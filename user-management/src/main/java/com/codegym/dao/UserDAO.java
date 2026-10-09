@@ -1,6 +1,7 @@
 package com.codegym.dao;
 
 import com.codegym.model.User;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,10 +21,6 @@ public class UserDAO implements IUserDAO {
     private static final String DEFAULT_URL =
             "jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
 
-    private static final String INSERT_SQL =
-            "INSERT INTO users (name, email, country) VALUES (?, ?, ?)";
-    private static final String SELECT_BY_ID_SQL =
-            "SELECT id, name, email, country FROM users WHERE id = ?";
     private static final String SELECT_ALL_SQL =
             "SELECT id, name, email, country FROM users ORDER BY name ASC, id ASC";
     private static final String DELETE_SQL =
@@ -38,28 +35,57 @@ public class UserDAO implements IUserDAO {
         return DriverManager.getConnection(url, username, password);
     }
 
+    /**
+     * Keep the existing CRUD API compatible, but insert via the stored procedure.
+     */
     @Override
     public void insertUser(User user) throws SQLException {
+        insertUserStore(user);
+    }
+
+    /**
+     * Keep the existing CRUD API compatible, but look up via the stored procedure.
+     */
+    @Override
+    public User selectUser(int id) throws SQLException {
+        return getUserById(id);
+    }
+
+    /**
+     * Finds one user using MySQL's get_user_by_id(IN user_id INT).
+     * Returns null if no matching user exists.
+     */
+    @Override
+    public User getUserById(int id) throws SQLException {
+        String sql = "{CALL get_user_by_id(?)}";
+
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(INSERT_SQL)) {
+             CallableStatement statement = connection.prepareCall(sql)) {
+            statement.setInt(1, id);
+
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return new User(id, rs.getString("name"),
+                            rs.getString("email"), rs.getString("country"));
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Inserts a user using MySQL's insert_user(IN name, IN email, IN country).
+     */
+    @Override
+    public void insertUserStore(User user) throws SQLException {
+        String sql = "{CALL insert_user(?, ?, ?)}";
+
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall(sql)) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
             statement.executeUpdate();
-        }
-    }
-
-    @Override
-    public User selectUser(int id) throws SQLException {
-        try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID_SQL)) {
-            statement.setInt(1, id);
-            try (ResultSet rs = statement.executeQuery()) {
-                if (rs.next()) {
-                    return mapUser(rs);
-                }
-                return null;
-            }
         }
     }
 
