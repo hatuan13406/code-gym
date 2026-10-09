@@ -38,6 +38,10 @@ public class UserDAO implements IUserDAO {
             + "created_Date DATETIME"
             + ")";
     private static final String SQL_TABLE_DROP = "DROP TABLE IF EXISTS Employee";
+    // The successful run updates ONLY the row generated during this run.
+    // This avoids modifying Quynh rows that belong to the previous exercise.
+    private static final String SQL_UPDATE_BY_ID =
+            "UPDATE Employee SET salary = ? WHERE id = ?";
 
     private static final String SELECT_ALL_SQL =
             "SELECT id, name, email, country FROM users ORDER BY name ASC, id ASC";
@@ -214,6 +218,95 @@ public class UserDAO implements IUserDAO {
                     // Crucially, no rollback: both earlier INSERTs are committed.
                 }
             }
+        }
+    }
+
+    /**
+     * Transaction exercise: intentionally fails in the UPDATE.
+     * Both newly inserted Employee records are rolled back.
+     */
+    @Override
+    public void insertUpdateUseTransaction() throws SQLException {
+        insertUpdateUseTransaction(false);
+    }
+
+    /**
+     * Runs two INSERTs and one UPDATE as a single transaction.
+     *
+     * When corrected=false, a deliberately missing parameter makes the
+     * UPDATE fail and explicitly rolls back both INSERTs.
+     * When corrected=true, the UPDATE targets the new Quynh id, then commits.
+     *
+     * No table DROP is performed: changing database schema with DDL inside a
+     * transaction causes an implicit MySQL COMMIT, and would break this demo.
+     */
+    @Override
+    public void insertUpdateUseTransaction(boolean corrected) throws SQLException {
+        try (Connection conn = getConnection();
+             Statement statement = conn.createStatement()) {
+
+            // Set up the table BEFORE turning off auto-commit. Never erase old rows.
+            statement.execute(SQL_TABLE_CREATE);
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement psInsert =
+                         conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
+                 PreparedStatement psUpdate = conn.prepareStatement(
+                         corrected ? SQL_UPDATE_BY_ID : SQL_UPDATE)) {
+
+                Timestamp created = Timestamp.valueOf(LocalDateTime.now());
+
+                psInsert.setString(1, "Quynh");
+                psInsert.setBigDecimal(2, BigDecimal.valueOf(10));
+                psInsert.setTimestamp(3, created);
+                if (psInsert.executeUpdate() != 1) {
+                    throw new SQLException("Unable to insert Quynh.");
+                }
+
+                int quynhId;
+                try (ResultSet generatedKeys = psInsert.getGeneratedKeys()) {
+                    if (!generatedKeys.next()) {
+                        throw new SQLException("Employee ID was not generated.");
+                    }
+                    quynhId = generatedKeys.getInt(1);
+                }
+
+                psInsert.setString(1, "Ngan");
+                psInsert.setBigDecimal(2, BigDecimal.valueOf(20));
+                psInsert.setTimestamp(3, created);
+                if (psInsert.executeUpdate() != 1) {
+                    throw new SQLException("Unable to insert Ngan.");
+                }
+
+                if (corrected) {
+                    // Correct parameter positions; edit only the newly inserted row.
+                    psUpdate.setBigDecimal(1, BigDecimal.valueOf(999.99));
+                    psUpdate.setInt(2, quynhId);
+                } else {
+                    // INTENTIONALLY WRONG for lesson 1: salary parameter #1
+                    // is never set. This throws an SQLException at execution.
+                    psUpdate.setBigDecimal(2, BigDecimal.valueOf(999.99));
+                    psUpdate.setString(2, "Quynh");
+                }
+
+                if (psUpdate.executeUpdate() != 1) {
+                    throw new SQLException("UPDATE did not affect exactly one employee.");
+                }
+
+                conn.commit();
+                System.out.println("JDBC transaction COMMIT: two inserts and one update completed.");
+            } catch (SQLException | RuntimeException e) {
+                try {
+                    conn.rollback();
+                    System.out.println("JDBC transaction ROLLBACK: no new Employee rows committed.");
+                } catch (SQLException rollbackFailure) {
+                    e.addSuppressed(rollbackFailure);
+                }
+                System.err.println("JDBC transaction failed: " + e.getMessage());
+                throw e;
+            }
+            // Closing the connection also releases its transaction resources.
+            // Avoid setting autoCommit(true) before handling pending rollback.
         }
     }
 
