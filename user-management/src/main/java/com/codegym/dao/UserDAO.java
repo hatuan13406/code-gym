@@ -1,6 +1,7 @@
 package com.codegym.dao;
 
 import com.codegym.model.User;
+import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +24,20 @@ import java.util.List;
 public class UserDAO implements IUserDAO {
     private static final String DEFAULT_URL =
             "jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+
+    // Intentionally broken SQL exercise: auto-commit does NOT roll back earlier inserts.
+    private static final String SQL_INSERT =
+            "INSERT INTO Employee (name, salary, created_Date) VALUES (?, ?, ?)";
+    private static final String SQL_UPDATE =
+            "UPDATE Employee SET salary = ? WHERE name = ?";
+    private static final String SQL_TABLE_CREATE =
+            "CREATE TABLE IF NOT EXISTS Employee ("
+            + "id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, "
+            + "name VARCHAR(120) NOT NULL, "
+            + "salary DECIMAL(15,2) NOT NULL, "
+            + "created_Date DATETIME"
+            + ")";
+    private static final String SQL_TABLE_DROP = "DROP TABLE IF EXISTS Employee";
 
     private static final String SELECT_ALL_SQL =
             "SELECT id, name, email, country FROM users ORDER BY name ASC, id ASC";
@@ -145,6 +162,58 @@ public class UserDAO implements IUserDAO {
                 throw e; // Do not silently report success to the Servlet.
             }
             // The connection is closed by try-with-resources; it is not reused.
+        }
+    }
+
+    /**
+     * Educational demo ONLY, never for production business operations.
+     * Using auto-commit (not a transaction), two INSERTs remain committed even
+     * though the intentionally mis-bound UPDATE fails afterward.
+     *
+     * To avoid destroying existing Employee records, the table is NOT dropped
+     * by default. Explicitly opt into resetting this demo table with the
+     * ALLOW_EMPLOYEE_DEMO_RESET=true environment variable before starting Tomcat.
+     */
+    @Override
+    public void insertUpdateWithoutTransaction() throws SQLException {
+        try (Connection conn = getConnection();
+             Statement statement = conn.createStatement()) {
+            conn.setAutoCommit(true);
+
+            // Explicit opt-in only: DROP permanently deletes any existing rows.
+            if ("true".equalsIgnoreCase(
+                    System.getenv().getOrDefault("ALLOW_EMPLOYEE_DEMO_RESET", "false"))) {
+                statement.execute(SQL_TABLE_DROP);
+            }
+            statement.execute(SQL_TABLE_CREATE);
+
+            try (PreparedStatement psInsert = conn.prepareStatement(SQL_INSERT);
+                 PreparedStatement psUpdate = conn.prepareStatement(SQL_UPDATE)) {
+                Timestamp created = Timestamp.valueOf(LocalDateTime.now());
+
+                psInsert.setString(1, "Quynh");
+                psInsert.setBigDecimal(2, BigDecimal.valueOf(10));
+                psInsert.setTimestamp(3, created);
+                psInsert.executeUpdate();
+
+                psInsert.setString(1, "Ngan");
+                psInsert.setBigDecimal(2, BigDecimal.valueOf(20));
+                psInsert.setTimestamp(3, created);
+                psInsert.executeUpdate();
+
+                // Deliberate error: parameter 1 (salary) is never assigned!
+                // Index 2 is the name parameter; assigning it twice is wrong.
+                psUpdate.setBigDecimal(2, BigDecimal.valueOf(999.99));
+                psUpdate.setString(2, "Quynh");
+                try {
+                    psUpdate.executeUpdate();
+                    throw new SQLException("Expected the malformed UPDATE to fail.");
+                } catch (SQLException expected) {
+                    System.out.println("Expected UPDATE error in no-transaction demo:");
+                    expected.printStackTrace();
+                    // Crucially, no rollback: both earlier INSERTs are committed.
+                }
+            }
         }
     }
 
