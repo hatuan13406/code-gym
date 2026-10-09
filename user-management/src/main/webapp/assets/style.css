@@ -1,0 +1,32 @@
+:root { --navy: #1b2a7a; --bg: #f6f8fc; --text: #283249; --edge: #e5e9f0; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 45px 15px; background: var(--bg); color: var(--text); font: 15px/1.5 Arial, sans-serif; }
+.container { max-width: 1020px; margin: 0 auto; }
+.panel { background: white; max-width: 620px; margin: 0 auto; padding: 33px; border-radius: 12px; box-shadow: 0 6px 24px #13244814; }
+h1 { margin: 0 0 12px; color: var(--navy); font-size: 28px; }
+p { margin-top: 10px; }
+.subtle { color: #647187; }
+.table-scroll { overflow-x: auto; background: white; border-radius: 12px; box-shadow: 0 6px 24px #13244814; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; min-width: 690px; }
+th,td { text-align: left; padding: 14px 17px; border-bottom: 1px solid var(--edge); }
+thead th { background: var(--navy); color: white; }
+tbody tr:hover { background: #f7f9ff; }
+tbody tr:last-child td { border-bottom: none; }
+.actions a { display: inline-block; margin: 3px 13px 3px 0; }
+a { color: #284ba0; }
+.link-delete { color: #bb3041; }
+.toolbar { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; margin: 24px 0; }
+.button { display: inline-block; padding: 11px 17px; background: var(--navy); color: white; border: 0; border-radius: 6px; font: 600 15px Arial, sans-serif; cursor: pointer; text-decoration: none; }
+.button:hover { background: #121b54; }
+.button-green { background: #168a57; }
+.button-red { background: #bf3546; }
+.button-gray { background: #e7ebf3; color: #27364f; }
+label { display: block; margin: 16px 0 7px; font-weight: bold; }
+input { display: block; width: 100%; padding: 12px; border: 1px solid #c5cfdb; border-radius: 6px; font-size: 15px; }
+.form-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.notice { padding: 13px 16px; border-radius: 7px; margin: 17px 0; }
+.notice-success { background: #e4f8ed; color: #11633c; }
+.notice-error { background: #ffeded; color: #b52e3a; }
+.details { width: 100%; min-width: 0; }
+.details th { background: #eef2fa; color: #283249; width: 145px; }
+@media (max-width:600px) { body { padding: 18px 10px; } .panel { padding: 22px; } h1 { font-size: 24px; } }
