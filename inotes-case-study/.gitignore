@@ -1,0 +1,11 @@
+target/
+**/target/
+.idea/
+.vscode/
+*.log
+*.war
+.DS_Store
+
+# Notes are stored outside the web root and should never be pushed to GitHub.
+notes.txt
+*.tmp
