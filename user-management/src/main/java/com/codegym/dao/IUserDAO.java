@@ -11,6 +11,12 @@ public interface IUserDAO {
     List<User> selectAllUsers() throws SQLException;
     boolean deleteUser(int id) throws SQLException;
     boolean updateUser(User user) throws SQLException;
+    /** Fetch a user by ID using MySQL stored procedure get_user_by_id. */
+    User getUserById(int id) throws SQLException;
+
+    /** Add a user using MySQL stored procedure insert_user. */
+    void insertUserStore(User user) throws SQLException;
+
     /** Search users by a partial country name (case-insensitive). */
     List<User> searchByCountry(String country) throws SQLException;
 
