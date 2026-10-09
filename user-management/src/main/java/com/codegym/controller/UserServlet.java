@@ -145,14 +145,46 @@ public class UserServlet extends HttpServlet {
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         User user = readUser(request, 0);
+        String[] permissionValues = request.getParameterValues("permissions");
+        // Preserve selected checkboxes when the form must be shown again.
+        request.setAttribute("selectedPermissions",
+                permissionValues == null ? "" : "|" + String.join("|", permissionValues) + "|");
+
         if (!valid(user)) {
             request.setAttribute("user", user);
             request.setAttribute("error", "Vui lòng nhập tên và email hợp lệ, đúng giới hạn độ dài.");
             show(request, response, "/user/create.jsp");
             return;
         }
-        // Insert through MySQL's insert_user stored procedure.
-        userDAO.insertUserStore(user);
+
+        int[] permissionIds;
+        try {
+            if (permissionValues == null) {
+                permissionIds = new int[0]; // No permission is selected.
+            } else {
+                if (permissionValues.length > 4) {
+                    throw new IllegalArgumentException("Too many permissions.");
+                }
+                permissionIds = new int[permissionValues.length];
+                boolean[] seen = new boolean[5];
+                for (int i = 0; i < permissionValues.length; i++) {
+                    int permissionId = Integer.parseInt(permissionValues[i]);
+                    if (permissionId < 1 || permissionId > 4 || seen[permissionId]) {
+                        throw new IllegalArgumentException("Invalid permission selection.");
+                    }
+                    seen[permissionId] = true;
+                    permissionIds[i] = permissionId;
+                }
+            }
+        } catch (IllegalArgumentException e) {
+            request.setAttribute("user", user);
+            request.setAttribute("error", "Quyền hạn không hợp lệ. Vui lòng chọn lại.");
+            show(request, response, "/user/create.jsp");
+            return;
+        }
+
+        // Add both the User and permissions atomically using a JDBC transaction.
+        userDAO.addUserTransaction(user, permissionIds);
         redirectToList(request, response, "created");
     }
 
