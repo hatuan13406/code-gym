@@ -34,6 +34,9 @@ public class UserServlet extends HttpServlet {
 
         try {
             switch (action) {
+                case "test-without-tran":
+                    testWithoutTran(request, response);
+                    break;
                 case "search":
                     searchUsers(request, response);
                     break;
@@ -84,6 +87,31 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new ServletException("Cannot save changes to MySQL.", e);
         }
+    }
+
+    /**
+     * Demonstrates why auto-commit is not safe for related writes.
+     * It deliberately inserts two demo employees and fails a later UPDATE.
+     * Restrict this teaching-only, data-changing GET endpoint to localhost.
+     */
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        String ip = request.getRemoteAddr();
+        if (!"127.0.0.1".equals(ip) && !"::1".equals(ip)
+                && !"0:0:0:0:0:0:0:1".equals(ip)) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN,
+                    "This destructive JDBC demonstration is only available from localhost.");
+            return;
+        }
+        userDAO.insertUpdateWithoutTransaction();
+        response.setContentType("text/plain; charset=UTF-8");
+        response.getWriter().println("Da chay demo khong dung Transaction.");
+        response.getWriter().println(
+                "Hai nhan vien Quynh va Ngan da duoc INSERT. Lenh UPDATE co tinh bi loi.");
+        response.getWriter().println(
+                "Kiem tra log Tomcat va chay SQL: SELECT * FROM Employee ORDER BY id DESC LIMIT 2;");
+        response.getWriter().println(
+                "Luu y: lap lai demo se them hai ban ghi moi; du lieu cu khong bi xoa mac dinh.");
     }
 
     /** Displays the list, sorted by name to keep the default order easy to read. */
