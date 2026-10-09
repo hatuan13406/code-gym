@@ -31,6 +31,33 @@
         <input type="text" id="country" name="country" maxlength="120"
                value="${fn:escapeXml(user.country)}">
 
+        <!-- All selected permissions are sent as repeated 'permissions' values. -->
+        <fieldset class="permission-group">
+            <legend>Quyền hạn (Permissions)</legend>
+            <div class="permission-options">
+                <label class="permission-option">
+                    <input type="checkbox" name="permissions" value="1"
+                           ${fn:contains(selectedPermissions, '|1|') ? 'checked="checked"' : ''}>
+                    Thêm (Add)
+                </label>
+                <label class="permission-option">
+                    <input type="checkbox" name="permissions" value="2"
+                           ${fn:contains(selectedPermissions, '|2|') ? 'checked="checked"' : ''}>
+                    Sửa (Edit)
+                </label>
+                <label class="permission-option">
+                    <input type="checkbox" name="permissions" value="3"
+                           ${fn:contains(selectedPermissions, '|3|') ? 'checked="checked"' : ''}>
+                    Xóa (Delete)
+                </label>
+                <label class="permission-option">
+                    <input type="checkbox" name="permissions" value="4"
+                           ${fn:contains(selectedPermissions, '|4|') ? 'checked="checked"' : ''}>
+                    Xem (View)
+                </label>
+            </div>
+        </fieldset>
+
         <div class="form-actions">
             <button class="button button-green" type="submit">Lưu User</button>
             <a class="button button-gray" href="${pageContext.request.contextPath}/users">Hủy</a>
