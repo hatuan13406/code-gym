@@ -20,6 +20,9 @@ public interface IUserDAO {
     /** Insert a user and assign their permissions atomically in one JDBC transaction. */
     void addUserTransaction(User user, int[] permissionIds) throws SQLException;
 
+    /** Demonstrate JDBC auto-commit: two inserts persist even if the later UPDATE fails. */
+    void insertUpdateWithoutTransaction() throws SQLException;
+
     /** Search users by a partial country name (case-insensitive). */
     List<User> searchByCountry(String country) throws SQLException;
 
