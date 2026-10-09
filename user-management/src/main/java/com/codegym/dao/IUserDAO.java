@@ -11,4 +11,12 @@ public interface IUserDAO {
     List<User> selectAllUsers() throws SQLException;
     boolean deleteUser(int id) throws SQLException;
     boolean updateUser(User user) throws SQLException;
+    /** Search users by a partial country name (case-insensitive). */
+    List<User> searchByCountry(String country) throws SQLException;
+
+    /** Sort all users by name, ascending or descending. */
+    List<User> sortByName(boolean ascending) throws SQLException;
+
+    /** Combine the country filter and name sorting in one database query. */
+    List<User> findUsers(String country, String sort) throws SQLException;
 }
