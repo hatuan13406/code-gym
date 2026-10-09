@@ -30,3 +30,28 @@ input { display: block; width: 100%; padding: 12px; border: 1px solid #c5cfdb; b
 .details { width: 100%; min-width: 0; }
 .details th { background: #eef2fa; color: #283249; width: 145px; }
 @media (max-width:600px) { body { padding: 18px 10px; } .panel { padding: 22px; } h1 { font-size: 24px; } }
+
+/* Search by country and sort by name */
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 18px;
+    margin: 22px 0 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px #13244810;
+}
+.filter-field { flex: 1 1 180px; }
+.filter-field label { margin: 0 0 7px; }
+.filter-field input, .filter-field select {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #c5cfdb;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 15px;
+}
+.filter-form .button { min-height: 43px; }
