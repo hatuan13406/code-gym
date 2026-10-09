@@ -23,6 +23,12 @@ public interface IUserDAO {
     /** Demonstrate JDBC auto-commit: two inserts persist even if the later UPDATE fails. */
     public void insertUpdateWithoutTransaction() throws SQLException;
 
+    /** Exercise: demonstrate rollback when one SQL statement fails. */
+    public void insertUpdateUseTransaction() throws SQLException;
+
+    /** Exercise: corrected=true demonstrates commit on a successful update. */
+    void insertUpdateUseTransaction(boolean corrected) throws SQLException;
+
     /** Search users by a partial country name (case-insensitive). */
     List<User> searchByCountry(String country) throws SQLException;
 
