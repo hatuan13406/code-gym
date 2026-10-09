@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,12 @@ public class UserDAO implements IUserDAO {
 
     private static final String SELECT_ALL_SQL =
             "SELECT id, name, email, country FROM users ORDER BY name ASC, id ASC";
+    private static final String INSERT_USER_SQL =
+            "INSERT INTO users (name, email, country) VALUES (?, ?, ?)";
+    private static final String INSERT_PERMISSION_SQL =
+            "INSERT INTO user_permission (user_id, permission_id) VALUES (?, ?)";
+    private static final String DELETE_USER_PERMISSIONS_SQL =
+            "DELETE FROM user_permission WHERE user_id = ?";
     private static final String DELETE_SQL =
             "DELETE FROM users WHERE id = ?";
     private static final String UPDATE_SQL =
@@ -86,6 +93,58 @@ public class UserDAO implements IUserDAO {
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
             statement.executeUpdate();
+        }
+    }
+
+    /**
+     * Inserts a User and all selected permissions in ONE connection/transaction.
+     * If any insert fails (including a foreign key violation), the User insert
+     * is rolled back as well. Existing stored-procedure methods are preserved.
+     */
+    @Override
+    public void addUserTransaction(User user, int[] permissionIds) throws SQLException {
+        try (Connection connection = getConnection()) {
+            connection.setAutoCommit(false);
+            try {
+                int userId;
+                try (PreparedStatement pstmtUser = connection.prepareStatement(
+                        INSERT_USER_SQL, Statement.RETURN_GENERATED_KEYS)) {
+                    pstmtUser.setString(1, user.getName());
+                    pstmtUser.setString(2, user.getEmail());
+                    pstmtUser.setString(3, user.getCountry());
+
+                    if (pstmtUser.executeUpdate() != 1) {
+                        throw new SQLException("Inserting user did not affect exactly one row.");
+                    }
+                    try (ResultSet keys = pstmtUser.getGeneratedKeys()) {
+                        if (!keys.next()) {
+                            throw new SQLException("No generated id was returned for new user.");
+                        }
+                        userId = keys.getInt(1);
+                    }
+                }
+
+                if (permissionIds != null && permissionIds.length > 0) {
+                    try (PreparedStatement pstmtAssignment =
+                                 connection.prepareStatement(INSERT_PERMISSION_SQL)) {
+                        for (int permissionId : permissionIds) {
+                            pstmtAssignment.setInt(1, userId);
+                            pstmtAssignment.setInt(2, permissionId);
+                            pstmtAssignment.executeUpdate();
+                        }
+                    }
+                }
+
+                connection.commit();
+            } catch (SQLException | RuntimeException e) {
+                try {
+                    connection.rollback();
+                } catch (SQLException rollbackError) {
+                    e.addSuppressed(rollbackError);
+                }
+                throw e; // Do not silently report success to the Servlet.
+            }
+            // The connection is closed by try-with-resources; it is not reused.
         }
     }
 
@@ -160,12 +219,37 @@ public class UserDAO implements IUserDAO {
         return users;
     }
 
+    /**
+     * Delete assigned permissions before their User, within one transaction,
+     * so the user_permission foreign key does not break the existing Delete action.
+     */
     @Override
     public boolean deleteUser(int id) throws SQLException {
-        try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_SQL)) {
-            statement.setInt(1, id);
-            return statement.executeUpdate() > 0;
+        try (Connection connection = getConnection()) {
+            connection.setAutoCommit(false);
+            try {
+                try (PreparedStatement pstmtAssignment =
+                             connection.prepareStatement(DELETE_USER_PERMISSIONS_SQL)) {
+                    pstmtAssignment.setInt(1, id);
+                    pstmtAssignment.executeUpdate();
+                }
+
+                boolean deleted;
+                try (PreparedStatement pstmtUser = connection.prepareStatement(DELETE_SQL)) {
+                    pstmtUser.setInt(1, id);
+                    deleted = pstmtUser.executeUpdate() > 0;
+                }
+
+                connection.commit();
+                return deleted;
+            } catch (SQLException | RuntimeException e) {
+                try {
+                    connection.rollback();
+                } catch (SQLException rollbackError) {
+                    e.addSuppressed(rollbackError);
+                }
+                throw e;
+            }
         }
     }
 
