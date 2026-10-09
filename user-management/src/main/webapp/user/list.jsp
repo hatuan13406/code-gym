@@ -24,7 +24,7 @@
         <div class="notice notice-success">Xóa người dùng thành công.</div>
     </c:if>
 
-    <!-- Filter on MySQL country column and sort by the user's name. -->
+    <!-- Country filtering and name sorting are handled by dedicated Servlet actions. -->
     <form class="filter-form" action="${pageContext.request.contextPath}/users" method="get">
         <div class="filter-field">
             <label for="country">Tìm kiếm theo quốc gia</label>
@@ -35,25 +35,19 @@
             <label for="sort">Sắp xếp theo tên</label>
             <select id="sort" name="sort">
                 <c:choose>
-                    <c:when test="${sort eq 'asc'}">
-                        <option value="id">Mặc định (ID)</option>
-                        <option value="asc" selected="selected">Tên A - Z</option>
-                        <option value="desc">Tên Z - A</option>
-                    </c:when>
                     <c:when test="${sort eq 'desc'}">
-                        <option value="id">Mặc định (ID)</option>
                         <option value="asc">Tên A - Z</option>
                         <option value="desc" selected="selected">Tên Z - A</option>
                     </c:when>
                     <c:otherwise>
-                        <option value="id" selected="selected">Mặc định (ID)</option>
-                        <option value="asc">Tên A - Z</option>
+                        <option value="asc" selected="selected">Tên A - Z</option>
                         <option value="desc">Tên Z - A</option>
                     </c:otherwise>
                 </c:choose>
             </select>
         </div>
-        <button type="submit" class="button">Tìm kiếm / Sắp xếp</button>
+        <button type="submit" name="action" value="search" class="button">Tìm kiếm</button>
+        <button type="submit" name="action" value="sort" class="button">Sắp xếp</button>
         <a class="button button-gray" href="${pageContext.request.contextPath}/users">Đặt lại</a>
     </form>
 
