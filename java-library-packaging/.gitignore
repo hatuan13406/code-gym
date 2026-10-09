@@ -1,0 +1,9 @@
+# Build outputs and local editor configuration
+target/
+**/target/
+*.log
+.idea/
+.vscode/
+.DS_Store
+
+# The only binary intentionally versioned is calculator-app/lib/math-lib.jar
