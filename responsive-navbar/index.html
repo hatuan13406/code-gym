@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài thực hành CodeGym: tạo thanh điều hướng responsive bằng HTML, CSS Flexbox, Media Queries và JavaScript.">
+    <title>Responsive Navbar | CodeGym</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar" aria-label="Thanh điều hướng chính">
+        <div class="nav-container">
+            <a class="logo" href="#trang-chu" aria-label="MyWebsite - Về trang chủ">
+                <span class="logo-mark" aria-hidden="true">M</span>
+                <span>My<span class="logo-highlight">Website</span></span>
+            </a>
+
+            <!-- Menu luôn hiển thị trên desktop, ẩn mặc định trên mobile. -->
+            <ul class="nav-links" id="navLinks">
+                <li><a class="nav-link active-link" href="#trang-chu" aria-current="page">Trang chủ</a></li>
+                <li><a class="nav-link" href="#gioi-thieu">Giới thiệu</a></li>
+                <li><a class="nav-link" href="#dich-vu">Dịch vụ</a></li>
+                <li><a class="nav-link" href="#lien-he">Liên hệ</a></li>
+            </ul>
+
+            <!-- Dùng button thay cho div để có thể nhấn Enter / Space bằng bàn phím. -->
+            <button class="menu-icon" id="menuToggle" type="button"
+                    aria-controls="navLinks" aria-expanded="false"
+                    aria-label="Mở menu điều hướng">
+                <span class="menu-symbol" aria-hidden="true">☰</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="trang-chu">
+        <header class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <span class="eyebrow"><span class="eyebrow-dot"></span> BÀI THỰC HÀNH HTML · CSS · JAVASCRIPT</span>
+                    <h1>Thanh điều hướng <span>Responsive Navbar</span></h1>
+                    <p>Trên máy tính, menu nằm gọn trên một hàng. Trên điện thoại, menu tự động thu gọn thành biểu tượng <strong>☰</strong> và mở ra khi bạn nhấn vào.</p>
+                    <a class="primary-button" href="#gioi-thieu">Khám phá cách hoạt động <span aria-hidden="true">→</span></a>
+                    <div class="hero-info"><span>✓ Flexbox</span><span>✓ Media Queries</span><span>✓ JavaScript</span></div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="desktop-frame">
+                        <div class="frame-top"><span></span><span></span><span></span><i>mywebsite.vn</i></div>
+                        <div class="frame-navbar"><b>◈ MyWebsite</b><small>Trang chủ &nbsp; Giới thiệu &nbsp; Dịch vụ &nbsp; Liên hệ</small></div>
+                        <div class="frame-body"><div class="frame-headline"></div><div class="frame-line"></div><div class="frame-line short"></div><div class="frame-cards"><i></i><i></i><i></i></div></div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-speaker"></div>
+                        <div class="mobile-nav"><b>◈ MyWebsite</b><span>☰</span></div>
+                        <div class="mobile-menu"><i></i><i></i><i></i><i></i></div>
+                    </div>
+                    <span class="floating-star star-one">✦</span>
+                    <span class="floating-star star-two">✳</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="content-container" id="gioi-thieu" aria-labelledby="about-title">
+            <div class="section-heading">
+                <span class="section-eyebrow">CƠ CHẾ HOẠT ĐỘNG</span>
+                <h2 id="about-title">Một thanh điều hướng, mọi kích thước màn hình</h2>
+                <p>Kết hợp các kỹ thuật cơ bản để website hoạt động mượt mà trên desktop và mobile.</p>
+            </div>
+
+            <div class="card-grid" id="dich-vu">
+                <article class="feature-card">
+                    <span class="card-number">01</span><span class="card-icon purple" aria-hidden="true">▦</span>
+                    <h3>Flexbox trên desktop</h3>
+                    <p>Thuộc tính <code>display: flex</code> sắp xếp logo và các liên kết cùng một hàng ngang, dễ dàng căn chỉnh khoảng cách.</p>
+                    <span class="card-tag">display: flex</span>
+                </article>
+                <article class="feature-card">
+                    <span class="card-number">02</span><span class="card-icon blue" aria-hidden="true">▣</span>
+                    <h3>Media Queries trên mobile</h3>
+                    <p>Với màn hình ≤ 768px, danh sách liên kết được ẩn đi và nút menu ☰ xuất hiện để tiết kiệm không gian.</p>
+                    <span class="card-tag">max-width: 768px</span>
+                </article>
+                <article class="feature-card">
+                    <span class="card-number">03</span><span class="card-icon orange" aria-hidden="true">✳</span>
+                    <h3>JavaScript mở / đóng</h3>
+                    <p>Khi nhấn biểu tượng ☰, JavaScript thêm hoặc xóa class <code>active</code> để điều khiển trạng thái của menu.</p>
+                    <span class="card-tag">classList.toggle()</span>
+                </article>
+            </div>
+
+            <div class="try-panel">
+                <div class="try-icon" aria-hidden="true">↔</div>
+                <div>
+                    <h3>Hãy thử thu nhỏ cửa sổ trình duyệt!</h3>
+                    <p>Khi chiều rộng nhỏ hơn hoặc bằng 768px, thanh điều hướng phía trên sẽ hiển thị nút ☰. Nhấn để mở hoặc đóng danh sách liên kết. Nhấn phím Esc hoặc chạm ra ngoài để đóng menu.</p>
+                </div>
+                <span class="try-badge">THỬ NGAY</span>
+            </div>
+        </section>
+
+        <section class="contact-panel" id="lien-he" aria-labelledby="contact-title">
+            <span class="section-eyebrow">HOÀN THÀNH BÀI TẬP</span>
+            <h2 id="contact-title">Thiết kế thích ứng trên mọi thiết bị</h2>
+            <p>Bài thực hành responsive navbar sử dụng HTML, CSS và JavaScript thuần, không cần cài đặt thư viện.</p>
+            <a href="#trang-chu">↑ Quay lại đầu trang</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <strong>◈ MyWebsite</strong>
+            <p>© 2026 · Bài thực hành CodeGym – Responsive Navbar.</p>
+            <a href="#trang-chu">Về đầu trang ↑</a>
+        </div>
+    </footer>
+</body>
+</html>
