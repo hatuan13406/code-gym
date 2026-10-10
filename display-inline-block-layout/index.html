@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài tập CodeGym: bố cục với CSS display block, inline-block, width và max-width.">
+    <title>Bố cục trang web với display</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container" id="trang-chu">
+        <header class="site-header">
+            <div class="header-brand">
+                <span class="brand-mark" aria-hidden="true">◈</span>
+                <span>Layout<span class="brand-accent">Lab</span></span>
+            </div>
+            <span class="course-label">THỰC HÀNH HTML &amp; CSS</span>
+        </header>
+
+        <!-- Thanh điều hướng: các liên kết dùng display: inline-block. -->
+        <nav class="main-nav" aria-label="Điều hướng chính">
+            <a href="#trang-chu" class="nav-active">Trang chủ</a>
+            <a href="#gioi-thieu">Giới thiệu</a>
+            <a href="#dich-vu">Dịch vụ</a>
+            <a href="#lien-he">Liên hệ</a>
+        </nav>
+
+        <main>
+            <div class="intro" id="gioi-thieu">
+                <span class="eyebrow">BÀI TẬP CSS DISPLAY</span>
+                <h1>Bố cục trang web với display</h1>
+                <p>Khám phá cách kết hợp <strong>display: block</strong>,
+                   <strong>display: inline-block</strong>, <strong>width</strong> và
+                   <strong>max-width</strong> để tạo một bố cục ba cột đơn giản, rõ ràng.</p>
+                <div class="intro-tags" aria-label="Các thuộc tính CSS được sử dụng">
+                    <span>display: block</span>
+                    <span>display: inline-block</span>
+                    <span>width &amp; max-width</span>
+                </div>
+            </div>
+
+            <!-- Section chứa đúng 3 cột, dàn hàng bằng inline-block (không dùng Grid/Flexbox cho phần này). -->
+            <section class="three-columns" id="dich-vu" aria-labelledby="section-title">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">KHÁM PHÁ BỐ CỤC</span>
+                        <h2 id="section-title">Ba cột nội dung</h2>
+                    </div>
+                    <span class="section-count">03 CỘT</span>
+                </div>
+
+                <div class="box box-one">
+                    <span class="card-topline"><span class="card-number">01</span><span class="card-type">CỘT 1</span></span>
+                    <div class="card-icon icon-blue" aria-hidden="true">▤</div>
+                    <h3>Cột 1 – Nội dung</h3>
+                    <p>Đây là cột đầu tiên của bố cục, giới thiệu những thông tin quan trọng ở phía bên trái.</p>
+                    <div class="code-sample"><code>display: inline-block;</code></div>
+                    <a href="#ghi-chu">Tìm hiểu thêm <span aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="box box-two">
+                    <span class="card-topline"><span class="card-number">02</span><span class="card-type">CỘT 2</span></span>
+                    <div class="card-icon icon-violet" aria-hidden="true">▦</div>
+                    <h3>Cột 2 – Giới thiệu</h3>
+                    <p>Cột ở giữa có chiều rộng xác định theo phần trăm và tự điều chỉnh khi kích thước màn hình thay đổi.</p>
+                    <div class="code-sample"><code>width: 30%;</code></div>
+                    <a href="#ghi-chu">Tìm hiểu thêm <span aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="box box-three">
+                    <span class="card-topline"><span class="card-number">03</span><span class="card-type">CỘT 3</span></span>
+                    <div class="card-icon icon-orange" aria-hidden="true">◇</div>
+                    <h3>Cột 3 – Liên hệ</h3>
+                    <p>Đây là cột thứ ba, thể hiện cách đặt nhiều phần tử cạnh nhau nhờ thuộc tính inline-block.</p>
+                    <div class="code-sample"><code>vertical-align: top;</code></div>
+                    <a href="#lien-he">Liên hệ ngay <span aria-hidden="true">→</span></a>
+                </div>
+            </section>
+
+            <section class="explanation" id="ghi-chu" aria-labelledby="explain-title">
+                <div class="explain-icon" aria-hidden="true">✦</div>
+                <div class="explain-copy">
+                    <span class="eyebrow">GHI NHỚ NHANH</span>
+                    <h2 id="explain-title">Vì sao ba cột nằm cạnh nhau?</h2>
+                    <p>Mỗi cột sử dụng <code>display: inline-block</code> và <code>width: 30%</code>.
+                       Thuộc tính <code>max-width</code> giới hạn khung trang. Khối chứa đặt
+                       <code>font-size: 0</code> để khoảng trắng giữa các phần tử HTML không làm
+                       cột thứ ba bị xuống dòng; kích thước chữ được thiết lập lại trên từng cột.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer" id="lien-he">
+            <span class="footer-logo">◈ LayoutLab</span>
+            <p>Bản quyền &copy; 2026 · Bài tập CodeGym – Xây dựng bố cục với display và inline-block.</p>
+            <a href="#trang-chu">↑ Về đầu trang</a>
+        </footer>
+    </div>
+</body>
+</html>

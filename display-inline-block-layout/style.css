@@ -1,0 +1,302 @@
+/* [Bài tập] Xây dựng bố cục với display: block, inline-block, width, max-width */
+:root {
+    --ink: #24314e;
+    --muted: #74829b;
+    --primary: #5161dc;
+    --line: #e7ebf3;
+    --bg: #f6f8fd;
+    --white: #ffffff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+}
+a { text-decoration: none; color: inherit; }
+a:hover { color: var(--primary); font-weight: 700; }
+a:focus-visible { outline: 3px solid #f5bb43; outline-offset: 3px; }
+h1, h2, h3, p { margin-top: 0; }
+
+/* BLOCK: giới hạn chiều rộng trang bằng max-width và căn giữa. */
+.page-container {
+    display: block;
+    width: 94%;
+    max-width: 1120px;
+    margin: 28px auto;
+}
+.site-header {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px 14px 0 0;
+    padding: 17px 24px;
+    min-height: 73px;
+}
+.header-brand {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 22px;
+    font-weight: 850;
+    letter-spacing: -.8px;
+}
+.brand-mark {
+    display: inline-block;
+    width: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 7px;
+    color: white;
+    background: var(--primary);
+    font-size: 22px;
+    vertical-align: middle;
+}
+.brand-accent { color: var(--primary); }
+.course-label {
+    display: inline-block;
+    float: right;
+    font-size: 10px;
+    color: #8c97ac;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    padding-top: 14px;
+}
+
+/* INLINE-BLOCK: 4 liên kết nằm trên cùng một hàng. */
+.main-nav {
+    display: block;
+    padding: 0 11px;
+    background: #243757;
+    border-radius: 0 0 11px 11px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.main-nav a {
+    display: inline-block;
+    padding: 13px 21px;
+    margin: 0 2px;
+    color: #dee6f5;
+    font-size: 13px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.main-nav a:hover, .main-nav a.nav-active {
+    background: #3e5788;
+    color: white;
+    font-weight: 800;
+}
+main { display: block; }
+.intro {
+    display: block;
+    text-align: center;
+    max-width: 810px;
+    margin: 0 auto;
+    padding: 57px 10px 34px;
+}
+.eyebrow {
+    display: block;
+    font-size: 11px;
+    color: var(--primary);
+    letter-spacing: 1.8px;
+    font-weight: 800;
+}
+.intro h1 {
+    font-size: clamp(28px, 4vw, 41px);
+    line-height: 1.22;
+    letter-spacing: -1px;
+    margin: 13px 0 16px;
+}
+.intro p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto 20px;
+}
+.intro-tags span {
+    display: inline-block;
+    color: #5162b5;
+    background: #e9edff;
+    border-radius: 19px;
+    padding: 5px 12px;
+    margin: 3px 4px;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+/* BLOCK: tiêu đề vùng chiếm cả một hàng độc lập. */
+.section-heading {
+    display: block;
+    text-align: left;
+    padding: 13px 1%;
+}
+.section-heading > div { display: inline-block; vertical-align: middle; }
+.section-heading h2 { font-size: 23px; letter-spacing: -.6px; margin: 5px 0 0; }
+.section-count {
+    display: inline-block;
+    float: right;
+    color: #a1aaba;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    font-weight: 800;
+    padding-top: 24px;
+}
+
+/* ==========================================================
+   PHẦN TRỌNG TÂM: BA CỘT BẰNG DISPLAY: INLINE-BLOCK.
+   Không dùng Flexbox, Grid hoặc float để chia 3 cột.
+   font-size:0 loại bỏ khoảng trắng giữa các inline-block
+   để không vô tình làm cột thứ ba xuống dòng.
+   ========================================================== */
+.three-columns {
+    display: block;
+    width: 100%;
+    font-size: 0;
+}
+.box {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin: 1%;
+    min-height: 320px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 9px 30px rgba(34, 53, 91, .045);
+    font-size: 14px; /* Khôi phục chữ sau khi khối cha dùng font-size:0 */
+    text-align: left;
+}
+.box:hover {
+    border-color: #ccd4f2;
+    box-shadow: 0 12px 30px rgba(62, 79, 151, .085);
+}
+.card-topline {
+    display: block;
+    margin-bottom: 28px;
+}
+.card-number {
+    display: inline-block;
+    padding: 5px 9px;
+    background: #f2f4fa;
+    color: #7b89a0;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 850;
+}
+.card-type {
+    display: inline-block;
+    float: right;
+    padding: 6px 0;
+    color: #a1aabb;
+    letter-spacing: 1px;
+    font-size: 10px;
+    font-weight: 800;
+}
+.card-icon {
+    display: block;
+    width: 52px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 19px;
+}
+.icon-blue { background: #e8efff; color: #426dd5; }
+.icon-violet { background: #f1eaff; color: #8759d1; }
+.icon-orange { background: #fff0e1; color: #dd8d32; }
+.box h3 { font-size: 19px; line-height: 1.35; letter-spacing: -.3px; margin: 0 0 11px; }
+.box p { color: #79859b; font-size: 13px; min-height: 83px; margin: 0 0 15px; }
+.code-sample {
+    display: block;
+    padding: 10px;
+    background: #f7f8fc;
+    color: #5a67bd;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 18px;
+    overflow-wrap: anywhere;
+}
+.box a { display: inline-block; color: #5266d3; font-size: 12px; font-weight: 800; }
+.box a:hover { color: #303a9e; }
+
+/* Ghi chú dùng BLOCK, tách khỏi nhóm 3 cột inline-block. */
+.explanation {
+    display: block;
+    margin: 30px 1% 38px;
+    padding: 25px 30px;
+    background: #eaf0ff;
+    border: 1px solid #dce5ff;
+    border-radius: 14px;
+}
+.explain-icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 11px;
+    background: #5065d6;
+    color: white;
+    font-size: 24px;
+    margin-right: 14px;
+}
+.explain-copy {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 75px);
+}
+.explain-copy h2 { font-size: 18px; margin: 5px 0 7px; }
+.explain-copy p { margin: 0; color: #65738f; font-size: 12px; }
+.explain-copy code { color: #4c56aa; background: #fff; border-radius: 4px; padding: 1px 4px; }
+
+/* FOOTER là khối block cuối trang. */
+.site-footer {
+    display: block;
+    width: 100%;
+    padding: 23px 24px;
+    border-radius: 13px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: #929daf;
+    font-size: 11px;
+    text-align: center;
+}
+.footer-logo {
+    display: block;
+    color: #4f5db2;
+    font-size: 14px;
+    font-weight: 850;
+    margin-bottom: 5px;
+}
+.site-footer p { margin: 0 0 9px; }
+.site-footer a { display: inline-block; font-weight: 800; color: var(--primary); }
+
+/* Tablet: hai cột mỗi hàng, vẫn là inline-block. */
+@media (max-width: 850px) {
+    .box { width: 46%; margin: 2%; }
+    .box p { min-height: 0; }
+}
+/* Điện thoại: chuyển sang bố cục một cột. */
+@media (max-width: 560px) {
+    .page-container { width: calc(100% - 24px); margin: 12px auto; }
+    .site-header { padding: 14px 15px; }
+    .header-brand { font-size: 19px; }
+    .course-label { float: none; display: block; padding: 9px 0 0; }
+    .main-nav { padding: 0 3px; }
+    .main-nav a { font-size: 12px; padding: 12px 13px; }
+    .intro { padding: 38px 4px 22px; }
+    .intro h1 { font-size: 29px; }
+    .section-heading { padding: 13px 0; }
+    .box { display: block; width: 100%; margin: 0 0 14px; min-height: 0; padding: 21px; }
+    .explanation { margin: 22px 0; padding: 20px; }
+    .explain-icon { margin-bottom: 10px; }
+    .explain-copy { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
