@@ -1,0 +1,150 @@
+/* Bài tập CodeGym: float, clear và overflow.
+   Hai cột chính sử dụng float (không sử dụng CSS Grid hoặc Flexbox). */
+:root {
+    --ink: #25324b;
+    --muted: #738098;
+    --blue: #5363db;
+    --border: #e5eaf2;
+    --bg: #f7f9fc;
+}
+* {
+    box-sizing: border-box; /* Bảo đảm padding không làm hai cột vượt 100%. */
+}
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--blue); }
+h1, h2, h3, p { margin-top: 0; }
+code { background: #f1f3ff; border-radius: 4px; padding: 2px 5px; color: #4757b7; }
+.site-header { background: white; border-bottom: 1px solid var(--border); }
+.header-inner {
+    max-width: 1050px;
+    padding: 17px 24px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.brand { display: inline-block; font-size: 21px; font-weight: 850; letter-spacing: -.7px; }
+.brand > span:last-child { color: var(--blue); }
+.brand-icon {
+    display: inline-block;
+    background: var(--blue);
+    border-radius: 10px;
+    color: white;
+    padding: 1px 11px;
+    font-size: 24px;
+    margin-right: 8px;
+}
+.header-label { float: right; color: #8e99ac; font-size: 11px; font-weight: 800; letter-spacing: 1px; padding-top: 13px; }
+.page { max-width: 1050px; padding: 43px 24px; margin: 0 auto; }
+.eyebrow { display: block; color: var(--blue); font-size: 11px; letter-spacing: 1.6px; font-weight: 800; margin-bottom: 8px; }
+.intro { max-width: 780px; margin-bottom: 27px; }
+.intro h1 { font-size: clamp(29px, 4vw, 40px); letter-spacing: -1px; line-height: 1.22; margin: 0 0 15px; }
+.intro p { color: var(--muted); font-size: 14px; margin: 0; }
+.practice-card, .code-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 22px;
+    padding: 25px;
+    box-shadow: 0 7px 25px rgba(40, 55, 95, .04);
+}
+.section-heading { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 22px; }
+.section-heading .eyebrow { font-size: 10px; margin-bottom: 3px; }
+.section-heading h2 { font-size: 20px; margin: 0 0 5px; }
+.section-heading p { font-size: 13px; color: #8792a5; margin: 0; }
+.section-number { display: grid; place-items: center; flex-shrink: 0; height: 42px; width: 42px; border-radius: 11px; font-size: 13px; font-weight: 850; }
+.blue { background: #e9eeff; color: #4f66d1; }
+.coral { background: #fff0eb; color: #d8785d; }
+.purple { background: #eeeaff; color: #7952b1; }
+
+/* =====================================================
+   PHẦN CHÍNH 1: FLOAT 50%-50% VÀ CLEAR / OVERFLOW HIDDEN
+   ===================================================== */
+.container {
+    width: 100%;
+    overflow: hidden; /* Tạo formatting context, giúp cha chứa các phần tử float. */
+}
+.left-column {
+    width: 50%;
+    float: left;
+    background-color: lightgray;
+    padding: 20px;
+}
+.right-column {
+    width: 50%;
+    float: right;
+    background-color: lightgreen;
+    padding: 20px;
+}
+.container::after {
+    content: "";
+    display: block;
+    clear: both; /* Chặn các thành phần tiếp sau dạt lên cạnh cột float. */
+}
+/* ===================================================== */
+
+.left-column, .right-column { min-height: 246px; }
+.column-tag { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 1px; color: #627087; }
+.right-column .column-tag { color: #467954; }
+.column-symbol { font-size: 35px; color: #6b7180; margin: 12px 0 2px; }
+.right-column .column-symbol { color: #3d8c61; }
+.left-column h3, .right-column h3 { font-size: 18px; margin: 0 0 8px; }
+.left-column p, .right-column p { font-size: 13px; line-height: 1.65; margin: 0 0 16px; }
+.left-column code { background: #f1f1f1; color: #5c677b; }
+.right-column code { background: #e9fae9; color: #30784c; }
+.column-footer-label { display: inline-block; padding: 4px 9px; font-size: 11px; font-weight: 750; color: #465a76; border-radius: 6px; background: #ffffff9c; }
+.clear-note { display: flex; gap: 12px; align-items: flex-start; padding: 15px 17px; border-radius: 11px; border: 1px solid #d7e9dc; background: #f0faf3; margin-top: 20px; }
+.note-icon { display: grid; place-items: center; flex-shrink: 0; border-radius: 50%; background: #22a061; color: white; font-size: 13px; height: 25px; width: 25px; }
+.clear-note p { color: #577364; font-size: 12px; margin: 0; }
+.clear-note code { background: #e4f1e8; color: #348056; }
+
+/* =====================================================
+   PHẦN CHÍNH 2: CỐ ĐỊNH KÍCH THƯỚC, NỘI DUNG TỰ CUỘN
+   ===================================================== */
+.overflow-box {
+    width: 300px;
+    height: 100px;
+    background-color: lightcoral;
+    padding: 10px;
+    overflow: auto; /* Hiển thị thanh cuộn khi văn bản dài hơn kích thước khối. */
+    max-width: 100%;
+    border: 1px solid #df7b7b;
+    border-radius: 5px;
+    color: #5f232b;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.overflow-box:focus-visible { outline: 3px solid #6364c9; outline-offset: 4px; }
+.overflow-box::-webkit-scrollbar { width: 11px; }
+.overflow-box::-webkit-scrollbar-track { background: #f4c9c9; }
+.overflow-box::-webkit-scrollbar-thumb { border-radius: 9px; background: #d36a6a; border: 2px solid #f4c9c9; }
+/* ===================================================== */
+
+.demo-stage { background: #fff9f9; border: 1px dashed #efcece; border-radius: 12px; padding: 24px 14px 20px; text-align: center; }
+.demo-label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; color: #ab8686; margin-bottom: 16px; }
+.demo-stage .overflow-box { margin: 0 auto; text-align: left; }
+.scroll-hint { font-size: 11px; color: #b28282; margin-top: 14px; }
+.scroll-hint span { font-size: 17px; font-weight: 800; margin-right: 4px; }
+.properties { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+.properties span { display: inline-block; background: #f3f5f9; padding: 7px 10px; border-radius: 7px; font-size: 11px; color: #78859a; }
+.properties strong { color: #40516e; }
+.properties .property-active { background: #ffe9e9; color: #b95c5c; font-weight: 800; }
+.code-section pre { margin: 0; padding: 21px 23px; overflow-x: auto; background: #202a43; color: #d9e3ff; border-radius: 11px; font: 13px/1.7 Consolas, "Courier New", monospace; }
+.code-section pre code { background: transparent; padding: 0; color: inherit; }
+.site-footer { font-size: 11px; color: #9ca6b7; text-align: center; padding: 0 20px 30px; }
+@media (max-width: 630px) {
+    .page { padding: 28px 15px; }
+    .header-label { display: none; }
+    .practice-card, .code-section { padding: 18px; }
+    .section-heading h2 { font-size: 18px; }
+    .left-column, .right-column { width: 100%; float: none; min-height: 0; }
+    .left-column, .right-column { padding: 20px; }
+    .overflow-box { max-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

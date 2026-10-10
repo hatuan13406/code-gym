@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài tập CodeGym: Quản lý bố cục trang web bằng CSS float, clear và overflow.">
+    <title>Bố cục với Float và Overflow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#trang-chu"><span class="brand-icon" aria-hidden="true">≡</span> CSS<span>Lab</span></a>
+            <span class="header-label">THỰC HÀNH HTML &amp; CSS</span>
+        </div>
+    </header>
+
+    <main class="page" id="trang-chu">
+        <div class="intro">
+            <span class="eyebrow">BÀI TẬP CSS · FLOAT, CLEAR, OVERFLOW</span>
+            <h1>Bố cục trang với float và overflow</h1>
+            <p>Bài thực hành kết hợp hai kỹ thuật CSS cơ bản: <strong>float</strong> để chia trang thành hai cột và <strong>overflow</strong> để xử lý văn bản dài trong một khung có kích thước cố định.</p>
+        </div>
+
+        <section class="practice-card" aria-labelledby="float-title">
+            <div class="section-heading">
+                <div class="section-number blue">01</div>
+                <div>
+                    <span class="eyebrow">BỐ CỤC HAI CỘT</span>
+                    <h2 id="float-title">Dàn trang bằng Float &amp; Clear</h2>
+                    <p>Hai cột nằm cạnh nhau, mỗi cột chiếm 50% chiều rộng.</p>
+                </div>
+            </div>
+
+            <!-- Vùng được thực hành: cả hai cột được định vị bằng float. -->
+            <div class="container">
+                <div class="left-column">
+                    <span class="column-tag">LEFT COLUMN · 50%</span>
+                    <div class="column-symbol" aria-hidden="true">←</div>
+                    <h3>Nội dung bên trái</h3>
+                    <p>Cột này sử dụng <code>float: left</code> và <code>width: 50%</code>, có nền xám nhạt như yêu cầu của bài tập.</p>
+                    <span class="column-footer-label">float: left</span>
+                </div>
+                <div class="right-column">
+                    <span class="column-tag">RIGHT COLUMN · 50%</span>
+                    <div class="column-symbol" aria-hidden="true">→</div>
+                    <h3>Nội dung bên phải</h3>
+                    <p>Cột này sử dụng <code>float: right</code> và <code>width: 50%</code>, có nền xanh lá nhạt.</p>
+                    <span class="column-footer-label">float: right</span>
+                </div>
+            </div>
+
+            <div class="clear-note">
+                <span class="note-icon" aria-hidden="true">✓</span>
+                <p><strong>Đã xử lý bố cục:</strong> <code>overflow: hidden</code> ở <code>.container</code> giúp khối cha bao được hai cột float; <code>clear: both</code> trên phần tử giả <code>::after</code> giúp ngăn các phần tiếp theo bị chồng lấn.</p>
+            </div>
+        </section>
+
+        <section class="practice-card overflow-section" aria-labelledby="overflow-title">
+            <div class="section-heading">
+                <div class="section-number coral">02</div>
+                <div>
+                    <span class="eyebrow">NỘI DUNG BỊ TRÀN</span>
+                    <h2 id="overflow-title">Thanh cuộn với overflow: auto</h2>
+                    <p>Khung cố định 300 × 100px. Hãy cuộn bên trong để đọc hết văn bản.</p>
+                </div>
+            </div>
+
+            <div class="demo-stage">
+                <div class="demo-label">VÙNG CUỘN NỘI DUNG</div>
+                <!-- tabindex cho phép người dùng bàn phím cuộn vùng này. -->
+                <div class="overflow-box" tabindex="0" role="region" aria-label="Nội dung dài có thanh cuộn">
+                    Đây là nội dung rất dài mà chúng ta kiểm tra overflow. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Khi đoạn văn nhiều hơn diện tích hiển thị của khối, thuộc tính overflow: auto sẽ giúp thanh cuộn xuất hiện khi cần thiết. Người dùng có thể cuộn nội dung bên trong ô này mà không làm ô tăng chiều cao. Phần văn bản phía sau vẫn có thể đọc được khi kéo thanh cuộn xuống. Đây là cách đơn giản để quản lý nội dung dài trong giao diện web.
+                </div>
+                <div class="scroll-hint"><span aria-hidden="true">↓</span> Kéo thanh cuộn trong ô màu hồng để xem phần còn lại</div>
+            </div>
+
+            <div class="properties">
+                <span><strong>300px</strong> chiều rộng</span>
+                <span><strong>100px</strong> chiều cao</span>
+                <span><strong>10px</strong> padding</span>
+                <span class="property-active">overflow: auto</span>
+            </div>
+        </section>
+
+        <section class="code-section" aria-labelledby="code-title">
+            <div class="section-heading">
+                <div class="section-number purple">03</div>
+                <div>
+                    <span class="eyebrow">CÚ PHÁP CẦN GHI NHỚ</span>
+                    <h2 id="code-title">CSS trọng tâm của bài</h2>
+                </div>
+            </div>
+            <pre><code>.container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.left-column  { width: 50%; float: left; }
+.right-column { width: 50%; float: right; }
+
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.overflow-box {
+    width: 300px;
+    height: 100px;
+    background-color: lightcoral;
+    padding: 10px;
+    overflow: auto;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer class="site-footer">© 2026 CSS Lab · Bài tập CodeGym – Quản lý bố cục trang với overflow và float.</footer>
+</body>
+</html>
