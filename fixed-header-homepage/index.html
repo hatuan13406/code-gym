@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài tập HTML CSS: trang chủ có header cố định, hai sidebar và nội dung chính.">
+    <title>Trang chủ giản lược | Thực hành CSS Position</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- position: fixed giúp header luôn xuất hiện khi người dùng cuộn trang. -->
+    <header class="main-header">
+        <div class="header-inner">
+            <a class="brand" href="#trang-chu" aria-label="Về đầu trang">
+                <span class="brand-icon" aria-hidden="true">✦</span>
+                <span>My<span class="brand-accent">Homepage</span></span>
+            </a>
+
+            <nav class="main-nav" aria-label="Điều hướng chính">
+                <ul>
+                    <li><a href="#trang-chu">Trang chủ</a></li>
+                    <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="#dich-vu">Dịch vụ</a></li>
+                    <li><a href="#lien-he">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Flexbox: Sidebar trái | Nội dung chính | Sidebar phải. -->
+    <div class="page-container" id="trang-chu">
+        <aside class="sidebar left-sidebar" aria-label="Menu bên trái">
+            <p class="sidebar-label">ĐIỀU HƯỚNG</p>
+            <h2>Khám phá</h2>
+            <nav aria-label="Các khu vực">
+                <ul class="sidebar-menu">
+                    <li><a href="#gioi-thieu"><span aria-hidden="true">⌂</span> Tổng quan</a></li>
+                    <li><a href="#dich-vu"><span aria-hidden="true">▦</span> Dịch vụ</a></li>
+                    <li><a href="#bai-viet"><span aria-hidden="true">▤</span> Bài viết</a></li>
+                    <li><a href="#lien-he"><span aria-hidden="true">✉</span> Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-tip">
+                <span class="tip-icon" aria-hidden="true">💡</span>
+                <strong>Mẹo CSS</strong>
+                <p>Cuộn trang để thấy header luôn được cố định phía trên.</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="hero" id="gioi-thieu">
+                <span class="eyebrow">KHÁM PHÁ CSS POSITION</span>
+                <h1>Chào mừng đến với trang chủ của chúng tôi!</h1>
+                <p>Giao diện trang chủ đơn giản với một header cố định, hai thanh bên và khu vực nội dung chính. Trang được xây dựng bằng <strong>HTML5 và CSS3</strong>.</p>
+                <a class="primary-button" href="#dich-vu">Khám phá ngay <span aria-hidden="true">→</span></a>
+                <div class="hero-decoration" aria-hidden="true">✳</div>
+            </section>
+
+            <section class="content-section" id="dich-vu">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ĐIỂM NỔI BẬT</span>
+                        <h2>Các thành phần giao diện</h2>
+                    </div>
+                    <span class="section-count">03 mục</span>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <span class="feature-icon blue" aria-hidden="true">◈</span>
+                        <h3>Header cố định</h3>
+                        <p>Sử dụng <code>position: fixed</code> để thanh điều hướng luôn xuất hiện ở đầu màn hình.</p>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-icon purple" aria-hidden="true">▤</span>
+                        <h3>Flexbox ba cột</h3>
+                        <p>Sắp xếp sidebar trái, nội dung và sidebar phải một cách rõ ràng bằng <code>display: flex</code>.</p>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-icon orange" aria-hidden="true">▣</span>
+                        <h3>Thứ tự hiển thị</h3>
+                        <p>Giữ header ở lớp trên cùng nhờ <code>z-index: 1000</code> và tránh bị nội dung che mất.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section" id="bai-viet">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">BÀI VIẾT</span>
+                        <h2>Nội dung chính của trang</h2>
+                    </div>
+                </div>
+
+                <article class="article-block">
+                    <span class="article-number">01 / NỀN TẢNG</span>
+                    <h3>Header cố định hoạt động như thế nào?</h3>
+                    <p>Thuộc tính <code>position: fixed</code> đưa phần tử ra khỏi luồng tài liệu bình thường và cố định nó tương đối với khung nhìn của trình duyệt. Nhờ vậy, dù người dùng cuộn xuống những nội dung dài bên dưới, header vẫn nằm ở cạnh trên màn hình.</p>
+                    <p>Vì header đã thoát khỏi luồng tài liệu, chúng ta thêm <code>padding-top</code> cho <code>body</code> bằng chiều cao của header. Cách này giúp nội dung đầu tiên không bị che khuất. Đồng thời, <code>box-sizing: border-box</code> giúp quản lý chiều rộng của các phần tử chính xác hơn.</p>
+                </article>
+
+                <article class="article-block">
+                    <span class="article-number">02 / BỐ CỤC</span>
+                    <h3>Tại sao lại dùng Flexbox cho trang chủ?</h3>
+                    <p>Flexbox phù hợp khi cần sắp xếp các thành phần theo một hàng ngang. Chúng ta có thể đặt sidebar trái và phải với chiều rộng cố định, trong khi khu vực nội dung chính tự động chiếm phần không gian còn lại.</p>
+                    <p>Thuộc tính <code>gap</code> tạo khoảng cách đều giữa ba cột mà không cần tính toán margin phức tạp. Khi màn hình thu hẹp, Media Queries giúp các cột xếp chồng lên nhau để nội dung không bị tràn khỏi khung nhìn.</p>
+                </article>
+
+                <article class="article-block">
+                    <span class="article-number">03 / THỰC HÀNH</span>
+                    <h3>Quan sát khi cuộn trang</h3>
+                    <p>Hãy thử kéo thanh cuộn xuống đến tận cuối trang và quan sát khu vực điều hướng phía trên. Bạn sẽ thấy header được giữ nguyên vị trí, trong khi nội dung chính và các sidebar cuộn theo trang. Đây là kết quả kết hợp của <code>fixed</code>, <code>top: 0</code> và <code>z-index</code>.</p>
+                    <p>Nếu bấm vào một mục trong menu, trình duyệt sẽ chuyển tới phần tương ứng. Thuộc tính <code>scroll-margin-top</code> giúp tiêu đề của mỗi phần không nằm khuất phía sau header cố định.</p>
+                </article>
+
+                <article class="article-block">
+                    <span class="article-number">04 / MỞ RỘNG</span>
+                    <h3>Thiết kế thân thiện với nhiều thiết bị</h3>
+                    <p>Trên màn hình lớn, bố cục ba cột giúp tận dụng chiều ngang. Trên điện thoại, các sidebar có thể được chuyển xuống dưới hoặc lên trên khu vực chính tùy mục tiêu thiết kế. Điều này khiến giao diện dễ đọc hơn mà vẫn giữ được cấu trúc HTML ngữ nghĩa.</p>
+                    <p>Ở bài tập này, header duy trì trạng thái cố định trên cả máy tính và điện thoại. Menu bên trong sử dụng Flexbox, còn những card nhỏ cũng được căn chỉnh tự động để giữ được khoảng cách nhất quán.</p>
+                </article>
+            </section>
+
+            <section class="contact-section" id="lien-he">
+                <span class="eyebrow">KẾT THÚC TRANG</span>
+                <h2>Bạn đã cuộn tới cuối trang!</h2>
+                <p>Header vẫn luôn xuất hiện phía trên. Hãy thử bấm “Trang chủ” để quay về điểm bắt đầu.</p>
+                <a href="#trang-chu" class="back-top">↑ Quay về đầu trang</a>
+            </section>
+        </main>
+
+        <aside class="sidebar right-sidebar" aria-label="Thông tin bên phải">
+            <p class="sidebar-label">GÓC THÔNG TIN</p>
+            <h2>Thông báo</h2>
+
+            <div class="announcement">
+                <span class="small-badge">BÀI TẬP CSS</span>
+                <h3>Thực hành thuộc tính position</h3>
+                <p>Làm quen với các bố cục thường gặp trên website hiện đại.</p>
+            </div>
+
+            <div class="sidebar-divider"></div>
+            <h3 class="mini-heading">Công nghệ sử dụng</h3>
+            <div class="skill-list">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>Flexbox</span>
+                <span>Position</span>
+            </div>
+            <div class="sidebar-divider"></div>
+            <h3 class="mini-heading">Ghi nhớ</h3>
+            <p class="sidebar-copy"><strong>z-index</strong> xác định thứ tự xếp lớp. Giá trị lớn hơn giúp header hiển thị phía trên các phần tử khác trong cùng ngữ cảnh xếp lớp.</p>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 MyHomepage · Bài tập HTML/CSS – Tạo giao diện trang chủ giản lược.</p>
+    </footer>
+</body>
+</html>
