@@ -1,0 +1,47 @@
+* { box-sizing: border-box; }
+:root { --ink:#1d2944; --muted:#78839a; --indigo:#5957e9; --border:#e6eaf3; }
+body { margin:0; background:#f7f9fd; color:var(--ink); font-family:Arial, Helvetica, sans-serif; line-height:1.55; }
+.site-header { background:#fff; border-bottom:1px solid var(--border); }
+.header-inner { max-width:1100px; margin:auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
+.brand { display:flex; align-items:center; gap:11px; font-size:21px; font-weight:800; }
+.brand b { color:var(--indigo); }
+.brand-mark { display:grid; place-items:center; width:42px; height:42px; border-radius:12px; color:white; background:var(--indigo); font-size:17px; }
+.header-tag { font-size:11px; color:#777f94; font-weight:800; letter-spacing:1px; }
+.page { max-width:1100px; padding:50px 24px 30px; margin:0 auto; }
+.eyebrow { color:var(--indigo); font-size:12px; font-weight:800; letter-spacing:1.8px; display:flex; align-items:center; gap:10px; }
+.dot { display:inline-block; width:8px; height:8px; background:#7d75ff; border-radius:50%; }
+h1 { font-size:clamp(30px,3.6vw,41px); line-height:1.2; letter-spacing:-1.2px; margin:14px 0; }
+h1 span { color:var(--indigo); }
+.lead { max-width:720px; margin:0 0 28px; color:#66718a; font-size:15px; }
+.lead code, .tip code { color:#5547d3; background:#efeeff; border-radius:4px; padding:2px 5px; }
+.content-grid { display:grid; grid-template-columns: 1fr 1fr; gap:22px; }
+.card { background:#fff; border:1px solid var(--border); border-radius:17px; padding:24px; box-shadow:0 9px 25px rgba(48,62,103,.035); }
+.card-heading { display:flex; gap:13px; align-items:flex-start; margin-bottom:19px; }
+.step { display:grid; place-items:center; background:#e9f5ef; color:#1b9a64; width:38px; height:38px; border-radius:11px; font-size:13px; font-weight:800; flex-shrink:0; }
+.step.purple { color:#5e56d8; background:#f0efff; }
+.card h2 { margin:0 0 2px; font-size:18px; }
+.card-heading p { color:#8892a5; font-size:12px; margin:0; }
+.stage { background:#f9fbff; border:1px dashed #dce2f0; border-radius:12px; padding:20px 16px 16px; display:flex; flex-direction:column; align-items:center; }
+.stage-caption { font-size:10px; letter-spacing:1.4px; color:#8892a6; font-weight:800; margin-bottom:13px; }
+/* PHẦN TRỌNG TÂM CỦA BÀI TẬP: phần tử 300 × 100 px có thanh cuộn. */
+.overflow-box { width:300px; height:100px; background-color:lightgray; padding:10px; overflow:auto; box-sizing:border-box; border:1px solid #bfc7d2; border-radius:5px; color:#344058; font-size:13px; line-height:1.48; max-width:100%; }
+.overflow-box::-webkit-scrollbar { width:11px; }
+.overflow-box::-webkit-scrollbar-thumb { background:#8d9aad; border:2px solid lightgray; border-radius:6px; }
+.overflow-box::-webkit-scrollbar-track { background:#cfd4db; border-radius:6px; }
+.scroll-hint { margin-top:12px; color:#7f8a9d; font-size:11px; }
+.scroll-hint span { color:var(--indigo); font-size:17px; font-weight:bold; vertical-align:middle; }
+.dimensions { display:flex; flex-wrap:wrap; align-items:center; gap:9px; margin-top:17px; }
+.dimensions > span { font-size:11px; padding:7px 10px; background:#f4f6fa; border-radius:7px; color:#75819a; }
+.dimensions strong { color:#3d4b64; }
+.dimensions .active { background:#e8f8ef; color:#187e52; font-weight:700; }
+.status-dot { width:6px; height:6px; background:#23aa6e; border-radius:50%; display:inline-block; margin-right:3px; }
+.code-block { color:#cdd7fa; background:#1d2740; border-radius:11px; padding:19px 20px; margin:0; font:13px/1.72 Consolas, 'Courier New', monospace; overflow-x:auto; }
+.selector { color:#e8a0f6; }.property { color:#85d0ff; }.value { color:#ffc784; }.highlight { display:inline-block; background:#37435e; padding:0 3px; margin-left:-3px; border-left:3px solid #74e3b6; }
+.tip { display:flex; gap:10px; margin-top:15px; background:#f5f4ff; border-radius:9px; padding:12px; }
+.tip p { margin:0; color:#667089; font-size:12px; }
+.tip strong { color:#465271; }
+.success-banner { display:flex; gap:14px; align-items:center; margin-top:20px; background:#eaf9f0; border:1px solid #cef0dc; border-radius:12px; padding:17px 20px; }
+.check { background:#27a86d; color:white; font-weight:800; width:28px; height:28px; flex-shrink:0; display:grid; place-items:center; border-radius:50%; }
+.success-banner strong { color:#17784d; font-size:13px; }.success-banner p { color:#48846a; font-size:12px; margin:2px 0 0; }
+footer { text-align:center; font-size:11px; color:#a4abbb; padding:12px 20px 35px; }
+@media(max-width:750px){ .page{padding:30px 16px 18px;} .content-grid{grid-template-columns:1fr;} .card{padding:19px;} .header-tag{display:none;} }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thực hành overflow: auto để kiểm soát nội dung tràn trong HTML/CSS.">
+  <title>Quản lý nội dung bị tràn với Overflow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand"><span class="brand-mark">&lt;/&gt;</span><span>CSS <b>Lab</b></span></div>
+      <span class="header-tag">THỰC HÀNH HTML &amp; CSS</span>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="eyebrow"><span class="dot"></span> BÀI THỰC HÀNH · CSS OVERFLOW</div>
+    <h1>Quản lý nội dung bị tràn<br><span>với Overflow</span></h1>
+    <p class="lead">Khi nội dung dài hơn kích thước phần tử, <code>overflow: auto</code> sẽ tạo thanh cuộn để giữ bố cục gọn gàng.</p>
+
+    <div class="content-grid">
+      <section class="card demo-card" aria-labelledby="demo-heading">
+        <div class="card-heading">
+          <span class="step">01</span>
+          <div>
+            <h2 id="demo-heading">Kết quả hiển thị</h2>
+            <p>Cuộn bên trong khung xám để đọc hết nội dung.</p>
+          </div>
+        </div>
+        <div class="stage">
+          <span class="stage-caption">KHỐI NỘI DUNG</span>
+          <div class="overflow-box" tabindex="0" role="region" aria-label="Đoạn văn dài có thanh cuộn">
+            Đây là một đoạn văn bản rất dài mà chúng ta sẽ kiểm tra cách overflow hoạt động khi nội dung vượt quá kích thước của phần tử. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies nunc in mauris pharetra, a ultricies justo fermentum. Khi nội dung không còn đủ chỗ để hiển thị, thanh cuộn sẽ xuất hiện. Bạn có thể cuộn xuống để xem toàn bộ văn bản mà không làm thay đổi chiều cao của khối. Thực hành CSS giúp chúng ta hiểu cách trình duyệt xử lý văn bản dài và bảo vệ bố cục trang web.
+          </div>
+          <span class="scroll-hint"><span aria-hidden="true">↓</span> Cuộn trong khung để xem thêm</span>
+        </div>
+        <div class="dimensions"><span>Rộng <strong>300px</strong></span><span>Cao <strong>100px</strong></span><span class="active"><span class="status-dot"></span> Thanh cuộn hoạt động</span></div>
+      </section>
+
+      <section class="card code-card" aria-labelledby="code-heading">
+        <div class="card-heading">
+          <span class="step purple">02</span>
+          <div>
+            <h2 id="code-heading">Đoạn CSS sử dụng</h2>
+            <p>Cách giới hạn kích thước và bật thanh cuộn.</p>
+          </div>
+        </div>
+        <pre class="code-block"><code><span class="selector">.overflow-box</span> {
+  <span class="property">width</span>: <span class="value">300px</span>;
+  <span class="property">height</span>: <span class="value">100px</span>;
+  <span class="property">background-color</span>: <span class="value">lightgray</span>;
+  <span class="property">padding</span>: <span class="value">10px</span>;
+  <span class="highlight"><span class="property">overflow</span>: <span class="value">auto</span>;</span>
+}</code></pre>
+        <div class="tip"><span aria-hidden="true">💡</span><p><strong>Ghi nhớ:</strong> <code>overflow: auto</code> chỉ hiển thị thanh cuộn khi nội dung thực sự vượt quá kích thước quy định.</p></div>
+      </section>
+    </div>
+    <div class="success-banner"><span class="check">✓</span><div><strong>Hoàn thành yêu cầu</strong><p>Nội dung không tràn ra ngoài khung; thanh cuộn cho phép xem phần văn bản còn lại.</p></div></div>
+  </main>
+  <footer>CSS Lab · Thực hành quản lý Overflow · HTML5 &amp; CSS3</footer>
+</body>
+</html>
