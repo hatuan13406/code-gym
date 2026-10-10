@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thực hành bố cục hai cột bằng CSS float và clear.">
+    <title>Thực hành bố cục hai cột bằng Float và Clear</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#trang-chu"><span class="brand-icon">F</span> CSS<span>Practice</span></a>
+            <span class="course-tag">BÀI THỰC HÀNH HTML / CSS</span>
+        </div>
+    </header>
+
+    <main class="page" id="trang-chu">
+        <div class="intro">
+            <span class="eyebrow">BÀI TẬP CSS LAYOUT</span>
+            <h1>Tạo bố cục hai cột<br><span>bằng Float &amp; Clear</span></h1>
+            <p>Khám phá cách bố trí cột nội dung chính và thanh bên bằng các thuộc tính
+                <code>float: left</code>, <code>float: right</code> và <code>clear: both</code>.</p>
+        </div>
+
+        <!-- KHỐI CHÍNH: hai cột đều được float, clearfix giữ chiều cao container. -->
+        <div class="container">
+            <div class="left-column">
+                <div class="column-heading">
+                    <span class="number number-blue">01</span>
+                    <div>
+                        <span class="small-label">LEFT COLUMN · WIDTH 60%</span>
+                        <h2>Cột nội dung chính</h2>
+                    </div>
+                </div>
+
+                <p>Đây là cột bên trái, chiếm <strong>60%</strong> chiều rộng của khối chứa.
+                   Nội dung chính của trang web được hiển thị tại đây.</p>
+
+                <div class="article">
+                    <span class="article-tag">KIẾN THỨC CSS</span>
+                    <h3>Thuộc tính <code>float: left</code> hoạt động như thế nào?</h3>
+                    <p>Thuộc tính <code>float: left</code> đẩy phần tử sang phía trái của khối chứa.
+                       Kết hợp với <code>width: 60%</code>, cột nội dung sẽ sử dụng 60% bề ngang
+                       và để lại không gian cho sidebar bên phải.</p>
+                </div>
+
+                <div class="article">
+                    <span class="article-tag">KỸ THUẬT BỐ CỤC</span>
+                    <h3>Tại sao cần dùng <code>clear: both</code>?</h3>
+                    <p>Phần tử dùng <code>float</code> không làm phần tử cha tự tăng chiều cao như
+                       nội dung thông thường. Lớp <code>.container::after</code> tạo một phần tử
+                       ảo với <code>clear: both</code>, giúp cha bao trọn cả hai cột.</p>
+                </div>
+
+                <div class="column-bottom">
+                    <span class="status-dot"></span> Cột trái đang sử dụng float: left
+                </div>
+            </div>
+
+            <aside class="right-column" aria-label="Thanh bên">
+                <div class="column-heading">
+                    <span class="number number-green">02</span>
+                    <div>
+                        <span class="small-label">RIGHT COLUMN · WIDTH 38%</span>
+                        <h2>Sidebar bên phải</h2>
+                    </div>
+                </div>
+
+                <p>Đây là cột bên phải, chiếm <strong>38%</strong> chiều rộng của khối chứa.
+                   Sidebar có thể chứa điều hướng hoặc thông tin bổ sung.</p>
+
+                <h3 class="sidebar-title">Ghi nhớ</h3>
+                <ul class="feature-list">
+                    <li><span class="check">✓</span> <code>float: left</code> cho cột chính</li>
+                    <li><span class="check">✓</span> <code>float: right</code> cho sidebar</li>
+                    <li><span class="check">✓</span> Khoảng trống còn lại là 2%</li>
+                    <li><span class="check">✓</span> <code>clear: both</code> ngăn tràn bố cục</li>
+                </ul>
+
+                <div class="side-note">
+                    <span aria-hidden="true">💡</span>
+                    <strong>Mẹo thực hành</strong>
+                    <p>Thu nhỏ cửa sổ trình duyệt để thấy hai cột xếp dọc trên điện thoại.</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Nếu clearfix thiếu, phần tử sau có thể tràn lên phần float ở trên. -->
+        <div class="result-panel">
+            <div class="result-icon" aria-hidden="true">✓</div>
+            <div>
+                <h2>Đã xử lý Float bằng Clear</h2>
+                <p>Khối thông báo này nằm <strong>bên dưới toàn bộ hai cột</strong>,
+                   cho thấy <code>.container::after { clear: both; }</code> hoạt động đúng.</p>
+            </div>
+        </div>
+
+        <section class="code-explanation" aria-label="CSS trọng tâm">
+            <h2>CSS trọng tâm của bài thực hành</h2>
+            <pre><code>.container { width: 100%; }
+
+.left-column {
+    width: 60%;
+    float: left;
+}
+
+.right-column {
+    width: 38%;
+    float: right;
+}
+
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}</code></pre>
+        </section>
+    </main>
+    <footer class="site-footer">© 2026 CSS Practice · Thực hành HTML/CSS — Float và Clear</footer>
+</body>
+</html>

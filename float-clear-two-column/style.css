@@ -1,0 +1,174 @@
+/* Bài thực hành: cột trái float 60%, cột phải float 38%, clearfix. */
+:root {
+    --bg: #f6f8fc;
+    --ink: #1f2e4a;
+    --muted: #687891;
+    --border: #e5eaf2;
+    --blue: #496de0;
+    --green: #27946a;
+}
+* {
+    box-sizing: border-box; /* Padding không làm tổng chiều rộng vượt 100%. */
+}
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+}
+a { text-decoration: none; color: inherit; }
+.site-header { background: white; border-bottom: 1px solid var(--border); }
+.header-inner {
+    max-width: 1150px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand { font-size: 23px; font-weight: 800; letter-spacing: -.6px; }
+.brand > span:last-child { color: var(--blue); }
+.brand-icon {
+    display: inline-block;
+    padding: 1px 12px;
+    margin-right: 10px;
+    background: var(--blue);
+    border-radius: 10px;
+    color: white;
+}
+.course-tag { font-size: 11px; letter-spacing: 1.2px; font-weight: 800; color: #8995a8; }
+.page { max-width: 1150px; margin: 0 auto; padding: 45px 24px 30px; }
+.eyebrow, .small-label {
+    letter-spacing: 1.6px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--blue);
+}
+.intro h1 {
+    margin: 12px 0 13px;
+    font-size: clamp(29px, 4vw, 40px);
+    line-height: 1.23;
+    letter-spacing: -1px;
+}
+.intro h1 span { color: var(--blue); }
+.intro p { color: var(--muted); max-width: 740px; font-size: 14px; margin: 0 0 32px; }
+code { color: #455cc3; background: #eff2ff; padding: 2px 5px; border-radius: 4px; }
+
+/* ====== PHẦN TRỌNG TÂM CỦA BÀI TẬP: FLOAT + CLEAR ====== */
+.container {
+    width: 100%;
+}
+/* Cột bên trái chiếm 60%, bám sát cạnh trái của container. */
+.left-column {
+    width: 60%;
+    float: left;
+    background-color: lightblue;
+    padding: 24px;
+    box-sizing: border-box;
+    border: 1px solid #c7e6f6;
+    border-radius: 15px;
+    min-height: 460px;
+}
+/* Cột bên phải chiếm 38%, bám sát cạnh phải của container. */
+.right-column {
+    width: 38%;
+    float: right;
+    background-color: lightgreen;
+    padding: 24px;
+    box-sizing: border-box;
+    border: 1px solid #b3e3b8;
+    border-radius: 15px;
+    min-height: 460px;
+}
+/* Clearfix: giữ chiều cao container, ngăn phần tiếp theo chồng lên hai cột. */
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/* ====== KẾT THÚC PHẦN TRỌNG TÂM ====== */
+
+.column-heading { display: flex; align-items: center; gap: 13px; margin-bottom: 20px; }
+.column-heading .small-label { font-size: 10px; }
+.right-column .small-label { color: #257c55; }
+.column-heading h2 { font-size: 21px; margin: 2px 0 0; letter-spacing: -.4px; }
+.number {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+.number-blue { color: #276aa0; background: rgba(255,255,255,.65); }
+.number-green { color: #277446; background: rgba(255,255,255,.65); }
+.left-column > p, .right-column > p { font-size: 14px; margin: 0 0 22px; color: #3d5c71; }
+.right-column > p { color: #3f634c; }
+.article {
+    background: rgba(255,255,255,.67);
+    padding: 17px 18px;
+    margin-top: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.8);
+}
+.article-tag { font-size: 10px; font-weight: 800; color: #2e77b0; letter-spacing: 1px; }
+.article h3 { font-size: 16px; margin: 8px 0; line-height: 1.4; }
+.article p { margin: 0; font-size: 13px; line-height: 1.75; color: #597185; }
+.column-bottom { margin-top: 20px; font-size: 12px; font-weight: 700; color: #386782; }
+.status-dot { display: inline-block; width: 8px; height: 8px; margin-right: 6px; background: #3484cd; border-radius: 50%; }
+.sidebar-title { font-size: 15px; border-bottom: 1px solid #a7d8a9; padding-bottom: 11px; margin: 26px 0 12px; }
+.feature-list { list-style: none; padding: 0; margin: 0; }
+.feature-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(105,164,108,.26);
+    color: #43684d;
+    font-size: 13px;
+}
+.check { font-weight: bold; color: #28905d; margin-right: 5px; }
+.side-note { margin-top: 24px; padding: 17px; background: rgba(255,255,255,.66); border-radius: 10px; color: #386642; }
+.side-note strong { font-size: 13px; display: block; margin-top: 5px; }
+.side-note p { font-size: 12px; margin: 6px 0 0; }
+.result-panel {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    margin-top: 24px;
+    background: #fff;
+    padding: 20px 24px;
+    border: 1px solid #d8e9de;
+    border-left: 4px solid var(--green);
+    border-radius: 12px;
+}
+.result-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #e4f7e9; color: var(--green); font-weight: bold; flex-shrink: 0; }
+.result-panel h2 { font-size: 16px; margin: 0 0 4px; }
+.result-panel p { margin: 0; font-size: 13px; color: var(--muted); }
+.code-explanation { margin: 26px 0 0; }
+.code-explanation h2 { margin: 0 0 12px; font-size: 18px; }
+.code-explanation pre {
+    overflow-x: auto;
+    margin: 0;
+    background: #1d2844;
+    border-radius: 12px;
+    padding: 22px;
+    color: #d5e1ff;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.code-explanation pre code { background: transparent; color: inherit; padding: 0; }
+.site-footer { padding: 20px 16px 35px; color: #9ba7b7; text-align: center; font-size: 12px; }
+
+/* Điện thoại: mỗi cột 100% và không float để tránh chật màn hình. */
+@media (max-width: 700px) {
+    .page { padding: 28px 15px; }
+    .course-tag { display: none; }
+    .left-column, .right-column {
+        width: 100%;
+        float: none;
+        min-height: 0;
+    }
+    .right-column { margin-top: 14px; }
+    .left-column, .right-column { padding: 19px; }
+    .result-panel { align-items: flex-start; padding: 16px; }
+}
