@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hoạt Hình Vui: giao diện xem phim hoạt hình tiếng Việt, tìm kiếm, sắp xếp và trình phát HTML5.">
+  <meta name="theme-color" content="#fff8ef">
+  <title>Hoạt Hình Vui | Xem hoạt hình tiếng Việt</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <div class="header-inner">
+      <a class="logo" href="#home" aria-label="Hoạt Hình Vui - Trang chủ">
+        <span class="logo-icon" aria-hidden="true">▶</span>
+        <span>Hoạt Hình <em>Vui</em></span>
+      </a>
+      <div class="header-message"><span class="star" aria-hidden="true">✦</span> Góc giải trí &amp; học hỏi cho bé</div>
+      <span class="header-tag"><span class="status-dot"></span> Tiếng Việt</span>
+    </div>
+  </header>
+
+  <!-- Head-link độc lập, dùng thanh menu dàn ngang bằng Flexbox. -->
+  <nav class="head-link" aria-label="Liên kết điều hướng">
+    <div class="nav-inner">
+      <a href="#home">🏠 Trang chủ</a>
+      <a href="#video-list">🎬 Danh sách phim</a>
+      <a href="#watch">▶ Đang xem</a>
+      <a href="#guide">💡 Hướng dẫn</a>
+    </div>
+  </nav>
+
+  <div class="layout-wrapper" id="video-list">
+    <!-- Left content: menu video có bộ lọc và danh sách có thể chọn. -->
+    <aside class="left-content" aria-labelledby="playlist-heading">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">THƯ VIỆN PHIM</span>
+          <h2 id="playlist-heading">Chọn phim yêu thích</h2>
+        </div>
+        <span class="playlist-count" id="playlistCount">0 phim</span>
+      </div>
+      <label class="sr-only" for="searchInput">Tìm kiếm phim theo tên</label>
+      <div class="search-wrap">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Tìm tên phim..." autocomplete="off" maxlength="100">
+      </div>
+      <div class="filter-row">
+        <div class="filter-item">
+          <label for="sortSelect">Sắp xếp</label>
+          <select id="sortSelect">
+            <option value="newest">Mới cập nhật</option>
+            <option value="popular">Nhiều lượt xem nhất</option>
+            <option value="title">Tên A - Z</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label for="categorySelect">Chủ đề</label>
+          <select id="categorySelect">
+            <option value="all">Tất cả</option>
+            <option value="gia-dinh">Gia đình</option>
+            <option value="hoc-tap">Học tập</option>
+            <option value="ky-nang">Kỹ năng sống</option>
+          </select>
+        </div>
+      </div>
+      <div class="playlist" id="playlist" aria-label="Danh sách hoạt hình"></div>
+      <div class="playlist-bottom">
+        <span class="small-icon" aria-hidden="true">♡</span>
+        <p>Chọn một tập phim để phát trong khung bên cạnh.</p>
+      </div>
+    </aside>
+
+    <!-- Right content: phát YouTube bằng iframe, file MP4 riêng bằng video HTML5. -->
+    <main class="right-content" id="watch">
+      <div class="welcome-heading">
+        <div>
+          <span class="eyebrow">RẠP HOẠT HÌNH NHỎ</span>
+          <h1>Cùng xem, cùng khám phá! <span aria-hidden="true">✨</span></h1>
+          <p>Nội dung tiếng Việt từ các kênh hoạt hình được chọn làm ví dụ học tập.</p>
+        </div>
+        <span class="quality-badge">HD · Tuỳ nguồn</span>
+      </div>
+
+      <section class="player-shell" aria-label="Trình phát video">
+        <div class="player-tabs" role="group" aria-label="Nguồn video">
+          <button class="tab active" id="youtubeTab" type="button" aria-pressed="true">▶ Hoạt hình YouTube</button>
+          <button class="tab" id="localTab" type="button" aria-pressed="false">▣ Video MP4 của bạn</button>
+        </div>
+
+        <div class="player-box" id="youtubePanel">
+          <iframe
+            id="youtubeFrame"
+            title="Trình phát hoạt hình tiếng Việt"
+            src="about:blank"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="local-panel hidden" id="localPanel">
+          <div class="file-picker">
+            <label for="localFile">Chọn phim MP4/WebM đã được phép sử dụng trên máy của bạn:</label>
+            <input id="localFile" type="file" accept="video/mp4,video/webm,.mp4,.webm">
+            <p>Video được phát ngay trên trình duyệt, không gửi lên website. Ưu tiên bản 1280×720 đến 1920×1080.</p>
+          </div>
+          <video id="localVideo" controls preload="metadata" playsinline aria-label="Trình phát video HTML5">
+            Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+          </video>
+          <p class="local-message" id="localMessage" role="status">Chọn một file để xem bằng thẻ &lt;video&gt;.</p>
+        </div>
+      </section>
+
+      <section class="video-details" aria-live="polite">
+        <div class="detail-heading">
+          <div>
+            <span class="eyebrow">ĐANG PHÁT</span>
+            <h2 id="currentTitle">Đang tải tên phim…</h2>
+            <p id="currentChannel" class="channel-name"></p>
+          </div>
+          <span id="categoryBadge" class="category-badge">Hoạt hình</span>
+        </div>
+        <p id="currentDescription" class="video-description"></p>
+        <div class="video-meta">
+          <span id="currentViews"></span>
+          <span id="currentDate"></span>
+          <a id="openYoutube" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Xem tại kênh gốc ↗</a>
+        </div>
+        <p class="source-note">Nguồn YouTube do bên thứ ba cung cấp. Trang không chèn quảng cáo,
+          nhưng không thể ngăn quảng cáo của YouTube hoặc cam kết video luôn khả dụng ở 720p–1080p.
+          Lượt xem dùng để sắp xếp là số liệu tham khảo tại lúc xây dựng bài tập, không cập nhật trực tiếp.</p>
+      </section>
+
+      <section class="info-cards" id="guide" aria-label="Thông tin sử dụng">
+        <article class="info-card">
+          <span class="info-emoji" aria-hidden="true">🔎</span>
+          <div><h3>Tìm nhanh</h3><p>Nhập tên phim, chọn chủ đề và sắp xếp danh sách theo nhu cầu.</p></div>
+        </article>
+        <article class="info-card">
+          <span class="info-emoji" aria-hidden="true">🖥️</span>
+          <div><h3>Xem đa thiết bị</h3><p>Bố cục tự điều chỉnh cho màn hình máy tính, tablet và điện thoại.</p></div>
+        </article>
+        <article class="info-card">
+          <span class="info-emoji" aria-hidden="true">🛡️</span>
+          <div><h3>Không quảng cáo trên trang</h3><p>Không có banner, quảng cáo chèn từ mã nguồn hay bộ theo dõi của trang.</p></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>Hoạt Hình Vui</strong><p>Bài tập HTML/CSS/JavaScript về bố cục video, thẻ video và iframe.</p></div>
+      <p>© 2026 · Video thuộc về các đơn vị sở hữu tương ứng. Không lưu trữ lại nội dung YouTube.</p>
+    </div>
+  </footer>
+</body>
+</html>

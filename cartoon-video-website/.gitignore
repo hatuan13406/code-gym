@@ -1,0 +1,6 @@
+# No build artifacts: pure HTML/CSS/JS static website
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
