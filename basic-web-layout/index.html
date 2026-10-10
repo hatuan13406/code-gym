@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài thực hành CodeGym: tạo bố cục cơ bản bằng div, CSS, float và clear.">
+  <title>Tạo bố cục cơ bản | Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- MAIN: vùng bao tất cả thành phần của trang web, căn giữa màn hình. -->
+  <div id="main">
+    <!-- HEAD: logo bên trái, banner bên phải. -->
+    <div id="head">
+      <div class="head-logo">
+        <div class="logo-mark" aria-hidden="true">S<span>+</span></div>
+        <div class="logo-wordmark"><strong>STUDENT</strong><span>PORTAL</span></div>
+      </div>
+      <div class="head-banner">
+        <div class="banner-copy">
+          <span class="banner-eyebrow">WELCOME TO OUR CAMPUS</span>
+          <h1>Học tập hôm nay,<br>kiến tạo ngày mai.</h1>
+          <p>Nơi kết nối kiến thức, trải nghiệm và những cơ hội mới.</p>
+        </div>
+        <div class="banner-art" aria-hidden="true">
+          <div class="art-ring"></div>
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-book"><span>✦</span></div>
+          <div class="art-spark spark-one">✦</div>
+          <div class="art-spark spark-two">✳</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEAD-LINK: thanh liên kết ngang. -->
+    <nav id="head-link" aria-label="Điều hướng đầu trang">
+      <a class="nav-active" href="#top">⌂ <span>Home</span></a>
+      <a href="#students">Students</a>
+      <a href="#courses">Courses</a>
+      <a href="#news">News</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <span class="nav-spacer" aria-hidden="true"></span>
+      <span class="nav-label">✦ LEARN • GROW • SUCCEED</span>
+    </nav>
+
+    <!-- Cả ba khu vực nội dung dùng float, clearfix tạo khoảng chứa đúng chiều cao. -->
+    <div class="columns" id="top">
+      <!-- LEFT: độ rộng cố định 200px, float: left. -->
+      <aside id="left" aria-label="Menu trái">
+        <div class="sidebar-title"><span class="menu-symbol" aria-hidden="true">▦</span> QUICK LINKS</div>
+        <div class="side-section" id="students">
+          <h2>Student Corner</h2>
+          <ul class="side-menu">
+            <li><a href="#welcome"><span aria-hidden="true">⌂</span> Overview</a></li>
+            <li><a href="#courses"><span aria-hidden="true">▣</span> My Courses</a></li>
+            <li><a href="#news"><span aria-hidden="true">▤</span> Latest News</a></li>
+            <li><a href="#calendar"><span aria-hidden="true">▦</span> Calendar</a></li>
+            <li><a href="#gallery"><span aria-hidden="true">▧</span> Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="side-section" id="courses">
+          <h2>Resources</h2>
+          <ul class="side-menu resource-menu">
+            <li><a href="#learning">Learning Materials ↗</a></li>
+            <li><a href="#schedule">Class Schedule ↗</a></li>
+            <li><a href="#contact">Support Center ↗</a></li>
+          </ul>
+        </div>
+        <div class="side-promo">
+          <span class="promo-icon" aria-hidden="true">✦</span>
+          <strong>Keep exploring!</strong>
+          <p>Every great journey starts with a single step.</p>
+        </div>
+      </aside>
+
+      <!-- CONTENT: tin nóng, photo slide và các ô tin tức. -->
+      <main id="content">
+        <div class="content-topline">
+          <div>
+            <span class="eyebrow">CAMPUS HIGHLIGHTS</span>
+            <h2 id="welcome">What's happening?</h2>
+          </div>
+          <span class="topline-date">OCTOBER 2026</span>
+        </div>
+
+        <div class="featured-row">
+          <section class="hot-news panel" id="news">
+            <div class="panel-heading"><span class="section-chip chip-red">HOT NEWS</span><span class="panel-dots" aria-hidden="true">•••</span></div>
+            <span class="news-label">FEATURED STORY</span>
+            <h3>Chào mừng năm học mới với những hoạt động đầy cảm hứng</h3>
+            <p>Khám phá câu chuyện, ý tưởng và các sự kiện nổi bật đang diễn ra trong cộng đồng sinh viên.</p>
+            <a href="#stories" class="inline-link">Khám phá tin mới <span aria-hidden="true">→</span></a>
+            <div class="hot-news-art" aria-hidden="true"><div class="hot-sun"></div><div class="hot-mountain mountain-back"></div><div class="hot-mountain mountain-front"></div></div>
+          </section>
+
+          <section class="photo-slide panel" id="gallery">
+            <div class="panel-heading"><span class="section-chip chip-indigo">PHOTO SLIDE</span><span class="slide-counter">01 / 03</span></div>
+            <div class="photo-art" role="img" aria-label="Minh họa một góc khuôn viên trường với tòa nhà và cây xanh">
+              <div class="photo-cloud cloud-left"></div><div class="photo-cloud cloud-right"></div>
+              <div class="photo-tree tree-left"></div><div class="photo-tree tree-right"></div>
+              <div class="photo-building"><div class="window-row">▣ ▣ ▣</div><div class="window-row">▣ ▣ ▣</div><div class="window-row">▣ ▣ ▣</div></div>
+              <div class="photo-ground"></div>
+            </div>
+            <div class="photo-caption">
+              <strong>Góc nhỏ sân trường</strong>
+              <span>Những khoảnh khắc đáng nhớ</span>
+            </div>
+            <div class="slide-indicators" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
+          </section>
+        </div>
+
+        <section class="stories" id="stories">
+          <div class="stories-header"><h2>LATEST STORIES</h2><span>HIGHLIGHTS &amp; UPDATES</span></div>
+          <div class="story-grid">
+            <article class="story-card" id="learning">
+              <div class="story-visual visual-one" aria-hidden="true"><span>◈</span></div>
+              <div class="story-body"><span class="story-type">NEWS 01 · HỌC TẬP</span><h3>Học tập hiệu quả với những phương pháp mới</h3><p>Gợi ý các cách xây dựng thói quen học tập tích cực và bền vững.</p><a href="#contact">Đọc thêm →</a></div>
+            </article>
+            <article class="story-card" id="schedule">
+              <div class="story-visual visual-two" aria-hidden="true"><span>▤</span></div>
+              <div class="story-body"><span class="story-type">NEWS 02 · HOẠT ĐỘNG</span><h3>Lên kế hoạch cho một tuần thật năng động</h3><p>Cập nhật lịch học, hoạt động nhóm và các sự kiện sắp tới.</p><a href="#calendar">Xem lịch →</a></div>
+            </article>
+            <article class="story-card">
+              <div class="story-visual visual-three" aria-hidden="true"><span>✧</span></div>
+              <div class="story-body"><span class="story-type">NEWS 03 · CỘNG ĐỒNG</span><h3>Cùng nhau chia sẻ những ý tưởng sáng tạo</h3><p>Kết nối với bạn bè thông qua các dự án và hoạt động thú vị.</p><a href="#contact">Khám phá →</a></div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <!-- RIGHT: lịch, biểu đồ và bản đồ như hình mô phỏng CodeGym. -->
+      <aside id="right" aria-label="Thông tin bên phải">
+        <section class="right-widget" id="calendar">
+          <div class="widget-heading"><span aria-hidden="true">▦</span><h2>CALENDAR</h2></div>
+          <div class="calendar-month">October <strong>2026</strong></div>
+          <table class="calendar-table" aria-label="Lịch tháng 10 năm 2026">
+            <thead><tr><th scope="col">M</th><th scope="col">T</th><th scope="col">W</th><th scope="col">T</th><th scope="col">F</th><th scope="col">S</th><th scope="col">S</th></tr></thead>
+            <tbody>
+              <tr><td class="muted-day">28</td><td class="muted-day">29</td><td class="muted-day">30</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+              <tr><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td class="today">10</td><td>11</td></tr>
+              <tr><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td></tr>
+              <tr><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+              <tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td class="muted-day">1</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="right-widget">
+          <div class="widget-heading"><span aria-hidden="true">▥</span><h2>STATS CHART</h2></div>
+          <p class="widget-intro">Weekly activity</p>
+          <div class="chart" role="img" aria-label="Biểu đồ hoạt động tuần từ thứ hai đến chủ nhật, cao nhất là thứ năm">
+            <div class="bar-col"><span class="bar" style="--bar: 48%"></span><small>M</small></div>
+            <div class="bar-col"><span class="bar" style="--bar: 67%"></span><small>T</small></div>
+            <div class="bar-col"><span class="bar" style="--bar: 59%"></span><small>W</small></div>
+            <div class="bar-col"><span class="bar highlighted" style="--bar: 91%"></span><small>T</small></div>
+            <div class="bar-col"><span class="bar" style="--bar: 75%"></span><small>F</small></div>
+            <div class="bar-col"><span class="bar" style="--bar: 39%"></span><small>S</small></div>
+            <div class="bar-col"><span class="bar" style="--bar: 57%"></span><small>S</small></div>
+          </div>
+          <div class="chart-caption"><span class="chart-dot"></span> Activity overview (minh họa)</div>
+        </section>
+
+        <section class="right-widget map-widget">
+          <div class="widget-heading"><span aria-hidden="true">⌖</span><h2>LOCATION MAP</h2></div>
+          <div class="map-illustration" role="img" aria-label="Bản đồ minh họa khuôn viên trường">
+            <div class="map-block map-block-a"></div><div class="map-block map-block-b"></div><div class="map-block map-block-c"></div><div class="map-block map-block-d"></div>
+            <div class="map-road road-vertical"></div><div class="map-road road-horizontal"></div><div class="map-road road-diagonal"></div>
+            <div class="map-pin"><span>●</span></div>
+          </div>
+          <p class="map-caption">Student Campus <span>📍</span></p>
+        </section>
+      </aside>
+    </div>
+
+    <!-- FOOTER: hiển thị bên dưới cả ba cột nhờ clear: both. -->
+    <footer id="footer">
+      <div class="footer-brand">S<span>+</span> <strong>Student Portal</strong></div>
+      <p>© 2026 Student Portal. Bài thực hành HTML &amp; CSS về bố cục với thẻ &lt;div&gt;.</p>
+      <div class="footer-links" id="contact"><a href="#head">About</a><a href="#courses">Courses</a><a href="mailto:hello@example.com">Contact</a></div>
+    </footer>
+  </div>
+</body>
+</html>
