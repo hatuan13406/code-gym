@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài tập CodeGym: Tạo layout trang web bằng các thẻ ngữ nghĩa HTML5 và CSS.">
+    <title>HTML5 Layout | Bài tập CodeGym</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER: Phần giới thiệu/tiêu đề của trang web. -->
+    <header class="site-header" id="trang-chu">
+        <div class="header-inner">
+            <div class="brand">
+                <span class="brand-icon" aria-hidden="true">&lt;/&gt;</span>
+                <div>
+                    <span class="brand-name">WEB<span>CRAFT</span></span>
+                    <span class="brand-caption">HỌC THIẾT KẾ WEB CÙNG HTML5</span>
+                </div>
+            </div>
+            <div class="header-pill"><span aria-hidden="true">✦</span> HTML5 &amp; CSS3</div>
+        </div>
+        <div class="hero">
+            <div class="hero-content">
+                <p class="eyebrow light-eyebrow">BÀI THỰC HÀNH FRONT-END</p>
+                <h1>Xây dựng bố cục website <br><span>bằng HTML5 Semantic</span></h1>
+                <p>Khám phá cách tổ chức giao diện rõ ràng, dễ hiểu với các thẻ HTML5 có ý nghĩa ngữ nghĩa.</p>
+                <a href="#bai-viet" class="hero-button">Xem bài viết <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-illustration" aria-hidden="true">
+                <div class="mock-browser">
+                    <div class="mock-topbar"><i></i><i></i><i></i><span>index.html</span></div>
+                    <div class="mock-header">HEADER</div>
+                    <div class="mock-nav">NAV</div>
+                    <div class="mock-body">
+                        <div class="mock-section">SECTION<div class="mock-article">ARTICLE</div></div>
+                        <div class="mock-aside">ASIDE</div>
+                    </div>
+                    <div class="mock-footer">FOOTER</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAV: Tập hợp các liên kết điều hướng chính. -->
+    <nav class="main-nav" aria-label="Điều hướng chính">
+        <div class="nav-inner">
+            <a href="#trang-chu" class="nav-home"><span aria-hidden="true">⌂</span> Trang chủ</a>
+            <a href="#gioi-thieu">Giới thiệu</a>
+            <a href="#bai-viet">Bài viết</a>
+            <a href="#kien-thuc">Kiến thức</a>
+            <a href="#lien-he">Liên hệ</a>
+        </div>
+    </nav>
+
+    <!-- Vùng bố cục chứa nội dung chính (section) và cột phụ (aside). -->
+    <div class="page-layout">
+        <!-- SECTION: Nhóm các nội dung cùng chủ đề, có tiêu đề rõ ràng. -->
+        <section class="content-section" id="bai-viet" aria-labelledby="section-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">KHÁM PHÁ BÀI VIẾT</p>
+                    <h2 id="section-heading">Nội dung chính <span class="section-count">/ SECTION</span></h2>
+                </div>
+                <span class="heading-decoration" aria-hidden="true">◈</span>
+            </div>
+
+            <!-- ARTICLE: Một nội dung độc lập có thể đọc riêng. -->
+            <article class="article-card" id="gioi-thieu">
+                <div class="article-visual visual-html" aria-hidden="true">
+                    <span class="visual-circle"></span>
+                    <span class="visual-symbol">&lt; &gt;</span>
+                    <span class="visual-tag">HTML5</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-meta"><span class="category blue-category">HTML CƠ BẢN</span><time datetime="2026-10-10">10/10/2026</time></div>
+                    <h3>HTML5 Semantic là gì và tại sao nên sử dụng?</h3>
+                    <p>HTML5 giới thiệu các thẻ ngữ nghĩa như <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code> và <code>&lt;footer&gt;</code>. Tên thẻ cho biết vai trò của mỗi khu vực, giúp mã nguồn rõ ràng hơn và hỗ trợ công cụ đọc màn hình.</p>
+                    <a class="read-more" href="#kien-thuc">Tìm hiểu thêm <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+
+            <!-- ARTICLE thứ hai bên trong SECTION. -->
+            <article class="article-card">
+                <div class="article-visual visual-css" aria-hidden="true">
+                    <span class="visual-circle"></span>
+                    <span class="visual-symbol">{ CSS }</span>
+                    <span class="visual-tag">CSS3</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-meta"><span class="category purple-category">CSS LAYOUT</span><time datetime="2026-10-10">10/10/2026</time></div>
+                    <h3>Kết hợp HTML5 và CSS để xây dựng bố cục</h3>
+                    <p>HTML5 phụ trách cấu trúc nội dung, còn CSS chịu trách nhiệm trình bày. Trong ví dụ này, <strong>CSS Grid</strong> chia khu vực chính thành hai cột: phần chứa bài viết và một thanh bên cung cấp thông tin bổ sung.</p>
+                    <a class="read-more" href="#kien-thuc">Xem kiến thức <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+
+            <section class="knowledge-box" id="kien-thuc" aria-labelledby="knowledge-heading">
+                <div class="knowledge-title">
+                    <span class="knowledge-icon" aria-hidden="true">✦</span>
+                    <div>
+                        <p class="eyebrow">GHI NHỚ NHANH</p>
+                        <h3 id="knowledge-heading">Vai trò của 6 thẻ HTML5</h3>
+                    </div>
+                </div>
+                <div class="tag-grid">
+                    <div class="tag-info"><code>&lt;header&gt;</code><span>Đầu trang / đầu mục</span></div>
+                    <div class="tag-info"><code>&lt;nav&gt;</code><span>Điều hướng</span></div>
+                    <div class="tag-info"><code>&lt;section&gt;</code><span>Nhóm nội dung</span></div>
+                    <div class="tag-info"><code>&lt;article&gt;</code><span>Bài viết độc lập</span></div>
+                    <div class="tag-info"><code>&lt;aside&gt;</code><span>Nội dung phụ</span></div>
+                    <div class="tag-info"><code>&lt;footer&gt;</code><span>Thông tin cuối trang</span></div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ASIDE: Thông tin bổ trợ, không phải nội dung chính của trang. -->
+        <aside class="sidebar" aria-label="Thông tin bổ sung">
+            <div class="aside-title">
+                <span class="aside-icon" aria-hidden="true">▦</span>
+                <div><p class="eyebrow">SIDEBAR / ASIDE</p><h2>Góc học tập</h2></div>
+            </div>
+            <div class="about-card">
+                <div class="about-icon" aria-hidden="true">💡</div>
+                <h3>Bạn có biết?</h3>
+                <p>HTML5 Semantic giúp trình duyệt và công nghệ hỗ trợ hiểu chức năng của từng vùng nội dung.</p>
+            </div>
+
+            <section class="sidebar-section" aria-labelledby="menu-heading">
+                <h3 id="menu-heading">Danh mục kiến thức</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#gioi-thieu"><span aria-hidden="true">◆</span> HTML5 cơ bản <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#bai-viet"><span aria-hidden="true">◆</span> CSS Layout <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#kien-thuc"><span aria-hidden="true">◆</span> Semantic Elements <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#lien-he"><span aria-hidden="true">◆</span> Liên hệ <span aria-hidden="true">›</span></a></li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section" aria-labelledby="progress-heading">
+                <h3 id="progress-heading">Các vùng đã sử dụng</h3>
+                <div class="progress-content">
+                    <div class="progress-top"><span>HTML5 Semantic</span><strong>6/6</strong></div>
+                    <div class="progress-track"><span></span></div>
+                    <p>Đầy đủ cấu trúc cho bài thực hành.</p>
+                </div>
+            </section>
+
+            <div class="aside-tip"><span aria-hidden="true">☆</span><p><strong>Mẹo:</strong> Hãy thử thu nhỏ cửa sổ trình duyệt để xem cột bên phải tự chuyển xuống dưới.</p></div>
+        </aside>
+    </div>
+
+    <!-- FOOTER: Thông tin cuối trang, bản quyền và liên kết phụ. -->
+    <footer class="site-footer" id="lien-he">
+        <div class="footer-inner">
+            <div class="footer-brand"><span aria-hidden="true">&lt;/&gt;</span><div><strong>WEBCRAFT</strong><p>Thực hành bố cục HTML5 và CSS</p></div></div>
+            <p class="copyright">© 2026 WebCraft. Bài tập CodeGym – HTML5 Semantic Layout.</p>
+            <a href="#trang-chu" class="back-top">↑ Về đầu trang</a>
+        </div>
+    </footer>
+</body>
+</html>
