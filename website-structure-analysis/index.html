@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài tập phân tích cấu trúc MDN Web Docs và dựng lại bố cục website đơn giản bằng HTML, CSS.">
+  <title>LearnWeb | Website Template Structure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER: logo / tiêu đề website -->
+  <header class="site-header" id="home">
+    <div class="container header-inner">
+      <a class="logo" href="#home"><span class="logo-symbol" aria-hidden="true">&lt;/&gt;</span>Learn<span class="logo-accent">Web</span></a>
+      <p class="header-tagline">Tài liệu học lập trình web dành cho người mới</p>
+      <span class="header-badge">HTML + CSS</span>
+    </div>
+  </header>
+
+  <!-- NAVIGATION: tối thiểu 4 mục điều hướng -->
+  <nav class="site-nav" aria-label="Điều hướng trang">
+    <div class="container nav-inner">
+      <a class="nav-link current" href="#home">Trang chủ</a>
+      <a class="nav-link" href="#html">HTML</a>
+      <a class="nav-link" href="#css">CSS</a>
+      <a class="nav-link" href="#javascript">JavaScript</a>
+      <a class="nav-link" href="#api">Web APIs</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- CONTENT SECTION: phần giới thiệu và các nhóm nội dung -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <span class="overline">KHÁM PHÁ LẬP TRÌNH WEB</span>
+          <h1 id="hero-title">Học kiến thức nền tảng.<br><span>Xây dựng tương lai.</span></h1>
+          <p>Trang này dựng lại bố cục ở mức cơ bản dựa trên cách tổ chức nội dung của MDN Web Docs: tiêu đề trang, menu điều hướng, các nhóm tài liệu và chân trang.</p>
+          <a class="primary-button" href="#topics">Khám phá chủ đề <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-browser">
+            <div class="mock-header"><i></i><i></i><i></i><span>learnweb / docs</span></div>
+            <div class="mock-body"><div class="mock-sidebar"><b></b><b></b><b></b><b></b></div><div class="mock-content"><strong>&lt;html&gt;</strong><span></span><span></span><span></span><em>&lt;/html&gt;</em></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="topics" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-heading"><span class="overline">CONTENT SECTION</span><h2 id="topics-title">Các chủ đề nổi bật</h2><p>Nội dung chính được trình bày thành các thẻ đơn giản, dễ đọc và dễ mở rộng.</p></div>
+        <div class="content-grid">
+          <article class="topic-card" id="html">
+            <div class="topic-icon html-icon" aria-hidden="true">&lt;/&gt;</div>
+            <h3>HTML</h3>
+            <p>Ngôn ngữ đánh dấu dùng để tổ chức tiêu đề, văn bản, hình ảnh và cấu trúc trang web.</p>
+            <a href="#about">Tìm hiểu thêm <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="topic-card" id="css">
+            <div class="topic-icon css-icon" aria-hidden="true">#</div>
+            <h3>CSS</h3>
+            <p>Định dạng màu sắc, khoảng cách, kiểu chữ và bố cục giúp website dễ nhìn hơn.</p>
+            <a href="#about">Tìm hiểu thêm <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="topic-card" id="javascript">
+            <div class="topic-icon js-icon" aria-hidden="true">{ }</div>
+            <h3>JavaScript</h3>
+            <p>Ngôn ngữ lập trình bổ sung tương tác và xử lý hành vi trên trang web.</p>
+            <a href="#about">Tìm hiểu thêm <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="topic-card" id="api">
+            <div class="topic-icon api-icon" aria-hidden="true">↗</div>
+            <h3>Web APIs</h3>
+            <p>Các giao diện lập trình cho phép trang web tương tác với khả năng của trình duyệt.</p>
+            <a href="#about">Tìm hiểu thêm <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-layout">
+        <div><span class="overline">BÀI TẬP PHÂN TÍCH</span><h2>Bốn thành phần cấu tạo website</h2></div>
+        <div class="about-items">
+          <p><strong>01. Header:</strong> Hiển thị nhận diện thương hiệu và tên website.</p>
+          <p><strong>02. Navigation:</strong> Giúp người dùng chuyển đến các nhóm nội dung.</p>
+          <p><strong>03. Content:</strong> Giới thiệu và trình bày thông tin chính của trang.</p>
+          <p><strong>04. Footer:</strong> Chứa bản quyền cùng các liên kết bổ sung.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER: bản quyền và liên kết -->
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <div><strong class="footer-brand">⌘ LearnWeb</strong><p>© 2026 LearnWeb. Bài tập HTML &amp; CSS — CodeGym.</p><p class="source-note">Giao diện mô phỏng bố cục, không phải website chính thức của MDN.</p></div>
+      <div class="footer-links"><span>THAM KHẢO</span><a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener noreferrer">MDN Web Docs ↗</a><a href="#topics">Chủ đề</a><a href="#home">Lên đầu trang ↑</a></div>
+    </div>
+  </footer>
+</body>
+</html>
