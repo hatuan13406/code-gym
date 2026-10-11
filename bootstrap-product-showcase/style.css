@@ -1,0 +1,30 @@
+/* Product showcase – ưu tiên Bootstrap utilities; chỉ thêm chi tiết thương hiệu/ảnh */
+:root{--brand:#326ac9}
+html{scroll-behavior:smooth;scroll-padding-top:91px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#202632}
+.navbar-brand{letter-spacing:-1px}
+.nav-link{font-weight:600;font-size:14px}
+.navbar .btn-primary,.cta-section .btn-primary,.hero-section .btn-primary{background:#236dd7;border-color:#236dd7}
+.navbar .btn-primary:hover,.cta-section .btn-primary:hover,.hero-section .btn-primary:hover{background:#155bbd;border-color:#155bbd}
+.hero-section{background:linear-gradient(125deg,#fcfdff,#eaf1fa 75%,#e3f1f1)}
+.hero-image-wrap{max-width:800px}
+.hero-image{width:100%;max-height:630px;object-fit:contain;filter:drop-shadow(0 22px 27px #3f648224)}
+.gradient-text{background:linear-gradient(90deg,#367bce,#167b9c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro{max-width:745px}
+.feature-icon{width:63px;height:63px;font-size:19px}
+.card-body p{line-height:1.8}
+.design-visual img{max-height:480px;object-fit:contain}
+.tracking{letter-spacing:1.5px}
+.color-choice{display:grid;place-items:center;background:transparent;border:2px solid transparent;border-radius:50%;padding:4px;width:37px;height:37px}
+.color-choice.active{border-color:#286cce}
+.swatch{display:block;width:24px;height:24px;border-radius:50%;border:1px solid #b2bdc8}
+.swatch.silver{background:linear-gradient(135deg,#e2f6fb,#6595ad)}
+.swatch.violet{background:linear-gradient(135deg,#eadff5,#847bb7)}
+.swatch.graphite{background:linear-gradient(135deg,#848c9a,#2d3545)}
+.spec-description{max-width:350px;font-size:13px}
+.spec-tile{background:#ffffff13;border:1px solid #ffffff23}
+.display-contents-demo{display:contents}
+.cta-description{max-width:620px}
+a:focus-visible,button:focus-visible{outline:3px solid #e3ad4f;outline-offset:3px}
+@media(max-width:767.98px){.hero-image{max-height:385px}.display-3{font-size:clamp(38px,9vw,55px)}.spec-tile{padding:18px 10px!important}.spec-tile h3{font-size:23px}.spec-tile p{font-size:11px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AURA One Pro — trang giới thiệu sản phẩm minh họa bằng Bootstrap 5 Grid, Flexbox, Font Awesome, margin và padding.">
+<title>AURA One Pro | Thiết kế trang giới thiệu sản phẩm</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<!-- Navbar dùng display Bootstrap; thương hiệu sản phẩm là hư cấu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3" aria-label="Điều hướng chính">
+ <div class="container">
+  <a href="#home" class="navbar-brand fw-bold fs-4">AURA<span class="text-primary">.</span></a>
+  <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-expanded="false" aria-controls="navbarMenu" aria-label="Mở hoặc đóng menu"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navbarMenu">
+    <ul class="navbar-nav mx-auto gap-lg-3"><li class="nav-item"><a href="#home" class="nav-link active" aria-current="page">Tổng quan</a></li><li class="nav-item"><a href="#features" class="nav-link">Tính năng</a></li><li class="nav-item"><a href="#design" class="nav-link">Thiết kế</a></li><li class="nav-item"><a href="#specs" class="nav-link">Thông số</a></li></ul>
+    <a href="#order" class="btn btn-primary rounded-pill px-4 fw-semibold mt-3 mt-lg-0">Khám phá ngay <i class="fa-solid fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i></a>
+  </div>
+ </div>
+</nav>
+<main>
+<!-- HERO – container, row, col-lg, spacing, justify-content & align-items -->
+<section id="home" class="hero-section py-5">
+ <div class="container py-lg-5">
+  <div class="row align-items-center g-5">
+   <div class="col-lg-5 order-2 order-lg-1">
+    <span class="badge rounded-pill text-bg-light border py-2 px-3 mb-3"><i class="fa-solid fa-wand-magic-sparkles text-primary me-2" aria-hidden="true"></i> GIỚI THIỆU SẢN PHẨM</span>
+    <h1 class="display-3 fw-bold lh-sm mb-3">Tuyệt tác<br><span class="gradient-text">trong tay bạn.</span></h1>
+    <p class="fs-5 text-secondary mb-4">AURA One Pro. Thiết kế thanh lịch, trải nghiệm mượt mà và công nghệ dành cho cuộc sống hiện đại.</p>
+    <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+      <a class="btn btn-primary btn-lg rounded-pill px-4" href="#features">Khám phá tính năng <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i></a>
+      <a class="btn btn-outline-dark btn-lg rounded-pill px-4" href="#design">Xem thiết kế</a>
+    </div>
+    <div class="d-flex flex-wrap align-items-center gap-3 text-secondary small"><span><i class="fa-solid fa-check text-success me-1" aria-hidden="true"></i> Thanh lịch</span><span><i class="fa-solid fa-check text-success me-1" aria-hidden="true"></i> Tiện lợi</span><span><i class="fa-solid fa-check text-success me-1" aria-hidden="true"></i> Hiện đại</span></div>
+   </div>
+   <div class="col-lg-7 order-1 order-lg-2 d-flex justify-content-center align-items-center">
+     <div class="hero-image-wrap text-center w-100"><img class="img-fluid hero-image" src="images/aura-phone.svg" alt="Hình minh họa mặt trước và mặt sau AURA One Pro màu xanh bạc" width="880" height="700"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- feature section: 3 cards, bootstrap Grid, spacing + flex -->
+<section class="py-5 bg-light" id="features">
+ <div class="container py-lg-5">
+  <div class="text-center mx-auto section-intro mb-5"><span class="text-primary fw-bold small text-uppercase tracking">Một bước tiến khác biệt</span><h2 class="display-5 fw-bold my-3">Những điều làm nên AURA.</h2><p class="lead text-secondary">Mọi chi tiết được thiết kế để tạo nên một trải nghiệm đơn giản, mạnh mẽ và truyền cảm hứng.</p></div>
+  <div class="row g-4">
+   <div class="col-12 col-md-4"><article class="card h-100 border-0 rounded-4 shadow-sm"><div class="card-body p-4 p-xl-5 d-flex flex-column"><span class="feature-icon bg-primary-subtle text-primary rounded-4 d-inline-flex justify-content-center align-items-center mb-4"><i class="fa-solid fa-camera fa-xl" aria-hidden="true"></i></span><h3 class="h4 fw-bold">Camera sáng tạo</h3><p class="text-secondary mb-4">Lưu giữ những khoảnh khắc theo cách riêng của bạn, từ đời thường đến những chuyến đi xa.</p><div class="mt-auto small text-primary fw-semibold">Ghi lại từng cảm xúc <i class="fa-solid fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i></div></div></article></div>
+   <div class="col-12 col-md-4"><article class="card h-100 border-0 rounded-4 shadow-sm"><div class="card-body p-4 p-xl-5 d-flex flex-column"><span class="feature-icon bg-success-subtle text-success rounded-4 d-inline-flex justify-content-center align-items-center mb-4"><i class="fa-solid fa-bolt fa-xl" aria-hidden="true"></i></span><h3 class="h4 fw-bold">Hiệu năng linh hoạt</h3><p class="text-secondary mb-4">Sẵn sàng cho công việc, giải trí và khám phá ý tưởng mới trong từng thao tác.</p><div class="mt-auto small text-success fw-semibold">Mượt mà theo nhịp sống <i class="fa-solid fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i></div></div></article></div>
+   <div class="col-12 col-md-4"><article class="card h-100 border-0 rounded-4 shadow-sm"><div class="card-body p-4 p-xl-5 d-flex flex-column"><span class="feature-icon bg-warning-subtle text-warning-emphasis rounded-4 d-inline-flex justify-content-center align-items-center mb-4"><i class="fa-solid fa-shield-halved fa-xl" aria-hidden="true"></i></span><h3 class="h4 fw-bold">Trải nghiệm an tâm</h3><p class="text-secondary mb-4">Giao diện rõ ràng, thuận tiện và lấy nhu cầu của người dùng làm trung tâm.</p><div class="mt-auto small text-warning-emphasis fw-semibold">Tập trung vào điều quan trọng <i class="fa-solid fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i></div></div></article></div>
+  </div>
+ </div>
+</section>
+
+<section id="design" class="py-5">
+ <div class="container py-lg-5">
+  <div class="row g-5 align-items-center">
+   <div class="col-lg-6 d-flex justify-content-center align-items-center">
+    <div class="design-visual bg-light rounded-4 p-4 p-md-5 w-100 text-center"><img src="images/aura-camera.svg" class="img-fluid" alt="Hình minh họa cụm ba camera của điện thoại AURA" width="700" height="580"></div>
+   </div>
+   <div class="col-lg-6">
+    <span class="text-primary fw-bold text-uppercase small tracking">Thiết kế có chủ đích</span>
+    <h2 class="display-5 fw-bold mt-3 mb-4">Đẹp ở mọi góc nhìn.</h2>
+    <p class="fs-5 text-secondary mb-4">Bề mặt tinh giản, các đường nét mềm mại và màu sắc hài hòa. AURA One Pro là sản phẩm mẫu dành cho bài thực hành giao diện.</p>
+    <div class="d-flex flex-wrap gap-3 align-items-center mb-4" aria-label="Chọn màu điện thoại">
+      <span class="fw-semibold">Màu sắc minh họa</span>
+      <button type="button" class="color-choice active" data-color="silver" aria-pressed="true" aria-label="Chọn màu Xanh bạc" title="Xanh bạc"><span class="swatch silver"></span></button>
+      <button type="button" class="color-choice" data-color="violet" aria-pressed="false" aria-label="Chọn màu Tím khói" title="Tím khói"><span class="swatch violet"></span></button>
+      <button type="button" class="color-choice" data-color="graphite" aria-pressed="false" aria-label="Chọn màu Than chì" title="Than chì"><span class="swatch graphite"></span></button>
+      <span class="small text-secondary" id="selectedColor" aria-live="polite">Xanh bạc</span>
+    </div>
+    <a href="#specs" class="btn btn-outline-dark rounded-pill px-4 py-2">Xem chi tiết <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i></a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="specs" class="py-5 bg-dark text-white">
+ <div class="container py-lg-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-end gap-4 mb-5"><div><span class="text-info text-uppercase fw-bold small tracking">Trải nghiệm AURA</span><h2 class="display-5 fw-bold mt-3 mb-0">Được tạo nên cho bạn.</h2></div><p class="text-white-50 mb-0 spec-description">Thông số dưới đây chỉ để minh họa cấu trúc trang sản phẩm, không phải thông tin thiết bị có bán.</p></div>
+  <!-- CSS display:contents demo: wrapper không tạo thêm hộp bố cục -->
+  <div class="row g-4 justify-content-center">
+   <div class="display-contents-demo">
+    <div class="col-6 col-md-3"><div class="p-4 text-center rounded-4 spec-tile h-100"><i class="fa-solid fa-mobile-screen-button fs-3 text-info mb-3" aria-hidden="true"></i><h3 class="h3 fw-bold">6.7”</h3><p class="mb-0 small text-white-50">Màn hình minh họa</p></div></div>
+    <div class="col-6 col-md-3"><div class="p-4 text-center rounded-4 spec-tile h-100"><i class="fa-solid fa-camera fs-3 text-info mb-3" aria-hidden="true"></i><h3 class="h3 fw-bold">3</h3><p class="mb-0 small text-white-50">Camera mô phỏng</p></div></div>
+    <div class="col-6 col-md-3"><div class="p-4 text-center rounded-4 spec-tile h-100"><i class="fa-solid fa-palette fs-3 text-info mb-3" aria-hidden="true"></i><h3 class="h3 fw-bold">3</h3><p class="mb-0 small text-white-50">Màu sắc</p></div></div>
+    <div class="col-6 col-md-3"><div class="p-4 text-center rounded-4 spec-tile h-100"><i class="fa-solid fa-heart fs-3 text-info mb-3" aria-hidden="true"></i><h3 class="h3 fw-bold">100%</h3><p class="mb-0 small text-white-50">Cảm hứng sáng tạo</p></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="py-5 text-center cta-section" id="order">
+ <div class="container py-lg-5"><span class="text-primary small fw-bold text-uppercase tracking">AURA ONE PRO</span><h2 class="display-5 fw-bold mt-3 mb-3">Sẵn sàng khám phá điều mới?</h2><p class="lead text-secondary mx-auto cta-description mb-4">Đây là trang giới thiệu sản phẩm hư cấu, phục vụ việc học Bootstrap. Không có chức năng đặt mua thực tế.</p><a class="btn btn-primary btn-lg rounded-pill px-5" href="#home">Khám phá lại sản phẩm <i class="fa-solid fa-arrow-up ms-2" aria-hidden="true"></i></a></div>
+</section>
+</main>
+<footer class="py-4 border-top bg-light"><div class="container d-flex flex-column flex-md-row justify-content-between gap-2 align-items-center small"><strong>AURA<span class="text-primary">.</span></strong><span class="text-secondary">© 2026 AURA One Pro · Bài tập CodeGym · Sản phẩm minh họa</span><a class="text-decoration-none fw-semibold" href="#home">Về đầu trang ↑</a></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>
