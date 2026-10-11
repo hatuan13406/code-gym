@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeGym: web template HTML và CSS với navbar, tìm kiếm, Web Technology, C Programming, Java và flex-direction row-reverse.">
+  <title>DevSpace | Web Development Template</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <nav class="navbar background" aria-label="Menu điều hướng chính">
+    <div class="nav-inner">
+      <a class="logo" href="#home" aria-label="DevSpace - Trang chủ">
+        <img src="images/logo.svg" alt="" width="40" height="40">
+        <span>dev<span class="brand-accent">space</span><span class="brand-period">.</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Mở menu"><span></span><span></span><span></span></button>
+      <ul class="nav-list" id="navMenu">
+        <li><a href="#web" class="nav-link active">Web Technology</a></li>
+        <li><a href="#program" class="nav-link">C Programming</a></li>
+        <li><a href="#java" class="nav-link">Java</a></li>
+        <li><a href="#course" class="nav-link">Courses</a></li>
+      </ul>
+      <form class="rightNav" id="searchForm" role="search">
+        <label class="sr-only" for="search">Tìm nội dung học tập</label>
+        <input type="search" name="search" id="search" placeholder="Tìm khóa học..." autocomplete="off">
+        <button class="btn btn-sm" type="submit"><span aria-hidden="true">⌕</span> Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> KHÁM PHÁ THẾ GIỚI LẬP TRÌNH</div>
+        <h1>Học công nghệ.<br><span>Tạo tương lai.</span></h1>
+        <p>Từ những dòng HTML đầu tiên đến lập trình C và Java — xây dựng nền tảng vững chắc qua từng bài học.</p>
+        <div class="hero-actions">
+          <a class="hero-button primary" href="#web">Khám phá ngay <span aria-hidden="true">↗</span></a>
+          <a class="hero-button secondary" href="#course">Xem khóa học <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-meta"><span>✦ Kiến thức nền tảng</span><span>✦ Thực hành trực quan</span></div>
+      </div>
+      <img class="hero-illustration" src="images/hero-code.svg" alt="Minh họa cửa sổ lập trình với các đoạn mã HTML, CSS và Java" width="580" height="450">
+    </div>
+  </header>
+
+  <main>
+    <div class="section-heading" id="course">
+      <span class="overline">BẮT ĐẦU HÀNH TRÌNH</span>
+      <h2>Khám phá các lĩnh vực</h2>
+      <p>Ba nền tảng quan trọng để bắt đầu con đường phát triển phần mềm.</p>
+    </div>
+
+    <section class="firstsection topic-section" id="web" aria-labelledby="webTitle">
+      <div class="box-main">
+        <div class="firstHalf topic-copy">
+          <span class="topic-number">01 / WEB DEVELOPMENT</span>
+          <div class="topic-icon blue">〈/〉</div>
+          <h2 class="text-big" id="webTitle">Web Technology</h2>
+          <p class="text-small">HTML (HyperText Markup Language) là ngôn ngữ đánh dấu dùng để xây dựng cấu trúc của trang web. HTML kết hợp với CSS để thiết kế giao diện và JavaScript để tạo ra các tương tác. Đây là những công nghệ nền tảng giúp trình duyệt hiển thị văn bản, hình ảnh và nội dung trực tuyến.</p>
+          <div class="topic-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <a class="learn-link" href="#program">Tiếp theo: C Programming <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="topic-visual web-visual" aria-hidden="true"><div class="mini-window"><div class="mini-top"><i></i><i></i><i></i><small>index.html</small></div><div class="mini-code"><span><b>&lt;html&gt;</b></span><span class="indent"><em>&lt;header&gt;</em> DevSpace <em>&lt;/header&gt;</em></span><span class="indent"><em>&lt;h1&gt;</em> Hello World <em>&lt;/h1&gt;</em></span><span class="indent"><em>&lt;p&gt;</em> Let's build! <em>&lt;/p&gt;</em></span><span><b>&lt;/html&gt;</b></span></div></div><span class="floating-chip">HTML + CSS</span></div>
+      </div>
+    </section>
+
+    <section class="secondsection topic-section" id="program" aria-labelledby="programTitle">
+      <div class="box-main section-Left">
+        <div class="topic-copy secondHalf">
+          <span class="topic-number">02 / SYSTEM PROGRAMMING</span>
+          <div class="topic-icon purple">{ C }</div>
+          <h2 class="text-big" id="programTitle">C Programming</h2>
+          <p class="text-small">C là ngôn ngữ lập trình thủ tục được Dennis Ritchie phát triển vào đầu thập niên 1970. Với khả năng truy cập bộ nhớ ở mức thấp, cú pháp gọn và hiệu năng tốt, C phù hợp để phát triển hệ điều hành, trình biên dịch và nhiều phần mềm hệ thống.</p>
+          <div class="topic-tags"><span>Algorithms</span><span>Memory</span><span>Systems</span></div>
+          <a class="learn-link" href="#java">Tiếp theo: Java <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="topic-visual c-visual" aria-hidden="true"><div class="mini-window"><div class="mini-top"><i></i><i></i><i></i><small>hello.c</small></div><div class="mini-code"><span class="colored">#include &lt;stdio.h&gt;</span><span>&nbsp;</span><span>int main(void) {</span><span class="indent">printf(<em>"Hello World!"</em>);</span><span class="indent"><b>return</b> 0;</span><span>}</span></div></div><span class="floating-chip">C LANGUAGE</span></div>
+      </div>
+    </section>
+
+    <section class="section java-section" id="java" aria-labelledby="javaTitle">
+      <div class="paras">
+        <span class="topic-number">03 / OBJECT-ORIENTED PROGRAMMING</span>
+        <div class="topic-icon orange">☕</div>
+        <h2 class="sectionTag text-big" id="javaTitle">Java</h2>
+        <p class="sectionSubTag text-small">Java là ngôn ngữ lập trình hướng đối tượng được sử dụng rộng rãi. Mã nguồn Java được biên dịch thành bytecode và có thể chạy trên nhiều nền tảng thông qua Java Virtual Machine (JVM). Java được ứng dụng trong hệ thống doanh nghiệp, phần mềm máy chủ và nhiều lĩnh vực khác.</p>
+        <div class="topic-tags"><span>OOP</span><span>JVM</span><span>Backend</span></div>
+        <a class="learn-link" href="#home">Trở về đầu trang <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="thumbnail"><img src="images/laptop.svg" alt="Minh họa máy tính xách tay với màn hình hiển thị mã Java" width="480" height="340"></div>
+    </section>
+
+    <section class="ending-section">
+      <span class="overline">BẠN ĐÃ SẴN SÀNG?</span>
+      <h2>Bắt đầu từ một dòng code.</h2>
+      <p>Học hỏi mỗi ngày và biến kiến thức thành những sản phẩm của riêng bạn.</p>
+      <a class="hero-button primary" href="#web">Ôn lại kiến thức <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="background">
+    <div class="footer-inner"><span class="footer-brand">✳ devspace.</span><p class="text-footer">Copyright © 2026 — All rights are reserved · Thực hành HTML & CSS — CodeGym</p><a href="#home">↑ Lên đầu trang</a></div>
+  </footer>
+  <div id="searchMessage" class="search-message" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
