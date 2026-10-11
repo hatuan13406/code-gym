@@ -1,0 +1,30 @@
+/* CSS bổ sung tối thiểu – bố cục, spacing, form và carousel chủ yếu dùng Bootstrap. */
+:root{--primary:#6154d8}
+body{background:#f6f7fb;color:#26334a}
+.brand{font-size:21px;font-weight:800;color:#26334a;letter-spacing:-.7px}
+.brand-mark{display:grid;place-items:center;width:37px;height:37px;background:#6757d9;color:white;border-radius:10px;font-size:23px}
+.brand-emphasis{color:#6757d9;margin-left:-8px}
+.benefit-panel{background:linear-gradient(145deg,#342f89,#6962c8);min-height:640px}
+.benefit-panel h1{letter-spacing:-1.2px;line-height:1.17}
+.benefit-panel h1 span{color:#ddd9ff}
+.overline,.heading-kicker{font-size:11px;letter-spacing:1.5px;font-weight:800}
+.overline{color:#d5d0ff}
+.lead-sub{color:#e4e1ff;font-size:14px;line-height:1.75}
+.benefit-image{height:390px;object-fit:cover;object-position:center}
+#benefitCarousel .carousel-caption{bottom:38px;left:9%;right:9%;text-shadow:0 1px 6px #20205277;display:none}
+#benefitCarousel .carousel-control-next,#benefitCarousel .carousel-control-prev{width:9%;opacity:.8}
+#benefitCarousel .carousel-indicators{bottom:0;margin-bottom:11px}
+.benefit-number{font-size:10px;letter-spacing:1px}
+.panel-chips{color:#eeeaff}
+.form-control,.input-group-text,.toggle-password{min-height:47px}
+.input-group-text{background:#f3f5fb;border-color:#e2e5ed}
+.form-control{border-color:#e2e5ed}
+.form-control:focus{box-shadow:0 0 0 .2rem #6a5dd51d;border-color:#897de7}
+.btn-primary{background:#6254d7;border-color:#6254d7}
+.btn-primary:hover,.btn-primary:focus{background:#5345c1;border-color:#5345c1}
+.form-label{font-size:13px}
+.toggle-password{font-size:12px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #ebc86e;outline-offset:3px}
+@media(max-width:991.98px){.benefit-panel{min-height:0}.benefit-image{height:340px}}
+@media(max-width:575.98px){.benefit-image{height:285px}.benefit-panel h1{font-size:30px}.lead-sub{font-size:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

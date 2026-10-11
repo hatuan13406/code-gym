@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bài tập Bootstrap: trang đăng ký người dùng với Carousel 3 lợi ích, form kiểm tra đầu vào, responsive desktop và mobile.">
+  <title>Đăng ký tài khoản | MemberSpace</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="border-bottom bg-white py-3">
+    <div class="container d-flex justify-content-between align-items-center gap-3">
+      <a class="brand d-inline-flex align-items-center gap-2 text-decoration-none" href="#top">
+        <span class="brand-mark" aria-hidden="true">✳</span> Member<span class="brand-emphasis">Space</span>
+      </a>
+      <span class="text-secondary small d-none d-sm-block">BÀI TẬP BOOTSTRAP FORMS &amp; CAROUSEL</span>
+      <span class="badge rounded-pill text-bg-light border p-2">Bootstrap 5.3</span>
+    </div>
+  </header>
+
+  <main class="container py-4 py-lg-5" id="top">
+    <div class="row g-4 g-lg-5 align-items-stretch">
+      <!-- Bootstrap Carousel: hình SVG nằm trong chính repository, không lỗi link ảnh -->
+      <section class="col-12 col-lg-6" aria-labelledby="benefits-heading">
+        <div class="benefit-panel h-100 overflow-hidden rounded-4 text-white d-flex flex-column">
+          <div class="px-4 px-md-5 pt-4 pt-md-5">
+            <span class="overline text-uppercase">✦ Không gian dành cho bạn</span>
+            <h1 id="benefits-heading" class="display-5 fw-bold mt-3 mb-3">Tham gia hôm nay.<br><span>Khám phá nhiều hơn.</span></h1>
+            <p class="lead-sub mb-0">Tạo tài khoản để bắt đầu trải nghiệm một nền tảng minh họa hiện đại, tiện lợi và dễ sử dụng.</p>
+          </div>
+          <div id="benefitCarousel" class="carousel slide carousel-fade mt-auto" data-bs-ride="carousel" data-bs-interval="4500" aria-label="Lợi ích khi đăng ký">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#benefitCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Lợi ích 1"></button>
+              <button type="button" data-bs-target="#benefitCarousel" data-bs-slide-to="1" aria-label="Lợi ích 2"></button>
+              <button type="button" data-bs-target="#benefitCarousel" data-bs-slide-to="2" aria-label="Lợi ích 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100 benefit-image" src="images/benefit-easy.svg" alt="Minh họa ứng dụng dễ sử dụng và thao tác nhanh">
+                <div class="carousel-caption text-start"><span class="benefit-number">01 / 03</span><h2 class="h5 fw-bold">Đăng ký dễ dàng</h2><p>Chỉ cần vài thông tin cơ bản để bắt đầu.</p></div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 benefit-image" src="images/benefit-secure.svg" alt="Minh họa bảo mật với biểu tượng ổ khóa">
+                <div class="carousel-caption text-start"><span class="benefit-number">02 / 03</span><h2 class="h5 fw-bold">Trải nghiệm an toàn</h2><p>Form kiểm tra thông tin trước khi xác nhận.</p></div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 benefit-image" src="images/benefit-experience.svg" alt="Minh họa giao diện nội dung và các tiện ích">
+                <div class="carousel-caption text-start"><span class="benefit-number">03 / 03</span><h2 class="h5 fw-bold">Giao diện thân thiện</h2><p>Thiết kế phù hợp cho desktop và điện thoại.</p></div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#benefitCarousel" data-bs-slide="prev" aria-label="Lợi ích trước"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#benefitCarousel" data-bs-slide="next" aria-label="Lợi ích tiếp theo"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+          </div>
+          <div class="px-4 px-md-5 pb-4 d-flex flex-wrap gap-3 small panel-chips">
+            <span>✓ Dễ sử dụng</span><span>✓ Responsive</span><span>✓ Kiểm tra dữ liệu</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bootstrap Forms / Input Group / Buttons -->
+      <section class="col-12 col-lg-6 d-flex align-items-center" aria-labelledby="register-heading">
+        <div class="w-100 bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+          <span class="text-uppercase text-primary fw-bold small heading-kicker">Chào mừng bạn</span>
+          <h2 id="register-heading" class="h2 fw-bold mt-2 mb-2">Tạo tài khoản mới</h2>
+          <p class="text-secondary mb-4">Điền các thông tin dưới đây để hoàn thành bài thực hành đăng ký.</p>
+
+          <form id="registerForm" class="needs-validation" novalidate>
+            <div id="formAlert" class="alert d-none" role="status" aria-live="polite"></div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="fullName">Họ và tên <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" aria-hidden="true">👤</span>
+                <input type="text" class="form-control" id="fullName" name="fullName" minlength="2" maxlength="100" autocomplete="name" placeholder="Nguyễn Văn An" required>
+                <div class="invalid-feedback">Họ và tên cần ít nhất 2 ký tự.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="email">Địa chỉ email <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" aria-hidden="true">@</span>
+                <input type="email" class="form-control" id="email" name="email" autocomplete="email" placeholder="ban@example.com" required>
+                <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="password">Mật khẩu <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" aria-hidden="true">🔒</span>
+                <input type="password" class="form-control" id="password" name="password" minlength="8" autocomplete="new-password" placeholder="Ít nhất 8 ký tự" required>
+                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="password" aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button>
+                <div class="invalid-feedback">Mật khẩu phải có ít nhất 8 ký tự.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="confirmPassword">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" aria-hidden="true">✓</span>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" autocomplete="new-password" placeholder="Nhập lại mật khẩu" required>
+                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="confirmPassword" aria-label="Hiện mật khẩu xác nhận" aria-pressed="false">Hiện</button>
+                <div class="invalid-feedback">Mật khẩu xác nhận phải trùng với mật khẩu.</div>
+              </div>
+            </div>
+
+            <div class="form-check my-4">
+              <input class="form-check-input" type="checkbox" id="agreement" required>
+              <label class="form-check-label small text-secondary" for="agreement">Tôi đã hiểu đây là <strong>form thực hành</strong>, không tạo tài khoản thực và không gửi dữ liệu lên máy chủ.</label>
+              <div class="invalid-feedback">Vui lòng xác nhận trước khi tiếp tục.</div>
+            </div>
+
+            <button class="btn btn-primary btn-lg w-100 fw-semibold py-3" type="submit">Đăng ký ngay <span aria-hidden="true">→</span></button>
+            <p class="text-center text-muted small mt-3 mb-0">Không cần backend · Không lưu mật khẩu · Dành cho CodeGym</p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="bg-white border-top py-4 mt-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span class="text-secondary small">© 2026 MemberSpace · Bài tập Bootstrap Forms &amp; Carousel – CodeGym</span>
+      <a class="text-decoration-none small fw-semibold" href="#top">↑ Về đầu trang</a>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
