@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeGym: thiết kế trang web responsive bằng Bootstrap Container và Grid System, bố cục 8/4 trên desktop, một cột trên mobile, Navbar có dropdown.">
+  <title>GridLab | Bootstrap Grid System</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header" id="home">
+    <div class="container d-flex align-items-center justify-content-between gap-3 flex-wrap py-3">
+      <a href="#home" class="brand text-decoration-none d-inline-flex align-items-center gap-2">
+        <span class="brand-logo" aria-hidden="true">▦</span><span>Grid<span class="brand-accent">Lab</span></span>
+      </a>
+      <span class="header-caption">BÀI TẬP BOOTSTRAP CONTAINERS &amp; GRID SYSTEM</span>
+      <span class="header-status"><i aria-hidden="true"></i> RESPONSIVE LAYOUT</span>
+    </div>
+  </header>
+
+  <!-- Bootstrap Navbar: thu gọn ở kích thước < 992px, có dropdown thực -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-navbar sticky-top" aria-label="Thanh điều hướng">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-lg-none" href="#home">GridLab</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Mở hoặc đóng menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Trang chủ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gioi-thieu">Giới thiệu</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+              id="topicDropdown" data-bs-toggle="dropdown" aria-expanded="false">Chủ đề</a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="topicDropdown">
+              <li><a class="dropdown-item" href="#grid-system">Grid System</a></li>
+              <li><a class="dropdown-item" href="#bootstrap-navbar">Bootstrap Navbar</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#sidebar-info">Thông tin bổ sung</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+        </ul>
+        <span class="navbar-tag d-none d-lg-inline">HTML5 · CSS3 · BOOTSTRAP 5</span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="banner py-5" id="gioi-thieu" aria-labelledby="banner-title">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="banner-eyebrow">✦ KHÁM PHÁ BOOTSTRAP 5</span>
+            <h1 class="display-5 fw-bold mt-3 mb-3" id="banner-title">Một bố cục gọn gàng.<br><span>Mọi kích thước màn hình.</span></h1>
+            <p class="banner-description mb-4">Học cách kết hợp <strong>Bootstrap Container</strong>, <strong>Grid System</strong> và <strong>Navbar</strong> để xây dựng trang web với nội dung chính và Sidebar linh hoạt trên desktop, tablet và điện thoại.</p>
+            <a class="btn btn-light fw-bold px-4 py-3" href="#grid-system">Khám phá bố cục <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="col-lg-5" aria-hidden="true">
+            <div class="layout-illustration">
+              <div class="illus-top"><span></span><span></span><span></span><small>bootstrap-layout.html</small></div>
+              <div class="illus-nav"></div>
+              <div class="illus-row">
+                <div class="illus-main"><b></b><span></span><span></span><div><i></i><i></i></div></div>
+                <div class="illus-aside"><b></b><span></span><span></span><span></span></div>
+              </div>
+              <div class="illus-footer"></div>
+              <div class="illustration-label">8 : 4 GRID</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOTSTRAP GRID CỐT LÕI:
+      row + col-12 col-lg-8 + col-12 col-lg-4
+      lg bắt đầu tại 992px: 8/12 + 4/12 trên desktop;
+      dưới 992px cả hai đều col-12 => sidebar xếp dưới main.
+    -->
+    <div class="container main-layout py-5" id="grid-system">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-8">
+          <section class="content-panel" aria-labelledby="main-heading">
+            <span class="section-eyebrow">NỘI DUNG CHÍNH</span>
+            <h2 id="main-heading" class="section-heading mt-2 mb-3">Làm chủ Bootstrap Grid System</h2>
+            <p class="lead-copy">Bootstrap chia chiều rộng mỗi hàng thành <strong>12 phần</strong>. Chỉ cần kết hợp class cột, bố cục sẽ thay đổi theo kích thước màn hình mà không cần tự viết hệ thống lưới từ đầu.</p>
+
+            <div class="grid-highlight mt-4" aria-label="Minh họa bố cục 8 phần nội dung và 4 phần sidebar">
+              <div class="grid-left"><strong>8 / 12</strong><small>MAIN CONTENT</small></div>
+              <div class="grid-right"><strong>4 / 12</strong><small>SIDEBAR</small></div>
+            </div>
+
+            <div class="heading-line mt-4 mb-3" id="bootstrap-navbar"><span class="section-eyebrow">THÀNH PHẦN BẮT BUỘC</span><h3 class="h5 fw-bold mt-2">Các kỹ thuật được sử dụng</h3></div>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <article class="feature-card h-100">
+                  <span class="feature-icon icon-blue" aria-hidden="true">▧</span>
+                  <h4>Bootstrap Container</h4>
+                  <p>Giới hạn chiều rộng và căn giữa nội dung bằng <code>.container</code>.</p>
+                  <code class="code-label">class="container"</code>
+                </article>
+              </div>
+              <div class="col-12 col-md-6">
+                <article class="feature-card h-100">
+                  <span class="feature-icon icon-purple" aria-hidden="true">▦</span>
+                  <h4>Bootstrap Grid</h4>
+                  <p>Dùng <code>.row</code> và các cột <code>.col-lg-*</code> để chia tỉ lệ.</p>
+                  <code class="code-label">col-12 col-lg-8</code>
+                </article>
+              </div>
+              <div class="col-12 col-md-6">
+                <article class="feature-card h-100">
+                  <span class="feature-icon icon-teal" aria-hidden="true">☰</span>
+                  <h4>Navbar &amp; Dropdown</h4>
+                  <p>Menu có nút mở trên điện thoại và menu con Bootstrap.</p>
+                  <code class="code-label">navbar-expand-lg</code>
+                </article>
+              </div>
+              <div class="col-12 col-md-6">
+                <article class="feature-card h-100">
+                  <span class="feature-icon icon-orange" aria-hidden="true">⇲</span>
+                  <h4>Responsive Layout</h4>
+                  <p>Hai cột trên desktop; chuyển thành một cột khi dưới 992px.</p>
+                  <code class="code-label">col-12 col-lg-4</code>
+                </article>
+              </div>
+            </div>
+
+            <section class="code-section mt-4" aria-labelledby="code-heading">
+              <div class="code-section-heading d-flex justify-content-between align-items-center gap-2">
+                <h3 class="h6 mb-0" id="code-heading">Cấu trúc HTML quan trọng</h3><span>GRID 12 CỘT</span>
+              </div>
+              <pre class="code-block"><code>&lt;div class="container"&gt;
+  &lt;div class="row g-4"&gt;
+    &lt;main class="col-12 col-lg-8"&gt;
+      Main Content
+    &lt;/main&gt;
+    &lt;aside class="col-12 col-lg-4"&gt;
+      Sidebar
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <p class="code-note mb-0">Lưu ý: <strong><code>col-lg-*</code></strong> đổi thành hai cột ở <strong>≥992px</strong>. Dùng <code>col-md-*</code> sẽ đổi bố cục ngay từ 768px, không khớp breakpoint desktop trong đề.</p>
+            </section>
+          </section>
+        </div>
+
+        <aside class="col-12 col-lg-4" id="sidebar-info" aria-label="Thông tin phụ">
+          <div class="sidebar-intro mb-3">
+            <span class="section-eyebrow">THANH BÊN</span>
+            <h2 class="h4 fw-bold mt-2 mb-2">Góc thông tin</h2>
+            <p class="text-secondary sidebar-description mb-0">Trên desktop, Sidebar nằm bên phải. Trên màn hình dưới 992px, Sidebar chuyển xuống bên dưới nội dung chính.</p>
+          </div>
+          <section class="sidebar-card mb-3" aria-labelledby="news-heading">
+            <div class="d-flex gap-2 align-items-center mb-3"><span class="sidebar-icon purple" aria-hidden="true">✦</span><h3 class="h6 mb-0 fw-bold" id="news-heading">Bài viết liên quan</h3></div>
+            <a href="#grid-system" class="news-link"><span>01</span><div>Hệ thống lưới 12 cột<small>Bootstrap Grid · Cơ bản</small></div><b aria-hidden="true">↗</b></a>
+            <a href="#bootstrap-navbar" class="news-link"><span>02</span><div>Thanh điều hướng Navbar<small>Bootstrap Components</small></div><b aria-hidden="true">↗</b></a>
+            <a href="#code-heading" class="news-link"><span>03</span><div>Các lớp Responsive<small>Bootstrap Breakpoints</small></div><b aria-hidden="true">↗</b></a>
+          </section>
+          <section class="sidebar-card mb-3" aria-labelledby="stats-heading">
+            <div class="d-flex gap-2 align-items-center mb-3"><span class="sidebar-icon blue" aria-hidden="true">▤</span><h3 class="h6 mb-0 fw-bold" id="stats-heading">Thông số bố cục</h3></div>
+            <div class="stat-row"><span>Framework</span><strong>Bootstrap 5.3</strong></div>
+            <div class="stat-row"><span>Desktop</span><strong>8 / 4</strong></div>
+            <div class="stat-row"><span>Mobile</span><strong>12 / 12</strong></div>
+            <div class="stat-row"><span>Breakpoint</span><strong>992px (lg)</strong></div>
+          </section>
+          <div class="tip-card"><span class="tip-icon" aria-hidden="true">💡</span><h3 class="h6 fw-bold mt-2">Mẹo kiểm tra Responsive</h3><p>Nhấn <strong>F12</strong> → <strong>Ctrl + Shift + M</strong> rồi lần lượt thử <strong>1440px</strong>, <strong>992px</strong>, <strong>768px</strong> và <strong>375px</strong> để quan sát lưới thay đổi.</p><a href="#code-heading">Xem mã ví dụ →</a></div>
+        </aside>
+      </div>
+    </div>
+
+    <section class="contact-section py-5" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-panel text-center">
+          <span class="section-eyebrow">HOÀN THÀNH BÀI TẬP</span>
+          <h2 class="fw-bold mt-2" id="contact-heading">Thiết kế responsive dễ dàng với Bootstrap.</h2>
+          <p class="mx-auto mt-3 mb-4">Bạn đã có Navbar, Dropdown, Header, Main Content, Sidebar và Footer — tất cả được tổ chức bằng hệ thống Grid của Bootstrap.</p>
+          <a href="#home" class="btn btn-light fw-semibold px-4 py-3">Trở về đầu trang ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer py-4">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <strong class="footer-brand">▦ GridLab</strong>
+      <span>© 2026 · Bài tập Bootstrap Grid System – CodeGym</span>
+      <a href="#home">↑ Lên đầu trang</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
