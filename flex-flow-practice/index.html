@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS flex-flow | Thực hành CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="heading">
+      <span class="eyebrow">CODEGYM · THỰC HÀNH CSS FLEXBOX</span>
+      <h1>Khám phá <span>flex-flow</span></h1>
+      <p>Thuộc tính viết tắt kết hợp <strong>flex-direction</strong> và <strong>flex-wrap</strong>. So sánh cách các Flex Item thay đổi hướng sắp xếp.</p>
+      <div class="pills"><span>display: flex</span><span>flex-direction</span><span>flex-wrap</span></div>
+    </header>
+    <section class="example" aria-labelledby="title-1">
+      <div class="example-head"><div><span class="label">VÍ DỤ 01</span><h2 id="title-1">Row · Không đảo chiều</h2><p>Các phần tử được sắp xếp từ trái sang phải: 1 → 2 → 3.</p></div><code>flex-flow: row nowrap;</code></div>
+      <div class="demo-wrap"><div class="container-1" aria-label="Các item theo thứ tự 1 2 3"><div>1</div><div>2</div><div>3</div></div></div>
+      <div class="explanation"><strong>Giải thích:</strong> <code>row</code> đặt hướng theo hàng, <code>nowrap</code> giữ các item trên một dòng. Đây là giá trị mặc định của <code>flex-flow</code>.</div>
+    </section>
+    <section class="example" aria-labelledby="title-2">
+      <div class="example-head"><div><span class="label green">VÍ DỤ 02</span><h2 id="title-2">Row Reverse · Đảo chiều</h2><p>Các phần tử được sắp xếp từ phải sang trái: 3 ← 2 ← 1.</p></div><code class="code-green">flex-flow: row-reverse nowrap;</code></div>
+      <div class="demo-wrap"><div class="container-2" aria-label="Các item đảo chiều 3 2 1 khi quan sát từ trái sang phải"><div>1</div><div>2</div><div>3</div></div></div>
+      <div class="explanation"><strong>Giải thích:</strong> <code>row-reverse</code> đảo hướng của trục chính, nhưng <code>nowrap</code> vẫn giữ các item trên một dòng.</div>
+    </section>
+    <div class="note"><span aria-hidden="true">💡</span><p><strong>Ghi nhớ:</strong> <code>flex-flow</code> phải đặt trên phần tử cha có <code>display: flex</code>. <code>nowrap</code> không có nghĩa là item không thể co lại; Flexbox vẫn có thể co item khi thiếu chỗ.</p></div>
+  </main>
+  <footer>© 2026 · Bài thực hành CSS flex-flow · CodeGym</footer>
+</body>
+</html>
