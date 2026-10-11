@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Shopping Mall | Bootstrap 3 Layout</title>
+  <!-- Bài thực hành yêu cầu cú pháp và components Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="poly.css">
+</head>
+<body>
+<div class="container" id="home">
+  <!-- HEADER -->
+  <header class="row site-header">
+    <div class="shopping-mall">
+      <span class="header-label">✦ THE SHOPPING DESTINATION</span>
+      <h1>Online shopping mall</h1>
+      <h5>The center point of the professional programming</h5>
+    </div>
+    <img class="pull-right header-object" src="images/header-object.svg" alt="Minh họa giỏ hàng mua sắm">
+  </header>
+
+  <!-- NAVBAR: inverse + Glyphicons của Bootstrap 3 -->
+  <nav class="navbar navbar-inverse" aria-label="Điều hướng chính">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#shoppingMenu" aria-expanded="false" aria-controls="shoppingMenu" aria-label="Mở hoặc đóng menu">
+          <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home"><span class="glyphicon glyphicon-shopping-bag"></span> SHOPMALL</a>
+      </div>
+      <div class="collapse navbar-collapse" id="shoppingMenu">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+          <li><a href="#about"><span class="glyphicon glyphicon-list-alt"></span> Giới thiệu</a></li>
+          <li><a href="#contact"><span class="glyphicon glyphicon-earphone"></span> Liên hệ</a></li>
+          <li><a href="#feedback"><span class="glyphicon glyphicon-envelope"></span> Góp ý</a></li>
+          <li><a href="#faq"><span class="glyphicon glyphicon-question-sign"></span> Hỏi đáp</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Tài khoản <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#account">Đăng nhập</a></li><li><a href="#account">Đăng ký</a></li>
+              <li role="separator" class="divider"></li><li><a href="#contact">Hỗ trợ tài khoản</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <article class="col-sm-9">
+      <div class="section-heading" id="about"><div><span class="section-kicker">DANH MỤC NỔI BẬT</span><h2>Khám phá sản phẩm <span class="label label-primary">NEW</span></h2><p class="text-muted">Chọn sản phẩm bạn yêu thích — hình minh họa lưu ngay trong dự án.</p></div><span id="resultCount" class="result-count">6 sản phẩm</span></div>
+      <div class="row" id="productGrid"><div class="col-sm-4 col-xs-6 poly-prod" data-name="nokia lumia" data-category="Điện thoại di động">
+  <div class="panel panel-default product-card">
+    <div class="panel-heading"><h4 class="panel-title">Nokia Lumia</h4></div>
+    <div class="panel-body"><img src="images/product-1.svg" alt="Nokia Lumia" width="320" height="230"></div>
+    <div class="panel-footer"><strong>$ 100.25</strong> <button class="btn btn-xs btn-primary add-cart" type="button" data-product="Nokia Lumia" data-price="100.25"><span class="glyphicon glyphicon-shopping-cart"></span> Mua</button></div>
+  </div>
+</div>
+<div class="col-sm-4 col-xs-6 poly-prod" data-name="dell inspiron" data-category="Máy tính xách tay">
+  <div class="panel panel-default product-card">
+    <div class="panel-heading"><h4 class="panel-title">Dell Inspiron</h4></div>
+    <div class="panel-body"><img src="images/product-2.svg" alt="Dell Inspiron" width="320" height="230"></div>
+    <div class="panel-footer"><strong>$ 649.00</strong> <button class="btn btn-xs btn-primary add-cart" type="button" data-product="Dell Inspiron" data-price="649.00"><span class="glyphicon glyphicon-shopping-cart"></span> Mua</button></div>
+  </div>
+</div>
+<div class="col-sm-4 col-xs-6 poly-prod" data-name="máy tính hp" data-category="Máy tính để bàn">
+  <div class="panel panel-default product-card">
+    <div class="panel-heading"><h4 class="panel-title">Máy tính HP</h4></div>
+    <div class="panel-body"><img src="images/product-3.svg" alt="Máy tính HP" width="320" height="230"></div>
+    <div class="panel-footer"><strong>$ 425.50</strong> <button class="btn btn-xs btn-primary add-cart" type="button" data-product="Máy tính HP" data-price="425.50"><span class="glyphicon glyphicon-shopping-cart"></span> Mua</button></div>
+  </div>
+</div>
+<div class="col-sm-4 col-xs-6 poly-prod" data-name="quạt panasonic" data-category="Quạt máy">
+  <div class="panel panel-default product-card">
+    <div class="panel-heading"><h4 class="panel-title">Quạt Panasonic</h4></div>
+    <div class="panel-body"><img src="images/product-4.svg" alt="Quạt Panasonic" width="320" height="230"></div>
+    <div class="panel-footer"><strong>$ 86.90</strong> <button class="btn btn-xs btn-primary add-cart" type="button" data-product="Quạt Panasonic" data-price="86.90"><span class="glyphicon glyphicon-shopping-cart"></span> Mua</button></div>
+  </div>
+</div>
+<div class="col-sm-4 col-xs-6 poly-prod" data-name="samsung smart tv" data-category="Tivi">
+  <div class="panel panel-default product-card">
+    <div class="panel-heading"><h4 class="panel-title">Samsung Smart TV</h4></div>
+    <div class="panel-body"><img src="images/product-5.svg" alt="Samsung Smart TV" width="320" height="230"></div>
+    <div class="panel-footer"><strong>$ 389.00</strong> <button class="btn btn-xs btn-primary add-cart" type="button" data-product="Samsung Smart TV" data-price="389.00"><span class="glyphicon glyphicon-shopping-cart"></span> Mua</button></div>
+  </div>
+</div>
+<div class="col-sm-4 col-xs-6 poly-prod" data-name="tủ lạnh lg" data-category="Tủ lạnh">
+  <div class="panel panel-default product-card">
+    <div class="panel-heading"><h4 class="panel-title">Tủ lạnh LG</h4></div>
+    <div class="panel-body"><img src="images/product-6.svg" alt="Tủ lạnh LG" width="320" height="230"></div>
+    <div class="panel-footer"><strong>$ 539.90</strong> <button class="btn btn-xs btn-primary add-cart" type="button" data-product="Tủ lạnh LG" data-price="539.90"><span class="glyphicon glyphicon-shopping-cart"></span> Mua</button></div>
+  </div>
+</div></div>
+      <p id="emptyMessage" class="alert alert-info hidden" role="status">Không tìm thấy sản phẩm phù hợp. Hãy thử từ khóa khác hoặc chọn tất cả danh mục.</p>
+      <div class="info-panel" id="feedback"><span class="glyphicon glyphicon-info-sign"></span> Đây là trang <strong>thực hành giao diện Bootstrap 3</strong>. Giỏ hàng chỉ mô phỏng trong trình duyệt, không có thanh toán hoặc lưu thông tin.</div>
+    </article>
+
+    <aside class="col-sm-3">
+      <!-- GIỎ HÀNG -->
+      <div class="poly-cart" id="cart">
+        <div class="panel panel-default">
+          <div class="panel-body cart-content">
+            <div class="row">
+              <img class="col-xs-5" src="images/shoppingcart.svg" alt="Giỏ hàng">
+              <ul class="col-xs-7">
+                <li><strong id="cartCount">0 items</strong></li>
+                <li id="cartTotal">$ 0.00</li>
+                <li><a href="#cart">Xem giỏ hàng</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- TÌM KIẾM -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <label class="sr-only" for="searchInput">Tìm sản phẩm</label>
+          <input type="search" id="searchInput" placeholder="Keywords..." class="form-control" autocomplete="off">
+          <small class="help-block">Tìm theo tên sản phẩm hoặc danh mục.</small>
+        </div>
+      </div>
+      <!-- CHỦNG LOẠI: panel + list-group -->
+      <div class="panel panel-default categories-panel">
+        <div class="panel-heading"><span class="glyphicon glyphicon-th-list"></span> <strong>Chủng Loại</strong></div>
+        <div class="list-group" id="categoryList">
+          <a href="#productGrid" class="list-group-item active" data-filter="all">Tất cả sản phẩm <span class="badge">6</span></a>
+          <a href="#productGrid" class="list-group-item" data-filter="Điện thoại di động">Điện thoại di động</a>
+          <a href="#productGrid" class="list-group-item" data-filter="Máy tính xách tay">Máy tính xách tay</a>
+          <a href="#productGrid" class="list-group-item" data-filter="Máy tính để bàn">Máy tính để bàn</a>
+          <a href="#productGrid" class="list-group-item" data-filter="Quạt máy">Quạt máy</a>
+          <a href="#productGrid" class="list-group-item" data-filter="Tivi">Tivi</a>
+          <a href="#productGrid" class="list-group-item" data-filter="Tủ lạnh">Tủ lạnh</a>
+        </div>
+      </div>
+      <div class="panel panel-primary" id="faq"><div class="panel-heading"><span class="glyphicon glyphicon-question-sign"></span> Hỏi đáp</div><div class="panel-body"><p class="sidebar-note">Bạn có thể tìm kiếm, lọc danh mục hoặc nhấn <strong>Mua</strong> để thử giỏ hàng.</p></div></div>
+      <div id="account" class="side-account-note"><span class="glyphicon glyphicon-lock"></span> Chức năng tài khoản đang được minh họa.</div>
+    </aside>
+  </div>
+
+  <footer class="panel panel-default" id="contact">
+    <div class="panel-heading text-center"><p><strong>CodeGym &copy; 2017</strong> · Bài thực hành Bootstrap 3 Layout</p></div>
+  </footer>
+</div>
+<div id="liveStatus" class="sr-only" role="status" aria-live="polite"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
