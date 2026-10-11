@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thực hành flex-wrap: nowrap, wrap, wrap-reverse và initial bằng ví dụ trực quan và tương tác.">
+  <title>CSS flex-wrap | Thực hành CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="page-header" id="dau-trang">
+      <div class="header-top"><span class="lesson-label"><span class="label-dot" aria-hidden="true"></span> CODEGYM · CSS FLEXBOX</span><span class="unit-label">BÀI THỰC HÀNH</span></div>
+      <div class="header-main"><div><p class="eyebrow">THUỘC TÍNH BỐ CỤC FLEX</p><h1>Khám phá <span>flex-wrap</span></h1><p class="lead">Flex Items sẽ nằm trên một dòng hay tự xuống dòng? Quan sát trực tiếp 4 giá trị của <code>flex-wrap</code> với 6 phần tử.</p></div><div class="hero-decor" aria-hidden="true"><div class="deco-row"><i>1</i><i>2</i><i>3</i></div><div class="deco-row"><i>4</i><i>5</i><i>6</i></div><span>↳ wrap</span></div></div>
+      <div class="summary-pills"><span>✓ nowrap</span><span>✓ wrap</span><span>✓ wrap-reverse</span><span>✓ initial</span></div>
+    </header>
+
+    <main>
+      <div class="section-heading"><div><p class="eyebrow">01 · SO SÁNH TRỰC QUAN</p><h2>4 giá trị – 4 cách hiển thị</h2><p>Cùng 6 Flex Items, mỗi ví dụ sử dụng một giá trị <code>flex-wrap</code> khác nhau.</p></div><span class="section-count">04 VÍ DỤ</span></div>
+      <section class="examples" aria-label="Bốn ví dụ flex-wrap">
+        <article class="example-card"><div class="card-head"><span class="card-number">01</span><div><h3>flex-wrap: <em>nowrap</em></h3><p>Không tự xuống dòng · Giá trị mặc định</p></div><span class="card-tag tag-blue">MẶC ĐỊNH</span></div><div class="demo-stage demo-nowrap" aria-label="Sáu item nằm trên một dòng và co lại để vừa container"><div>Item 1</div><div>Item 2</div><div>Item 3</div><div>Item 4</div><div>Item 5</div><div>Item 6</div></div><div class="card-footer"><code>flex-wrap: nowrap;</code><span>1 dòng · Các ô có thể co lại</span></div></article>
+        <article class="example-card"><div class="card-head"><span class="card-number">02</span><div><h3>flex-wrap: <em>wrap</em></h3><p>Tự động bọc thành nhiều dòng</p></div><span class="card-tag tag-teal">XUỐNG DÒNG</span></div><div class="demo-stage demo-wrap" aria-label="Item 1, 2, 3 ở hàng đầu; item 4, 5, 6 ở hàng dưới"><div>Item 1</div><div>Item 2</div><div>Item 3</div><div>Item 4</div><div>Item 5</div><div>Item 6</div></div><div class="card-footer"><code>flex-wrap: wrap;</code><span>Hàng mới xuất hiện phía dưới</span></div></article>
+        <article class="example-card"><div class="card-head"><span class="card-number">03</span><div><h3>flex-wrap: <em>wrap-reverse</em></h3><p>Xuống dòng theo chiều ngược lại</p></div><span class="card-tag tag-coral">ĐẢO HƯỚNG DÒNG</span></div><div class="demo-stage demo-reverse" aria-label="Item 4, 5, 6 ở hàng trên; item 1, 2, 3 ở hàng dưới"><div>Item 1</div><div>Item 2</div><div>Item 3</div><div>Item 4</div><div>Item 5</div><div>Item 6</div></div><div class="card-footer"><code>flex-wrap: wrap-reverse;</code><span>Đảo cross axis, không đảo thứ tự item</span></div></article>
+        <article class="example-card"><div class="card-head"><span class="card-number">04</span><div><h3>flex-wrap: <em>initial</em></h3><p>Đặt về giá trị mặc định: nowrap</p></div><span class="card-tag tag-amber">ĐẶT LẠI</span></div><div class="demo-stage demo-initial" aria-label="Sáu item nằm trên một dòng vì initial tương đương nowrap"><div>Item 1</div><div>Item 2</div><div>Item 3</div><div>Item 4</div><div>Item 5</div><div>Item 6</div></div><div class="card-footer"><code>flex-wrap: initial;</code><span>Tương đương nowrap</span></div></article>
+      </section>
+
+      <section class="playground" aria-labelledby="playground-title"><div class="playground-heading"><div><p class="eyebrow">02 · VÍ DỤ TỔNG HỢP</p><h2 id="playground-title">Thử thay đổi trực tiếp</h2><p>Nhấn vào từng giá trị để quan sát Flex Items thay đổi vị trí ngay trên trình duyệt.</p></div><span class="live-indicator"><span aria-hidden="true">●</span> TƯƠNG TÁC</span></div><div class="controls" role="group" aria-label="Chọn giá trị flex-wrap"><button type="button" class="control-btn" data-wrap="nowrap" aria-pressed="false">nowrap</button><button type="button" class="control-btn active" data-wrap="wrap" aria-pressed="true">wrap</button><button type="button" class="control-btn" data-wrap="wrap-reverse" aria-pressed="false">wrap-reverse</button><button type="button" class="control-btn" data-wrap="initial" aria-pressed="false">initial</button></div><div class="playground-layout"><div class="playground-stage" id="playground-stage" aria-label="Container demo 600px × 300px"><div class="play-item">1</div><div class="play-item">2</div><div class="play-item">3</div><div class="play-item">4</div><div class="play-item">5</div><div class="play-item">6</div></div><div class="play-info"><span class="info-label">GIÁ TRỊ ĐANG ÁP DỤNG</span><code id="selected-code">flex-wrap: wrap;</code><div class="info-rule"></div><strong id="selected-name">Cho phép xuống dòng</strong><p id="selected-detail" aria-live="polite">Khi không đủ chỗ, Flex Items tự động xuống dòng tiếp theo. Thứ tự các item không thay đổi.</p><div class="dimension-tags"><span>Container: 600 × 300px</span><span>Item: 180 × 80px</span><span>Gap: 10px</span></div></div></div></section>
+      <div class="lesson-note"><span class="note-symbol" aria-hidden="true">💡</span><div><strong>Ghi nhớ:</strong> <code>flex-wrap</code> chỉ điều khiển việc xuống dòng. <code>wrap-reverse</code> đảo hướng xếp các <strong>dòng</strong>, không đảo thứ tự phần tử trong từng dòng. <code>initial</code> trở về <code>nowrap</code>.</div></div>
+    </main>
+    <footer class="footer"><span>CSS FLEXBOX · FLEX-WRAP PROPERTY</span><span>Thực hành HTML / CSS / JavaScript · CodeGym</span><a href="#dau-trang">↑ Về đầu trang</a></footer>
+  </div>
+</body>
+</html>
