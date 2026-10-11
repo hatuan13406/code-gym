@@ -78,6 +78,5 @@ footer { text-align: center; font-size: 10px; color: #9ba5b8; padding: 22px 0 2p
   .code-pill { margin-left: 52px; }
   .global-list { grid-template-columns: 1fr; }
   .global-card-head p { min-height: 0; }
-  .percent-demo { height: 300px; }
   .summary span { font-size: 10px; }
 }
