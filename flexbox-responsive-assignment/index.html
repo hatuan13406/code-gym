@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài tập CodeGym tạo bố cục responsive bằng CSS Flexbox: header, navigation, main content, sidebar và footer.">
+  <title>FlexCraft | Bố cục responsive bằng Flexbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="dau-trang">
+    <header class="header">
+      <a class="brand" href="#dau-trang" aria-label="FlexCraft - Trang chủ">
+        <span class="brand-symbol" aria-hidden="true">F<span>•</span></span>
+        <span>Flex<span class="brand-accent">Craft</span></span>
+      </a>
+      <div class="header-center"><span class="eyebrow">BÀI TẬP CSS FLEXBOX</span><p>Bố cục linh hoạt trên mọi thiết bị</p></div>
+      <span class="header-badge"><span class="status-dot"></span> RESPONSIVE</span>
+    </header>
+
+    <nav class="navigation" aria-label="Menu điều hướng">
+      <div class="navigation-inner">
+        <a class="active" href="#dau-trang">⌂ <span>Trang chủ</span></a>
+        <a href="#gioi-thieu">◈ <span>Giới thiệu</span></a>
+        <a href="#tinh-nang">▦ <span>Tính năng</span></a>
+        <a href="#tin-tuc">▤ <span>Tin tức</span></a>
+        <a href="#lien-he">✉ <span>Liên hệ</span></a>
+      </div>
+      <span class="navigation-note">HTML5 · CSS3 · FLEXBOX</span>
+    </nav>
+
+    <div class="main-container">
+      <main class="content">
+        <section class="hero" id="gioi-thieu" aria-labelledby="hero-title">
+          <div class="hero-text">
+            <span class="hero-kicker">✦ THIẾT KẾ WEB HIỆN ĐẠI</span>
+            <h1 id="hero-title">Một bố cục đẹp.<br><em>Mọi kích thước.</em></h1>
+            <p>Sử dụng <strong>CSS Flexbox</strong> để thiết kế giao diện hoàn chỉnh. Nội dung chính và thanh bên được sắp xếp khoa học, linh hoạt khi đổi kích thước màn hình.</p>
+            <a class="hero-button" href="#tinh-nang">Khám phá Flexbox <span aria-hidden="true">→</span></a>
+            <div class="hero-tags"><span>✓ Flex Direction</span><span>✓ Flex Grow</span><span>✓ Media Queries</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="window">
+              <div class="window-bar"><i></i><i></i><i></i><small>flexbox-layout.html</small></div>
+              <div class="window-header"></div>
+              <div class="window-nav"></div>
+              <div class="window-body">
+                <div class="window-content"><b></b><div><span></span><span></span></div><i></i><i></i></div>
+                <div class="window-side"><span></span><span></span><span></span></div>
+              </div>
+              <div class="window-footer"></div>
+            </div>
+            <span class="float-label">FLEX ✦</span>
+          </div>
+        </section>
+
+        <div class="section-heading" id="tinh-nang">
+          <div><span class="eyebrow">KIẾN THỨC CƠ BẢN</span><h2>Các thành phần của Flexbox</h2><p>Học cách sắp xếp giao diện linh hoạt bằng CSS thuần.</p></div>
+          <span class="section-count">03 CHỦ ĐỀ</span>
+        </div>
+        <section class="feature-list" aria-label="Các tính năng Flexbox">
+          <article class="feature-card">
+            <div class="feature-top"><span class="feature-icon purple" aria-hidden="true">⇅</span><small>01</small></div>
+            <h3>Flex Direction</h3>
+            <p>Quyết định các thành phần nằm theo hàng hay theo cột.</p>
+            <code>flex-direction: column;</code>
+          </article>
+          <article class="feature-card">
+            <div class="feature-top"><span class="feature-icon blue" aria-hidden="true">↔</span><small>02</small></div>
+            <h3>Flex Grow</h3>
+            <p>Cho nội dung chính chiếm 3 phần và Sidebar chiếm 1 phần.</p>
+            <code>flex: 3; flex: 1;</code>
+          </article>
+          <article class="feature-card">
+            <div class="feature-top"><span class="feature-icon teal" aria-hidden="true">▤</span><small>03</small></div>
+            <h3>Flex Wrap</h3>
+            <p>Đưa các thẻ xuống dòng tự nhiên khi không đủ chỗ.</p>
+            <code>flex-wrap: wrap;</code>
+          </article>
+        </section>
+
+        <section class="explain" id="huong-dan" aria-labelledby="explain-heading">
+          <div class="explain-head"><div><span class="eyebrow">RESPONSIVE WEB DESIGN</span><h2 id="explain-heading">Cách bố cục tự thích ứng</h2></div><span class="live">● CSS THUẦN</span></div>
+          <div class="explain-body">
+            <div class="code-sample"><div class="code-bar"><i></i><i></i><i></i><span>style.css</span></div><pre><code>.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-container {
+  display: flex;
+  flex: 1;
+}
+.content { flex: 3; }
+.sidebar { flex: 1; }
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+}</code></pre></div>
+            <div class="explain-tips">
+              <div class="tip"><span>✓</span><div><strong>Trên Desktop</strong><p>Main Content ở bên trái, Sidebar ở bên phải theo tỷ lệ 3:1.</p></div></div>
+              <div class="tip"><span>✓</span><div><strong>Trên Mobile</strong><p>Main Content và Sidebar xếp dọc khi màn hình không quá 768px.</p></div></div>
+              <div class="tip"><span>✓</span><div><strong>Không cần JavaScript</strong><p>Bố cục thay đổi chỉ nhờ Flexbox và CSS Media Queries.</p></div></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="sidebar" aria-label="Thông tin bên lề">
+        <div class="aside-intro"><span class="eyebrow">KHÁM PHÁ THÊM</span><h2>Góc thông tin</h2><p>Tham khảo thêm những kiến thức hữu ích về HTML, CSS và thiết kế responsive.</p></div>
+        <section class="aside-panel" id="tin-tuc" aria-labelledby="news-heading">
+          <h3 id="news-heading"><span class="aside-icon purple">✦</span> Tin tức mới</h3>
+          <a class="news-link" href="#tinh-nang"><span class="number">01</span><span>Giới thiệu CSS Flexbox<small>Kiến thức nền tảng</small></span><b>↗</b></a>
+          <a class="news-link" href="#huong-dan"><span class="number">02</span><span>Cách sử dụng Media Queries<small>Responsive Layout</small></span><b>↗</b></a>
+          <a class="news-link" href="#gioi-thieu"><span class="number">03</span><span>Thiết kế ưu tiên Mobile<small>Giao diện người dùng</small></span><b>↗</b></a>
+        </section>
+        <section class="aside-panel" aria-labelledby="stats-heading">
+          <h3 id="stats-heading"><span class="aside-icon blue">▥</span> Thông số bố cục</h3>
+          <div class="stat"><span>Công nghệ</span><strong>HTML + CSS</strong></div>
+          <div class="stat"><span>Desktop</span><strong>2 cột (3:1)</strong></div>
+          <div class="stat"><span>Mobile</span><strong>1 cột</strong></div>
+          <div class="stat"><span>Trạng thái</span><strong class="online">● Hoạt động</strong></div>
+        </section>
+        <div class="aside-tip"><span aria-hidden="true">💡</span><h3>Thử ngay!</h3><p>Mở DevTools bằng <strong>F12</strong>, bật chế độ thiết bị và chỉnh chiều rộng còn <strong>375px</strong>. Sidebar sẽ tự chuyển xuống dưới nội dung chính.</p><a href="#huong-dan">Xem cách hoạt động →</a></div>
+      </aside>
+    </div>
+    <footer class="footer" id="lien-he"><strong>✦ FlexCraft</strong><p>© 2026 · Bài tập tạo bố cục responsive bằng CSS Flexbox · CodeGym</p><a href="#dau-trang">↑ Lên đầu trang</a></footer>
+  </div>
+</body>
+</html>
