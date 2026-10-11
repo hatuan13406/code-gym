@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thực hành thuộc tính CSS grid-template-columns: ví dụ 3 cột bằng nhau và 3 cột kích thước khác nhau.">
+    <title>CSS grid-template-columns | Thực hành CodeGym</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand"><span class="brand-icon" aria-hidden="true">▦</span><span>CSS <strong>Playground</strong></span></div>
+            <span class="topbar-label">BÀI THỰC HÀNH · CSS GRID</span>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="page-heading">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> CSS LAYOUT · GRID TEMPLATE</span>
+            <h1>Khám phá <span>grid-template-columns</span></h1>
+            <p>Thuộc tính <code>grid-template-columns</code> giúp xác định <strong>số lượng</strong> và <strong>chiều rộng</strong> các cột trong CSS Grid. Dưới đây là hai ví dụ theo đúng bài thực hành.</p>
+            <div class="summary-chips" aria-label="Thông tin bài học">
+                <span><b>02</b> ví dụ thực tế</span>
+                <span><b>03</b> cột mỗi ví dụ</span>
+                <span><b>06</b> phần tử mỗi lưới</span>
+            </div>
+        </div>
+
+        <section class="example-card" aria-labelledby="example-one-title">
+            <div class="example-header">
+                <span class="example-index blue-index">01</span>
+                <div class="example-heading">
+                    <span class="example-kicker">VÍ DỤ 1 · CỘT BẰNG NHAU</span>
+                    <h2 id="example-one-title">Ba cột có kích thước bằng nhau</h2>
+                    <p>Mỗi cột nhận <strong>1fr</strong> — một phần bằng nhau của không gian còn lại.</p>
+                </div>
+                <span class="header-badge blue-badge">3 CỘT · 2 HÀNG</span>
+            </div>
+            <div class="demo-area demo-blue">
+                <p class="demo-label">KẾT QUẢ HIỂN THỊ</p>
+                <div class="grid-container grid-equal" aria-label="Ví dụ 1: sáu ô xếp thành ba cột bằng nhau">
+                    <div>Ô 1</div>
+                    <div>Ô 2</div>
+                    <div>Ô 3</div>
+                    <div>Ô 4</div>
+                    <div>Ô 5</div>
+                    <div>Ô 6</div>
+                </div>
+            </div>
+            <div class="example-footer">
+                <div class="code-pill"><span>CSS</span><code>grid-template-columns: 1fr 1fr 1fr;</code></div>
+                <p><span class="check" aria-hidden="true">✓</span> 6 ô được sắp xếp thành <strong>2 hàng × 3 cột</strong>.</p>
+            </div>
+        </section>
+
+        <section class="example-card" aria-labelledby="example-two-title">
+            <div class="example-header">
+                <span class="example-index green-index">02</span>
+                <div class="example-heading">
+                    <span class="example-kicker green-text">VÍ DỤ 2 · CỘT KHÁC NHAU</span>
+                    <h2 id="example-two-title">Ba cột có kích thước khác nhau</h2>
+                    <p>Hai cột đầu có độ rộng cố định; cột cuối chiếm <strong>không gian còn lại</strong>.</p>
+                </div>
+                <span class="header-badge green-badge">100px · 200px · 1fr</span>
+            </div>
+            <div class="demo-area demo-green">
+                <p class="demo-label">KẾT QUẢ HIỂN THỊ</p>
+                <div class="grid-viewport" tabindex="0" role="region" aria-label="Ví dụ 2: vùng có thể cuộn ngang trên màn hình nhỏ">
+                    <div class="grid-container grid-different" aria-label="Ví dụ 2: cột 100 pixel, cột 200 pixel và cột lấp đầy khoảng còn lại">
+                        <div>Cột 1</div>
+                        <div>Cột 2</div>
+                        <div>Cột 3</div>
+                        <div>Cột 1</div>
+                        <div>Cột 2</div>
+                        <div>Cột 3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="example-footer">
+                <div class="code-pill green-code"><span>CSS</span><code>grid-template-columns: 100px 200px 1fr;</code></div>
+                <p><span class="check" aria-hidden="true">✓</span> Cột thứ ba <strong>tự mở rộng</strong> để lấp đầy diện tích còn lại.</p>
+            </div>
+        </section>
+
+        <div class="takeaway"><span class="takeaway-icon" aria-hidden="true">✦</span><p><strong>Ghi nhớ:</strong> Số lượng giá trị trong <code>grid-template-columns</code> quyết định số cột được định nghĩa. Đơn vị <code>fr</code> đại diện cho một phần không gian khả dụng của Grid.</p></div>
+    </main>
+
+    <footer class="footer">© 2026 CSS Playground · Thực hành <strong>grid-template-columns</strong> · CodeGym</footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* Bài thực hành CodeGym: grid-template-columns */
+:root {
+    --ink: #202f49;
+    --muted: #77859a;
+    --blue: #5468da;
+    --green: #208d6e;
+    --line: #e4eaf3;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: #f6f8fc; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+h1, h2, p { margin-top: 0; }
+.topbar { background: #fff; border-bottom: 1px solid var(--line); }
+.topbar-inner { width: min(1050px, calc(100% - 40px)); margin: auto; min-height: 69px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 19px; letter-spacing: -.4px; font-weight: 800; }
+.brand strong { color: var(--blue); }
+.brand-icon { width: 36px; height: 36px; display: grid; place-items: center; color: white; background: #596ddd; border-radius: 9px; font-size: 22px; }
+.topbar-label { color: #929cad; font-size: 10px; letter-spacing: 1.4px; font-weight: bold; }
+.page { width: min(1050px, calc(100% - 40px)); margin: 0 auto; padding: 39px 0 35px; }
+.page-heading { margin-bottom: 27px; }
+.eyebrow { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; display: inline-flex; align-items: center; gap: 8px; }
+.eyebrow-dot { width: 8px; height: 8px; background: #697bef; border-radius: 50%; }
+h1 { font-size: clamp(29px, 3.4vw, 37px); line-height: 1.2; margin: 12px 0 12px; letter-spacing: -.8px; }
+h1 span { color: var(--blue); }
+.page-heading > p { font-size: 13px; color: #708097; max-width: 785px; margin-bottom: 17px; }
+.page-heading code, .takeaway code { color: #4b5cba; background: #e9edff; border-radius: 4px; padding: 2px 5px; }
+.summary-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.summary-chips > span { font-size: 11px; color: #78869b; background: #fff; border: 1px solid #e4eaf3; padding: 7px 11px; border-radius: 7px; }
+.summary-chips b { color: #4f62d2; }
+.example-card { background: white; border: 1px solid var(--line); border-radius: 14px; margin-top: 17px; overflow: hidden; box-shadow: 0 7px 24px #253e7808; }
+.example-header { display: flex; align-items: flex-start; gap: 14px; padding: 20px 23px 17px; }
+.example-index { flex-shrink: 0; display: grid; place-items: center; width: 38px; height: 38px; font-weight: 800; border-radius: 10px; font-size: 13px; }
+.blue-index { background: #edf1ff; color: #5269cf; }
+.green-index { background: #e9f8f0; color: #208860; }
+.example-heading { min-width: 0; flex: 1; }
+.example-kicker { color: #5a6dd0; font-size: 10px; letter-spacing: 1.25px; font-weight: 800; }
+.example-kicker.green-text { color: var(--green); }
+.example-heading h2 { margin: 4px 0 3px; font-size: 18px; line-height: 1.35; }
+.example-heading p { margin: 0; color: #8591a4; font-size: 12px; }
+.header-badge { align-self: center; flex-shrink: 0; padding: 6px 9px; border-radius: 6px; font-size: 10px; font-weight: 800; white-space: nowrap; }
+.blue-badge { background: #eef1ff; color: #5a6dd0; }
+.green-badge { background: #ebf8f1; color: #238963; }
+.demo-area { margin: 0 23px; border-radius: 10px; padding: 17px 18px 19px; }
+.demo-blue { background: #f8faff; border: 1px dashed #d7e0fc; }
+.demo-green { background: #f8fcf9; border: 1px dashed #cfe8d8; }
+.demo-label { text-align: center; font-size: 9px; letter-spacing: 1.5px; font-weight: 800; color: #9ba9bc; margin-bottom: 12px; }
+/* Ví dụ 1: ba cột bằng nhau, sáu ô tạo thành hai hàng. */
+.grid-container { display: grid; gap: 10px; }
+.grid-equal { grid-template-columns: 1fr 1fr 1fr; }
+.grid-container > div { padding: 19px 10px; border-radius: 6px; text-align: center; font-weight: 750; font-size: 13px; }
+.grid-equal > div { background-color: lightblue; color: #275a82; border: 1px solid #acd7ea; }
+/* Ví dụ 2: chiều rộng cột lần lượt là 100px, 200px và phần còn lại. */
+.grid-different { grid-template-columns: 100px 200px 1fr; }
+.grid-different > div { background-color: lightgreen; color: #366d44; border: 1px solid #a5dca7; }
+/* Trên điện thoại, giữ nguyên kích thước cột 100px, 200px và cuộn ngang khi thiếu chỗ. */
+.grid-viewport { max-width: 100%; overflow-x: auto; }
+.grid-different { min-width: 450px; }
+.example-footer { padding: 17px 23px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.example-footer p { color: #8c98a9; font-size: 11px; margin: 0; max-width: 350px; }
+.example-footer p strong { color: #53627a; }
+.check { color: #36a875; font-weight: 800; }
+.code-pill { display: inline-flex; flex-wrap: wrap; gap: 11px; align-items: center; max-width: 100%; background: #eef1ff; padding: 9px 12px; border-radius: 7px; }
+.code-pill > span { color: #6070d5; font-size: 10px; font-weight: 900; }
+.code-pill code { color: #4054aa; font: 11px/1.4 Consolas, 'Courier New', monospace; overflow-wrap: anywhere; }
+.green-code { background: #eaf8ef; }
+.green-code > span { color: #30966d; }
+.green-code code { color: #2c7556; }
+.takeaway { display: flex; gap: 12px; align-items: flex-start; background: #eef1ff; border: 1px solid #e0e6ff; padding: 15px 18px; border-radius: 10px; margin-top: 17px; }
+.takeaway-icon { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; background: #566cda; color: white; flex-shrink: 0; }
+.takeaway p { font-size: 12px; color: #667594; margin: 1px 0 0; }
+.takeaway strong { color: #41537c; }
+.footer { text-align: center; padding: 19px 12px 30px; font-size: 10px; color: #9ca8b7; }
+@media (max-width: 730px) {
+    .example-header { flex-wrap: wrap; }
+    .header-badge { margin-left: 52px; }
+    .example-footer { flex-direction: column; align-items: flex-start; }
+    .example-footer p { max-width: 100%; }
+}
+@media (max-width: 480px) {
+    .page, .topbar-inner { width: calc(100% - 26px); }
+    .page { padding-top: 26px; }
+    .topbar-label { display: none; }
+    .example-header { padding: 17px 14px; gap: 10px; }
+    .header-badge { margin-left: 48px; }
+    .example-heading h2 { font-size: 16px; }
+    .demo-area { margin: 0 13px; padding: 12px 10px; }
+    .grid-container > div { padding: 14px 5px; font-size: 12px; }
+    .example-footer { padding: 15px; }
+    .summary-chips { gap: 6px; }
+}
