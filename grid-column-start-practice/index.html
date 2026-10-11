@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài thực hành CodeGym: grid-column-start với auto, span 2 và đường kẻ cột số 2.">
+  <title>CSS grid-column-start | Bài thực hành CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand"><span class="brand-mark">G</span><span>GRID<span class="brand-highlight">LAB</span></span></div>
+      <span class="header-pill">CSS GRID · BÀI THỰC HÀNH</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">THỰC HÀNH CSS GRID</p>
+        <h1 id="page-title">grid-column-start <span>Property</span></h1>
+        <p class="intro-description">Tìm hiểu cách đặt vị trí bắt đầu của một phần tử trong CSS Grid thông qua ba giá trị: <strong>auto</strong>, <strong>span n</strong> và <strong>column-line</strong>.</p>
+        <div class="legend" aria-label="Các giá trị được minh họa"><span>01 · auto</span><span>02 · span 2</span><span>03 · column-line: 2</span></div>
+      </section>
+
+      <!-- VÍ DỤ 1: Cột đầu tiên được xác định tự động. -->
+      <section class="exercise" aria-labelledby="example-1">
+        <div class="exercise-head"><div class="step step-blue">01</div><div class="step-heading"><p>GIÁ TRỊ AUTO</p><h2 id="example-1">Tự động sắp xếp theo luồng Grid</h2></div><code class="css-badge">grid-column-start: auto;</code></div>
+        <p class="explanation">Phần tử <strong>1</strong> bắt đầu ở vị trí mặc định. Grid có <strong>3 cột, mỗi cột 100px</strong> và khoảng cách giữa các cột là 10px.</p>
+        <div class="example-surface"><div class="grid-container grid-auto" aria-label="Ví dụ auto có ba ô nằm ở ba cột bằng nhau"><div class="item1">1</div><div>2</div><div>3</div></div></div>
+        <p class="result"><span>✓</span> Kết quả: 3 ô nằm trên cùng một hàng, item 1 bắt đầu từ cột đầu tiên.</p>
+      </section>
+
+      <!-- VÍ DỤ 2: Item 1 chiếm 2 cột trong Grid có 4 cột. -->
+      <section class="exercise" aria-labelledby="example-2">
+        <div class="exercise-head"><div class="step step-purple">02</div><div class="step-heading"><p>GIÁ TRỊ SPAN N</p><h2 id="example-2">Phần tử trải rộng qua hai cột</h2></div><code class="css-badge badge-purple">grid-column-start: span 2;</code></div>
+        <p class="explanation"><strong>Item 1</strong> trải rộng qua <strong>2 cột</strong>. Grid có 4 cột bằng nhau; Item 2 và 3 lấp đầy hàng đầu, Item 4 chuyển xuống hàng tiếp theo.</p>
+        <div class="example-surface"><div class="grid-container grid-span" aria-label="Ví dụ span 2: item 1 rộng hai cột; item 2 và item 3 chiếm hai cột tiếp theo"><div class="item1">Item 1 <span>2 cột</span></div><div>Item 2</div><div>Item 3</div><div>Item 4</div></div></div>
+        <p class="result"><span>✓</span> Kết quả: item 1 có độ rộng tương đương 2 cột và phần gap ở giữa.</p>
+      </section>
+
+      <!-- VÍ DỤ 3: Item 1 bắt đầu từ đường kẻ cột số 2. -->
+      <section class="exercise" aria-labelledby="example-3">
+        <div class="exercise-head"><div class="step step-green">03</div><div class="step-heading"><p>GIÁ TRỊ COLUMN-LINE</p><h2 id="example-3">Bắt đầu tại đường kẻ cột số 2</h2></div><code class="css-badge badge-green">grid-column-start: 2;</code></div>
+        <p class="explanation">Grid có 4 cột nên có <strong>5 đường kẻ cột</strong>. <strong>Item 1</strong> bắt đầu tại đường số 2 (tức vị trí của cột thứ hai).</p>
+        <div class="example-surface">
+          <div class="line-labels" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          <div class="grid-container grid-line" aria-label="Ví dụ đường kẻ cột: item 1 bắt đầu ở cột thứ hai"><div class="item1">Item 1</div><div>Item 2</div><div>Item 3</div><div>Item 4</div></div>
+        </div>
+        <p class="result"><span>✓</span> Kết quả: cột đầu tiên của hàng một để trống và Item 1 bắt đầu từ đường kẻ số 2.</p>
+      </section>
+
+      <aside class="tip"><span class="tip-icon">✦</span><div><strong>Ghi nhớ:</strong> <code>auto</code> theo luồng bình thường; <code>span 2</code> chiếm 2 cột khi tự sắp xếp; <code>2</code> đặt điểm bắt đầu vào đường kẻ cột số 2.</div></aside>
+    </main>
+
+    <footer class="footer"><span>GRID<span>LAB</span></span><p>© 2026 · Bài thực hành CodeGym — CSS grid-column-start</p></footer>
+  </div>
+</body>
+</html>
