@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài tập CodeGym: form đăng ký người dùng bằng Bootstrap 5.3, có nhập họ tên, email, mật khẩu, giới tính, sở thích, quốc gia và kiểm tra đầu vào.">
+  <title>Đăng ký tài khoản | NovaForm</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container d-flex justify-content-between align-items-center gap-3 py-3">
+      <a href="#home" class="brand text-decoration-none d-inline-flex align-items-center gap-2" aria-label="NovaForm về đầu trang">
+        <span class="brand-icon" aria-hidden="true">✦</span><span>nova<span class="brand-accent">form</span></span>
+      </a>
+      <span class="small text-muted d-none d-sm-inline">BOOTSTRAP 5.3 · CODEGYM</span>
+      <span class="top-tag"><span aria-hidden="true">●</span> THỰC HÀNH FORMS</span>
+    </div>
+  </header>
+
+  <main class="main-section" id="home">
+    <div class="container">
+      <div class="row align-items-center justify-content-center g-4 g-xl-5">
+        <section class="col-lg-5 intro-column" aria-labelledby="intro-title">
+          <span class="eyebrow">✦ TRANG ĐĂNG KÝ THÀNH VIÊN</span>
+          <h1 class="display-5 fw-bold mt-3 mb-3" id="intro-title">Bắt đầu hành trình<br><span>cùng NovaForm.</span></h1>
+          <p class="intro-description mb-4">Tạo tài khoản của bạn qua biểu mẫu đơn giản, trực quan và thân thiện với mọi thiết bị. Thực hành các thành phần <strong>Bootstrap Forms</strong> trong một giao diện hoàn chỉnh.</p>
+          <div class="intro-points">
+            <div class="intro-point"><span class="point-icon blue" aria-hidden="true">▤</span><div><strong>Biểu mẫu đầy đủ</strong><p>Thông tin cá nhân, giới tính, sở thích và quốc gia.</p></div></div>
+            <div class="intro-point"><span class="point-icon purple" aria-hidden="true">✓</span><div><strong>Kiểm tra dữ liệu</strong><p>Nhắc nhập trường bắt buộc và xác nhận mật khẩu trùng khớp.</p></div></div>
+            <div class="intro-point"><span class="point-icon green" aria-hidden="true">▦</span><div><strong>Responsive hoàn chỉnh</strong><p>Giao diện linh hoạt trên desktop, tablet và mobile.</p></div></div>
+          </div>
+          <div class="demo-notice"><span aria-hidden="true">ⓘ</span> Đây là trang thực hành giao diện. Dữ liệu đăng ký <strong>không được gửi lên máy chủ hoặc lưu trữ</strong>.</div>
+        </section>
+
+        <section class="col-12 col-lg-7 col-xl-6 offset-xl-1" aria-labelledby="form-title">
+          <div class="form-card">
+            <div class="form-heading">
+              <div class="form-symbol" aria-hidden="true">✎</div>
+              <div>
+                <span class="form-overline">CHÀO MỪNG BẠN!</span>
+                <h2 class="h3 fw-bold mb-1" id="form-title">Tạo tài khoản mới</h2>
+                <p class="text-muted mb-0">Vui lòng điền thông tin bên dưới để đăng ký.</p>
+              </div>
+            </div>
+            <div class="form-divider"></div>
+
+            <form id="registrationForm" class="needs-validation" novalidate>
+              <div id="formMessage" class="alert d-none" role="status" aria-live="polite"></div>
+
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Họ và tên <span class="required">*</span></label>
+                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="name" minlength="2" maxlength="100" required>
+                <div class="invalid-feedback">Vui lòng nhập họ và tên (ít nhất 2 ký tự).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Địa chỉ email <span class="required">*</span></label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="vidu@email.com" autocomplete="email" required>
+                <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                  <label for="password" class="form-label">Mật khẩu <span class="required">*</span></label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Ít nhất 8 ký tự" autocomplete="new-password" minlength="8" required>
+                  <div class="invalid-feedback">Mật khẩu phải có ít nhất 8 ký tự.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="confirmPassword" class="form-label">Xác nhận mật khẩu <span class="required">*</span></label>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu" autocomplete="new-password" required>
+                  <div class="invalid-feedback">Mật khẩu xác nhận chưa khớp.</div>
+                </div>
+              </div>
+              <p class="password-hint text-muted">ⓘ Mật khẩu cần ít nhất 8 ký tự. Không sử dụng mật khẩu thật khi thử nghiệm.</p>
+
+              <fieldset class="mb-3">
+                <legend class="form-label mb-2">Giới tính <span class="required">*</span></legend>
+                <div class="option-group" id="genderGroup">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" required>
+                    <label class="form-check-label" for="genderMale">Nam</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
+                    <label class="form-check-label" for="genderFemale">Nữ</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderOther" value="other">
+                    <label class="form-check-label" for="genderOther">Khác</label>
+                  </div>
+                </div>
+                <div class="field-error" id="genderError" aria-live="polite"></div>
+              </fieldset>
+
+              <fieldset class="mb-3">
+                <legend class="form-label mb-2">Sở thích <span class="optional">(không bắt buộc)</span></legend>
+                <div class="option-group">
+                  <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" name="hobbies" id="hobbyTech" value="technology"><label class="form-check-label" for="hobbyTech">Công nghệ</label></div>
+                  <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" name="hobbies" id="hobbyMusic" value="music"><label class="form-check-label" for="hobbyMusic">Âm nhạc</label></div>
+                  <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" name="hobbies" id="hobbySports" value="sports"><label class="form-check-label" for="hobbySports">Thể thao</label></div>
+                </div>
+              </fieldset>
+
+              <div class="mb-4">
+                <label for="country" class="form-label">Quốc gia <span class="required">*</span></label>
+                <select class="form-select" id="country" name="country" required>
+                  <option value="" selected disabled>Chọn quốc gia của bạn</option>
+                  <option value="VN">Việt Nam</option>
+                  <option value="SG">Singapore</option>
+                  <option value="JP">Nhật Bản</option>
+                  <option value="KR">Hàn Quốc</option>
+                  <option value="OTHER">Khác</option>
+                </select>
+                <div class="invalid-feedback">Vui lòng chọn quốc gia.</div>
+              </div>
+
+              <button class="btn btn-primary btn-lg w-100 submit-button" type="submit">Tạo tài khoản <span aria-hidden="true">→</span></button>
+              <p class="text-muted text-center form-footnote mt-3 mb-0">Biểu mẫu minh họa phục vụ bài tập Bootstrap Forms · CodeGym</p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer text-center py-4"><div class="container"><span>© 2026 NovaForm · Thực hành Bootstrap Forms – CodeGym</span></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
