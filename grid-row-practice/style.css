@@ -1,0 +1,75 @@
+/* Bài tập CodeGym: grid-row Property. Các ví dụ dùng đúng 3 cột x 3 hàng. */
+:root { --ink:#24324c; --muted:#79869b; --border:#e7ebf3; --accent:#6357cf; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color:var(--ink); background:#f5f7fc; line-height: 1.6; }
+a { color:inherit; text-decoration:none; }
+a:focus-visible { outline:3px solid #f1bc54; outline-offset:3px; }
+p,h1,h2,h3 { margin-top:0; }
+.topbar { background:#fff; border-bottom:1px solid var(--border); }
+.topbar-content { max-width:1160px; min-height:66px; margin:auto; padding:12px 22px; display:flex; align-items:center; justify-content:space-between; gap:15px; }
+.brand { display:inline-flex; align-items:center; gap:6px; font-weight:850; font-size:18px; letter-spacing:-.6px; }
+.brand > span:last-child { color:#6858d2; margin-left:-6px; }
+.brand-symbol { display:inline-grid; place-items:center; height:35px; width:35px; border-radius:10px; color:#fff; background:linear-gradient(135deg,#786cf0,#5b4db8); margin-right:6px; font-size:21px; }
+.course-pill { display:flex; align-items:center; gap:7px; font-size:10px; letter-spacing:1px; font-weight:bold; padding:7px 11px; border-radius:20px; background:#f0eeff; color:#6b5dc8; }
+.course-dot { width:6px; height:6px; border-radius:50%; background:#7567db; }
+.page { max-width:1160px; margin:0 auto; padding:43px 22px 34px; }
+.intro { text-align:center; max-width:810px; margin:0 auto 35px; }
+.eyebrow { color:#705ed2; letter-spacing:1.8px; font-weight:850; font-size:10px; }
+.intro h1 { font-size:clamp(28px,3.4vw,39px); line-height:1.25; letter-spacing:-1.1px; margin:9px 0 14px; }
+.intro h1 span { color:#6a5bd6; }
+.intro > p { margin:0 auto 17px; max-width:760px; color:var(--muted); font-size:13px; }
+.intro strong { color:#55647f; }
+.key-points { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+.key-points span { padding:5px 11px; border-radius:20px; color:#6675bd; background:#eaf0ff; font-size:10px; font-weight:bold; }
+.examples { display:grid; gap:19px; }
+.example-card { background:#fff; border:1px solid var(--border); border-radius:17px; box-shadow:0 7px 25px rgba(39,49,98,.04); padding:21px 24px 23px; min-width:0; }
+.example-head { display:flex; align-items:center; gap:13px; margin-bottom:17px; }
+.example-number { display:grid; place-items:center; width:43px; height:43px; border-radius:11px; font-size:15px; font-weight:850; flex-shrink:0; }
+.num-violet { color:#6b55c7; background:#eeeaff; }
+.num-blue { color:#4378d1; background:#e8f1ff; }
+.num-green { color:#238971; background:#e5f8f0; }
+.example-heading { min-width:0; flex:1; }
+.example-label { display:block; font-weight:bold; font-size:10px; letter-spacing:1px; color:#99a3b4; }
+.example-heading h2 { margin:2px 0 0; font-size:20px; letter-spacing:-.4px; }
+.property { padding:6px 12px; border-radius:8px; font-size:12px; font-weight:bold; white-space:nowrap; }
+.property-violet { color:#6b55c7; background:#f2efff; }
+.property-blue { color:#4275c8; background:#edf5ff; }
+.property-green { color:#258a71; background:#eaf9f2; }
+.example-main { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); gap:22px; align-items:center; }
+.grid-stage { border:1px dashed #d9e0f1; padding:13px; background:#f9faff; border-radius:11px; min-width:0; }
+/* ===== PHẦN TRỌNG TÂM CỦA ĐỀ ===== */
+.grid-container {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(3,100px);
+  gap:10px;
+}
+.item { display:flex; align-items:center; justify-content:center; flex-direction:column; min-width:0; min-height:0; background:#dceafb; color:#5372a6; border:1px solid #c7dcef; border-radius:7px; font-size:14px; font-weight:800; }
+.item small { display:block; margin-top:4px; font-size:10px; font-weight:700; opacity:.75; }
+/* Ví dụ 1: bắt đầu line 1, kết thúc line 3 => 2 hàng đầu. */
+.variant-first .item1 { grid-row:1 / 3; background:#cfc4ff; color:#5744b2; border-color:#b3a3f0; }
+/* Ví dụ 2: bắt đầu line 2, kết thúc line 4 => 2 hàng cuối. */
+.variant-second .item1 { grid-row:2 / 4; background:#bdd7ff; color:#3069b4; border-color:#a1c4fa; }
+/* Ví dụ 3: Grid tự chọn điểm bắt đầu, ô trải qua 2 hàng. */
+.variant-third .item1 { grid-row:span 2; background:#bcefdc; color:#207f62; border-color:#9ee2cb; }
+/* ================================= */
+.description { align-self:center; min-width:0; }
+.description-icon { display:grid; place-items:center; width:38px; height:38px; border-radius:10px; font-size:20px; font-weight:bold; margin-bottom:13px; }
+.description-icon.violet { background:#eeeaff; color:#6b55c7; }
+.description-icon.blue { background:#eaf2ff; color:#4275c8; }
+.description-icon.green { background:#e7f8ef; color:#26886e; }
+.description h3 { margin:0 0 9px; font-size:17px; line-height:1.35; }
+.description p { color:#7a879d; font-size:12px; line-height:1.8; margin:0 0 15px; }
+.description p strong { color:#4e5e7c; }
+.detail { display:flex; flex-wrap:wrap; align-items:center; gap:5px; color:#77839a; font-size:11px; background:#f3f5fa; border-radius:7px; padding:10px; }
+.detail strong { color:#465874; }
+.detail > span { margin:0 5px; color:#98a4b6; }
+.takeaway { display:flex; align-items:flex-start; gap:13px; margin-top:22px; padding:18px 22px; background:#eeefff; border:1px solid #e4e4fd; border-radius:12px; font-size:12px; line-height:1.8; color:#6875a1; }
+.takeaway-bulb { display:grid; place-items:center; width:29px; height:29px; background:#6257c6; color:#fff; border-radius:7px; flex-shrink:0; }
+.takeaway strong { color:#4c558e; }
+.takeaway code { color:#5b51b2; background:#fff; padding:2px 5px; border-radius:4px; }
+.footer { display:flex; justify-content:space-between; gap:12px; max-width:1160px; margin:0 auto; border-top:1px solid var(--border); padding:18px 22px 30px; font-size:10px; color:#9aa6b9; letter-spacing:.3px; }
+@media (max-width:760px) { .example-main { grid-template-columns:1fr; } .description { display:grid; grid-template-columns:38px 1fr; gap:0 12px; } .description-icon { grid-row:span 3; } .description p { margin-bottom:10px; } .grid-container { grid-template-rows:repeat(3,90px); } }
+@media (max-width:490px) { .page { padding:28px 13px; } .example-card { padding:15px 13px 17px; } .example-heading h2 { font-size:17px; } .example-label { font-size:8px; } .property { padding:5px 7px; font-size:10px; } .example-number { width:35px; height:35px; font-size:12px; } .example-head { gap:8px; } .grid-stage { padding:9px; } .grid-container { grid-template-rows:repeat(3,75px); gap:7px; } .item { font-size:12px; } .description h3 { font-size:15px; } .footer { flex-wrap:wrap; } .course-pill { font-size:8px; padding:5px 7px; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }

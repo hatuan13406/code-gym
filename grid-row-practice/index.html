@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài thực hành CSS grid-row: so sánh 1 / 3, 2 / 4 và span 2 với bố cục 3 cột, 3 hàng.">
+  <title>Thực hành CSS Grid Row | CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-content">
+      <a class="brand" href="#dau-trang"><span class="brand-symbol">▦</span> GRID<span>LAB</span></a>
+      <span class="course-pill"><span class="course-dot"></span> CODEGYM · CSS PRACTICE</span>
+    </div>
+  </header>
+
+  <main class="page" id="dau-trang">
+    <div class="intro">
+      <span class="eyebrow">BÀI THỰC HÀNH CSS GRID</span>
+      <h1>Khám phá thuộc tính <span>grid-row</span></h1>
+      <p>Thay đổi vị trí bắt đầu và số hàng mà một Grid Item chiếm. Cả ba ví dụ đều có <strong>3 cột × 3 hàng</strong>, mỗi hàng cao <strong>100px</strong> và khoảng cách <strong>10px</strong>.</p>
+      <div class="key-points"><span>▦ 3 cột × 3 hàng</span><span>◎ 6 ô nội dung</span><span>↕ Ô 1 chiếm 2 hàng</span></div>
+    </div>
+
+    <section class="examples" aria-label="Ba ví dụ grid-row">
+      <article class="example-card" id="vi-du-1">
+        <div class="example-head">
+          <div class="example-number num-violet">01</div>
+          <div class="example-heading"><span class="example-label">TRƯỜNG HỢP 1 · BẮT ĐẦU TỪ HÀNG 1</span><h2>grid-row: 1 / 3</h2></div>
+          <code class="property property-violet">1 / 3</code>
+        </div>
+        <div class="example-main">
+          <div class="grid-stage">
+            <div class="grid-container variant-first">
+              <div class="item item1">Ô 1 <small>2 hàng</small></div>
+              <div class="item">Ô 2</div><div class="item">Ô 3</div>
+              <div class="item">Ô 4</div><div class="item">Ô 5</div><div class="item">Ô 6</div>
+            </div>
+          </div>
+          <div class="description"><span class="description-icon violet">↕</span><h3>Ô 1 nằm ở hai hàng đầu</h3><p><strong>grid-row: 1 / 3</strong> bắt đầu ở đường kẻ hàng số 1, kết thúc ở đường kẻ số 3. Vì vậy Ô 1 kéo dài qua <strong>hàng 1 và hàng 2</strong>.</p><div class="detail">Đường bắt đầu: <strong>1</strong><span>→</span> Đường kết thúc: <strong>3</strong></div></div>
+        </div>
+      </article>
+
+      <article class="example-card" id="vi-du-2">
+        <div class="example-head">
+          <div class="example-number num-blue">02</div>
+          <div class="example-heading"><span class="example-label">TRƯỜNG HỢP 2 · BẮT ĐẦU TỪ HÀNG 2</span><h2>grid-row: 2 / 4</h2></div>
+          <code class="property property-blue">2 / 4</code>
+        </div>
+        <div class="example-main">
+          <div class="grid-stage">
+            <div class="grid-container variant-second">
+              <div class="item item1">Ô 1 <small>2 hàng</small></div>
+              <div class="item">Ô 2</div><div class="item">Ô 3</div>
+              <div class="item">Ô 4</div><div class="item">Ô 5</div><div class="item">Ô 6</div>
+            </div>
+          </div>
+          <div class="description"><span class="description-icon blue">↓</span><h3>Ô 1 chuyển xuống hai hàng cuối</h3><p><strong>grid-row: 2 / 4</strong> bắt đầu ở đường kẻ hàng số 2, kết thúc ở đường kẻ số 4. Do đó Ô 1 nằm ở <strong>hàng 2 và hàng 3</strong>.</p><div class="detail">Đường bắt đầu: <strong>2</strong><span>→</span> Đường kết thúc: <strong>4</strong></div></div>
+        </div>
+      </article>
+
+      <article class="example-card" id="vi-du-3">
+        <div class="example-head">
+          <div class="example-number num-green">03</div>
+          <div class="example-heading"><span class="example-label">TRƯỜNG HỢP 3 · TỰ ĐỘNG CHỌN VỊ TRÍ</span><h2>grid-row: span 2</h2></div>
+          <code class="property property-green">span 2</code>
+        </div>
+        <div class="example-main">
+          <div class="grid-stage">
+            <div class="grid-container variant-third">
+              <div class="item item1">Ô 1 <small>2 hàng</small></div>
+              <div class="item">Ô 2</div><div class="item">Ô 3</div>
+              <div class="item">Ô 4</div><div class="item">Ô 5</div><div class="item">Ô 6</div>
+            </div>
+          </div>
+          <div class="description"><span class="description-icon green">↕</span><h3>Ô 1 tự chiếm 2 hàng liên tiếp</h3><p><strong>grid-row: span 2</strong> không chỉ định đường bắt đầu; trình duyệt tự bố trí Ô 1 và cho nó <strong>trải dài 2 hàng</strong>. Trong ví dụ này, Ô 1 ở hàng 1 và 2.</p><div class="detail">Số hàng chiếm: <strong>2</strong><span>✓</span> Tự động bố trí</div></div>
+        </div>
+      </article>
+    </section>
+
+    <div class="takeaway"><span class="takeaway-bulb">✦</span><div><strong>Ghi nhớ:</strong> <code>grid-row: start / end</code> xác định hai <em>đường kẻ hàng</em>, còn <code>grid-row: span 2</code> quy định ô trải qua hai hàng mà không cố định đường bắt đầu.</div></div>
+  </main>
+  <footer class="footer"><span>GRIDLAB · CSS GRID PRACTICE</span><span>© 2026 · Bài thực hành CodeGym</span></footer>
+</body>
+</html>
