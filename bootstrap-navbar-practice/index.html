@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài thực hành CodeGym tạo Bootstrap 5 Navbar responsive có menu thu gọn và dropdown Services.">
+  <title>Bootstrap Navbar | MyWebsite</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Bootstrap navbar: menu ngang desktop; collapse ở kích thước nhỏ hơn lg. -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark site-navbar sticky-top" aria-label="Thanh điều hướng chính">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home"><span class="brand-mark" aria-hidden="true">M</span> My<span class="brand-accent">Website</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Mở hoặc đóng menu điều hướng">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="#web-design">Web Design</a></li>
+              <li><a class="dropdown-item" href="#seo">SEO</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-primary btn-sm contact-button" href="#contact">Liên hệ ngay <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero d-flex align-items-center" id="home" aria-labelledby="hero-heading">
+      <div class="container py-5">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7">
+            <span class="eyebrow">✦ THỰC HÀNH BOOTSTRAP 5</span>
+            <h1 class="display-4 fw-bold mt-3 mb-4" id="hero-heading">Navbar hiện đại,<br><span>mọi thiết bị.</span></h1>
+            <p class="hero-subtitle mb-4">Tạo thanh điều hướng chuyên nghiệp bằng Bootstrap: menu ngang trên desktop, nút hamburger trên mobile và dropdown Services hoạt động bằng Bootstrap Bundle.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-light fw-semibold px-4 py-3" href="#about">Khám phá giao diện <span aria-hidden="true">→</span></a>
+              <a class="btn btn-outline-light px-4 py-3" href="#services">Xem dịch vụ</a>
+            </div>
+            <div class="mt-4 hero-tags d-flex flex-wrap gap-3"><span>✓ Bootstrap 5.3</span><span>✓ Responsive</span><span>✓ Dropdown Menu</span></div>
+          </div>
+          <div class="col-lg-5" aria-hidden="true">
+            <div class="ui-preview shadow-lg">
+              <div class="preview-bar d-flex align-items-center gap-2"><i></i><i></i><i></i><small class="ms-2">navbar-preview.html</small></div>
+              <div class="preview-navbar d-flex justify-content-between align-items-center"><strong>MyWebsite</strong><span>Home　 About　 Services ▾　 Contact</span></div>
+              <div class="preview-body">
+                <div class="preview-pill"></div><div class="preview-heading"></div><div class="preview-heading short"></div>
+                <div class="d-flex gap-2 mt-4"><div class="preview-cta"></div><div class="preview-cta secondary"></div></div>
+                <div class="preview-cards d-flex gap-2 mt-4"><span></span><span></span><span></span></div>
+              </div>
+              <div class="mobile-preview"><div class="mobile-notch"></div><div class="mobile-logo"></div><div class="mobile-line"></div><div class="mobile-line"></div><div class="mobile-line"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="text-center mx-auto section-intro">
+          <span class="section-kicker">GIỚI THIỆU</span>
+          <h2 class="fw-bold mt-2 mb-3" id="about-heading">Một Navbar, đầy đủ tính năng</h2>
+          <p class="text-secondary">Bootstrap giúp thanh điều hướng hoạt động nhất quán trên nhiều thiết bị mà không cần tự viết chức năng mở menu hay dropdown bằng JavaScript.</p>
+        </div>
+        <div class="row g-4 mt-2">
+          <div class="col-md-4"><article class="feature-card h-100"><span class="feature-icon">☷</span><h3>Navbar Responsive</h3><p class="mb-0">Dùng <code>navbar-expand-lg</code> để tự thu gọn thanh điều hướng khi màn hình nhỏ.</p></article></div>
+          <div class="col-md-4"><article class="feature-card h-100"><span class="feature-icon purple">▾</span><h3>Dropdown Menu</h3><p class="mb-0">Menu <strong>Services</strong> mở danh sách <strong>Web Design</strong> và <strong>SEO</strong> khi được nhấn.</p></article></div>
+          <div class="col-md-4"><article class="feature-card h-100"><span class="feature-icon teal">▣</span><h3>Mobile Toggler</h3><p class="mb-0">Nút hamburger dùng <code>data-bs-toggle="collapse"</code> để đóng và mở menu.</p></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space soft-section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="text-center mx-auto section-intro">
+          <span class="section-kicker">DỊCH VỤ</span>
+          <h2 class="fw-bold mt-2 mb-3" id="services-heading">Khám phá các dịch vụ</h2>
+          <p class="text-secondary">Chọn Services trên Navbar, sau đó nhấn vào dịch vụ để cuộn tới phần tương ứng.</p>
+        </div>
+        <div class="row g-4 mt-2">
+          <div class="col-md-6"><article class="service-card h-100" id="web-design"><span class="service-icon">◈</span><h3>Web Design</h3><p>Thiết kế giao diện trực quan, tối ưu trải nghiệm người dùng và hiển thị linh hoạt trên desktop, tablet và mobile.</p><span class="tag">UI/UX DESIGN</span></article></div>
+          <div class="col-md-6"><article class="service-card h-100" id="seo"><span class="service-icon green">↗</span><h3>SEO</h3><p>Xây dựng cấu trúc nội dung rõ ràng, thân thiện với công cụ tìm kiếm và thuận tiện cho người dùng truy cập.</p><span class="tag">TỐI ƯU HIỂN THỊ</span></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space" id="contact" aria-labelledby="contact-heading">
+      <div class="container"><div class="contact-panel text-center"><span class="section-kicker">LIÊN HỆ</span><h2 id="contact-heading" class="fw-bold mt-2">Bạn đã thử Navbar trên mobile chưa?</h2><p class="mx-auto mt-3 mb-0">Nhấn <strong>F12</strong> → <strong>Ctrl + Shift + M</strong>, chọn chiều rộng 375px và thử nút hamburger, dropdown Services để kiểm tra tính responsive.</p></div></div>
+    </section>
+  </main>
+
+  <footer class="footer py-4"><div class="container d-flex flex-wrap justify-content-between align-items-center gap-2"><strong>MyWebsite</strong><span>© 2026 · Thực hành Bootstrap Navbar – CodeGym</span><a href="#home">↑ Về đầu trang</a></div></footer>
+  <!-- Bootstrap bundle bao gồm Popper cần thiết cho Dropdown. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
