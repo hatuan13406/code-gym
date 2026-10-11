@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thực hành CodeGym: CSS flex-grow với 5 Flex Item, trong đó Item 2 nhận thêm không gian trống.">
+  <title>CSS flex-grow | Thực hành CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#trang-chu" aria-label="Trang đầu"><span class="brand-mark" aria-hidden="true">{ }</span> CSS Lab<span class="brand-dot">.</span></a>
+      <span class="top-label">CODEGYM · BÀI THỰC HÀNH</span>
+    </header>
+
+    <section class="hero" id="trang-chu">
+      <div class="eyebrow"><span class="eyebrow-circle" aria-hidden="true"></span> FLEXBOX FUNDAMENTALS <span class="lesson-no">BÀI 05</span></div>
+      <h1>Làm chủ <span>flex-grow</span></h1>
+      <p class="hero-description">Hiểu cách một Flex Item <strong>phát triển để chiếm phần không gian còn trống</strong> bên trong Flex Container qua ví dụ trực quan với 5 ô.</p>
+      <div class="hero-tags"><span>◆ HTML + CSS</span><span>◆ 5 FLEX ITEMS</span><span>◆ VÍ DỤ TRỰC QUAN</span></div>
+    </section>
+
+    <section class="lesson" aria-labelledby="lesson-heading">
+      <div class="section-heading">
+        <div><p class="overline">THỰC HÀNH TRỰC QUAN</p><h2 id="lesson-heading">So sánh trước và sau</h2><p>Hai hàng có cùng 5 Flex Item. Chỉ khác giá trị <code>flex-grow</code> của Ô 2.</p></div>
+        <div class="count">2 VÍ DỤ</div>
+      </div>
+
+      <article class="demo-card">
+        <div class="demo-heading"><div class="step-num">01</div><div class="demo-heading-copy"><h3>Mặc định · Không mở rộng</h3><p>Tất cả các ô đều có <code>flex-grow: 0</code>.</p></div><span class="status status-neutral">TRƯỚC</span></div>
+        <div class="demo-viewport" role="group" aria-label="Ví dụ 1: năm ô cùng kích thước, không mở rộng">
+          <div class="flex-container flex-default">
+            <div class="item">Ô 1</div>
+            <div class="item item-focus">Ô 2<span class="grow-note">grow: 0</span></div>
+            <div class="item">Ô 3</div>
+            <div class="item">Ô 4</div>
+            <div class="item">Ô 5</div>
+          </div>
+        </div>
+        <p class="demo-caption"><span class="caption-icon" aria-hidden="true">ⓘ</span> Các ô giữ chiều rộng cơ sở 120px. Phần trống còn lại không được sử dụng.</p>
+      </article>
+
+      <div class="compare-arrow" aria-hidden="true"><span>↓</span> THÊM FLEX-GROW CHO Ô 2 <span>↓</span></div>
+
+      <article class="demo-card demo-card-highlight">
+        <div class="demo-heading"><div class="step-num step-active">02</div><div class="demo-heading-copy"><h3>Áp dụng <code>flex-grow: 1</code> cho Ô 2</h3><p>Ô 2 nhận thêm toàn bộ phần không gian còn trống.</p></div><span class="status status-active">SAU KHI ÁP DỤNG</span></div>
+        <div class="demo-viewport" role="group" aria-label="Ví dụ 2: năm ô trong Flex Container, Ô 2 mở rộng">
+          <div class="flex-container flex-expanded">
+            <div class="item">Ô 1</div>
+            <div class="item item-focus">Ô 2<span class="grow-note">flex-grow: 1 ✦</span></div>
+            <div class="item">Ô 3</div>
+            <div class="item">Ô 4</div>
+            <div class="item">Ô 5</div>
+          </div>
+        </div>
+        <p class="demo-caption"><span class="caption-icon" aria-hidden="true">✓</span> Chỉ Ô 2 có <code>flex-grow: 1</code>; các ô khác có <code>flex-grow: 0</code>, nên Ô 2 mở rộng.</p>
+      </article>
+    </section>
+
+    <section class="theory" aria-label="Kiến thức CSS flex-grow">
+      <article class="code-card">
+        <div class="code-heading"><span><span class="code-dot"></span> style.css</span><span class="code-lang">CSS</span></div>
+        <pre><code>.flex-container {
+  display: flex;
+  gap: 12px;
+}
+
+.item {
+  flex: 0 0 120px;
+}
+
+/* Chỉ Ô thứ 2 phát triển */
+.flex-expanded .item:nth-child(2) {
+  flex-grow: 1;
+}</code></pre>
+      </article>
+      <aside class="takeaway">
+        <p class="overline">KIẾN THỨC CẦN NHỚ</p>
+        <h2>Flex-grow hoạt động thế nào?</h2>
+        <div class="takeaway-row"><span class="check">✓</span><p><strong>Giá trị mặc định là 0.</strong> Item không tự nhận phần không gian dư.</p></div>
+        <div class="takeaway-row"><span class="check">✓</span><p><strong>Giá trị 1</strong> cho phép Item mở rộng khi Container còn chỗ trống.</p></div>
+        <div class="takeaway-row"><span class="check">✓</span><p><strong>Chỉ áp dụng trên Flex Item</strong> — con trực tiếp của phần tử có <code>display: flex</code>.</p></div>
+        <p class="mini-note">Ngoài số, <code>initial</code> đặt lại thành 0 và <code>inherit</code> lấy giá trị từ phần tử cha.</p>
+      </aside>
+    </section>
+
+    <footer class="footer"><span>CSS LAB <span class="footer-dot">✦</span> THỰC HÀNH FLEXBOX</span><span>© 2026 · CODEGYM · FLEX-GROW PROPERTY</span></footer>
+  </main>
+</body>
+</html>
