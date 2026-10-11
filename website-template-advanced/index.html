@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Creative Web — website template HTML CSS hiện đại với hero nền ảnh blur, menu fixed, CSS Grid cards và footer hai cột.">
+  <title>Creative Web | Thiết kế website chuyên nghiệp</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Navigation cố định khi cuộn -->
+  <nav class="navbar" aria-label="Điều hướng chính">
+    <div class="nav-inner">
+      <a href="#home" class="brand" aria-label="Creative Web - trang chủ"><span class="brand-mark" aria-hidden="true">✳</span>Creative<span class="brand-accent">Web.</span></a>
+      <button type="button" id="navToggle" class="menu-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Mở menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="mainNav">
+        <li><a class="active" href="#home">Trang chủ</a></li>
+        <li><a href="#services">Dịch vụ</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Bắt đầu dự án <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+
+  <!-- Header có background image, blur layer và overlay -->
+  <header class="header" id="home">
+    <div class="header-content">
+      <span class="eyebrow light"><span class="eyebrow-line"></span> CREATIVE DIGITAL STUDIO</span>
+      <h1>Ý tưởng lớn.<br><em>Trải nghiệm khác biệt.</em></h1>
+      <p>Thiết kế website chuyên nghiệp · Hiện đại · Ấn tượng. Chúng tôi đưa ý tưởng của bạn vào thế giới số bằng sự sáng tạo và công nghệ.</p>
+      <div class="header-actions">
+        <a href="#services" class="btn btn-primary">Khám phá dịch vụ <span aria-hidden="true">↗</span></a>
+        <a href="#about" class="btn btn-outline">Tìm hiểu chúng tôi <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="header-badges"><span>✦ Responsive Design</span><span>✦ Trải nghiệm tinh tế</span><span>✦ Công nghệ hiện đại</span></div>
+    </div>
+    <div class="header-scroll" aria-hidden="true"><span>SCROLL TO EXPLORE</span><i>↓</i></div>
+  </header>
+
+  <main>
+    <section class="about-section section-space" id="about" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow dark"><span class="eyebrow-line"></span> CHÚNG TÔI LÀ AI?</span>
+          <h2 class="section-title" id="about-heading">Không chỉ là website.<br><em>Đó là dấu ấn thương hiệu.</em></h2>
+        </div>
+        <div class="about-copy">
+          <p>Creative Web là thương hiệu minh họa cho một studio sáng tạo, nơi tư duy thiết kế gặp gỡ công nghệ để tạo ra những trải nghiệm số đáng nhớ.</p>
+          <p>Chúng tôi tập trung vào những gì thật sự quan trọng: giao diện đẹp, sử dụng dễ dàng và khả năng phát triển cùng doanh nghiệp.</p>
+          <a href="#services" class="text-link">Tìm hiểu giải pháp <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid 3 card, hover nâng card & ảnh -->
+    <section class="content section-space" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-top">
+          <div><span class="eyebrow dark"><span class="eyebrow-line"></span> DỊCH VỤ CỦA CHÚNG TÔI</span><h2 id="services-heading" class="section-title">Giải pháp giúp bạn<br><em>tỏa sáng trên môi trường số.</em></h2></div>
+          <p>Ba dịch vụ tiêu biểu được trình bày bằng CSS Grid linh hoạt cùng hiệu ứng hover tự nhiên.</p>
+        </div>
+        <div class="card-container">
+          <article class="card">
+            <div class="card-image-wrap"><img src="images/service1.svg" alt="Minh họa thiết kế website và giao diện trên máy tính" loading="lazy" width="900" height="600"><span class="card-number">01 / 03</span></div>
+            <div class="card-content"><span class="card-category">WEB DESIGN</span><h3>Thiết kế Website</h3><p>• Tạo website chuyên nghiệp, thân thiện với người dùng và tối ưu hiển thị trên điện thoại, máy tính.</p><a href="#contact" class="card-more">Khám phá dịch vụ <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="card">
+            <div class="card-image-wrap"><img src="images/service2.svg" alt="Minh họa bảng dữ liệu và biểu đồ tăng trưởng marketing" loading="lazy" width="900" height="600"><span class="card-number">02 / 03</span></div>
+            <div class="card-content"><span class="card-category">GROWTH MARKETING</span><h3>SEO &amp; Marketing</h3><p>• Xây dựng chiến lược nội dung và tối ưu sự hiện diện của thương hiệu trên nền tảng số.</p><a href="#contact" class="card-more">Khám phá dịch vụ <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="card">
+            <div class="card-image-wrap"><img src="images/service3.svg" alt="Minh họa đội ngũ chăm sóc khách hàng qua biểu tượng tin nhắn" loading="lazy" width="900" height="600"><span class="card-number">03 / 03</span></div>
+            <div class="card-content"><span class="card-category">CUSTOMER EXPERIENCE</span><h3>Hỗ trợ 24/7</h3><p>• Luôn sẵn sàng lắng nghe, phản hồi thắc mắc và giúp khách hàng giải quyết vấn đề.</p><a href="#contact" class="card-more">Khám phá dịch vụ <span aria-hidden="true">↗</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-section section-space" id="blog" aria-labelledby="blog-heading">
+      <div class="container blog-grid">
+        <div><span class="eyebrow dark"><span class="eyebrow-line"></span> GÓC CHIA SẺ</span><h2 id="blog-heading" class="section-title">Một chút cảm hứng<br><em>cho ý tưởng tiếp theo.</em></h2><p>• Thiết kế tốt bắt đầu từ việc thấu hiểu người dùng.<br>• Nội dung rõ ràng tạo nên trải nghiệm đáng nhớ.<br>• Sự đơn giản giúp thông điệp nổi bật.</p></div>
+        <div class="quote-box"><span class="quote-icon">“</span><blockquote>Design is not just what it looks like. Design is how it works.</blockquote><p>— Triết lý thiết kế lấy trải nghiệm làm trọng tâm</p></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact-panel">
+        <div><span class="eyebrow light"><span class="eyebrow-line"></span> BẠN CÓ Ý TƯỞNG?</span><h2 id="contact-heading">Cùng tạo ra điều<br><em>thật ấn tượng.</em></h2><p>Đây là trang minh họa phục vụ bài thực hành HTML &amp; CSS tại CodeGym. Địa chỉ email bên cạnh chỉ là ví dụ.</p></div>
+        <a href="mailto:hello@example.com?subject=Creative%20Web%20Demo" class="btn btn-white">Trao đổi ý tưởng <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Flexbox 2 cột + dấu chấm phân cấp -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-left"><span class="footer-brand">✳ CreativeWeb.</span><p>• © 2026 Creative Web. All rights reserved.</p><p>• Website Template · HTML &amp; CSS Practice — CodeGym</p></div>
+      <div class="footer-right"><h3>Khám phá thêm</h3><p>• <a href="#services">Dịch vụ</a> &nbsp;• <a href="#blog">Blog</a> &nbsp;• <a href="#contact">Liên hệ</a></p><p>• Theo dõi chúng tôi: Facebook · X · LinkedIn (minh họa)</p></div>
+    </div>
+    <div class="container footer-bottom"><span>Crafted with creativity.</span><a href="#home">Trở về đầu trang ↑</a></div>
+  </footer>
+</body>
+</html>
