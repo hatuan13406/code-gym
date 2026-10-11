@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài tập CodeGym: thiết kế bố cục responsive bằng CSS Grid với Header, Navigation, Main Content, Sidebar và Footer.">
+    <title>NovaSpace – Responsive CSS Grid Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Lưới tổng thể gồm 5 vùng: header, navigation, main, sidebar, footer. -->
+    <div class="page-grid" id="trang-chu">
+        <header class="header">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                <span class="brand-name">nova<span>space</span></span>
+            </div>
+            <div class="header-title">
+                <span class="eyebrow">BÀI TẬP HTML &amp; CSS</span>
+                <p>Giao diện Responsive CSS Grid</p>
+            </div>
+            <div class="header-badge"><span class="badge-dot" aria-hidden="true"></span> GRID LAYOUT</div>
+        </header>
+
+        <nav class="navigation" aria-label="Menu điều hướng chính">
+            <div class="nav-inner">
+                <a class="nav-active" href="#trang-chu"><span aria-hidden="true">⌂</span> Trang chủ</a>
+                <a href="#gioi-thieu"><span aria-hidden="true">◈</span> Giới thiệu</a>
+                <a href="#dich-vu"><span aria-hidden="true">▤</span> Dịch vụ</a>
+                <a href="#tin-tuc"><span aria-hidden="true">▣</span> Tin tức</a>
+                <a href="#lien-he"><span aria-hidden="true">✉</span> Liên hệ</a>
+            </div>
+            <div class="nav-label">RESPONSIVE WEB DESIGN <span aria-hidden="true">✦</span></div>
+        </nav>
+
+        <main class="main-content" id="gioi-thieu">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-copy">
+                    <span class="hero-kicker">✦ THIẾT KẾ WEB HIỆN ĐẠI</span>
+                    <h1 id="hero-title">Một bố cục.<br><span>Mọi màn hình.</span></h1>
+                    <p>Xây dựng trang web hoàn chỉnh bằng <strong>CSS Grid</strong>. Các khu vực tự động sắp xếp hợp lý trên máy tính, máy tính bảng và điện thoại.</p>
+                    <a class="btn-primary" href="#dich-vu">Khám phá ngay <span aria-hidden="true">→</span></a>
+                    <div class="hero-features">
+                        <span>✓ Grid Template Areas</span>
+                        <span>✓ Media Queries</span>
+                    </div>
+                </div>
+                <div class="hero-illustration" aria-hidden="true">
+                    <div class="illustration-glow"></div>
+                    <div class="browser-mockup">
+                        <div class="browser-top"><i></i><i></i><i></i><b>responsive-layout.html</b></div>
+                        <div class="mock-header"></div>
+                        <div class="mock-navigation"></div>
+                        <div class="mock-body"><div class="mock-content"><span></span><div><i></i><i></i></div><b></b><b></b></div><div class="mock-sidebar"><i></i><i></i><i></i></div></div>
+                        <div class="mock-footer"></div>
+                    </div>
+                    <div class="floating-label">CSS <strong>GRID</strong> ✦</div>
+                </div>
+            </section>
+
+            <div class="section-heading" id="dich-vu">
+                <div>
+                    <span class="eyebrow">CÁC THÀNH PHẦN TRÊN TRANG</span>
+                    <h2>Bố cục được chia khoa học</h2>
+                    <p>Những thành phần cơ bản của một website chuyên nghiệp.</p>
+                </div>
+                <span class="section-count">05 KHU VỰC</span>
+            </div>
+
+            <section class="cards" aria-label="Các khu vực trong bố cục">
+                <article class="card">
+                    <div class="card-icon icon-purple" aria-hidden="true">▦</div>
+                    <span class="card-number">01</span>
+                    <h3>Header</h3>
+                    <p>Hiển thị thương hiệu và tiêu đề trang ở vị trí nổi bật.</p>
+                    <code>grid-area: header;</code>
+                </article>
+                <article class="card">
+                    <div class="card-icon icon-blue" aria-hidden="true">☷</div>
+                    <span class="card-number">02</span>
+                    <h3>Navigation</h3>
+                    <p>Menu điều hướng giúp truy cập nhanh tới các khu vực.</p>
+                    <code>grid-area: nav;</code>
+                </article>
+                <article class="card">
+                    <div class="card-icon icon-mint" aria-hidden="true">▣</div>
+                    <span class="card-number">03</span>
+                    <h3>Main Content</h3>
+                    <p>Không gian chính để hiển thị thông tin và nội dung.</p>
+                    <code>grid-area: main;</code>
+                </article>
+                <article class="card">
+                    <div class="card-icon icon-orange" aria-hidden="true">▤</div>
+                    <span class="card-number">04</span>
+                    <h3>Sidebar</h3>
+                    <p>Chứa các tin tức, đường dẫn và thông tin bổ sung.</p>
+                    <code>grid-area: sidebar;</code>
+                </article>
+            </section>
+
+            <section class="how-it-works" id="huong-dan" aria-labelledby="how-title">
+                <div class="how-head">
+                    <div>
+                        <span class="eyebrow">KIẾN THỨC CẦN NHỚ</span>
+                        <h2 id="how-title">Responsive hoạt động như thế nào?</h2>
+                    </div>
+                    <span class="live-label">● LIVE CSS</span>
+                </div>
+                <div class="how-body">
+                    <div class="code-window">
+                        <div class="code-window-top"><i></i><i></i><i></i><span>style.css</span></div>
+                        <pre><code>.page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "main sidebar"
+    "footer footer";
+}
+
+@media (max-width: 768px) {
+  .page-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}</code></pre>
+                    </div>
+                    <div class="how-tips">
+                        <div class="tip"><span>01</span><div><strong>Desktop – 2 cột</strong><p>Main Content chiếm 3 phần; Sidebar chiếm 1 phần.</p></div></div>
+                        <div class="tip"><span>02</span><div><strong>Mobile – 1 cột</strong><p>Toàn bộ các vùng xếp dọc theo thứ tự rõ ràng.</p></div></div>
+                        <div class="tip"><span>03</span><div><strong>Không tràn ngang</strong><p>Dùng kích thước linh hoạt và Media Queries để dễ đọc trên điện thoại.</p></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar" aria-labelledby="sidebar-heading">
+            <div class="sidebar-section">
+                <span class="eyebrow">KHÁM PHÁ THÊM</span>
+                <h2 id="sidebar-heading">Bảng thông tin</h2>
+                <p class="sidebar-description">Một số nội dung phụ được đặt cạnh bài viết trên desktop và chuyển xuống dưới trên mobile.</p>
+            </div>
+
+            <section class="sidebar-widget" id="tin-tuc" aria-labelledby="news-title">
+                <div class="widget-heading"><span class="widget-icon purple" aria-hidden="true">✦</span><h3 id="news-title">Tin tức mới</h3></div>
+                <a class="news-row" href="#huong-dan"><span class="news-number">01</span><span>CSS Grid và sự linh hoạt của giao diện<small>Học CSS • 5 phút đọc</small></span><b aria-hidden="true">↗</b></a>
+                <a class="news-row" href="#dich-vu"><span class="news-number">02</span><span>5 vùng cơ bản trong một website<small>Thực hành • 3 phút đọc</small></span><b aria-hidden="true">↗</b></a>
+                <a class="news-row" href="#gioi-thieu"><span class="news-number">03</span><span>Thiết kế Responsive hiệu quả<small>Thiết kế web • 4 phút đọc</small></span><b aria-hidden="true">↗</b></a>
+            </section>
+
+            <section class="sidebar-widget" aria-labelledby="status-title">
+                <div class="widget-heading"><span class="widget-icon blue" aria-hidden="true">▥</span><h3 id="status-title">Thông tin bố cục</h3></div>
+                <div class="stat-row"><span>Ngôn ngữ</span><strong>HTML + CSS</strong></div>
+                <div class="stat-row"><span>Kỹ thuật</span><strong>CSS Grid</strong></div>
+                <div class="stat-row"><span>Responsive</span><strong class="success"><i aria-hidden="true"></i> Đang bật</strong></div>
+                <div class="stat-row"><span>Số khu vực</span><strong>05</strong></div>
+            </section>
+
+            <div class="sidebar-callout">
+                <span class="callout-icon" aria-hidden="true">💡</span>
+                <h3>Mẹo thực hành</h3>
+                <p>Nhấn <strong>F12</strong>, chọn chế độ thiết bị và thử thu nhỏ giao diện xuống <strong>375px</strong> để quan sát các thành phần xếp dọc.</p>
+                <a href="#huong-dan">Xem hướng dẫn <span aria-hidden="true">→</span></a>
+            </div>
+        </aside>
+
+        <footer class="footer" id="lien-he">
+            <div class="footer-brand"><span class="footer-brand-icon" aria-hidden="true">▦</span><strong>novaspace</strong></div>
+            <p>© 2026 NovaSpace · Bài tập Responsive CSS Grid – CodeGym</p>
+            <a href="#trang-chu">↑ Lên đầu trang</a>
+        </footer>
+    </div>
+</body>
+</html>
