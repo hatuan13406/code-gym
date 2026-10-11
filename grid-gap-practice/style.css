@@ -1,0 +1,84 @@
+/* CODEGYM — CSS | grid-gap Property — 2 ví dụ */
+:root {
+  --ink: #23324c;
+  --muted: #738099;
+  --primary: #5368dc;
+  --border: #e3e9f1;
+  --page: #f5f7fc;
+}
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+h1, h2, p { margin-top: 0; }
+.page { max-width: 1100px; width: calc(100% - 44px); margin: 0 auto; padding: 35px 0 30px; }
+.intro { text-align: center; margin: 0 auto 28px; }
+.eyebrow { color: #5a6ed7; font-weight: 800; letter-spacing: 1.8px; font-size: 10px; }
+.dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; vertical-align: middle; border-radius: 50%; background: #6075df; }
+.intro h1 { font-size: clamp(27px, 3.4vw, 39px); letter-spacing: -1.1px; margin: 8px 0 6px; line-height: 1.25; }
+.intro h1 span { color: var(--primary); }
+.intro > p { margin: 0 auto; font-size: 13px; color: var(--muted); max-width: 700px; }
+.intro-tags { margin-top: 16px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+.intro-tags span { font-size: 10px; color: #6473c0; font-weight: 750; padding: 4px 11px; border: 1px solid #e0e7ff; background: #edf1ff; border-radius: 18px; }
+.examples { display: grid; grid-template-columns: 1fr; gap: 17px; }
+.example-card { background: #fff; border: 1px solid var(--border); border-radius: 15px; padding: 21px 25px 20px; box-shadow: 0 6px 24px #2533530a; min-width: 0; }
+.example-top { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+.example-number { display: grid; place-items: center; width: 43px; height: 43px; flex: 0 0 43px; background: #e7edff; color: #5268d2; font-size: 13px; font-weight: 900; border-radius: 11px; }
+.example-number.green-number { background: #e1f8e5; color: #399452; }
+.example-title { flex: 1; min-width: 0; }
+.kicker { color: #6677ce; letter-spacing: 1.3px; font-size: 10px; font-weight: 900; margin-bottom: 3px; }
+.kicker.green-kicker { color: #389354; }
+.example-title h2 { font-size: 19px; letter-spacing: -.5px; line-height: 1.3; margin: 0 0 3px; }
+.example-title h2 span { color: var(--primary); }
+.example-title h2 span.green-text, .green-text { color: #2f9252 !important; }
+.example-title p { color: var(--muted); font-size: 11.5px; margin: 0; }
+.example-badge { flex: 0 0 auto; padding: 7px 10px; color: #697bca; background: #f0f3ff; border-radius: 7px; font-size: 11px; font-weight: 850; }
+.example-badge.green-badge { color: #378951; background: #eefaf0; }
+.demo-area { border-radius: 10px; padding: 18px; }
+.blue-surface { background: #f0f6ff; border: 1px solid #e0ecff; }
+.green-surface { background: #eff9f1; border: 1px solid #ddefe2; }
+/* VÍ DỤ 1: grid-gap với một giá trị = row-gap và column-gap đều 20px */
+.grid-container { display: grid; }
+.grid-equal {
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+/* VÍ DỤ 2: 30px giữa hàng, 10px giữa cột */
+.grid-different {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px 10px;
+}
+.grid-item { min-width: 0; text-align: center; padding: 14px 20px; border-radius: 6px; font-size: 15px; font-weight: 800; height: 51px; }
+.grid-item.blue { background-color: lightblue; color: #275c75; border: 1px solid #9ccedc; }
+.grid-item.green { background-color: lightgreen; color: #2b6d45; border: 1px solid #8bd79b; }
+.example-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 15px; }
+.code-line { background: #f5f7fc; color: #6a7891; border-radius: 6px; padding: 8px 12px; font: 11px/1.5 Consolas, 'Courier New', monospace; overflow-wrap: anywhere; }
+.code-line > span { color: #344562; }
+.code-line b { color: #5368d1; }
+.readout { font-size: 11px; color: #8591a5; white-space: nowrap; }
+.readout strong { color: #4c5d7b; }
+.readout-pip { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+.blue-pip { background: #7197e8; }.green-pip { background: #57ba78; }
+.separator { display: inline-block; height: 12px; border-left: 1px solid #d1d9e6; margin: 0 10px; vertical-align: middle; }
+.note { display: flex; align-items: flex-start; gap: 14px; margin-top: 18px; padding: 18px 20px; background: #eaf0ff; border: 1px solid #dee6ff; border-radius: 11px; }
+.note-icon { display: grid; place-items: center; flex: 0 0 36px; height: 36px; background: #586cda; border-radius: 10px; color: white; font-size: 21px; }
+.note h2 { font-size: 14px; margin: 0 0 4px; }
+.note p { color: #657695; font-size: 11.5px; margin: 0; }
+.note code { background: #fff; padding: 3px 6px; border-radius: 4px; color: #5166ca; font-size: 11px; }
+.footer { color: #a0aabc; font-size: 10px; text-align: center; padding: 20px 0 0; }
+@media (max-width: 620px) {
+  .page { width: calc(100% - 24px); padding-top: 25px; }
+  .example-card { padding: 17px 14px; }
+  .example-top { gap: 10px; }
+  .example-title h2 { font-size: 16px; }
+  .example-badge { display: none; }
+  .demo-area { padding: 12px; }
+  .grid-item { padding: 12px 5px; font-size: 13px; height: 48px; }
+  .example-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .note { padding: 15px 12px; }
+}

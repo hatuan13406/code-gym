@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài thực hành CodeGym thuộc tính CSS grid-gap: 20px và 30px 10px, gồm hai ví dụ trực quan.">
+  <title>CSS grid-gap | Bài thực hành CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <div class="eyebrow"><span class="dot"></span> THỰC HÀNH CSS GRID · CODEGYM</div>
+      <h1>Khám phá <span>grid-gap</span> trong CSS</h1>
+      <p>Hiểu trực quan cách tạo khoảng cách giữa các <strong>hàng</strong> và <strong>cột</strong> trong CSS Grid qua 2 ví dụ.</p>
+      <div class="intro-tags" aria-label="Các nội dung học"><span>CSS Grid</span><span>2 ví dụ</span><span>Hàng &amp; cột</span></div>
+    </header>
+
+    <section class="examples" aria-label="Hai ví dụ thuộc tính grid-gap">
+      <article class="example-card">
+        <div class="example-top">
+          <div class="example-number">01</div>
+          <div class="example-title">
+            <div class="kicker">VÍ DỤ 1 · KHOẢNG CÁCH BẰNG NHAU</div>
+            <h2>Khoảng cách hàng và cột: <span>20px</span></h2>
+            <p>Grid gồm 2 cột × 2 hàng, mỗi khoảng trống đều bằng 20px.</p>
+          </div>
+          <div class="example-badge">2 × 2</div>
+        </div>
+        <div class="demo-area blue-surface">
+          <div class="grid-container grid-equal" id="example-one">
+            <div class="grid-item blue">Ô 1</div>
+            <div class="grid-item blue">Ô 2</div>
+            <div class="grid-item blue">Ô 3</div>
+            <div class="grid-item blue">Ô 4</div>
+          </div>
+        </div>
+        <div class="example-bottom">
+          <div class="code-line"><span>.grid-container</span> { <b>grid-gap: 20px;</b> }</div>
+          <div class="readout"><span class="readout-pip blue-pip"></span> Hàng: <strong>20px</strong><span class="separator"></span> Cột: <strong>20px</strong></div>
+        </div>
+      </article>
+
+      <article class="example-card">
+        <div class="example-top">
+          <div class="example-number green-number">02</div>
+          <div class="example-title">
+            <div class="kicker green-kicker">VÍ DỤ 2 · KHOẢNG CÁCH KHÁC NHAU</div>
+            <h2>Hàng 30px · Cột <span class="green-text">10px</span></h2>
+            <p>Grid gồm 3 cột × 2 hàng với khoảng cách hàng và cột khác nhau.</p>
+          </div>
+          <div class="example-badge green-badge">3 × 2</div>
+        </div>
+        <div class="demo-area green-surface">
+          <div class="grid-container grid-different" id="example-two">
+            <div class="grid-item green">Ô 1</div>
+            <div class="grid-item green">Ô 2</div>
+            <div class="grid-item green">Ô 3</div>
+            <div class="grid-item green">Ô 4</div>
+            <div class="grid-item green">Ô 5</div>
+            <div class="grid-item green">Ô 6</div>
+          </div>
+        </div>
+        <div class="example-bottom">
+          <div class="code-line"><span>.grid-container</span> { <b class="green-text">grid-gap: 30px 10px;</b> }</div>
+          <div class="readout"><span class="readout-pip green-pip"></span> Hàng: <strong>30px</strong><span class="separator"></span> Cột: <strong>10px</strong></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="note" aria-label="Ghi nhớ">
+      <div class="note-icon" aria-hidden="true">✦</div>
+      <div>
+        <h2>Ghi nhớ nhanh</h2>
+        <p><code>grid-gap: hàng cột;</code> — Nếu chỉ ghi một giá trị, khoảng cách giữa hàng và cột sẽ bằng nhau. Trong CSS hiện đại, bạn có thể dùng <code>gap</code> thay cho <code>grid-gap</code>.</p>
+      </div>
+    </section>
+    <footer class="footer">© 2026 · Bài thực hành CodeGym · CSS | grid-gap Property</footer>
+  </main>
+</body>
+</html>
