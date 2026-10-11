@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang giới thiệu doanh nghiệp với Bootstrap 5: Navbar, Hero, About, Services, Contact và Footer. Bài thực hành CodeGym.">
+  <title>NovaTech | Giới thiệu doanh nghiệp</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar: Bootstrap collapse trên điện thoại -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top main-nav" aria-label="Điều hướng chính">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#home">
+        <span class="logo-mark" aria-hidden="true">N</span>
+        Nova<span class="brand-accent">Tech</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Mở hoặc đóng menu điều hướng">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Trang Chủ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Về Chúng Tôi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Dịch Vụ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Liên Hệ</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-primary nav-button" href="#contact">Nhận tư vấn <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero: thông điệp doanh nghiệp và CTA -->
+    <header class="hero text-white" id="home">
+      <div class="container py-5">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="eyebrow hero-eyebrow">✦ GIẢI PHÁP CÔNG NGHỆ TOÀN DIỆN</span>
+            <h1 class="display-4 fw-bold mt-3 mb-4">Công nghệ dẫn lối.<br><span>Doanh nghiệp bứt phá.</span></h1>
+            <p class="hero-text mb-4">NovaTech đồng hành cùng doanh nghiệp trên hành trình chuyển đổi số — từ thiết kế website, tiếp thị trực tuyến đến chăm sóc khách hàng tận tâm.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#services" class="btn btn-light btn-lg hero-cta">Khám phá dịch vụ <span aria-hidden="true">→</span></a>
+              <a href="#about" class="btn btn-outline-light btn-lg hero-outline">Tìm hiểu về chúng tôi</a>
+            </div>
+            <div class="hero-benefits d-flex flex-wrap gap-3 mt-4"><span>✓ Giao diện hiện đại</span><span>✓ Giải pháp linh hoạt</span><span>✓ Hỗ trợ tận tâm</span></div>
+          </div>
+          <div class="col-lg-5" aria-hidden="true">
+            <div class="hero-illustration">
+              <div class="art-glow"></div>
+              <div class="dashboard">
+                <div class="dash-top"><i></i><i></i><i></i><span>novatech.com / dashboard</span></div>
+                <div class="dash-layout">
+                  <div class="dash-side"><b></b><em></em><em></em><em></em><em></em></div>
+                  <div class="dash-main">
+                    <b></b>
+                    <div class="dash-chart"><i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:51%"></i><i style="--h:82%"></i><i style="--h:73%"></i><i style="--h:98%"></i></div>
+                    <div class="dash-stats"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="art-badge">↗ <strong>+120%</strong><small>Tăng trưởng số</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About: giới thiệu công ty -->
+    <section id="about" class="section-space" aria-labelledby="about-title">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-5">
+            <span class="section-eyebrow">VỀ CHÚNG TÔI</span>
+            <h2 id="about-title" class="section-heading fw-bold mt-2">Đồng hành cùng sự phát triển bền vững</h2>
+            <p class="text-secondary description mt-3">NovaTech là thương hiệu minh họa về doanh nghiệp cung cấp dịch vụ công nghệ, thiết kế website và tiếp thị số. Chúng tôi đặt trải nghiệm khách hàng làm trọng tâm của mỗi giải pháp.</p>
+            <a class="btn btn-outline-primary fw-semibold mt-2" href="#services">Khám phá dịch vụ →</a>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-sm-6"><article class="about-tile h-100"><span class="about-icon blue" aria-hidden="true">◈</span><h3>Đổi mới sáng tạo</h3><p>Luôn tìm kiếm cách làm hiệu quả và phù hợp với từng khách hàng.</p></article></div>
+              <div class="col-sm-6"><article class="about-tile h-100"><span class="about-icon purple" aria-hidden="true">✦</span><h3>Chất lượng ưu tiên</h3><p>Chú trọng trải nghiệm, tốc độ và khả năng sử dụng của sản phẩm.</p></article></div>
+              <div class="col-sm-6"><article class="about-tile h-100"><span class="about-icon teal" aria-hidden="true">↗</span><h3>Đồng hành lâu dài</h3><p>Không ngừng hoàn thiện và cập nhật các giải pháp công nghệ.</p></article></div>
+              <div class="col-sm-6"><article class="about-tile h-100"><span class="about-icon orange" aria-hidden="true">♡</span><h3>Lắng nghe khách hàng</h3><p>Thấu hiểu nhu cầu để cung cấp giải pháp phù hợp mục tiêu.</p></article></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap Grid: 3 cột tại md trở lên -->
+    <section id="services" class="section-space services-bg" aria-labelledby="services-title">
+      <div class="container">
+        <div class="text-center mx-auto section-intro">
+          <span class="section-eyebrow">DỊCH VỤ CỦA CHÚNG TÔI</span>
+          <h2 id="services-title" class="section-heading fw-bold mt-2">Giải pháp dành cho doanh nghiệp</h2>
+          <p class="text-secondary mt-3">Các dịch vụ được hiển thị bằng Bootstrap Grid System, kết hợp Cards đồng đều và responsive.</p>
+        </div>
+        <div class="row g-4 mt-2">
+          <div class="col-md-4">
+            <article class="card service-card h-100 border-0">
+              <div class="card-body p-4">
+                <span class="service-icon blue" aria-hidden="true">▣</span>
+                <span class="service-index">01 / 03</span>
+                <h3 class="h5 fw-bold mt-4">Thiết kế Website</h3>
+                <p class="text-secondary">Thiết kế giao diện chuyên nghiệp, thân thiện trên mọi thiết bị và tối ưu trải nghiệm người dùng.</p>
+                <a class="card-link" href="#contact">Tìm hiểu thêm ↗</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card service-card h-100 border-0">
+              <div class="card-body p-4">
+                <span class="service-icon purple" aria-hidden="true">↗</span>
+                <span class="service-index">02 / 03</span>
+                <h3 class="h5 fw-bold mt-4">Marketing Online</h3>
+                <p class="text-secondary">Phát triển thương hiệu, tiếp cận khách hàng tiềm năng và nâng cao hiệu quả truyền thông số.</p>
+                <a class="card-link" href="#contact">Tìm hiểu thêm ↗</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card service-card h-100 border-0">
+              <div class="card-body p-4">
+                <span class="service-icon teal" aria-hidden="true">✧</span>
+                <span class="service-index">03 / 03</span>
+                <h3 class="h5 fw-bold mt-4">Hỗ trợ khách hàng</h3>
+                <p class="text-secondary">Đội ngũ tư vấn và hỗ trợ luôn sẵn sàng giải đáp các thắc mắc và đồng hành cùng khách hàng.</p>
+                <a class="card-link" href="#contact">Tìm hiểu thêm ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact: thông tin minh họa, không đại diện doanh nghiệp thực -->
+    <section id="contact" class="section-space" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <span class="section-eyebrow text-white-50">KẾT NỐI CÙNG CHÚNG TÔI</span>
+              <h2 id="contact-title" class="section-heading fw-bold mt-2">Sẵn sàng cho bước tiến tiếp theo?</h2>
+              <p class="contact-description mb-0 mt-3">Liên hệ với NovaTech để được tư vấn giải pháp phù hợp. Thông tin bên dưới chỉ phục vụ mục đích minh họa cho bài thực hành.</p>
+            </div>
+            <div class="col-lg-5">
+              <div class="contact-details">
+                <div class="contact-line"><span aria-hidden="true">✉</span><div><small>Email minh họa</small><a href="mailto:contact@example.com">contact@example.com</a></div></div>
+                <div class="contact-line"><span aria-hidden="true">◷</span><div><small>Thời gian hỗ trợ</small><strong>Thứ 2 – Thứ 6 · 08:00 – 17:00</strong></div></div>
+                <a href="mailto:contact@example.com" class="btn btn-light fw-semibold w-100 mt-3">Gửi email liên hệ ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white footer">
+    <div class="container py-4">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
+        <strong class="footer-brand">✦ NovaTech</strong>
+        <span class="footer-copy">© 2026 NovaTech · Trang giới thiệu doanh nghiệp minh họa – CodeGym</span>
+        <a href="#home" class="footer-back">↑ Lên đầu trang</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
