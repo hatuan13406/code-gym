@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài thực hành CodeGym tạo layout Responsive Web Design bằng DIV, CSS Grid, Flexbox và Media Queries.">
+  <title>RWD Studio | Bài tập tạo layout responsive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER: Logo và liên kết điều hướng, thích ứng với thiết bị nhỏ. -->
+  <header class="site-header" id="trang-chu">
+    <div class="header-inner">
+      <a class="brand" href="#trang-chu" aria-label="RWD Studio - Trang chủ">
+        <span class="brand-icon" aria-hidden="true">R<span>·</span></span>
+        <span>RWD <strong>Studio</strong></span>
+      </a>
+      <nav class="primary-nav" aria-label="Điều hướng chính">
+        <a href="#trang-chu" class="nav-active">Trang chủ</a>
+        <a href="#tong-quan">Giới thiệu</a>
+        <a href="#thanh-phan">Thành phần</a>
+        <a href="#lien-he">Liên hệ</a>
+      </nav>
+      <span class="header-badge"><span class="badge-circle" aria-hidden="true"></span> HTML &amp; CSS</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrapper">
+      <!-- Hero giới thiệu: 2 cột trên desktop, 1 cột trên mobile. -->
+      <div class="hero" id="tong-quan">
+        <div class="hero-copy">
+          <div class="eyebrow light">THỰC HÀNH CSS · RESPONSIVE WEB DESIGN</div>
+          <h1>Một giao diện đẹp.<br><span>Mọi kích thước màn hình.</span></h1>
+          <p>Khám phá cách tạo bố cục website bằng <strong>DIV và CSS</strong>, tự động thích ứng trên máy tính, máy tính bảng và điện thoại.</p>
+          <a class="hero-button" href="#thanh-phan">Khám phá bố cục <span aria-hidden="true">→</span></a>
+          <div class="hero-tags"><span>✓ CSS Grid</span><span>✓ Flexbox</span><span>✓ Media Queries</span></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="desktop-mockup">
+            <div class="mockup-bar"><i></i><i></i><i></i><b>responsive-layout.html</b></div>
+            <div class="mockup-header"></div>
+            <div class="mockup-body">
+              <div class="mockup-side"></div>
+              <div class="mockup-center"><span></span><span></span><span></span><div class="mockup-lines"><i></i><i></i><i></i></div></div>
+              <div class="mockup-side right"></div>
+            </div>
+          </div>
+          <div class="phone-mockup"><div class="phone-speaker"></div><div class="phone-line"></div><div class="phone-picture"></div><div class="phone-line short"></div><div class="phone-line"></div><div class="phone-picture second"></div></div>
+          <div class="floating-star">✦</div>
+        </div>
+      </div>
+
+      <div class="section-intro" id="thanh-phan">
+        <div>
+          <p class="eyebrow">BỐ CỤC TRANG WEB</p>
+          <h2>Khám phá các vùng nội dung</h2>
+          <p>Ba cột rõ ràng trên desktop, tự sắp xếp lại khi diện tích hiển thị thay đổi.</p>
+        </div>
+        <span class="layout-chip">03 CỘT · RWD</span>
+      </div>
+
+      <!-- BỐ CỤC CHÍNH: DIV kết hợp CSS Grid. -->
+      <div class="layout">
+        <!-- LEFT: Sidebar điều hướng bên trái. -->
+        <aside class="left-panel panel" aria-labelledby="left-heading">
+          <div class="panel-eyebrow">DANH MỤC</div>
+          <h2 id="left-heading">Điều hướng</h2>
+          <div class="sidebar-links">
+            <a class="selected" href="#tong-quan"><span aria-hidden="true">⌂</span> Tổng quan <b aria-hidden="true">›</b></a>
+            <a href="#bai-viet"><span aria-hidden="true">▤</span> Bài viết <b aria-hidden="true">›</b></a>
+            <a href="#dich-vu"><span aria-hidden="true">▦</span> Dịch vụ <b aria-hidden="true">›</b></a>
+            <a href="#meo-rwd"><span aria-hidden="true">◈</span> Mẹo RWD <b aria-hidden="true">›</b></a>
+            <a href="#lien-he"><span aria-hidden="true">✉</span> Liên hệ <b aria-hidden="true">›</b></a>
+          </div>
+          <div class="sidebar-note">
+            <div class="note-icon" aria-hidden="true">✦</div>
+            <strong>Thiết kế linh hoạt</strong>
+            <p>Thay đổi kích thước cửa sổ trình duyệt để quan sát bố cục chuyển đổi.</p>
+          </div>
+        </aside>
+
+        <!-- CONTENT: Nội dung chính, luôn chiếm phần không gian còn lại. -->
+        <div class="content-panel">
+          <section class="welcome-card panel" id="bai-viet" aria-labelledby="welcome-heading">
+            <span class="eyebrow">NỘI DUNG CHÍNH</span>
+            <h2 id="welcome-heading">Chào mừng đến với RWD Studio 👋</h2>
+            <p>Responsive Web Design (RWD) giúp trang web hiển thị hợp lý ở nhiều độ phân giải mà không cần tạo riêng từng phiên bản. Chúng ta dùng <strong>Grid</strong> chia các vùng lớn, <strong>Flexbox</strong> căn chỉnh thành phần và <strong>Media Queries</strong> thay đổi bố cục theo chiều rộng màn hình.</p>
+            <div class="divider"></div>
+            <div class="mini-stat-grid">
+              <div class="mini-stat"><strong>3</strong><span>Cột trên desktop</span></div>
+              <div class="mini-stat"><strong>2</strong><span>Cột trên tablet</span></div>
+              <div class="mini-stat"><strong>1</strong><span>Cột trên mobile</span></div>
+            </div>
+          </section>
+
+          <section class="features" id="dich-vu" aria-labelledby="features-heading">
+            <div class="features-title"><h2 id="features-heading">Thành phần nổi bật</h2><span>HIỂN THỊ LINH HOẠT</span></div>
+            <div class="feature-grid">
+              <article class="feature-card panel">
+                <div class="feature-icon icon-blue" aria-hidden="true">▦</div>
+                <h3>CSS Grid</h3>
+                <p>Phân chia vùng sidebar, nội dung chính và thông tin bổ sung rõ ràng.</p>
+                <span class="feature-tag">2 CHIỀU</span>
+              </article>
+              <article class="feature-card panel">
+                <div class="feature-icon icon-purple" aria-hidden="true">⇄</div>
+                <h3>Flexbox</h3>
+                <p>Căn chỉnh logo, menu, nút và các thành phần theo một hướng.</p>
+                <span class="feature-tag">1 CHIỀU</span>
+              </article>
+              <article class="feature-card panel">
+                <div class="feature-icon icon-orange" aria-hidden="true">▣</div>
+                <h3>Media Queries</h3>
+                <p>Thay đổi số cột, khoảng cách và kích thước theo thiết bị.</p>
+                <span class="feature-tag">RESPONSIVE</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="tip-banner" id="meo-rwd" aria-labelledby="tip-heading">
+            <span class="tip-emoji" aria-hidden="true">💡</span>
+            <div><h2 id="tip-heading">Mẹo thực hành</h2><p>Mở DevTools (F12) → bật chế độ thiết bị (Ctrl + Shift + M) rồi thử các chiều rộng 1440px, 768px, 375px và 320px.</p></div>
+          </section>
+        </div>
+
+        <!-- RIGHT: Sidebar thống kê và ghi chú. -->
+        <aside class="right-panel" aria-label="Thông tin bổ sung">
+          <div class="panel info-widget">
+            <div class="panel-eyebrow">TỔNG QUAN</div>
+            <h2>Trạng thái giao diện</h2>
+            <div class="status-line"><span><i class="status-dot"></i> Responsive</span><strong>Hoạt động</strong></div>
+            <div class="widget-divider"></div>
+            <div class="spec-line"><span>Công nghệ</span><strong>HTML + CSS</strong></div>
+            <div class="spec-line"><span>Bố cục</span><strong>Grid + Flex</strong></div>
+            <div class="spec-line"><span>Thiết bị</span><strong>Đa màn hình</strong></div>
+          </div>
+          <div class="panel device-widget">
+            <div class="panel-eyebrow">THIẾT BỊ</div>
+            <h2>Tương thích</h2>
+            <div class="device-row"><span class="device-icon" aria-hidden="true">▣</span><span>Desktop<small>Từ 1025px</small></span><b>✓</b></div>
+            <div class="device-row"><span class="device-icon" aria-hidden="true">▤</span><span>Tablet<small>701–1024px</small></span><b>✓</b></div>
+            <div class="device-row"><span class="device-icon" aria-hidden="true">▯</span><span>Mobile<small>700px trở xuống</small></span><b>✓</b></div>
+          </div>
+          <div class="small-quote">“Thiết kế tốt là thiết kế dễ sử dụng trên mọi màn hình.”</div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="lien-he">
+    <div class="footer-inner">
+      <div><strong>RWD Studio</strong><p>Bài thực hành HTML &amp; CSS – Tạo layout với RWD.</p></div>
+      <p>© 2026 RWD Studio · Thiết kế phục vụ mục đích học tập.</p>
+      <a href="#trang-chu">↑ Lên đầu trang</a>
+    </div>
+  </footer>
+</body>
+</html>
