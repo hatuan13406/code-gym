@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing Page MyBrand xây dựng bằng Bootstrap 5: Navbar, Hero Section, Grid System, Buttons, Cards, Footer và giao diện Responsive.">
+  <title>MyBrand | Bootstrap Landing Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Bootstrap Navbar: menu ngang desktop, nút hamburger trên mobile -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top site-navbar" aria-label="Điều hướng chính">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>My<span class="brand-accent">Brand</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Mở hoặc đóng menu điều hướng">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-primary nav-cta" href="#contact">Liên hệ tư vấn ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <header class="hero text-white" id="home">
+      <div class="container py-5">
+        <div class="row align-items-center g-5 py-lg-4">
+          <div class="col-lg-7">
+            <span class="hero-eyebrow">✦ GIẢI PHÁP SỐ CHO DOANH NGHIỆP</span>
+            <h1 class="display-4 fw-bold mt-3 mb-4">Cùng MyBrand<br><span>kiến tạo tương lai số.</span></h1>
+            <p class="hero-description mb-4">Từ website chuyên nghiệp đến chiến lược Marketing, chúng tôi giúp doanh nghiệp xây dựng sự hiện diện nổi bật trên môi trường số.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-light btn-lg hero-primary" href="#services">Khám phá dịch vụ <span aria-hidden="true">→</span></a>
+              <a class="btn btn-outline-light btn-lg hero-secondary" href="#about">Tìm hiểu thêm</a>
+            </div>
+            <div class="hero-benefits d-flex flex-wrap gap-3 mt-4">
+              <span>✓ Thiết kế hiện đại</span><span>✓ Responsive</span><span>✓ Hỗ trợ tận tâm</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <!-- CSS-only visual: không phụ thuộc vào ảnh bên ngoài -->
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-glow"></div>
+              <div class="art-browser">
+                <div class="art-top"><i></i><i></i><i></i><span>mybrand-dashboard.com</span></div>
+                <div class="art-preview">
+                  <div class="art-side"><b></b><span></span><span></span><span></span><span></span></div>
+                  <div class="art-main">
+                    <div class="art-title"></div>
+                    <div class="art-chart">
+                      <span style="--bar:42%"></span><span style="--bar:67%"></span><span style="--bar:52%"></span>
+                      <span style="--bar:82%"></span><span style="--bar:72%"></span><span style="--bar:100%"></span>
+                    </div>
+                    <div class="art-data"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="art-float">↗ <strong>+128%</strong><small>Tăng trưởng</small></div>
+              <div class="art-star">✦</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section class="section-space" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-5">
+            <span class="section-eyebrow">VỀ MYBRAND</span>
+            <h2 class="section-heading fw-bold mt-2" id="about-title">Đồng hành cùng sự phát triển của bạn</h2>
+            <p class="text-secondary mt-3 about-description">Chúng tôi kết hợp tư duy sáng tạo và công nghệ hiện đại để mang đến giải pháp phù hợp với từng doanh nghiệp.</p>
+            <a href="#services" class="btn btn-outline-primary fw-semibold mt-2">Xem giải pháp <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-sm-6"><div class="about-tile h-100"><span class="about-tile-icon">◈</span><strong>Thiết kế sáng tạo</strong><p>Giao diện hiện đại, tập trung trải nghiệm khách hàng.</p></div></div>
+              <div class="col-sm-6"><div class="about-tile h-100"><span class="about-tile-icon second">✦</span><strong>Giải pháp linh hoạt</strong><p>Tối ưu hóa theo mục tiêu và quy mô từng dự án.</p></div></div>
+              <div class="col-sm-6"><div class="about-tile h-100"><span class="about-tile-icon third">↗</span><strong>Phát triển bền vững</strong><p>Xây dựng nền tảng số dễ sử dụng và nâng cấp.</p></div></div>
+              <div class="col-sm-6"><div class="about-tile h-100"><span class="about-tile-icon fourth">♡</span><strong>Hỗ trợ tận tâm</strong><p>Luôn sẵn sàng tiếp nhận phản hồi và tư vấn.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap Grid: 3 columns at md; 1 column on mobile -->
+    <section class="section-space services-section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="text-center mx-auto section-intro">
+          <span class="section-eyebrow">DỊCH VỤ CỦA CHÚNG TÔI</span>
+          <h2 class="section-heading fw-bold mt-2" id="services-title">Giải pháp giúp bạn bứt phá</h2>
+          <p class="text-secondary mt-3">Ba dịch vụ cốt lõi được trình bày bằng Bootstrap Grid System với các thẻ Cards đồng đều và linh hoạt trên mọi màn hình.</p>
+        </div>
+        <div class="row g-4 mt-2">
+          <div class="col-md-4">
+            <article class="card service-card h-100 border-0">
+              <div class="card-body p-4 p-lg-4">
+                <span class="service-icon icon-blue" aria-hidden="true">▣</span>
+                <span class="service-num">01 / 03</span>
+                <h3 class="h5 fw-bold mt-4">Thiết kế Web</h3>
+                <p class="text-secondary">Tạo website chuyên nghiệp, tốc độ tốt, dễ sử dụng và hiển thị đẹp từ desktop đến mobile.</p>
+                <a class="service-link" href="#contact">Tìm hiểu dịch vụ <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card service-card h-100 border-0">
+              <div class="card-body p-4 p-lg-4">
+                <span class="service-icon icon-purple" aria-hidden="true">↗</span>
+                <span class="service-num">02 / 03</span>
+                <h3 class="h5 fw-bold mt-4">SEO &amp; Marketing</h3>
+                <p class="text-secondary">Nâng cao khả năng tiếp cận khách hàng, phát triển nhận diện thương hiệu và tối ưu nội dung.</p>
+                <a class="service-link" href="#contact">Tìm hiểu dịch vụ <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card service-card h-100 border-0">
+              <div class="card-body p-4 p-lg-4">
+                <span class="service-icon icon-mint" aria-hidden="true">✧</span>
+                <span class="service-num">03 / 03</span>
+                <h3 class="h5 fw-bold mt-4">Hỗ trợ 24/7</h3>
+                <p class="text-secondary">Luôn sẵn sàng lắng nghe, hỗ trợ giải đáp và hướng dẫn sử dụng các giải pháp của chúng tôi.</p>
+                <a class="service-link" href="#contact">Tìm hiểu dịch vụ <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA: Contact -->
+    <section class="section-space" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-box text-center">
+          <span class="section-eyebrow">SẴN SÀNG KHỞI ĐẦU?</span>
+          <h2 class="section-heading fw-bold mt-2" id="contact-title">Cùng xây dựng bước tiến tiếp theo</h2>
+          <p class="mt-3 mb-4">Đây là trang minh họa phục vụ bài thực hành Bootstrap Landing Page của CodeGym.</p>
+          <a href="#home" class="btn btn-light btn-lg fw-semibold">Quay về đầu trang <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white footer">
+    <div class="container py-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start gap-3">
+        <strong class="footer-brand">✦ MyBrand</strong>
+        <span class="footer-copy">© 2026 MyBrand · Landing Page thực hành Bootstrap – CodeGym</span>
+        <a href="#home" class="footer-top">↑ Lên đầu trang</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle gồm JavaScript cho Navbar Collapse -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
