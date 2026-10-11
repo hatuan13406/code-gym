@@ -1,0 +1,83 @@
+/* Bài thực hành CSS grid-row-gap: length, percentage, global values */
+:root {
+  --ink: #26314c;
+  --muted: #77839a;
+  --line: #e4e9f2;
+  --brand: #576be0;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f8fc; color: var(--ink); font: 14px/1.65 Arial, Helvetica, sans-serif; }
+.page { width: min(1100px, calc(100% - 36px)); margin: 0 auto; padding: 42px 0 30px; }
+h1,h2,h3,p { margin-top: 0; }
+.page-header { text-align: center; padding: 6px 8px 30px; }
+.badge { display: inline-flex; align-items: center; gap: 8px; color: #5469d1; background: #e9efff; border: 1px solid #dce4ff; padding: 5px 12px; border-radius: 20px; font-size: 10px; letter-spacing: 1.2px; font-weight: 800; }
+.badge-dot { display: block; width: 7px; height: 7px; border-radius: 50%; background: #5979e8; }
+h1 { font-size: clamp(30px, 4.4vw, 43px); letter-spacing: -1.5px; line-height: 1.24; margin: 18px 0 8px; }
+h1 span { color: #5467de; }
+.lead { color: #7b879c; font-size: 13px; max-width: 660px; margin: 0 auto 19px; }
+.lead strong { color: #43516c; }
+.summary { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; }
+.summary span { border: 1px solid var(--line); background: white; border-radius: 7px; padding: 6px 12px; font-size: 11px; color: #7e8aa0; }
+.summary b { color: #576cda; margin-right: 6px; }
+.lesson { border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: 0 9px 26px rgba(39,55,91,.035); padding: 23px 26px; margin-bottom: 18px; }
+.lesson-heading { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 16px; }
+.lesson-number { display: grid; place-items: center; flex: 0 0 42px; height: 42px; border-radius: 11px; background: #e8f0ff; color: #4c70d1; font-size: 15px; font-weight: 900; }
+.lesson-number.green-num { background: #e5f8e7; color: #41a05b; }
+.lesson-number.purple-num { background: #f1eaff; color: #8656c4; }
+.eyebrow { margin: 0 0 2px; color: var(--brand); font-size: 10px; letter-spacing: 1.1px; font-weight: 800; }
+.eyebrow.green-text { color: #409c5a; }
+.eyebrow.purple-text { color: #8255bd; }
+.lesson-heading h2 { margin: 0 0 4px; font-size: 20px; letter-spacing: -.45px; line-height: 1.3; }
+.lesson-heading p { font-size: 11px; margin: 0; color: var(--muted); }
+.lesson-heading p strong { color: #45556e; }
+code { font: 11px Consolas, 'Courier New', monospace; background: #eff2ff; color: #5263ba; padding: 3px 5px; border-radius: 4px; }
+.code-pill { margin-left: auto; flex-shrink: 0; padding: 7px 12px; border-radius: 7px; background: #eef2ff; color: #536ad2; font: 700 11px Consolas, 'Courier New', monospace; }
+.code-pill.green-pill { color: #3a925b; background: #e9f8ee; }
+.demo-wrap { padding: 13px; border-radius: 10px; background: #f8faff; border: 1px dashed #dce4f3; }
+.demo-label { margin: 0 0 9px; color: #9ca8ba; font-size: 9px; font-weight: 800; letter-spacing: 1.25px; }
+/* Cấu hình chung */
+.grid-container { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 10px; }
+.grid-container > div { display: grid; place-items: center; font-size: 14px; font-weight: 750; border-radius: 6px; min-width: 0; }
+/* VÍ DỤ 1: length */
+.length-demo { grid-row-gap: 20px; }
+.length-demo > div { background-color: lightblue; padding: 20px; color: #28627b; }
+/* VÍ DỤ 2: percentage (5% x height 400px = 20px) */
+.percent-demo { grid-row-gap: 5%; height: 400px; }
+.percent-demo > div { background-color: lightgreen; padding: 20px; color: #387a42; }
+.demo-caption { font-size: 10px; color: #8490a5; margin: 10px 0 0; }
+.demo-caption code { font-size: 10px; }
+.indicator { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; }
+.indicator.blue { background: #68bbdc; }
+.indicator.green { background: #72c785; }
+/* VÍ DỤ 3: global values */
+.globals .lesson-heading { margin-bottom: 15px; }
+.global-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+.global-card { border: 1px solid var(--line); border-radius: 10px; background: #fafbff; min-width: 0; padding: 15px; }
+.global-card-head h3 { display: inline-block; font-size: 15px; margin: 0 9px 6px 0; }
+.global-card-head > code { font-size: 10px; white-space: normal; }
+.global-card-head p { min-height: 34px; font-size: 11px; color: #7e8ba0; margin: 2px 0 12px; }
+.global-card-head b { color: #445371; }
+/* Khối cha đặt 28px để ví dụ inherit có gì để kế thừa */
+.global-parent { row-gap: 28px; }
+.global-demo { column-gap: 8px; }
+.global-demo > div { padding: 13px; background: #e1d5fb; color: #68489c; font-size: 12px; }
+.global-initial { grid-row-gap: initial; }
+.global-inherit { grid-row-gap: inherit; }
+.global-unset { grid-row-gap: unset; }
+.global-revert { grid-row-gap: revert; }
+.tip { display: flex; align-items: flex-start; gap: 11px; padding: 16px 19px; border-radius: 10px; background: #eef2ff; border: 1px solid #dfe6ff; }
+.tip-icon { color: #5e69d1; font-size: 21px; line-height: 1.2; }
+.tip p { font-size: 11px; color: #6e7d9d; margin: 0; }
+.tip strong { color: #4056b6; }
+footer { text-align: center; font-size: 10px; color: #9ba5b8; padding: 22px 0 2px; }
+@media (max-width: 650px) {
+  .page { width: calc(100% - 22px); padding-top: 25px; }
+  .lesson { padding: 18px 14px; }
+  .lesson-heading { gap: 10px; flex-wrap: wrap; }
+  .lesson-heading h2 { font-size: 18px; }
+  .code-pill { margin-left: 52px; }
+  .global-list { grid-template-columns: 1fr; }
+  .global-card-head p { min-height: 0; }
+  .percent-demo { height: 300px; }
+  .summary span { font-size: 10px; }
+}

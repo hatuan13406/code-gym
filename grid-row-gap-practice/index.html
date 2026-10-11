@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thực hành CSS grid-row-gap với length, percentage và các giá trị global: initial, inherit, unset, revert.">
+  <title>CSS | grid-row-gap Property — CodeGym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <span class="badge"><span class="badge-dot"></span> CODEGYM · CSS GRID</span>
+      <h1>Khám phá <span>grid-row-gap</span></h1>
+      <p class="lead">Tìm hiểu cách kiểm soát <strong>khoảng cách giữa các hàng</strong> trong CSS Grid qua những ví dụ trực quan và dễ so sánh.</p>
+      <div class="summary"><span><b>01</b> Length (px)</span><span><b>02</b> Percentage (%)</span><span><b>03</b> Global values</span></div>
+    </header>
+
+    <section class="lesson" aria-labelledby="fixed-heading">
+      <div class="lesson-heading"><span class="lesson-number">01</span><div><span class="eyebrow">GIÁ TRỊ CỐ ĐỊNH · LENGTH</span><h2 id="fixed-heading">Khoảng cách hàng: 20px</h2><p>Hai cột, bốn phần tử — khoảng trống giữa hai hàng là <strong>20 pixel</strong>.</p></div><span class="code-pill">grid-row-gap: 20px</span></div>
+      <div class="demo-wrap">
+        <div class="demo-label">GRID DEMO — LENGTH</div>
+        <div class="grid-container length-demo" id="demo-length">
+          <div>Ô 1</div><div>Ô 2</div><div>Ô 3</div><div>Ô 4</div>
+        </div>
+        <p class="demo-caption"><span class="indicator blue"></span> Khoảng cách giữa hai hàng <strong>20px</strong> · Nền <code>lightblue</code></p>
+      </div>
+    </section>
+
+    <section class="lesson" aria-labelledby="percent-heading">
+      <div class="lesson-heading"><span class="lesson-number green-num">02</span><div><span class="eyebrow green-text">GIÁ TRỊ PHẦN TRĂM · PERCENTAGE</span><h2 id="percent-heading">Khoảng cách hàng: 5%</h2><p>Grid cao <strong>400px</strong>, vì vậy 5% chiều cao tương đương <strong>20px</strong>.</p></div><span class="code-pill green-pill">grid-row-gap: 5%</span></div>
+      <div class="demo-wrap">
+        <div class="demo-label">GRID DEMO — PERCENTAGE</div>
+        <div class="grid-container percent-demo" id="demo-percent">
+          <div>Ô 1</div><div>Ô 2</div><div>Ô 3</div><div>Ô 4</div>
+        </div>
+        <p class="demo-caption"><span class="indicator green"></span> Chiều cao Grid <strong>400px</strong> · Khoảng cách hàng <strong>5% = 20px</strong> · Nền <code>lightgreen</code></p>
+      </div>
+    </section>
+
+    <section class="lesson globals" aria-labelledby="global-heading">
+      <div class="lesson-heading"><span class="lesson-number purple-num">03</span><div><span class="eyebrow purple-text">GIÁ TRỊ TOÀN CỤC · GLOBAL VALUES</span><h2 id="global-heading">initial · inherit · unset · revert</h2><p>So sánh 4 giá trị toàn cục. Khối cha của từng Grid được đặt <code>row-gap: 28px</code> để thấy rõ hiệu ứng kế thừa.</p></div></div>
+      <div class="global-list">
+        <article class="global-card">
+          <div class="global-card-head"><h3>initial</h3><code>grid-row-gap: initial;</code><p>Trở về giá trị mặc định: <b>normal</b> (khoảng cách thực tế: 0px trong CSS Grid).</p></div>
+          <div class="global-parent"><div class="grid-container global-demo global-initial"><div>Ô 1</div><div>Ô 2</div><div>Ô 3</div><div>Ô 4</div></div></div>
+        </article>
+        <article class="global-card">
+          <div class="global-card-head"><h3>inherit</h3><code>grid-row-gap: inherit;</code><p>Kế thừa <b>28px</b> từ khối cha <code>.global-parent</code>.</p></div>
+          <div class="global-parent"><div class="grid-container global-demo global-inherit"><div>Ô 1</div><div>Ô 2</div><div>Ô 3</div><div>Ô 4</div></div></div>
+        </article>
+        <article class="global-card">
+          <div class="global-card-head"><h3>unset</h3><code>grid-row-gap: unset;</code><p>Đây là thuộc tính không tự kế thừa, nên <b>unset</b> trở về mặc định: 0px.</p></div>
+          <div class="global-parent"><div class="grid-container global-demo global-unset"><div>Ô 1</div><div>Ô 2</div><div>Ô 3</div><div>Ô 4</div></div></div>
+        </article>
+        <article class="global-card">
+          <div class="global-card-head"><h3>revert</h3><code>grid-row-gap: revert;</code><p>Hoàn nguyên theo tầng cascade; ở ví dụ này trở về mặc định: <b>0px</b>.</p></div>
+          <div class="global-parent"><div class="grid-container global-demo global-revert"><div>Ô 1</div><div>Ô 2</div><div>Ô 3</div><div>Ô 4</div></div></div>
+        </article>
+      </div>
+    </section>
+    <aside class="tip"><span class="tip-icon">✦</span><p><strong>Ghi nhớ:</strong> <code>grid-row-gap</code> là tên thuộc tính cũ (alias) của <code>row-gap</code>. Trong CSS hiện đại, bạn nên ưu tiên <code>row-gap</code>; bài này vẫn dùng <code>grid-row-gap</code> đúng yêu cầu thực hành.</p></aside>
+    <footer>Thực hành CodeGym · CSS Grid Layout · <strong>grid-row-gap Property</strong></footer>
+  </main>
+</body>
+</html>
