@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thực hành CodeGym xây dựng bố cục trang web responsive bằng CSS Flexbox: Header, Navigation, Main Content, Sidebar và Footer.">
+  <title>FlexSpace | Responsive Flexbox Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Container dùng Flexbox xếp header, nav, main-container, footer theo cột. -->
+  <div class="container" id="top">
+    <header class="header">
+      <a class="brand" href="#top" aria-label="FlexSpace về đầu trang">
+        <span class="brand-icon" aria-hidden="true">✦</span>
+        <span>flex<span class="brand-accent">space</span></span>
+      </a>
+      <span class="header-title">Thực hành bố cục trang web với CSS Flexbox</span>
+      <span class="status"><i aria-hidden="true"></i> RESPONSIVE DESIGN</span>
+    </header>
+
+    <nav class="nav" aria-label="Menu điều hướng">
+      <div class="nav-links">
+        <a class="active" href="#top">⌂ <span>Trang chủ</span></a>
+        <a href="#gioi-thieu">◈ <span>Giới thiệu</span></a>
+        <a href="#tinh-nang">▤ <span>Tính năng</span></a>
+        <a href="#tin-tuc">▣ <span>Tin tức</span></a>
+        <a href="#lien-he">✉ <span>Liên hệ</span></a>
+      </div>
+      <span class="nav-label">HTML &amp; CSS · CODEGYM</span>
+    </nav>
+
+    <!-- Desktop: content flex: 3, sidebar flex: 1. Mobile: flex-direction: column. -->
+    <div class="main-container">
+      <main class="content" id="gioi-thieu">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <span class="overline light">✦ FLEXIBLE WEB LAYOUT</span>
+            <h1 id="hero-title">Thiết kế linh hoạt.<br><em>Hiển thị hoàn hảo.</em></h1>
+            <p>Tận dụng sức mạnh của <strong>CSS Flexbox</strong> để tạo giao diện tự thích ứng, đẹp mắt và dễ sử dụng trên mọi kích thước màn hình.</p>
+            <a href="#tinh-nang" class="hero-button">Khám phá bố cục <span aria-hidden="true">→</span></a>
+            <div class="hero-tags"><span>✓ Flex Direction</span><span>✓ Flex Grow</span><span>✓ Media Queries</span></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-top"><i></i><i></i><i></i><b>flexbox-layout.html</b></div>
+              <div class="mock-header"></div>
+              <div class="mock-nav"></div>
+              <div class="mock-row">
+                <div class="mock-content"><span></span><div><b></b><b></b><b></b></div><i></i><i></i></div>
+                <div class="mock-side"><b></b><b></b><b></b></div>
+              </div>
+              <div class="mock-footer"></div>
+            </div>
+            <span class="hero-float">FLEXBOX ✦</span>
+          </div>
+        </section>
+
+        <div class="section-heading" id="tinh-nang">
+          <div>
+            <span class="overline">TẠI SAO NÊN SỬ DỤNG FLEXBOX?</span>
+            <h2>Đơn giản, mạnh mẽ và linh hoạt</h2>
+            <p>Ba thành phần cốt lõi giúp tạo ra bố cục web responsive.</p>
+          </div>
+          <span class="section-pill">03 KHÁI NIỆM</span>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-icon purple" aria-hidden="true">⇅</span>
+            <span class="card-num">01</span>
+            <h3>Flex Direction</h3>
+            <p>Chọn hướng sắp xếp các thành phần theo hàng hoặc cột.</p>
+            <code>flex-direction: column;</code>
+          </article>
+          <article class="card">
+            <span class="card-icon blue" aria-hidden="true">↔</span>
+            <span class="card-num">02</span>
+            <h3>Flex Grow</h3>
+            <p>Phân chia không gian giữa nội dung chính và sidebar.</p>
+            <code>content: 3; sidebar: 1;</code>
+          </article>
+          <article class="card">
+            <span class="card-icon teal" aria-hidden="true">▧</span>
+            <span class="card-num">03</span>
+            <h3>Flex Wrap</h3>
+            <p>Cho phép các thẻ tự xuống dòng khi màn hình nhỏ hơn.</p>
+            <code>flex-wrap: wrap;</code>
+          </article>
+        </div>
+
+        <section class="lesson" aria-labelledby="lesson-heading">
+          <div class="lesson-heading">
+            <div>
+              <span class="overline">CẤU TRÚC RESPONSIVE</span>
+              <h2 id="lesson-heading">Bố cục thay đổi như thế nào?</h2>
+            </div>
+            <span class="live-badge">● CSS THUẦN</span>
+          </div>
+          <div class="lesson-body">
+            <div class="code-panel" aria-label="Ví dụ CSS Flexbox">
+              <div class="code-top"><span></span><span></span><span></span><b>style.css</b></div>
+              <pre><code>.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-container { display: flex; flex: 1; }
+.content { flex: 3; }
+.sidebar { flex: 1; }
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+}</code></pre>
+            </div>
+            <div class="lesson-notes">
+              <div class="note-item"><span class="note-check">✓</span><div><strong>Desktop: bố cục 3:1</strong><p>Nội dung chính chiếm 3 phần, sidebar chiếm 1 phần ở bên phải.</p></div></div>
+              <div class="note-item"><span class="note-check">✓</span><div><strong>Mobile: xếp theo cột</strong><p>Khi màn hình nhỏ hơn hoặc bằng 768px, sidebar nằm dưới nội dung.</p></div></div>
+              <div class="note-item"><span class="note-check">✓</span><div><strong>Không dùng JavaScript</strong><p>Toàn bộ khả năng responsive được thực hiện bằng Flexbox và Media Queries.</p></div></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="sidebar" aria-label="Thông tin phụ">
+        <div class="sidebar-intro">
+          <span class="overline">BẢNG TIN</span>
+          <h2>Góc thông tin</h2>
+          <p>Những tin tức và mẹo nhỏ giúp việc học HTML, CSS trở nên dễ dàng hơn.</p>
+        </div>
+        <section class="widget" id="tin-tuc" aria-labelledby="news-title">
+          <div class="widget-title"><span class="widget-icon purple">✦</span><h3 id="news-title">Bài viết nổi bật</h3></div>
+          <a href="#tinh-nang" class="news-link"><span class="news-index">01</span><span>CSS Flexbox cơ bản<small>Bố cục · 5 phút đọc</small></span><b aria-hidden="true">↗</b></a>
+          <a href="#lesson-heading" class="news-link"><span class="news-index">02</span><span>Responsive với Media Queries<small>Thiết kế web · 4 phút đọc</small></span><b aria-hidden="true">↗</b></a>
+          <a href="#gioi-thieu" class="news-link"><span class="news-index">03</span><span>Trang web thân thiện di động<small>UX Design · 3 phút đọc</small></span><b aria-hidden="true">↗</b></a>
+        </section>
+        <section class="widget" aria-labelledby="stats-title">
+          <div class="widget-title"><span class="widget-icon blue">◫</span><h3 id="stats-title">Thông số bố cục</h3></div>
+          <div class="stat"><span>Kỹ thuật</span><strong>CSS Flexbox</strong></div>
+          <div class="stat"><span>Desktop</span><strong>3 : 1</strong></div>
+          <div class="stat"><span>Mobile</span><strong>1 cột</strong></div>
+          <div class="stat"><span>Responsive</span><strong class="online">● Hoạt động</strong></div>
+        </section>
+        <div class="aside-tip">
+          <div class="tip-symbol" aria-hidden="true">💡</div>
+          <h3>Mẹo nhỏ</h3>
+          <p>Nhấn <strong>F12</strong>, chọn chế độ mô phỏng điện thoại và thu nhỏ cửa sổ xuống <strong>375px</strong> để xem Sidebar chuyển xuống dưới.</p>
+          <a href="#lesson-heading">Xem cách hoạt động →</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="footer" id="lien-he">
+      <strong>✦ flexspace</strong>
+      <span>© 2026 · Bài thực hành CSS Flexbox – CodeGym</span>
+      <a href="#top">↑ Về đầu trang</a>
+    </footer>
+  </div>
+</body>
+</html>
