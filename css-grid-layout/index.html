@@ -1,115 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bài thực hành CodeGym: xây dựng layout website bằng CSS Grid với Header, Sidebar, Main Content và Footer, responsive trên desktop và mobile.">
-    <title>CSS Grid Layout | GridSpace</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Bố cục chính gồm bốn vùng Grid: header, sidebar, content, footer. -->
-    <div class="container">
-        <header class="header" id="trang-chu">
-            <a class="logo" href="#trang-chu" aria-label="GridSpace - Trang chủ">
-                <span class="logo-symbol" aria-hidden="true">▦</span>
-                <span>Grid<span class="logo-highlight">Space</span></span>
-            </a>
-            <nav class="top-nav" aria-label="Điều hướng trên cùng">
-                <a class="top-link active" href="#tong-quan">Tổng quan</a>
-                <a class="top-link" href="#thanh-phan">Thành phần</a>
-                <a class="top-link" href="#huong-dan">Hướng dẫn</a>
-            </nav>
-            <span class="header-pill"><span class="online-dot" aria-hidden="true"></span> BÀI THỰC HÀNH CSS</span>
-        </header>
-
-        <nav class="sidebar" aria-label="Thanh điều hướng bên trái">
-            <span class="sidebar-label">DANH MỤC</span>
-            <div class="sidebar-menu">
-                <a class="sidebar-link selected" href="#tong-quan"><span class="side-icon" aria-hidden="true">▣</span> Tổng quan</a>
-                <a class="sidebar-link" href="#thanh-phan"><span class="side-icon" aria-hidden="true">◫</span> Thành phần Grid</a>
-                <a class="sidebar-link" href="#huong-dan"><span class="side-icon" aria-hidden="true">▤</span> Cách hoạt động</a>
-                <a class="sidebar-link" href="#lien-he"><span class="side-icon" aria-hidden="true">✉</span> Liên hệ</a>
-            </div>
-            <div class="sidebar-note">
-                <div class="note-icon" aria-hidden="true">✦</div>
-                <strong>Học CSS Grid dễ dàng</strong>
-                <p>Thay đổi kích thước trình duyệt để xem bố cục tự thích ứng.</p>
-                <span class="note-tag">RESPONSIVE ✓</span>
-            </div>
-            <div class="sidebar-bottom">HTML &amp; CSS • CODEGYM</div>
-        </nav>
-
-        <main class="content">
-            <div class="breadcrumb">TRANG CHỦ <span aria-hidden="true">/</span> CSS GRID LAYOUT</div>
-
-            <section class="hero-card" id="tong-quan" aria-labelledby="main-title">
-                <div class="hero-copy">
-                    <span class="hero-eyebrow">✦ RESPONSIVE WEB DESIGN</span>
-                    <h1 id="main-title">Xây dựng bố cục<br><span>với CSS Grid.</span></h1>
-                    <p>Làm chủ cách sắp xếp các vùng <strong>Header, Sidebar, Main Content</strong> và <strong>Footer</strong> chỉ bằng HTML và CSS.</p>
-                    <a href="#thanh-phan" class="primary-btn">Khám phá bố cục <span aria-hidden="true">→</span></a>
-                </div>
-                <div class="hero-art" aria-hidden="true">
-                    <div class="art-grid">
-                        <div class="art-header"><i></i><i></i><i></i></div>
-                        <div class="art-sidebar"><span></span><span></span><span></span><span></span></div>
-                        <div class="art-main"><b></b><div><span></span><span></span><span></span></div><em></em><em></em></div>
-                        <div class="art-footer"></div>
-                    </div>
-                    <div class="art-bubble bubble-one">GRID</div>
-                    <div class="art-bubble bubble-two">CSS ✦</div>
-                </div>
-            </section>
-
-            <div class="section-heading" id="thanh-phan">
-                <div>
-                    <span class="section-eyebrow">CẤU TRÚC GIAO DIỆN</span>
-                    <h2>Khám phá các thành phần</h2>
-                    <p>Bốn vùng chính được định vị bằng <code>grid-template-areas</code>.</p>
-                </div>
-                <span class="count-pill">04 THÀNH PHẦN</span>
-            </div>
-
-            <section class="feature-grid" aria-label="Bốn vùng của Grid">
-                <article class="feature-card">
-                    <div class="feature-top"><span class="feature-icon icon-blue" aria-hidden="true">▤</span><span class="feature-number">01</span></div>
-                    <h3>Header</h3>
-                    <p>Thanh đầu trang chứa tên thương hiệu và điều hướng.</p>
-                    <span class="feature-code">grid-area: header;</span>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-top"><span class="feature-icon icon-purple" aria-hidden="true">▥</span><span class="feature-number">02</span></div>
-                    <h3>Sidebar</h3>
-                    <p>Danh mục điều hướng nằm bên trái trên màn hình lớn.</p>
-                    <span class="feature-code">grid-area: sidebar;</span>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-top"><span class="feature-icon icon-teal" aria-hidden="true">▦</span><span class="feature-number">03</span></div>
-                    <h3>Main Content</h3>
-                    <p>Khu vực hiển thị nội dung chính của trang web.</p>
-                    <span class="feature-code">grid-area: content;</span>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-top"><span class="feature-icon icon-orange" aria-hidden="true">▂</span><span class="feature-number">04</span></div>
-                    <h3>Footer</h3>
-                    <p>Chân trang chứa thông tin bản quyền và liên hệ.</p>
-                    <span class="feature-code">grid-area: footer;</span>
-                </article>
-            </section>
-
-            <section class="explain-card" id="huong-dan" aria-labelledby="explain-title">
-                <div class="explain-head">
-                    <div>
-                        <span class="section-eyebrow">NGUYÊN LÝ HOẠT ĐỘNG</span>
-                        <h2 id="explain-title">Responsive với CSS Grid</h2>
-                    </div>
-                    <span class="responsive-badge">● LIVE LAYOUT</span>
-                </div>
-                <div class="explain-body">
-                    <div class="code-box">
-                        <div class="code-bar"><span></span><span></span><span></span><b>style.css</b></div>
-                        <pre><code>.container {
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CSS Grid Layout | GridSpace</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="container">
+<header class="header" id="trang-chu"><a class="logo" href="#trang-chu"><span class="logo-icon">▦</span> Grid<span>Space</span></a><nav class="top-nav"><a href="#tong-quan">Tổng quan</a><a href="#thanh-phan">Thành phần</a><a href="#huong-dan">Hướng dẫn</a></nav><span class="header-pill">🟢 BÀI THỰC HÀNH CSS</span></header>
+<nav class="sidebar"><div class="sidebar-label">DANH MỤC</div><div class="sidebar-menu"><a class="selected" href="#tong-quan">▣ &nbsp; Tổng quan</a><a href="#thanh-phan">◫ &nbsp; Thành phần Grid</a><a href="#huong-dan">▤ &nbsp; Cách hoạt động</a><a href="#lien-he">✉ &nbsp; Liên hệ</a></div><div class="sidebar-note"><span>✦</span><strong>Học CSS Grid dễ dàng</strong><p>Thay đổi kích thước trình duyệt để xem bố cục tự thích ứng.</p><small>RESPONSIVE ✓</small></div><p class="sidebar-bottom">HTML &amp; CSS • CODEGYM</p></nav>
+<main class="content"><p class="breadcrumb">TRANG CHỦ &nbsp; / &nbsp; CSS GRID LAYOUT</p><section class="hero-card" id="tong-quan"><div class="hero-copy"><span class="eyebrow">✦ RESPONSIVE WEB DESIGN</span><h1>Xây dựng bố cục<br><span>với CSS Grid.</span></h1><p>Làm chủ cách sắp xếp các vùng <b>Header, Sidebar, Main Content</b> và <b>Footer</b> chỉ bằng HTML và CSS.</p><a href="#thanh-phan" class="primary-btn">Khám phá bố cục &nbsp; →</a></div><div class="hero-art"><div class="art-window"><div class="art-header">●&nbsp; ●&nbsp; ●</div><div class="art-body"><div class="art-sidebar"></div><div class="art-main"><div class="art-line"></div><div class="art-cards"><i></i><i></i><i></i></div><div class="art-line short"></div></div></div><div class="art-footer"></div></div><span class="art-badge">GRID</span></div></section>
+<div class="section-heading" id="thanh-phan"><div><p class="label">CẤU TRÚC GIAO DIỆN</p><h2>Khám phá các thành phần</h2><p>Bốn vùng chính được định vị bằng <code>grid-template-areas</code>.</p></div><span class="count-pill">04 THÀNH PHẦN</span></div>
+<section class="feature-grid"><article class="feature-card"><div class="icon blue">▤</div><h3>Header</h3><p>Thanh đầu trang chứa tên thương hiệu và điều hướng.</p><code>grid-area: header;</code></article><article class="feature-card"><div class="icon purple">▥</div><h3>Sidebar</h3><p>Danh mục điều hướng nằm bên trái trên màn hình lớn.</p><code>grid-area: sidebar;</code></article><article class="feature-card"><div class="icon green">▦</div><h3>Main Content</h3><p>Khu vực hiển thị nội dung chính của trang web.</p><code>grid-area: content;</code></article><article class="feature-card"><div class="icon orange">▂</div><h3>Footer</h3><p>Chân trang chứa thông tin bản quyền và liên hệ.</p><code>grid-area: footer;</code></article></section>
+<section class="explain-card" id="huong-dan"><div class="explain-top"><div><p class="label">NGUYÊN LÝ HOẠT ĐỘNG</p><h2>Responsive với CSS Grid</h2></div><span class="count-pill green">● LIVE LAYOUT</span></div><div class="explain-body"><div class="code-box"><div class="code-bar">🔴 🟡 🟢 &nbsp;&nbsp; style.css</div><pre><code>.container {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
@@ -127,22 +24,6 @@
       "content"
       "footer";
   }
-}</code></pre>
-                    </div>
-                    <div class="explain-text">
-                        <div class="explain-item"><span class="explain-check">✓</span><div><strong>Desktop – 2 cột</strong><p>Sidebar chiếm 1 phần; nội dung chính chiếm 3 phần không gian.</p></div></div>
-                        <div class="explain-item"><span class="explain-check">✓</span><div><strong>Mobile – 1 cột</strong><p>Dưới 768px, các vùng được xếp lần lượt từ trên xuống dưới.</p></div></div>
-                        <div class="explain-item"><span class="explain-check">✓</span><div><strong>Không bị tràn màn hình</strong><p>Chiều rộng linh hoạt giúp trang dễ đọc trên điện thoại.</p></div></div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer" id="lien-he">
-            <span class="footer-brand">▦ GridSpace</span>
-            <span>© 2026 · Bài thực hành CSS Grid Layout – CodeGym</span>
-            <a href="#trang-chu">↑ Về đầu trang</a>
-        </footer>
-    </div>
-</body>
-</html>
+}</code></pre></div><div class="explain-list"><div><b>✓ &nbsp; Desktop – 2 cột</b><p>Sidebar chiếm 1 phần; nội dung chính chiếm 3 phần không gian.</p></div><div><b>✓ &nbsp; Mobile – 1 cột</b><p>Dưới 768px, các vùng được xếp lần lượt từ trên xuống dưới.</p></div><div><b>✓ &nbsp; Không bị tràn màn hình</b><p>Chiều rộng linh hoạt giúp trang dễ đọc trên điện thoại.</p></div></div></div></section>
+</main><footer class="footer" id="lien-he"><b>▦ GridSpace</b><span>© 2026 · Bài thực hành CSS Grid Layout – CodeGym</span><a href="#trang-chu">↑ Về đầu trang</a></footer>
+</div></body></html>
