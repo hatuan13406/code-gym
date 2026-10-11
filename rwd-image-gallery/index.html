@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bài tập CodeGym: Tạo gallery hình ảnh responsive với CSS Media Queries: 4 ảnh, 2 ảnh và 1 ảnh mỗi hàng.">
+    <title>Responsive Image Gallery | CodeGym</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <header class="page-header">
+            <p class="eyebrow"><span aria-hidden="true">●</span> BÀI THỰC HÀNH RESPONSIVE WEB DESIGN</p>
+            <h1>Responsive Image Gallery</h1>
+            <p class="subtitle">Bộ sưu tập ảnh phong cảnh – hãy thay đổi kích thước cửa sổ trình duyệt để quan sát bố cục tự điều chỉnh.</p>
+            <div class="screen-sizes" aria-label="Quy tắc hiển thị">
+                <span><strong>Desktop</strong> · 4 ảnh/hàng</span>
+                <span><strong>Tablet</strong> · 2 ảnh/hàng</span>
+                <span><strong>Mobile</strong> · 1 ảnh/hàng</span>
+            </div>
+        </header>
+
+        <!-- BỐ CỤC CHÍNH:
+             > 700px: 4 cột; <= 700px: 2 cột; <= 500px: 1 cột.
+             Thực hiện hoàn toàn bằng CSS Grid + Media Queries. -->
+        <section class="gallery-section" aria-labelledby="gallery-heading">
+            <div class="section-title">
+                <div>
+                    <p class="section-kicker">KHÁM PHÁ THIÊN NHIÊN</p>
+                    <h2 id="gallery-heading">Khoảnh khắc tuyệt đẹp</h2>
+                </div>
+                <span class="image-count">04 HÌNH ẢNH</span>
+            </div>
+
+            <div class="gallery">
+                <figure class="gallery-item">
+                    <img src="https://www.w3schools.com/css/img_5terre.jpg"
+                         alt="Ngôi làng ven biển tại Cinque Terre, Italy"
+                         width="600" height="400">
+                    <figcaption>
+                        <span class="photo-number">01 / 04</span>
+                        <h3>Làng biển Cinque Terre</h3>
+                        <p>Những ngôi nhà đầy màu sắc bên bờ biển.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="https://www.w3schools.com/css/img_forest.jpg"
+                         alt="Lối đi bằng gỗ dẫn vào khu rừng xanh rậm rạp"
+                         width="600" height="400">
+                    <figcaption>
+                        <span class="photo-number">02 / 04</span>
+                        <h3>Khu rừng xanh</h3>
+                        <p>Con đường nhỏ đi xuyên qua khu rừng yên bình.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="https://www.w3schools.com/css/img_lights.jpg"
+                         alt="Dải cực quang xanh trên bầu trời đêm"
+                         width="600" height="400">
+                    <figcaption>
+                        <span class="photo-number">03 / 04</span>
+                        <h3>Ánh sáng phương Bắc</h3>
+                        <p>Cực quang rực rỡ trên bầu trời về đêm.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="https://www.w3schools.com/css/img_mountains.jpg"
+                         alt="Dãy núi hùng vĩ soi bóng xuống mặt hồ"
+                         width="600" height="400">
+                    <figcaption>
+                        <span class="photo-number">04 / 04</span>
+                        <h3>Núi non hùng vĩ</h3>
+                        <p>Mặt hồ trong xanh giữa các dãy núi.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <div class="notice" role="note">
+            <span class="notice-icon" aria-hidden="true">ⓘ</span>
+            <p><strong>Mẹo kiểm tra:</strong> Mở DevTools (F12 → chế độ thiết bị) và thử chiều rộng <strong>1200px</strong>, <strong>600px</strong>, <strong>375px</strong>. Số ảnh trên một hàng sẽ lần lượt là <strong>4 → 2 → 1</strong>.</p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 Responsive Gallery · Thực hành RWD bằng HTML và CSS</p>
+        <p>Hình ảnh minh họa: <a href="https://www.w3schools.com/css/css_image_gallery.asp" target="_blank" rel="noopener noreferrer">W3Schools</a></p>
+    </footer>
+</body>
+</html>
