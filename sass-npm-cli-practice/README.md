@@ -103,7 +103,7 @@ Hoặc:
 npm run build:all
 ```
 
-Sass sẽ tạo/cập nhật `css/main.css` và `css/components.css`. Những file bắt đầu bằng `_` là **partials**, được dùng qua `@use`, và **không biên dịch thành các CSS riêng**. citeturn486833search2
+Sass sẽ tạo/cập nhật `css/main.css` và `css/components.css`. Những file bắt đầu bằng `_` là **partials**, được dùng qua `@use`, và **không biên dịch thành các CSS riêng**.
 
 ## 6. Theo dõi toàn bộ thư mục
 
