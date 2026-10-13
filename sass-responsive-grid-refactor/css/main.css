@@ -1,0 +1,77 @@
+/* CSS equivalent to scss/main.scss for offline preview.
+   Not yet generated/verified by Sass CLI (npm registry unavailable here).
+   Regenerate using npm install && npm run build. */
+* { box-sizing: border-box; }
+
+.gridcontainer--demo {
+  position: absolute;
+  opacity: 0.9;
+  width: auto;
+  left: 8px;
+  right: 10px;
+}
+.gridcontainer--guides { opacity: 0.1; }
+
+.gridwrapper {
+  overflow: auto;
+  position: relative;
+  height: 250px;
+}
+.gridwrapper--header { height: 90px; }
+.gridwrapper--main { height: 230px; }
+.gridwrapper--footer { height: 50px; }
+.gridwrapper--guides { height: 370px; }
+
+.gridcontent {
+  width: 8.33%;
+  margin: 0;
+  border-right: 1px solid grey;
+  height: 100%;
+  float: left;
+  background-color: #f1f1f1;
+}
+.gridcontent--header {
+  width: 100%;
+  background-color: #9933cc;
+  border-right-color: transparent;
+}
+.gridcontent--footer {
+  width: 100%;
+  background-color: #0099cc;
+  border-right-color: transparent;
+}
+.gridcontent--sidebar {
+  width: 25%;
+  padding-top: 15px;
+  background-color: #ffffff;
+  border: none;
+}
+.gridcontent--spacer {
+  width: 8.33%;
+  padding-top: 0;
+  background-color: #ffffff;
+  border: none;
+}
+.gridcontent--guide {
+  background-color: #ffffff;
+  border-right: 1px solid #000000;
+}
+.gridcontent--guide:first-child {
+  border-left: 1px solid #000000;
+}
+
+.accent-block {
+  background-color: #33b5e5;
+  border: none;
+  width: 100%;
+  height: 15%;
+  margin-bottom: 10px;
+}
+.accent-block:last-child { margin-bottom: 0; }
+.accent-block--tall {
+  background-color: #33b5e5;
+  border: none;
+  width: 100%;
+  height: 92%;
+  margin-bottom: 0;
+}

@@ -1,0 +1,32 @@
+@use "variables" as v;
+
+// Group the shared properties of the 12-column float cells.
+@mixin grid-cell($width: v.$grid-column) {
+  width: $width;
+  margin: 0;
+  border-right: 1px solid v.$border;
+  height: 100%;
+  float: left;
+  background-color: v.$cell-background;
+}
+
+@mixin color-band($color) {
+  width: v.$full-width;
+  background-color: $color;
+  border-right-color: transparent;
+}
+
+@mixin blank-column($width: v.$grid-column, $padding-top: 0) {
+  width: $width;
+  padding-top: $padding-top;
+  background-color: v.$white;
+  border: none;
+}
+
+@mixin blue-block($height: v.$bar-height, $gap: v.$bar-gap) {
+  background-color: v.$cyan;
+  border: none;
+  width: v.$full-width;
+  height: $height;
+  margin-bottom: $gap;
+}

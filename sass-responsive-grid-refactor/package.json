@@ -1,0 +1,14 @@
+{
+  "name": "codegym-responsive-grid-sass-refactor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Refactor official CodeGym responsive-grid inline styles to modular Sass",
+  "scripts": {
+    "version:sass": "sass --version",
+    "build": "sass scss/main.scss css/main.css --no-source-map",
+    "watch": "sass --watch scss/main.scss css/main.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

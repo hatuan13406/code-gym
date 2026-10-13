@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.gridcontainer {
+  &--demo {
+    position: absolute;
+    opacity: v.$demo-opacity;
+    width: auto;
+    left: 8px;
+    right: 10px;
+  }
+  &--guides { opacity: v.$guide-opacity; }
+}
+
+.gridwrapper {
+  overflow: auto;
+  position: relative;
+  height: v.$wrapper-height;
+  &--header { height: v.$header-height; }
+  &--main { height: v.$content-height; }
+  &--footer { height: v.$footer-height; }
+  &--guides { height: v.$guide-height; }
+}
+
+.gridcontent {
+  @include m.grid-cell();
+
+  &--header { @include m.color-band(v.$purple); }
+  &--footer { @include m.color-band(v.$blue); }
+  &--sidebar { @include m.blank-column(v.$sidebar-width, v.$sidebar-padding-top); }
+  &--spacer { @include m.blank-column(); }
+
+  &--guide {
+    background-color: v.$white;
+    border-right: 1px solid v.$guide-border;
+    &:first-child { border-left: 1px solid v.$guide-border; }
+  }
+}

@@ -1,0 +1,9 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+// Four short blue blocks and the tall right-hand block.
+.accent-block {
+  @include m.blue-block();
+  &:last-child { margin-bottom: 0; }
+  &--tall { @include m.blue-block(v.$bar-tall-height, 0); }
+}
