@@ -1,0 +1,14 @@
+// PARTIAL: mixin Sass để tái sử dụng nhiều nơi.
+@use "variables" as v;
+
+@mixin soft-card($radius: 17px) {
+  border: 1px solid v.$border;
+  border-radius: $radius;
+  box-shadow: 0 13px 34px rgba(40, 50, 85, 0.07);
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}

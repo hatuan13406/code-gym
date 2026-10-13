@@ -1,0 +1,17 @@
+{
+  "name": "codegym-sass-npm-cli-practice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bai thuc hanh SASS CLI: SCSS variables, nesting, mixins, compile mot file, nhieu file va watch.",
+  "scripts": {
+    "version:sass": "sass --version",
+    "build:single": "sass styles.scss styles.css --no-source-map",
+    "watch:single": "sass --watch styles.scss styles.css --no-source-map",
+    "build:all": "sass scss/:css/ --no-source-map",
+    "watch:all": "sass --watch scss/:css/ --no-source-map",
+    "build": "npm run build:single && npm run build:all"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

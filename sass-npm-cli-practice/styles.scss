@@ -1,0 +1,27 @@
+// Ví dụ biên dịch MỘT file: sass styles.scss styles.css
+$accent: #6858df;
+$mint: #2fb89a;
+
+.demo-button {
+  border: 0;
+  padding: 15px 22px;
+  border-radius: 12px;
+  background: $accent;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover { background: #5041b8; }
+  span { margin-left: 16px; }
+}
+
+.demo-strip {
+  margin-top: 20px;
+  padding: 13px 15px;
+  border-left: 4px solid $mint;
+  background: #effbf7;
+  border-radius: 8px;
+  color: #467c70;
+  font-size: 12px;
+}

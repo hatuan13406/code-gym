@@ -1,0 +1,27 @@
+/* CSS tương đương của styles.scss; chạy npm run build:single để Sass tự tạo lại. */
+.demo-button {
+  border: 0;
+  padding: 15px 22px;
+  border-radius: 12px;
+  background: #6858df;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+}
+.demo-button:hover {
+  background: #5041b8;
+}
+.demo-button span {
+  margin-left: 16px;
+}
+
+.demo-strip {
+  margin-top: 20px;
+  padding: 13px 15px;
+  border-left: 4px solid #2fb89a;
+  background: #effbf7;
+  border-radius: 8px;
+  color: #467c70;
+  font-size: 12px;
+}

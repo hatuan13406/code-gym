@@ -1,0 +1,44 @@
+/* CSS tương đương với scss/components.scss; npm run build:all sẽ tạo lại. */
+.terminal-preview { background: #1d2646; color: #fff; border: 1px solid #e7ebf4; border-radius: 16px; box-shadow: 0 13px 34px rgba(40, 50, 85, 0.07); border-color: #ffffff33; overflow: hidden; }
+.terminal-head { display: flex; justify-content: space-between; align-items: center; gap: 13px; background: #283557; padding: 14px 18px; font-size: 10px; color: #c3cee5; }
+.window-dots { display: flex; gap: 5px; }
+.window-dots i { width: 8px; height: 8px; border-radius: 50%; background: #e78e9c; }
+.window-dots i:nth-child(2) { background: #edc989; }
+.window-dots i:nth-child(3) { background: #8cd7b8; }
+.terminal-lines { padding: 22px; }
+.terminal-lines p { margin: 0 0 13px; font: 12px/1.5 Consolas, monospace; color: #e8eeff; }
+.terminal-lines .terminal-success { color: #7de0b7; }
+.terminal-lines .terminal-muted { color: #a8b5d2; }
+.terminal-lines .prompt { color: #b0aaff; padding-right: 8px; }
+.terminal-lines .cursor { color: #80e1c2; }
+.terminal-caption { padding: 12px 20px; border-top: 1px solid #ffffff18; font-size: 9px; color: #a6b4d2; letter-spacing: .8px; }
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.feature-card { background: #fff; padding: 27px; position: relative; border: 1px solid #e7ebf4; border-radius: 17px; box-shadow: 0 13px 34px rgba(40, 50, 85, 0.07); }
+.feature-card .card-index { position: absolute; top: 40px; right: 25px; color: #a5b0c1; font-size: 10px; font-weight: 800; }
+.feature-card h3 { font-size: 19px; margin: 20px 0 8px; }
+.feature-card p { font-size: 12px; line-height: 1.8; color: #8190a7; min-height: 79px; }
+.feature-card code { font: 11px Consolas, monospace; color: #6377c4; background: #eef1ff; border-radius: 5px; padding: 7px 8px; display: inline-block; margin-top: 14px; overflow-wrap: anywhere; }
+.feature-icon { display: grid; place-items: center; width: 49px; height: 49px; border-radius: 12px; font-size: 21px; font-weight: 800; }
+.icon-violet { color: #7360d3; background: #eeeaff; }
+.icon-teal { color: #258e7d; background: #e6f7ef; }
+.icon-amber { color: #b77c37; background: #fff2df; }
+.code-panel { background: #222b47; color: #dce5fb; overflow: hidden; border: 1px solid #e7ebf4; border-radius: 14px; box-shadow: 0 13px 34px rgba(40, 50, 85, 0.07); border-color: #3e4967; }
+.code-panel .code-panel-top { display: flex; justify-content: space-between; gap: 10px; padding: 15px 20px; background: #2c3654; font-size: 10px; font-weight: 750; }
+.code-panel pre { overflow-x: auto; margin: 0; padding: 23px 20px; font: 12px/1.8 Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.code-panel .code-panel-note { padding: 13px 20px; border-top: 1px solid #ffffff20; font-size: 11px; color: #c4d0e8; }
+.practice-sample { background: #fff; padding: 29px; border: 1px solid #e7ebf4; border-radius: 17px; box-shadow: 0 13px 34px rgba(40, 50, 85, 0.07); }
+.practice-sample > span { display: block; font-size: 11px; color: #8190a7; margin-bottom: 18px; }
+.site-footer { background: #20263c; color: #c8d2e6; padding: 31px 0; }
+.site-footer .footer-layout { display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+.site-footer strong { font-size: 19px; color: #fff; }
+.site-footer p { font-size: 11px; margin: 7px 0 0; }
+.site-footer .footer-layout > div:last-child { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
+.site-footer .footer-layout > div:last-child span { font-size: 10px; }
+.site-footer a { font-size: 11px; color: #fff; font-weight: 800; }
+@media (max-width: 767px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .feature-card p { min-height: 0; }
+  .terminal-lines { padding: 14px; }
+  .terminal-lines p { font-size: 10px; }
+  .site-footer .footer-layout { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SassLab - demo thực hành Sass bằng npm và Sass CLI: SCSS, biến, nesting, mixin, compile một tệp, nhiều tệp và watch mode.">
+  <title>SassLab — Thực hành SASS bằng npm & CLI</title>
+  <!-- Kết quả CSS của hai lệnh biên dịch thư mục + một tệp riêng -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true">{ }</span> Sass<span>Lab.</span></a>
+      <nav class="nav-links" aria-label="Điều hướng">
+        <a href="#overview">Tổng quan</a>
+        <a href="#features">Tính năng</a>
+        <a href="#commands">Câu lệnh</a>
+        <a href="#practice" class="header-button">Bắt đầu thực hành ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <div class="hero__kicker"><span class="hero-dot"></span> CODEGYM / FRONTEND WORKSHOP</div>
+          <h1>Viết SCSS.<br><span>Tạo CSS chuyên nghiệp.</span></h1>
+          <p>Thực hành <strong>Sass CLI</strong> với biến, nesting và mixin. Học cách biên dịch một file, nhiều file và tự động cập nhật CSS bằng chế độ <strong>--watch</strong>.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#practice">Xem hướng dẫn chạy <span aria-hidden="true">↗</span></a>
+            <a class="secondary-link" href="#features">Khám phá SCSS <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-metrics"><span>01 · SCSS</span><span>02 · CLI</span><span>03 · WATCH</span></div>
+        </div>
+        <div class="terminal-preview" aria-label="Minh họa terminal khi sử dụng Sass">
+          <div class="terminal-head"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>Terminal — sass demo</span></div>
+          <div class="terminal-lines">
+            <p><span class="prompt">$</span> npm install</p>
+            <p class="terminal-success">✓ Sass package installed</p>
+            <p><span class="prompt">$</span> npx sass --version</p>
+            <p class="terminal-muted">1.x.x · Dart Sass</p>
+            <p><span class="prompt">$</span> npm run build:all</p>
+            <p class="terminal-success">✓ scss/main.scss → css/main.css</p>
+            <p class="terminal-success">✓ scss/components.scss → css/components.css</p>
+            <p><span class="prompt">$</span> npm run watch:all <b class="cursor">▍</b></p>
+          </div>
+          <div class="terminal-caption">MINH HỌA CÁC LỆNH — KHÔNG PHẢI LOG THỰC THI</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="features">
+      <div class="shell">
+        <div class="section-heading"><span class="eyebrow">01 / KHÁM PHÁ SASS</span><h2>Ít lặp lại. Dễ bảo trì.<br><span>Viết CSS thông minh hơn.</span></h2><p>Các điểm nổi bật được viết bằng Sass SCSS, sau đó trình duyệt đọc CSS tương ứng.</p></div>
+        <div class="card-grid">
+          <article class="feature-card"><span class="feature-icon icon-violet" aria-hidden="true">$</span><span class="card-index">01 / 03</span><h3>Variables</h3><p>Định nghĩa màu sắc và khoảng cách một lần, sử dụng lại trong toàn bộ dự án.</p><code>$primary: #6858df;</code></article>
+          <article class="feature-card"><span class="feature-icon icon-teal" aria-hidden="true">{ }</span><span class="card-index">02 / 03</span><h3>Nesting</h3><p>Viết các selector theo cấu trúc cha con rõ ràng, dễ đọc và dễ chỉnh sửa.</p><code>.hero { &amp;__kicker {…} }</code></article>
+          <article class="feature-card"><span class="feature-icon icon-amber" aria-hidden="true">↗</span><span class="card-index">03 / 03</span><h3>Mixins</h3><p>Tái sử dụng những nhóm thuộc tính CSS như Card hoặc Responsive Breakpoint.</p><code>@include soft-card();</code></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section commands-section" id="commands">
+      <div class="shell">
+        <div class="section-heading"><span class="eyebrow">02 / SASS CLI</span><h2>Các câu lệnh bạn cần nắm.</h2><p>Mọi lệnh chạy trong Terminal tại thư mục có file <strong>package.json</strong>.</p></div>
+        <div class="commands-layout">
+          <div class="command-list">
+            <div class="command-row"><span class="command-number">01</span><div><h3>Kiểm tra Node.js và npm</h3><code>node -v &amp;&amp; npm -v</code><p>Xác nhận công cụ đã được cài trên máy.</p></div></div>
+            <div class="command-row"><span class="command-number">02</span><div><h3>Cài Sass cho dự án</h3><code>npm install</code><p>Tải phiên bản Sass được khai báo trong package.json.</p></div></div>
+            <div class="command-row"><span class="command-number">03</span><div><h3>Biên dịch một file</h3><code>npm run build:single</code><p>Chuyển styles.scss thành styles.css.</p></div></div>
+            <div class="command-row"><span class="command-number">04</span><div><h3>Watch một file</h3><code>npm run watch:single</code><p>Tự biên dịch lại khi styles.scss thay đổi.</p></div></div>
+            <div class="command-row"><span class="command-number">05</span><div><h3>Biên dịch cả thư mục</h3><code>npm run build:all</code><p>Chuyển scss/*.scss thành css/*.css; bỏ qua file bắt đầu bằng dấu _.</p></div></div>
+            <div class="command-row"><span class="command-number">06</span><div><h3>Watch cả thư mục</h3><code>npm run watch:all</code><p>Thay đổi bất kỳ source SCSS liên quan và quan sát kết quả CSS.</p></div></div>
+          </div>
+          <aside class="code-panel">
+            <div class="code-panel-top"><span>package.json · scripts</span><span aria-hidden="true">● ● ●</span></div>
+            <pre><code>{
+  "scripts": {
+    "build:single":
+      "sass styles.scss styles.css --no-source-map",
+
+    "watch:single":
+      "sass --watch styles.scss styles.css --no-source-map",
+
+    "build:all":
+      "sass scss/:css/ --no-source-map",
+
+    "watch:all":
+      "sass --watch scss/:css/ --no-source-map"
+  }
+}</code></pre>
+            <div class="code-panel-note">Tip: Dùng <strong>Ctrl + C</strong> để dừng tiến trình <code>--watch</code>.</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section practice-section" id="practice">
+      <div class="shell practice-box">
+        <div><span class="eyebrow">03 / THỬ NGAY</span><h2>Tự đổi một biến Sass<br>và thấy giao diện thay đổi.</h2><p>Thay đổi <code>$primary</code> trong <code>scss/_variables.scss</code>, chạy <code>npm run watch:all</code> và lưu file. Sau đó tải lại trang để nhìn thấy màu mới.</p><div class="practice-badges"><span>SCSS</span><span>CSS</span><span>WATCH</span></div></div>
+        <div class="practice-sample"><span>Ví dụ nút: styles.scss → styles.css</span><button class="demo-button" type="button" title="Nút chỉ dùng để minh họa style">SASS in action <span aria-hidden="true">↗</span></button><p class="demo-strip">Đây là thanh minh họa từ <b>styles.scss</b> (một file).</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-layout"><div><strong>✳ SassLab.</strong><p>© 2026 SassLab · Thực hành SASS CLI bằng npm — CodeGym</p></div><div><span>• SCSS</span><span>• Sass CLI</span><span>• Watch Mode</span><a href="#top">↑ Về đầu trang</a></div></div>
+  </footer>
+</body>
+</html>
