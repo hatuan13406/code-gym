@@ -1,0 +1,37 @@
+/* CSS tương đương kết quả biên dịch scss/main.scss (chưa xác minh bằng Sass CLI tại môi trường tạo bài). */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.button {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.button:hover {
+  background: #002fbe;
+}
+.button:focus-visible {
+  outline: 3px solid #a5c1ff;
+  outline-offset: 3px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.card h3 {
+  margin: 0 0 10px;
+}
+.card p {
+  margin: 0;
+}

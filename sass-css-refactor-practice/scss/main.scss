@@ -1,0 +1,6 @@
+// Entrypoint biên dịch: Sass tự nạp các partial theo đúng nhóm.
+// Dùng @use (Sass hiện đại), không dùng @import đã deprecated.
+@use "base/global";
+@use "layout/container";
+@use "components/buttons";
+@use "components/cards";

@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
+.button {
+  @include mix.button-style(vars.$primary-color);
+
+  // Nesting: khai báo trạng thái của nút ngay trong selector cha.
+  &:hover {
+    background: #002fbe;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #a5c1ff;
+    outline-offset: 3px;
+  }
+}

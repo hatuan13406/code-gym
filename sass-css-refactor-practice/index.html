@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bài thực hành CodeGym chuyển CSS cũ sang SCSS với variables, mixins, nesting, partials và @use.">
+  <title>SCSS Studio | Chuyển đổi CSS sang Sass chuẩn</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<header class="site-nav" id="top">
+  <div class="site-shell nav-inner">
+    <a class="brand" href="#top"><span class="brand-symbol" aria-hidden="true">{ }</span>SCSS <em>Studio.</em></a>
+    <nav class="nav-links" aria-label="Menu chính"><a href="#conversion">Trước &amp; Sau</a><a href="#features">Tính năng</a><a href="#result">Kết quả</a><a href="#steps">Cách chạy ↗</a></nav>
+  </div>
+</header>
+<main>
+  <section class="hero-section">
+    <div class="site-shell hero-inner">
+      <div class="hero-copy">
+        <span class="kicker">✦ CODEGYM / SASS REFACTORING</span>
+        <h1>Từ CSS cơ bản<br>đến <span>SCSS chuẩn.</span></h1>
+        <p>Một ví dụ CSS nhỏ được tổ chức lại bằng <strong>variables, mixins, nesting và partials</strong>. Cùng giao diện — mã nguồn sạch hơn, dễ bảo trì hơn.</p>
+        <div class="hero-actions"><a class="hero-action primary" href="#conversion">Xem cách chuyển đổi <span aria-hidden="true">↗</span></a><a class="hero-action secondary" href="#result">Xem kết quả <span aria-hidden="true">→</span></a></div>
+        <div class="hero-stats"><span>01 / CSS gốc</span><span>02 / SCSS chuẩn</span><span>03 / Build với Sass</span></div>
+      </div>
+      <div class="code-window" aria-label="Minh họa source Sass">
+        <div class="window-bar"><i></i><i></i><i></i><span>scss / main.scss</span></div>
+        <pre><code><span class="code-purple">@use</span> <span class="code-orange">"base/global"</span>;
+<span class="code-purple">@use</span> <span class="code-orange">"layout/container"</span>;
+<span class="code-purple">@use</span> <span class="code-orange">"components/buttons"</span>;
+<span class="code-purple">@use</span> <span class="code-orange">"components/cards"</span>;
+
+<span class="code-green">// Sass Modules ✓</span>
+<span class="code-green">// SCSS Partials ✓</span>
+<span class="code-green">// Maintainable CSS ✓</span></code></pre>
+        <div class="window-foot">Dùng @use thay @import đã lỗi thời.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section conversion-section" id="conversion">
+    <div class="site-shell">
+      <div class="section-heading"><span class="eyebrow">01 / CSS → SCSS</span><h2>Giữ nguyên giao diện.<br><span>Thay đổi cách tổ chức mã.</span></h2><p>Thay những giá trị lặp lại bằng biến và tách trách nhiệm vào các file SCSS riêng.</p></div>
+      <div class="conversion-grid">
+        <article class="code-block">
+          <div class="code-block-head"><span>CSS ban đầu</span><span class="code-label">styles.css</span></div>
+          <pre><code>.button {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 2px 10px
+    rgba(0, 0, 0, 0.1);
+}</code></pre>
+        </article>
+        <article class="code-block">
+          <div class="code-block-head"><span>SCSS đã tổ chức lại</span><span class="code-label refactored">components/*.scss</span></div>
+          <pre><code>.button {
+  @include mix.button-style(
+    vars.$primary-color
+  );
+
+  &amp;:hover {
+    background: #002fbe;
+  }
+}
+
+.card {
+  border: 1px solid
+    vars.$border-color;
+  padding: 20px;
+  @include mix.box-shadow;
+}</code></pre>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section feature-section" id="features">
+    <div class="site-shell">
+      <div class="section-heading center"><span class="eyebrow">02 / CÁC KHÁI NIỆM</span><h2>Ba công cụ mạnh mẽ của Sass.</h2><p>Cách tổ chức theo module giúp tìm, thay đổi và tái sử dụng mã dễ dàng hơn.</p></div>
+      <div class="feature-grid">
+        <article class="feature-item"><div class="feature-icon" aria-hidden="true">$</div><h3>Variables</h3><p>Lưu màu sắc, border và shadow vào một nơi, không phải tìm từng giá trị trong nhiều file.</p><code>$primary-color: blue;</code></article>
+        <article class="feature-item"><div class="feature-icon" aria-hidden="true">{ }</div><h3>Mixins</h3><p>Đóng gói nhóm thuộc tính CSS để dùng lại với <code>@include</code> khi cần.</p><code>@include mix.box-shadow;</code></article>
+        <article class="feature-item"><div class="feature-icon" aria-hidden="true">&amp;</div><h3>Nesting &amp; Partials</h3><p>Viết selector liên quan cùng nhau và chia code thành các file <code>_*.scss</code> dễ quản lý.</p><code>&amp;:hover { ... }</code></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section result-section" id="result">
+    <div class="site-shell">
+      <div class="section-heading"><span class="eyebrow">03 / DEMO KẾT QUẢ</span><h2>CSS vẫn hoạt động <span>như trước.</span></h2><p>Các class dưới đây đến từ CSS biên dịch tương đương: <code>.container</code>, <code>.button</code> và <code>.card</code>.</p></div>
+      <div class="demo-box">
+        <div class="demo-head">MINH HỌA .container { width: 80%; margin: 0 auto; }</div>
+        <div class="container">
+          <article class="card"><span class="demo-label">CLASS .CARD</span><h3>Giao diện nhất quán</h3><p>Border, padding và box-shadow được gom từ biến và mixin Sass.</p><button class="button" type="button">Nút mẫu →</button></article>
+          <article class="card"><span class="demo-label">NESTED SELECTORS</span><h3>Thành phần rõ ràng</h3><p>Các selector h3 và p được lồng trong <code>.card</code> để quản lý dễ hơn.</p><button class="button" type="button">Xem ví dụ →</button></article>
+        </div>
+        <p class="demo-note">Các nút chỉ minh họa giao diện, không có thao tác mua hàng hoặc đăng ký.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section steps-section" id="steps">
+    <div class="site-shell">
+      <div class="section-heading"><span class="eyebrow">04 / THỰC HÀNH SASS CLI</span><h2>Biên dịch SCSS <span>trong ba bước.</span></h2><p>Chạy các lệnh này trong Terminal tại thư mục dự án chứa <code>package.json</code>.</p></div>
+      <div class="steps-grid">
+        <article class="step"><span class="step-index">BƯỚC 01</span><h3>Cài Sass</h3><p>Node.js và npm phải được cài trên máy tính.</p><code>npm install</code></article>
+        <article class="step"><span class="step-index">BƯỚC 02</span><h3>Biên dịch CSS</h3><p>Biên dịch toàn bộ SCSS qua file <code>scss/main.scss</code>.</p><code>npm run build</code></article>
+        <article class="step"><span class="step-index">BƯỚC 03</span><h3>Theo dõi thay đổi</h3><p>Sass tự tạo lại CSS mỗi khi bạn chỉnh sửa các partials.</p><code>npm run watch</code></article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="site-shell footer-inner"><strong>✳ SCSS Studio.</strong><p>© 2026 SCSS Studio · Bài thực hành HTML/CSS/SCSS — CodeGym</p><a href="#top">↑ Lên đầu trang</a></div></footer>
+</body>
+</html>

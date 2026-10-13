@@ -1,0 +1,14 @@
+{
+  "name": "codegym-sass-css-refactor",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Chuyen doi CSS co san sang SCSS theo modules voi variables, mixins, nesting va partials.",
+  "scripts": {
+    "sass:version": "sass --version",
+    "build": "sass scss/main.scss css/main.css --no-source-map",
+    "watch": "sass --watch scss/main.scss css/main.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

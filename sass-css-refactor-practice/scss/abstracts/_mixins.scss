@@ -1,0 +1,13 @@
+// Sass module system: dùng @use thay cho @import (đã lỗi thời).
+@use "variables" as vars;
+
+@mixin button-style($bg-color) {
+  background: $bg-color;
+  color: vars.$white;
+  padding: vars.$button-padding;
+  border-radius: vars.$radius;
+}
+
+@mixin box-shadow {
+  box-shadow: vars.$box-shadow;
+}
