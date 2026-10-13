@@ -1,0 +1,73 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mx;
+
+/* Tablet: hero chuyển thành một cột, card dịch vụ 2 cột */
+@media (max-width: 1020px) {
+  .header-inner { gap: 16px; }
+  .header-button { display: none; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 25px; padding-top: 58px; padding-bottom: 53px; }
+  .hero-copy { max-width: 740px; }
+  .hero-visual { width: min(510px,90%); margin-inline: auto; }
+  .service-container { @include mx.columns(v.$tablet-columns); }
+  .service { min-height: 0; }
+}
+@media (max-width: 768px) {
+  .container { width: calc(100% - 36px); }
+  /* Không giấu menu vì trang không dùng JS: menu được chuyển thành hàng cuộn ngang. */
+  .header-inner { min-height: 76px; flex-wrap: wrap; row-gap: 0; padding-top: 13px; }
+  .nav { flex: 1 0 100%; margin-left: 0; overflow-x: auto; scrollbar-width: thin; }
+  .nav ul { justify-content: flex-start; gap: 24px; }
+  .nav a { font-size: 12px; padding: 9px 0; }
+  .hero-grid { padding-top: 48px; }
+  .hero h1 { letter-spacing: -1.5px; }
+  .feature-strip { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; padding: 17px 12px; }
+  .feature-strip-item { align-items: flex-start; }
+  .feature-strip-item strong { font-size: 11px; }
+  .feature-strip-item div span { font-size: 9px; }
+  .strip-icon { width: 29px; height: 29px; flex-basis: 29px; font-size: 15px; }
+  .section-space { padding: 72px 0; }
+  .contact-inner { align-items: flex-start; flex-direction: column; }
+}
+/* Mobile: tất cả section và thẻ dịch vụ/đánh giá đều một cột. */
+@media (max-width: 600px) {
+  .container { width: calc(100% - 30px); }
+  .logo { font-size: 21px; }
+  .hero-grid { padding-top: 43px; padding-bottom: 35px; }
+  .hero h1 { font-size: clamp(31px,8.1vw,40px); }
+  .hero-description { font-size: 13px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; }
+  .hero-trust { margin-top: 28px; }
+  .hero-visual { min-height: 305px; width: 100%; padding: 7px 9px; }
+  .dashboard-card { transform: none; }
+  .dashboard-body { padding: 13px; }
+  .dashboard-title h2 { font-size: 13px; }
+  .stat-tile { padding: 9px; }
+  .stat-tile strong { font-size: 20px; }
+  .chart-bars { height: 78px; gap: 8px; }
+  .glow-one { width: 240px; height: 240px; }
+  .glow-two { width: 150px; height: 150px; }
+  .floating-badge { display: none; }
+  .feature-strip { grid-template-columns: 1fr; border-radius: 14px 14px 0 0; padding: 18px 20px; gap: 17px; }
+  .feature-strip-item { justify-content: flex-start; }
+  .feature-strip-item strong { font-size: 12px; }
+  .feature-strip-item div span { font-size: 10px; }
+  .service-container, .testimonials-grid { grid-template-columns: 1fr; }
+  .service, .testimonial { padding: 24px; }
+  .service p, .testimonial>p { min-height: 0; }
+  .section-space { padding: 62px 0; }
+  .section-heading.centered { margin-bottom: 30px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-inner p { text-align: left; }
+}
+@media (max-width: 350px) {
+  .hero-visual { min-height: 285px; }
+  .dashboard-title .period { display: none; }
+  .dashboard-body { padding: 10px; }
+  .chart-card { padding: 10px; }
+  .stat-tile small { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .service { transition: none; }
+}

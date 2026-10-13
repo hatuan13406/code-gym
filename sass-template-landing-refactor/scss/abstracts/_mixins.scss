@@ -1,0 +1,19 @@
+@use "variables" as v;
+
+// Reused across the statistics dashboard, feature strip, services and reviews.
+@mixin columns($count) {
+  grid-template-columns: repeat($count, minmax(0, 1fr));
+}
+
+// Same border/radius/shadow properties as the original components.
+@mixin card-surface($border, $radius, $shadow) {
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

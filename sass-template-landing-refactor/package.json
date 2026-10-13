@@ -1,0 +1,14 @@
+{
+  "name": "codegym-template-landing-sass-refactor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Refactor an existing MyBrand landing page stylesheet into Sass partials without altering layout.",
+  "scripts": {
+    "sass:version": "sass --version",
+    "build": "sass scss/main.scss css/main.css --no-source-map",
+    "watch": "sass --watch scss/main.scss css/main.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

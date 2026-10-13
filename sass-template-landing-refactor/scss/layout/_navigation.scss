@@ -1,0 +1,14 @@
+/* Header desktop: Flexbox, menu ngang */
+.header { background: #fff; border-bottom: 1px solid #f2f2f8; }
+.header-inner { display: flex; align-items: center; gap: 28px; min-height: 88px; }
+.logo { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; font-size: 23px; font-weight: 850; letter-spacing: -.8px; }
+.logo>span:last-child { color: var(--primary); margin-left: -9px; }
+.logo-symbol { display: grid; place-items: center; width: 35px; height: 35px; margin-right: 5px; color: #fff; background: var(--primary); border-radius: 10px; font-size: 22px; }
+.nav { margin-left: auto; }
+.nav ul { display: flex; align-items: center; justify-content: flex-end; gap: clamp(17px,2.5vw,36px); padding: 0; margin: 0; list-style: none; }
+.nav a { display: inline-block; padding: 12px 0; font-size: 13px; color: #626d85; font-weight: 700; white-space: nowrap;
+  &:hover, &.current { color: var(--primary); }
+}
+.header-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 11px 17px; border-radius: 10px; white-space: nowrap; background: var(--ink); color: white; font-size: 12px; font-weight: 800;
+  &:hover { color: #fff; background: var(--primary); }
+}

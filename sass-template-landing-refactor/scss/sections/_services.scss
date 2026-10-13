@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mx;
+
+/* Sections */
+.section-space { padding: 94px 0; }
+.section-heading { max-width: 655px; }
+.section-heading.centered { text-align: center; margin: 0 auto 42px; }
+.section-kicker { color: var(--primary); font-size: 10px; letter-spacing: 2px; font-weight: 900; margin-bottom: 11px; }
+.section-heading h2 { font-size: clamp(27px,3.15vw,39px); line-height: 1.3; letter-spacing: -1px; margin-bottom: 12px; }
+.section-heading h2 span { color: var(--primary); }
+.section-heading>p:last-child { color: #818ca4; font-size: 13px; line-height: 1.8; margin-bottom: 0; }
+/* Grid: dịch vụ 3 cột trên desktop */
+.service-container { display: grid; @include mx.columns(v.$service-columns); gap: 20px; }
+.service { padding: 30px; min-width: 0; min-height: 305px; background: white; @include mx.card-surface(1px solid var(--line), 17px, var(--shadow)); transition: transform .2s, border-color .2s;
+  &:hover { transform: translateY(-5px); border-color: #d2ceff; }
+}
+.service-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 13px; margin-bottom: 25px; font-size: 26px; }
+.service-web .service-icon { background: #e8edff; color: #536de5; }
+.service-code .service-icon { background: #f2e9ff; color: #9a5cdc; }
+.service-marketing .service-icon { background: #fff0df; color: #ee9b43; }
+.service-number { color: #a7aec0; font-size: 10px; font-weight: 900; letter-spacing: 1.2px; }
+.service h3 { font-size: 19px; margin: 8px 0 12px; }
+.service p { color: #7d899f; font-size: 12px; line-height: 1.85; min-height: 66px; margin-bottom: 16px; }
+.service-link { color: #605bd2; font-size: 12px; font-weight: 850;
+  &:hover { color: #4236b4; }
+}

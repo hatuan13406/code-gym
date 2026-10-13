@@ -1,0 +1,18 @@
+/* CTA & Footer */
+.contact-section { background: linear-gradient(110deg,#5f56d8,#8471ed); color: white; padding: 52px 0 35px; }
+.contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.contact-kicker { color: #d7d1ff; font-weight: 850; letter-spacing: 1.5px; font-size: 10px; margin-bottom: 7px; }
+.contact-inner h2 { margin-bottom: 7px; font-size: clamp(23px,2.8vw,32px); line-height: 1.35; letter-spacing: -.6px; }
+.contact-inner p:not(.contact-kicker) { margin-bottom: 0; color: #eceaff; font-size: 12px; }
+.contact-button { color: #554ac5; background: white; white-space: nowrap;
+  &:hover { color: #4438a6; background: #f1efff; }
+}
+.contact-notice { color: #eeeaff; opacity: .86; font-size: 10px; margin-top: 19px; margin-bottom: 0; }
+.contact-notice code { color: inherit; }
+.footer { background: #202a45; color: #c3c8d8; }
+.footer-inner { display: flex; align-items: center; gap: 20px; justify-content: space-between; padding: 29px 0; }
+.footer-logo { color: white; font-size: 16px; white-space: nowrap; font-weight: 850;
+  span { color: #ac9dff; }
+}
+.footer-inner p { font-size: 10px; color: #9ba5bb; margin: 0; text-align: center; }
+.back-top { font-size: 11px; font-weight: 750; color: #d3ceff; white-space: nowrap; }
