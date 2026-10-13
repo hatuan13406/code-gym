@@ -1,0 +1,4 @@
+@use "../abstracts/variables" as v;
+// Kích thước theo đúng CSS ban đầu, được điều khiển bởi variables.
+h1 { font-size: v.$font-large; color: v.$text-color; }
+h2 { font-size: v.$font-medium; color: v.$text-color; }

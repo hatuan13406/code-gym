@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mix;
+
+// Mixin tái sử dụng ở .card cơ bản, feature-card và sample-card.
+.card {
+  @include mix.box-style;
+  &:hover { transform: translateY(-4px); }
+}
+.feature-card { position: relative; min-height: 286px; padding: 28px 24px; border: 1px solid v.$border; }
+.feature-card__no { position: absolute; top: 39px; right: 24px; font-size: 10px; font-weight: bold; color: #a4adbb; }
+.feature-card__icon { display: grid; place-items: center; width: 54px; height: 54px; background: #fff0ef; color: #cc4141; font-weight: bold; font-size: 22px; border-radius: 12px; }
+.feature-card:nth-child(2) .feature-card__icon { background: #eaf0ff; color: #5571bf; }
+.feature-card:nth-child(3) .feature-card__icon { background: #e8f6ef; color: #359c74; }
+.feature-card h3 { font-size: 19px; margin: 19px 0 10px; color: v.$ink; }
+.feature-card p { color: v.$muted; font-size: 12px; line-height: 1.9; min-height: 86px; }
+.feature-card code { display: inline-block; margin-top: 15px; border-radius: 6px; padding: 8px 9px; background: #f2efff; color: #7964b4; font: 11px Consolas, monospace; overflow-wrap: anywhere; }
+.sample-card { padding: 27px; border: 1px solid v.$border; }
+.sample-card__label { display: block; color: #cc4141; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.sample-card h3 { font-size: 20px; margin: 18px 0 10px; }
+.sample-card p { font-size: 12px; color: v.$muted; line-height: 1.85; min-height: 75px; }
+.sample-card .button { display: inline-block; margin-top: 15px; }
+.sample-card__pill { display: inline-block; background: #fff0ef; padding: 9px 12px; font-size: 12px; font-weight: bold; border-radius: 7px; color: #a53737; margin-top: 13px; }
+@media (max-width: 767px) {
+  .feature-card { min-height: 0; }
+  .feature-card p, .sample-card p { min-height: 0; }
+}
+

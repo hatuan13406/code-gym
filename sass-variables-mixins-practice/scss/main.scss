@@ -1,0 +1,8 @@
+// Entry point: @use thay cho @import đã deprecated.
+// Partial bắt đầu bằng dấu _ không được xuất ra CSS riêng.
+@use "base/global";
+@use "base/typography";
+@use "layout/container";
+@use "layout/sections";
+@use "components/buttons";
+@use "components/cards";

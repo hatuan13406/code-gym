@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mix;
+
+// Bước 4: một mixin kiểm soát toàn bộ style .button.
+.button {
+  @include mix.button-style(v.$primary-color);
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+
+  // Nesting dùng &:hover và selector con.
+  &:hover { background: #b72b2b; }
+  span { margin-left: 10px; }
+}

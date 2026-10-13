@@ -1,0 +1,14 @@
+{
+  "name": "codegym-sass-variables-mixins",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeGym practice using SASS variables, mixins, nesting and partials",
+  "scripts": {
+    "sass:version": "sass --version",
+    "build": "sass scss/main.scss css/main.css --no-source-map",
+    "watch": "sass --watch scss/main.scss css/main.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}
