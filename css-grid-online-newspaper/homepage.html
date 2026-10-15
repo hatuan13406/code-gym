@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang chủ tờ báo online được xây dựng bằng CSS Grid lồng nhau.">
+  <title>Nhịp Sống - Báo Online | CSS Grid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-container">
+  <header class="header">
+    <div class="header-inner">
+      <div class="edition">TIN TỨC • GÓC NHÌN • CÂU CHUYỆN</div>
+      <h1>NHỊP SỐNG<span>.</span></h1>
+      <p>Khám phá thế giới qua từng trang tin</p>
+      <nav aria-label="Danh mục tin tức">
+        <a href="#tin-noi-bat">Nổi bật</a>
+        <a href="#cong-nghe">Công nghệ</a>
+        <a href="#du-lich">Du lịch</a>
+        <a href="#van-hoa">Văn hóa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-grid" id="tin-noi-bat">
+    <article class="card card-1">
+      <div class="card-art art-city" aria-hidden="true">🌆</div>
+      <div class="card-text">
+        <span class="category">TIÊU ĐIỂM</span>
+        <h2>Thành phố tương lai: Khi công nghệ thay đổi cuộc sống</h2>
+        <p>Những ý tưởng đột phá đang định hình không gian sống của thế hệ mới.</p>
+      </div>
+    </article>
+    <article class="card card-2" id="cong-nghe">
+      <div class="card-art art-tech" aria-hidden="true">💻</div>
+      <div class="card-text">
+        <span class="category">CÔNG NGHỆ</span>
+        <h2>Xu hướng công nghệ đáng chú ý</h2>
+      </div>
+    </article>
+    <article class="card card-3" id="du-lich">
+      <div class="card-art art-travel" aria-hidden="true">🏞️</div>
+      <div class="card-text">
+        <span class="category">DU LỊCH</span>
+        <h2>Hành trình khám phá thiên nhiên</h2>
+      </div>
+    </article>
+    <article class="card card-4" id="van-hoa">
+      <div class="card-art art-culture" aria-hidden="true">🎨</div>
+      <div class="card-text">
+        <span class="category">VĂN HÓA</span>
+        <h2>Những sắc màu sáng tạo từ đời sống</h2>
+        <p>Nghệ thuật luôn tìm thấy cách kể những câu chuyện mới.</p>
+      </div>
+    </article>
+    <article class="card card-5">
+      <div class="card-art art-planet" aria-hidden="true">🌱</div>
+      <div class="card-text">
+        <span class="category">MÔI TRƯỜNG</span>
+        <h2>Sống xanh từ những thay đổi nhỏ</h2>
+      </div>
+    </article>
+    <article class="card card-6">
+      <div class="card-art art-lifestyle" aria-hidden="true">☕</div>
+      <div class="card-text">
+        <span class="category">ĐỜI SỐNG</span>
+        <h2>Chậm lại để tận hưởng từng khoảnh khắc</h2>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <strong>NHỊP SỐNG<span>.</span></strong>
+    <p>Mini project CSS Grid • Trang chủ báo online • © 2026</p>
+  </footer>
+</body>
+</html>
