@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Hamburger Responsive - CSS Only</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <a href="#" class="logo">MyBrand<span>.</span></a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Mở hoặc đóng menu điều hướng">
+    <label for="menu-toggle" class="hamburger-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="#trang-chu">Trang chủ</a></li>
+        <li><a href="#san-pham">Sản phẩm</a></li>
+        <li><a href="#dich-vu">Dịch vụ</a></li>
+        <li><a href="#lien-he">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-content" id="trang-chu">
+    <div class="intro">
+      <p class="eyebrow">THỰC HÀNH RESPONSIVE</p>
+      <h1>Menu điều hướng thông minh</h1>
+      <p>Thu nhỏ cửa sổ xuống dưới 768px và nhấn biểu tượng ☰ để thử menu Hamburger. Tất cả hoạt động chỉ bằng HTML và CSS.</p>
+    </div>
+    <section id="san-pham" class="info"><h2>Sản phẩm</h2><p>Giao diện thích ứng với điện thoại và máy tính.</p></section>
+    <section id="dich-vu" class="info"><h2>Dịch vụ</h2><p>Media Query và checkbox hack cho phép mở/đóng menu mà không cần JavaScript.</p></section>
+    <section id="lien-he" class="info"><h2>Liên hệ</h2><p>Mini project CodeGym – CSS Responsive Navigation.</p></section>
+  </main>
+</body>
+</html>
