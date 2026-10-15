@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio mẫu với bố cục CSS Grid responsive theo phương pháp Mobile-First.">
+  <title>Creative Portfolio | Mobile-First Responsive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-container">
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Creative Portfolio - về đầu trang">CREATIVE<span>.</span></a>
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a href="#projects">Dự án</a>
+        <a href="#about">Giới thiệu</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+    </div>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <p class="eyebrow">FRONT-END DESIGN • HTML & CSS</p>
+      <h1 id="hero-title">Những ý tưởng nhỏ.<br><em>Trải nghiệm lớn.</em></h1>
+      <p>Trang portfolio mẫu giới thiệu sáu dự án giao diện web, được thiết kế linh hoạt từ điện thoại đến màn hình desktop.</p>
+      <a class="hero-link" href="#projects">Khám phá dự án <span aria-hidden="true">↗</span></a>
+    </section>
+  </header>
+
+  <main id="projects">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">BỘ SƯU TẬP</p>
+        <h2>Dự án nổi bật</h2>
+      </div>
+      <p>06 dự án · Layout CSS Grid</p>
+    </div>
+
+    <div class="content-grid">
+      <article class="card card-1">
+        <div class="card-media">
+          <img
+            src="https://picsum.photos/seed/portfolio-feature-2026/960/600"
+            srcset="https://picsum.photos/seed/portfolio-feature-2026/480/300 480w,
+                    https://picsum.photos/seed/portfolio-feature-2026/960/600 960w,
+                    https://picsum.photos/seed/portfolio-feature-2026/1440/900 1440w"
+            sizes="(min-width: 1024px) 48vw, (min-width: 768px) 90vw, 100vw"
+            width="960" height="600" alt="Ảnh minh họa dự án thiết kế trang chủ sáng tạo"
+            fetchpriority="high">
+        </div>
+        <div class="card-body">
+          <span class="tag">NỔI BẬT · UI/UX</span>
+          <h3>Creative Landing Page</h3>
+          <p>Trang đích hiện đại với bố cục rõ ràng, khoảng trắng hợp lý và hình ảnh nổi bật.</p>
+        </div>
+      </article>
+
+      <article class="card card-2">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/portfolio-dashboard-2026/640/400"
+               width="640" height="400" loading="lazy"
+               alt="Ảnh minh họa dự án bảng điều khiển quản lý">
+        </div>
+        <div class="card-body">
+          <span class="tag">DASHBOARD</span>
+          <h3>Library Dashboard</h3>
+          <p>Thiết kế trang quản lý trực quan.</p>
+        </div>
+      </article>
+
+      <article class="card card-3">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/portfolio-travel-2026/640/400"
+               width="640" height="400" loading="lazy"
+               alt="Ảnh minh họa dự án website du lịch">
+        </div>
+        <div class="card-body">
+          <span class="tag">TRAVEL</span>
+          <h3>Travel Explorer</h3>
+          <p>Landing page khám phá những hành trình mới.</p>
+        </div>
+      </article>
+
+      <article class="card card-4">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/portfolio-news-2026/640/400"
+               width="640" height="400" loading="lazy"
+               alt="Ảnh minh họa dự án trang báo điện tử">
+        </div>
+        <div class="card-body">
+          <span class="tag">EDITORIAL</span>
+          <h3>Online Newspaper</h3>
+          <p>Bố cục bài viết dạng tạp chí sử dụng nested Grid và các thẻ nội dung bất đối xứng.</p>
+        </div>
+      </article>
+
+      <article class="card card-5">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/portfolio-shop-2026/640/400"
+               width="640" height="400" loading="lazy"
+               alt="Ảnh minh họa dự án giao diện thương mại điện tử">
+        </div>
+        <div class="card-body">
+          <span class="tag">E-COMMERCE</span>
+          <h3>Modern Store</h3>
+          <p>Giao diện thẻ sản phẩm và danh mục phù hợp đa thiết bị.</p>
+        </div>
+      </article>
+
+      <article class="card card-6">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/portfolio-gallery-2026/960/600"
+               width="960" height="600" loading="lazy"
+               alt="Ảnh minh họa dự án thư viện hình ảnh">
+        </div>
+        <div class="card-body">
+          <span class="tag">PHOTO GALLERY</span>
+          <h3>Moments Collection</h3>
+          <p>Thư viện ảnh linh hoạt, tối giản, chú trọng cách trình bày hình ảnh.</p>
+        </div>
+      </article>
+    </div>
+
+    <section class="about" id="about">
+      <p class="eyebrow">ĐÔI LỜI GIỚI THIỆU</p>
+      <h2>Thiết kế đẹp trên mọi kích thước màn hình.</h2>
+      <p>Đây là dự án thực hành HTML/CSS. Bố cục được xây dựng theo triết lý Mobile-First, sử dụng CSS Grid, đơn vị rem và hình ảnh responsive.</p>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <strong>CREATIVE<span>.</span></strong>
+    <p>Mini project CodeGym · Responsive Portfolio · 2026</p>
+    <a href="#top">Trở về đầu trang ↑</a>
+  </footer>
+</body>
+</html>
